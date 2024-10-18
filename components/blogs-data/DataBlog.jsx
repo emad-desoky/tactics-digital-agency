@@ -12,7 +12,6 @@ import {
   FaPinterestP,
 } from "react-icons/fa";
 
-
 export function DataBlog() {
   const router = useRouter();
   const [data, setData] = useState([]);
@@ -47,7 +46,7 @@ export function DataBlog() {
   };
 
   return (
-    <section className="py-16 bg-[rgb(43,43,43)] mt-[90px]">
+    <section className="py-32 bg-[rgb(43,43,43)]">
       <div className="container mx-auto flex gap-6">
         {/* Left Section (Blog Cards with Pagination) */}
         <div className="w-full lg:w-3/4">

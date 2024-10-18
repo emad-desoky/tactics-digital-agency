@@ -71,7 +71,7 @@ const Gallery = () => {
   return (
     <div
       style={{
-        padding: "50px",
+        padding: "90px",
         backgroundColor: "rgb(43, 43, 43)", // Dark background
         minHeight: "100vh",
         color: "rgb(255, 228, 0)", // Font color for the overall container
