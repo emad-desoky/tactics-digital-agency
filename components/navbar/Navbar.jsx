@@ -23,6 +23,8 @@ const Navbar = () => {
       router.push("/join-us");
     } else if (link === "About Us") {
       router.push("/about-us");
+    } else if (link === "Gallery") {
+      router.push("/gallery");
     } else if (link === "Home") {
       router.push("/");
     } else if (link === "Blogs") {
@@ -81,6 +83,7 @@ const Navbar = () => {
           "Contact Details",
           "Blogs",
           "Careers",
+          "Gallery",
           "About Us",
         ].map((link) => (
           <li
