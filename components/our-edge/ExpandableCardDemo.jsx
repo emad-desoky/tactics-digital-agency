@@ -144,7 +144,7 @@ export default function ExpandableCardDemo() {
                           <motion.div
                             layoutId={`card-${active.title}-${id}`}
                             ref={ref}
-                            className="w-full max-w-[1100px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-black dark:bg-neutral-900 sm:rounded-3xl overflow-hidden z-[200]" // Increase the max height
+                            className="w-full max-w-[1130px] h-full md:h-full md:max-h-[100%] flex flex-col bg-black dark:bg-neutral-900 sm:rounded-3xl overflow-hidden z-[200]" // Increase the max height
                             initial={{ scale: 0 }} // Scale down for entrance
                             animate={{ scale: 1 }} // Scale to normal on entrance
                             exit={{ scale: 0 }} // Scale down on exit
@@ -165,14 +165,12 @@ export default function ExpandableCardDemo() {
                                   <SwiperSlide key={index}>
                                     <Image
                                       priority
-                                      objectFit="contain"
-                                      width={50}
-                                      height={50} // Update this value to increase the height
+                                      objectFit="cover"
+                                      width={1150}
+                                      height={10} // Update this value to increase the height
                                       src={image}
                                       alt={`${active.title} image ${index + 1}`}
                                       quality={80}
-                                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                      className="w-full h-[400px] lg:h-[480px] sm:rounded-tr-lg sm:rounded-tl-lg object-fill object-top" // Adjusted height for mobile and desktop
                                       onLoadingComplete={() =>
                                         setLoading(false)
                                       } // Update loading state
