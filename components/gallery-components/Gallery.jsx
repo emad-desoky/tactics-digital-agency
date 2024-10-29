@@ -69,104 +69,116 @@ const Gallery = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: "90px",
-        backgroundColor: "rgb(43, 43, 43)", // Dark background
-        minHeight: "100vh",
-        color: "rgb(255, 228, 0)", // Font color for the overall container
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {/* Title and Description */}
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
+    <>
+      <div
         style={{
-          color: "rgb(255, 228, 0)", // Yellow font for the title
-          fontWeight: "bold",
-          letterSpacing: "2px",
+          maxHeight: "auto", // Adjust this to control container height
+          overflowY: "auto", // Enables vertical scroll
+          padding: "100px", // Adds padding around the container
+          backgroundColor: "rgba(0, 0, 0, 0.7)", // Slightly darker background for outer container
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)", // Optional shadow for separation
         }}
       >
-        Gallery
-      </Typography>
-      <Typography
-        variant="body1"
-        align="center"
-        gutterBottom
-        style={{
-          color: "rgb(255, 228, 0)", // Yellow font for the description
-          maxWidth: "600px",
-          marginBottom: "40px",
-          fontSize: "18px",
-          lineHeight: "1.6",
-        }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </Typography>
-
-      {/* Photo Grid */}
-      <ImageList
-        sx={{
-          width: "100%",
-          maxWidth: "1200px",
-          height: "auto",
-          borderRadius: "12px", // Rounded corners for a modern look
-          overflow: "hidden", // To avoid overflow issues
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)", // Subtle shadow for modern aesthetics
-        }}
-        variant="quilted"
-        cols={4}
-        rowHeight={200}
-        gap={8}
-      >
-        {images.map((image, index) => (
-          <ImageListItem
-            key={index}
-            cols={image.cols || 1}
-            rows={image.rows || 1}
-            onClick={() => handleImageClick(image.src)} // Open modal when image is clicked
+        <div
+          style={{
+            padding: "40px",
+            backgroundColor: "rgb(43, 43, 43)", // Dark background
+            minHeight: "auto",
+            color: "rgb(255, 228, 0)", // Font color for the overall container
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {/* Title and Description */}
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
             style={{
-              cursor: "pointer",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              borderRadius: "8px", // Add some border-radius to images
-              overflow: "hidden",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)"; // Zoom effect on hover
-              e.currentTarget.style.boxShadow =
-                "0px 6px 20px rgba(0, 0, 0, 0.8)"; // Add hover shadow
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "none";
+              color: "rgb(255, 228, 0)", // Yellow font for the title
+              fontWeight: "bold",
+              letterSpacing: "2px",
             }}
           >
-            <img
-              src={image.src}
-              alt={`Gallery Image ${index + 1}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
+            Gallery
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            gutterBottom
+            style={{
+              color: "rgb(255, 228, 0)", // Yellow font for the description
+              maxWidth: "600px",
+              marginBottom: "40px",
+              fontSize: "18px",
+              lineHeight: "1.6",
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
 
-      {/* Modal for showing clicked image */}
-      <GalleryModal
-        open={openModal}
-        onClose={handleCloseModal}
-        imageSrc={selectedImage}
-      />
-    </div>
+          {/* Photo Grid */}
+          <ImageList
+            sx={{
+              width: "100%",
+              maxWidth: "1200px",
+              height: "auto",
+              borderRadius: "12px", // Rounded corners for a modern look
+              overflow: "hidden", // To avoid overflow issues
+              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)", // Subtle shadow for modern aesthetics
+            }}
+            variant="quilted"
+            cols={4}
+            rowHeight={200}
+            gap={8}
+          >
+            {images.map((image, index) => (
+              <ImageListItem
+                key={index}
+                cols={image.cols || 1}
+                rows={image.rows || 1}
+                onClick={() => handleImageClick(image.src)} // Open modal when image is clicked
+                style={{
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  borderRadius: "8px", // Add some border-radius to images
+                  overflow: "hidden",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.05)"; // Zoom effect on hover
+                  e.currentTarget.style.boxShadow =
+                    "0px 6px 20px rgba(0, 0, 0, 0.8)"; // Add hover shadow
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={`Gallery Image ${index + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+
+          {/* Modal for showing clicked image */}
+          <GalleryModal
+            open={openModal}
+            onClose={handleCloseModal}
+            imageSrc={selectedImage}
+          />
+        </div>
+      </div>
+    </>
   );
 };
 
