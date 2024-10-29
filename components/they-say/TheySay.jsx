@@ -99,7 +99,7 @@ const TheySay = () => {
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} // Trigger based on visibility
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-[40px] md:text-[50px] lg:text-[60px] xl:text-[90px] font-nourd leading-tight tracking-normal text-white p-5 md:p-10">
+          <h1 className="text-[40px] md:text-[50px] lg:text-[60px] xl:text-[105px] font-nourd leading-tight text-white p-5 md:p-10">
             THEY{" "}
             <span className="text-[60px] md:text-[80px] lg:text-[100px] xl:text-[130px] font-bold text-[rgb(255,228,0)]">
               SAY

@@ -106,8 +106,11 @@ export default function ExpandableCardDemo() {
                 } // Conditional animation
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-[110px] font-nourd text-[rgb(255,228,0)] dark:text-neutral-200 leading-[100px]">
-                  <span className="text-white">OUR</span> EDGE
+                <h2 className="text-[130px] font-nourd text-[rgb(255,228,0)] dark:text-neutral-200 leading-[120px] font-heavy">
+                  <span className="text-white font-nourd font-semibold">
+                    OUR
+                  </span>{" "}
+                  EDGE
                 </h2>
               </motion.div>
             </Button>
