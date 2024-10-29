@@ -22,31 +22,54 @@ const Blog = () => {
   }, [blogId]);
 
   return (
-    <>
+    <div className="bg-zinc-950">
       {blog ? (
-        <div className="bg-black text-green-600 shadow-lg min-h-dvh max-h-auto">
+        <div className="bg-gray-900 text-gray-100  py-8 md:px-16 lg:px-20 max-w-4xl mx-auto shadow-lg">
           {/* Admin name and date */}
-          <p className="text-gray-400 text-sm">
-            {blog.adminName} | {blog.date} {/* Display admin name and date */}
-          </p>
+          <div className="flex items-center justify-between text-gray-500 text-sm mb-4">
+            <p>{blog.adminName}</p>
+            <p>{blog.date}</p>
+          </div>
+
           {/* Title */}
-          <h1 className="text-4xl font-extrabold border-b-4 border-[rgb(255,228,0)] pb-2 mb-6">
+          <h1 className="text-5xl font-extrabold text-yellow-400 border-b-4 border-yellow-500 pb-4 mb-8">
             {blog.title}
           </h1>
+
           {/* Description */}
-          <p className="font-semibold mb-3 text-gray-300">
-            <strong className="text-gray-200">Description:</strong>{" "}
-            {blog.description}
+          <p className="font-medium mb-4 text-gray-300">
+            <strong>Description:</strong> {blog.description}
           </p>
+
+          {/* Content */}
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
-            className="text-lg leading-relaxed"
+            className="text-lg leading-relaxed space-y-6"
           />
+
+          {/* Additional styling for readability */}
+          <style jsx>{`
+            .content p {
+              margin-bottom: 1.5em;
+              line-height: 1.8;
+            }
+            .content h2 {
+              font-size: 1.5em;
+              margin-top: 2em;
+              margin-bottom: 1em;
+              font-weight: bold;
+              color: #f8e112;
+            }
+            .content a {
+              color: #f8e112;
+              text-decoration: underline;
+            }
+          `}</style>
         </div>
       ) : (
-        <p className="text-center text-gray-400">Loading...</p>
+        <p className="text-center text-gray-500">Loading...</p>
       )}
-    </>
+    </div>
   );
 };
 

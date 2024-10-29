@@ -23,7 +23,11 @@ export function DataBlog() {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get("/api/blogsData");
-        setData(response.data);
+        // Sort by date in descending order to show the latest blogs first
+        const sortedData = response.data.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        setData(sortedData);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
