@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client"
+import { useState } from "react";
 import Image from "next/image";
 import {
   FaFacebookF,
@@ -10,7 +11,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

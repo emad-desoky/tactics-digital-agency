@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import { cn } from "@/lib/utils";
 import {
   FaUser,
@@ -11,7 +9,7 @@ import {
   FaTiktok,
 } from "react-icons/fa"; // Icons for the form and social media
 import Image from "next/image"; // Import the Image component
-import Map from "../contact-details/Map";
+import Map from "@/components/home-page/contact-details/Map";
 
 const GetInTouch = () => {
   return (

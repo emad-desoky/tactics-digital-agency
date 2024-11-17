@@ -1,0 +1,19 @@
+.content p {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+  }
+  
+  /* Styling for h2 elements inside content */
+  .content h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    color: #f8e112;
+  }
+  
+  /* Styling for links inside content */
+  .content a {
+    color: #f8e112;
+    text-decoration: underline;
+  }
