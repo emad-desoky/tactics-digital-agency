@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
@@ -81,7 +81,7 @@ export default function ExpandableCardDemo() {
       <div
         id="OurEdge"
         ref={sectionRef}
-        className="App relative w-full flex leading-tight flex-col items-start justify-start py-24 bg-gradient-to-b from-[rgba(43,43,43,0.7)] via-[rgba(58,48,48,0.20)] to-[rgba(41,34,34,0.7)] min-h-[80px]"
+        className="flex leading-tight md:h-[90vh]  lg:h-[90vh] xl:h-[70vh] w-[100%]  bg-gradient-to-b from-[rgba(43,43,43,0.8)] via-[rgba(255,228,0,0.60)] to-[rgba(41,34,34,0.8)] dark:from-neutral-950 dark:to-neutral-800"
       >
         <motion.div
           ref={inViewRef} // Attach the inView ref here
@@ -90,30 +90,32 @@ export default function ExpandableCardDemo() {
           exit={{ opacity: 0, y: 20 }} // Exit animation
           transition={{ duration: 0.5 }} // Duration for entrance and exit
         >
-          <div className="relative z-20 flex items-start justify-start w-full max-w-full px-10 space-x-4">
+          <div className="z-20 flex items-center justify-start w-full max-w-full space-x-[170px] xl:ml-[170px] lg:ml-[0px]">
             {/* Title Card */}
-            <Button
-              duration={Math.floor(Math.random() * 10000) + 10000}
-              borderRadius="2rem"
-              className="flex-1 text-white border-[rgb(43,43,43)] mt-[5px]"
-            >
-              <motion.div
-                initial={{ scale: 0.8 }} // Initial scale for entrance animation
-                animate={
-                  isVisible
-                    ? { opacity: 1, x: 0, scale: 1 }
-                    : { opacity: 0, x: -100, scale: 1 }
-                } // Conditional animation
-                transition={{ duration: 0.5 }}
+            <div className="mb-12 ">
+              <Button
+                duration={Math.floor(Math.random() * 10000) + 10000}
+                borderRadius="2rem"
+                className="flex-1 text-white border-[rgb(43,43,43)] h-[455px]"
               >
-                <h2 className="text-[130px] font-nourd text-[rgb(255,228,0)] dark:text-neutral-200 leading-[120px] font-heavy">
-                  <span className="text-white font-nourd font-semibold">
-                    OUR
-                  </span>{" "}
-                  EDGE
-                </h2>
-              </motion.div>
-            </Button>
+                <motion.div
+                  initial={{ scale: 0.8 }} // Initial scale for entrance animation
+                  animate={
+                    isVisible
+                      ? { opacity: 1, x: 0, scale: 1 }
+                      : { opacity: 0, x: -100, scale: 1 }
+                  } // Conditional animation
+                  transition={{ duration: 0.5 }}
+                >
+                  <h2 className="text-[130px] font-nourd text-[rgb(255,228,0)] dark:text-neutral-200 leading-[120px] font-heavy">
+                    <span className="text-white font-nourd font-semibold">
+                      OUR
+                    </span>{" "}
+                    EDGE
+                  </h2>
+                </motion.div>
+              </Button>
+            </div>
 
             {/* </motion.div> */}
             {/* Cards Section */}
@@ -126,28 +128,11 @@ export default function ExpandableCardDemo() {
                       <>
                         <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-[50]" />
                         <div className="fixed inset-0 grid place-items-center z-[100]">
-                          {/* Close button for mobile */}
-                          <motion.button
-                            aria-label="Close"
-                            key={`button-${active.title}-${id}`}
-                            layout
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{
-                              opacity: 0,
-                              transition: { duration: 0.05 },
-                            }}
-                            className="absolute top-2 right-2 lg:hidden bg-white rounded-full h-6 w-6"
-                            onClick={() => setActive(null)}
-                          >
-                            {/* Add CloseIcon here if needed */}
-                          </motion.button>
-
                           {/* Modal Window */}
                           <motion.div
                             layoutId={`card-${active.title}-${id}`}
                             ref={ref}
-                            className="w-full max-w-[1130px] h-full md:h-full md:max-h-[100%] flex flex-col bg-black dark:bg-neutral-900 sm:rounded-3xl overflow-hidden z-[200]" // Increase the max height
+                            className="w-[1150px] flex flex-col bg-black dark:bg-neutral-900 sm:rounded-3xl overflow-hidden z-[200]" // Increase the max height
                             initial={{ scale: 0 }} // Scale down for entrance
                             animate={{ scale: 1 }} // Scale to normal on entrance
                             exit={{ scale: 0 }} // Scale down on exit
@@ -247,7 +232,7 @@ export default function ExpandableCardDemo() {
               </AnimatePresence>
 
               {/* Display all cards */}
-              <ul className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full mt-[80px]">
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-10 w-full mt-[80px]">
                 {cards.map((card, index) => {
                   const bgColor =
                     (Math.floor(index / 4) + index) % 2 === 0

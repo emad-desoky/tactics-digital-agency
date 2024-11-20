@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -19,7 +19,7 @@ const Hero = () => {
       >
         {Data.map((item, index) => (
           <SwiperSlide key={item.id} className="relative w-full h-auto">
-            <div className="relative w-full  h-[300px] sm:h-[400px] lg:h-[750px]">
+            <div className="relative w-full  h-[300px] sm:h-[400px] lg:h-[950px]">
               <Image
                 src={item.image}
                 alt={item.title}
