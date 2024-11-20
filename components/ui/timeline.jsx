@@ -2,7 +2,6 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
-
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -17,7 +16,7 @@ export const Timeline = ({ data }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 50%"],
+    offset: ["start 10%", "end 90%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
@@ -29,12 +28,11 @@ export const Timeline = ({ data }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-[rgb(255,228,0)] font-bold dark:text-white max-w-4xl">
-          Changelog from my journey
+        <h2 className="text-lg md:text-8xl mb-4 text-[rgb(255,228,0)] font-bold dark:text-white max-w-4xl">
+          Changelog From Our Journey
         </h2>
-        <p className="text-white dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
+        <p className="text-white dark:text-neutral-300 text-xl md:text-2xl max-w-sm">
+          Welcome to our full story
         </p>
       </div>
 

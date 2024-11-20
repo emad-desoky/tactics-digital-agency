@@ -78,23 +78,31 @@ const OurStory = () => {
             className="w-full md:w-3/4 p-8 flex flex-col justify-between space-y-6"
           >
             <p className="text-lg leading-tight text-black">
-              Once upon a time, a group of young graduates decided to join
-              forces to create something different!
+              In 2018,{" "}
+              <span className="text-[rgb(73,68,22)] font-bold text-xl">
+                TACTICS®
+              </span>{" "}
+              began as a bold vision to redefine how brands connect in a digital
+              world.
               <br />
               <br />
-              <strong className="text-black">“X”</strong> for unknown,{" "}
-              <strong className="text-black">“Lab”</strong> for innovation; and
-              so was founded Xlab in 2000.
+              What started as a small team with big ideas has grown into a
+              powerhouse of creative thinkers, strategists, and technologists.
               <br />
               <br />
-              Finally, we discovered our strength:{" "}
-              <span className="text-black">The Mix of Art and Technology</span>
-              .<br />
+              With every campaign, we merge creativity and innovation to deliver
+              measurable results that help businesses thrive.
               <br />
-              Between <strong className="text-black">Digital tools</strong>,
-              <strong className="text-black"> Advertising Manufacturing</strong>
-              , and <strong className="text-black">Creative Art</strong>, lied
-              our dream.
+              <br />
+              Guided by our passion for excellence and collaboration, we tailor
+              strategies that empower brands to shine in crowded markets.
+              <br />
+              <br />
+              <span className="text-[rgb(68,63,21)] font-bold">
+                TACTICS®
+              </span>{" "}
+              isn&#8217;t just a marketing agency - we&#8217;re your partner in
+              turning ambitious goals into reality.
             </p>
 
             {/* Button with Animation */}

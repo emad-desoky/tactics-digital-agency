@@ -68,7 +68,6 @@ const config: Config = {
   },
   plugins: [
     require('tailwind-scrollbar'),
-
     tailwindcssAnimate, // Replaced require with imported variable
     addVariablesForColors,
       function ({ matchUtilities, theme }: any) {

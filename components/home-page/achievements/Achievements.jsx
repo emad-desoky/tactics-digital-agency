@@ -4,14 +4,19 @@ import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 
 const achievementsData = [
-  { title: "sqm Outdoor Signs", target: 50 },
-  { title: "Shops Branded", target: 60 },
-  { title: "Campaigns", target: 50 },
-  { title: "Happy Clients", target: 50 },
-  { title: "Online Spending", target: 15 },
-  { title: "Published Websites", target: 20 },
-  { title: "Digital Projects", target: 50 },
-  { title: "Xlab Family", target: 30 },
+  { title: "Real Estate Developers", target: 13 },
+  { title: "Real Estate Brokers", target: "+30" },
+  { title: "Food & Beverage Clients", target: 10 },
+  { title: "Digital Brand Served", target: "+40" },
+  { title: "Overseas Brand Served", target: "+20" },
+  { title: "360 Campaigns Managed", target: 130 },
+  { title: "Digital Campaigns", target: "+800" },
+  { title: "Digital Spending", target: "+11M" },
+  { title: "Leads Generated", target: "+750k" },
+  { title: "Video Produced", target: "+90" },
+  { title: "Products Photographed", target: "+40k" },
+  { title: "Markets Served", target: 9 },
+  { title: "Tactics Family", target: 20 },
 ];
 
 const Achievements = () => {
@@ -29,7 +34,7 @@ const Achievements = () => {
       </div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 gap-x-[0px] py-7 z-10" // Responsive grid
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 py-7 z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -51,17 +56,16 @@ const Achievements = () => {
             }}
           >
             <Image
-              src="/client2.png" // Correct path to the image
+              src="/client2.png"
               alt={achievement.title}
-              width={100} // Adjusted width for responsiveness
-              height={75} // Adjusted height for responsiveness
+              width={100}
+              height={75}
               className="mb-4 bg-white"
             />
             <Counter target={achievement.target} />
             <h2 className="mt-2 text-[20px] sm:text-[25px] md:text-[30px]">
               {achievement.title}
-            </h2>{" "}
-            {/* Responsive font size */}
+            </h2>
           </motion.div>
         ))}
       </motion.div>
@@ -75,6 +79,12 @@ const Counter = ({ target }) => {
   const ref = useRef(null);
   const controls = useAnimation();
 
+  // Ensure target is always a string
+  const targetString = target.toString();
+  const numericTarget = parseInt(targetString.replace(/[^0-9]/g, ""), 10);
+  const prefix = targetString.startsWith("+") ? "+" : ""; // Detect if there's a "+" symbol
+  const suffix = targetString.replace(/[0-9+]/g, "").trim(); // Extract suffix like "k" or "M"
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -85,7 +95,7 @@ const Counter = ({ target }) => {
           }
         });
       },
-      { threshold: 0.2 } // Trigger when 20% of the section is visible
+      { threshold: 0.3 }
     );
 
     if (ref.current) {
@@ -102,20 +112,20 @@ const Counter = ({ target }) => {
   useEffect(() => {
     if (isVisible) {
       let start = 0;
-      const end = target;
-      const duration = 2000; // Animation duration
-      const incrementTime = Math.floor(duration / end);
+      const duration = 2000; // Animation duration in milliseconds
+      const increment = numericTarget / (duration / 50); // Increment value for 50ms interval
 
       const interval = setInterval(() => {
-        if (start < end) {
-          start++;
-          setCount(start);
-        } else {
+        start += increment;
+        if (start >= numericTarget) {
+          setCount(numericTarget);
           clearInterval(interval);
+        } else {
+          setCount(Math.ceil(start));
         }
-      }, incrementTime);
+      }, 50);
     }
-  }, [isVisible, target]);
+  }, [isVisible, numericTarget]);
 
   return (
     <motion.div
@@ -128,9 +138,10 @@ const Counter = ({ target }) => {
       }}
     >
       <h1 className="text-3xl sm:text-4xl font-bold text-[rgb(255,228,0)]">
+        {prefix}
         {count}
-      </h1>{" "}
-      {/* Responsive font size */}
+        {suffix}
+      </h1>
     </motion.div>
   );
 };

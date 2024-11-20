@@ -6,19 +6,13 @@ import { TimelineDemo } from "@/components/story/TimeLineData";
 export default function StoryPage() {
   return (
     <>
-    <Navbar />
-    <div className="relative">
+      <Navbar />
       {/* Lamp Section */}
-      <div>
-        <LampDemo />
-      </div>
+      <LampDemo />
 
       {/* Timeline Section */}
-      <div>
-        <TimelineDemo />
-      </div>
-    </div>
-    <GetInTouch />
-  </>
-  )
+      <TimelineDemo />
+      <GetInTouch />
+    </>
+  );
 }

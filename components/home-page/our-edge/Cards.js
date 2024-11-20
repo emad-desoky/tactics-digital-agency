@@ -19,19 +19,8 @@ export const cards = [
     ctaText: "Visit Our Services",
     content: () => (
       <p>
-        As a leading digital agency, we specialize in providing comprehensive
-        real estate services designed to elevate your business. Our expert team
-        leverages the latest technology and marketing strategies to help you
-        attract, engage, and convert potential clients. Whether you&#39;re
-        looking to enhance your online presence with a stunning website,
-        optimize your listings for search engines, or create targeted digital
-        marketing campaigns, we&#39;ve got you covered. <br /> <br />
-        With a deep understanding of the real estate market, we know what it
-        takes to stand out in a competitive landscape. Our services include
-        property photography, virtual tours, social media management, and
-        effective lead generation strategies tailored to your specific needs.
-        Partner with us to unlock the full potential of your real estate
-        business and watch it thrive in the digital age.
+        Maximize your brand&#39;s visibility and reach through targeted media
+        buying strategies tailored to your needs.
       </p>
     ),
   },

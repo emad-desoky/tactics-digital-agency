@@ -22,11 +22,11 @@ export function LampDemo() {
   );
 }
 
-export const LampContainer = ({children, className}) => {
+export const LampContainer = ({ children, className }) => {
   return (
     <div
       className={cn(
-        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[rgb(43,43,43)] w-full rounded-md z-0",
+        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[rgb(43,43,43)] w-full z-0",
         className
       )}
     >

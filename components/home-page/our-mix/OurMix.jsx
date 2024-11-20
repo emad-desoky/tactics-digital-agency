@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image"; // Import the Image component
 import imagePaths from "./ImagePaths"; // Adjust the path based on your folder structure

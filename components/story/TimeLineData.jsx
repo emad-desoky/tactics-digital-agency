@@ -1,149 +1,166 @@
-import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 
 export function TimelineDemo() {
   const data = [
     {
-      title: "2024",
+      title: <span className="text-[rgb(255,228,0)]">2013</span>,
       content: (
-        <div>
-          <p className="text-white text-xs md:text-sm font-normal mb-8">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="https://assets.aceternity.com/templates/startup-1.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/templates/startup-2.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/templates/startup-3.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/templates/startup-4.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
+        <ul className="list-disc">
+          <li className="text-white md:text-3xl font-normal mb-8 space-y-4">
+            A passionate
+            <span className="text-[rgb(255,228,0)]">E-marketing</span> student
+            begins as a social media marketer for a real estate corporate.
+          </li>
+          <li className="text-white md:text-3xl font-normal mb-8 space-y-4">
+            The idea of freelancing sparks an entrepreneurial journey.
+          </li>
+        </ul>
       ),
     },
     {
-      title: "Early 2023",
+      title: <span className="text-[rgb(255,228,0)]">2014</span>,
       content: (
-        <div>
-          <p className="text-white text-xs md:text-sm font-normal mb-8">
-            I usually run out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
-          </p>
-          <p className="text-white text-xs md:text-sm font-normal mb-8">
-            Lorem ipsum is for people who are too lazy to write copy. But we are
-            not. Here are some more example of beautiful designs I built.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Formed the first soft team and established Marketerak Agency.
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Served four different industries and worked with six companies.
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Secured the first overseas collaborations with Mahfouz Tourism in
+            the UAE and EET Global in Malaysia.
+          </li>
+        </ul>
       ),
     },
     {
-      title: "Changelog",
+      title: <span className="text-[rgb(255,228,0)]">2015</span>,
       content: (
-        <div>
-          <p className="text-white text-xs md:text-sm font-normal mb-4">
-            Deployed 5 new components on Aceternity today
-          </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-white text-xs md:text-sm">
-              ✅ Card grid component
-            </div>
-            <div className="flex gap-2 items-center text-white text-xs md:text-sm">
-              ✅ Startup template Aceternity
-            </div>
-            <div className="flex gap-2 items-center text-white text-xs md:text-sm">
-              ✅ Random file upload lol
-            </div>
-            <div className="flex gap-2 items-center text-white text-xs md:text-sm">
-              ✅ Himesh Reshammiya Music CD
-            </div>
-            <div className="flex gap-2 items-center text-white text-xs md:text-sm">
-              ✅ Salman Bhai Fan Club registrations open
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Completed an integrated digital team to expand services.{" "}
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Achieved a 50% real estate client base.{" "}
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Invested 50k EGP in digital ads for the Sheikh Zayed Al Rabwa
+            project.
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Opened the first workspace branch in King Faisal Street, Giza.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2016</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Attempted rebranding but continued under the same name due to
+            challenges.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2017</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Transitioned back to a mobile soft team to meet clients directly.{" "}
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Enhanced proficiency by refining operational details.{" "}
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Formed the first media buying team specializing in social media ads.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2018</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Successfully rebranded to
+            <span className="text-[rgb(255,228,0)]">TACTICS®</span>.
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Expanded work across the GCC market, especially in real estate.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2019</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Diversified services to work across various industries.
+            <span className="text-[rgb(255,228,0)]">TACTICS®</span>.
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Established a professional design team to enhance digital campaigns.
+          </li>
+          <li className="text-white md:text-2xl font-normal mb-8">
+            Achieved notable results, such as a 3.6% conversion rate for
+            <span className="text-[rgb(255,228,0)]">CityScape Egypt</span>.
+            campaigns.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2020</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Expanded real estate marketing abroad, serving developers in the
+            <span className="text-[rgb(255,228,0)]">UAE and KSA.</span>.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2021</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Innovated real estate marketing with visually compelling ads and
+            video production.
+          </li>
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Opened the first official agency branch in Nasr City, Cairo.
+          </li>
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Established a media production studio specializing in videography,
+            voiceovers, and product photography.{" "}
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: <span className="text-[rgb(255,228,0)]">2022</span>,
+      content: (
+        <ul className="list-disc">
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Launched a business development team to assist startups with
+            marketing and operations.
+          </li>
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Opened the Alexandria branch in AlBitach, specializing in real
+            estate digital services.{" "}
+          </li>
+          <li className="text-white  md:text-2xl font-normal mb-8">
+            Formed an in-house media production team, including photographers,
+            videographers, and editors.
+          </li>
+        </ul>
       ),
     },
   ];
