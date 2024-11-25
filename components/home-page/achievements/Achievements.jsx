@@ -16,12 +16,12 @@ const achievementsData = [
   { title: "Video Produced", target: "+90" },
   { title: "Products Photographed", target: "+40k" },
   { title: "Markets Served", target: 9 },
-  { title: "Tactics Family", target: 20 },
+  // { title: "Tactics Family", target: 20 },
 ];
 
 const Achievements = () => {
   return (
-    <div className="relative bg-[rgb(43,43,43)] p-6 md:p-12 lg:p-24 space-y-12 overflow-hidden">
+    <div className="relative bg-[rgb(43,43,43)]  overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -34,7 +34,7 @@ const Achievements = () => {
       </div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 py-7 z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-9 px-3 z-10"
         initial="hidden"
         animate="visible"
         variants={{

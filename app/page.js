@@ -13,19 +13,21 @@ import OurServices from "@/components/home-page/our-services/CustomParallex";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <OurStory />
-      <Achievements />
-      <TheySay />
-      <ExpandableCardDemo />
-      <OurServices />
-      <Partners />
-      <OurMix />
-      <OurValues />
-      <ContactDetails />
-      <GetInTouch />
-    </>
+    <div>
+      <div>
+        <Navbar />
+        <Hero />
+        <OurStory />
+        <Achievements />
+        <TheySay />
+        <ExpandableCardDemo />
+        <OurServices />
+        <Partners />
+        <OurMix />
+        <OurValues />
+        <ContactDetails />
+        <GetInTouch />
+      </div>
+    </div>
   );
 }

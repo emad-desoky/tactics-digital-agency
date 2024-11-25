@@ -9,21 +9,20 @@ import { Data } from "./Data";
 
 const Hero = () => {
   return (
-    <div className="w-full transition-opacity duration-1000">
+    <div className="transition-opacity duration-1000">
       <Swiper
         modules={[Navigation, Pagination]}
         pagination={{ clickable: true }}
         spaceBetween={0}
         slidesPerView={1}
-        className="w-full h-full"
       >
         {Data.map((item, index) => (
-          <SwiperSlide key={item.id} className="relative w-full h-auto">
-            <div className="relative w-full  h-[300px] sm:h-[400px] lg:h-[950px]">
+          <SwiperSlide key={item.id} className="relative h-full w-full">
+            <div className="relative w-full h-[450px] 2xl:w-[1600px] 3xl:w-[1900px] xl:w-[1550px] lg:w-[1275px] md:w-[1100px] sm:w-[760px]   2xl:h-[738px] 3xl:h-[955px] sm:h-[465px] xl:h-[805px] lg:h-[805px] md:h-[555px]">
               <Image
                 src={item.image}
                 alt={item.title}
-                layout="fill" // Ensures the image fills the container
+                fill
                 objectFit="cover" // Ensures the image covers the container
                 quality={75} // Optimize image quality for faster loading
                 loading={index === 0 ? "eager" : "lazy"} // Eager load the first image, lazy load the rest
@@ -39,9 +38,6 @@ const Hero = () => {
                 {item.description}
               </p>
             </div>
-            <button className="absolute bottom-10 right-4 md:right-10 text-[rgb(174,174,174)] font-bold px-4 md:px-6 py-2 md:py-3 border-2 border-[rgb(112,112,112)] rounded-full cursor-pointer text-sm md:text-lg mt-10 hover:text-[rgb(255,228,0)] hover:border-[rgb(255,228,0)] transition-all duration-300 hover:scale-105">
-              Explore Work
-            </button>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -52,7 +52,7 @@ const TheySay = () => {
           }
         });
       },
-      { threshold: 0.2 } // Adjust this value based on when you want the animation to start
+      { threshold: 0.3 } // Adjust this value based on when you want the animation to start
     );
 
     if (sectionRef.current) {
@@ -69,38 +69,18 @@ const TheySay = () => {
   return (
     <div
       id="TheySay"
-      className="bg-gradient-to-r from-[rgb(43,43,43)] via-[rgb(43,43,43)] to-[rgb(43,43,43)] py-16 md:py-24 flex justify-center relative"
+      className="bg-black flex justify-center py-32"
       ref={sectionRef} // Attach ref to the container
     >
-      {/* Background Elements */}
-      <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
-        <Image
-          src="/element2.png"
-          alt="Background Element Left"
-          width={150} // Adjust the size as needed
-          height={100}
-          className="object-contain"
-        />
-      </div>
-      <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
-        <Image
-          src="/element2.png"
-          alt="Background Element Right"
-          width={150} // Adjust the size as needed
-          height={100}
-          className="object-contain"
-        />
-      </div>
-
-      <div className="relative z-20 flex flex-col md:flex-row w-11/12 lg:w-3/4 xl:w-[1250px] xl:h-[420px] bg-white border-4 border-black rounded-lg shadow-lg overflow-hidden">
+      <div className="relative z-20  flex flex-row sm:w-[100%] xl:w-[98%] xl:h-[400px] lg:w-[99%] 3xl:w-[83%] 3xl:h-[400px] bg-white border-4 border-black rounded-lg shadow-lg overflow-hidden">
         {/* Left side (fixed) */}
         <motion.div
-          className="w-full md:w-2/4 bg-[rgb(43,43,43)] flex items-center border-black justify-start md:justify-center mt-2 mb-2 ml-2"
+          className="w-full h-[96%] bg-[rgb(43,43,43)] flex items-center border-black justify-start md:justify-center mt-2 mb-2 ml-2"
           initial={{ opacity: 0, x: -100 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} // Trigger based on visibility
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-[40px] md:text-[50px] lg:text-[60px] xl:text-[105px] font-nourd leading-tight text-white p-5 md:p-10">
+          <h1 className="text-[40px] md:text-[50px] lg:text-[60px] xl:text-[105px] font-nourd leading-[1] text-white px-[70px]">
             THEY{" "}
             <span className="text-[60px] md:text-[80px] lg:text-[100px] xl:text-[130px] font-bold text-[rgb(255,228,0)]">
               SAY
@@ -109,7 +89,7 @@ const TheySay = () => {
         </motion.div>
 
         {/* Right side (Swiper for multiple slides) */}
-        <div className="w-full md:w-3/4 p-4 md:p-12">
+        <div className="w-full md:w-3/4  md:py-6 px-10">
           <Swiper
             spaceBetween={30} // Adjusted space for responsiveness
             slidesPerView={1}
@@ -132,8 +112,8 @@ const TheySay = () => {
                     <Image
                       src={slide.imgSrc}
                       alt={slide.name}
-                      width={120} // Adjust image size for smaller screens
-                      height={120} // Adjust image size for smaller screens
+                      width={180} // Adjust image size for smaller screens
+                      height={180} // Adjust image size for smaller screens
                       className="rounded-full object-cover"
                     />
                   </div>

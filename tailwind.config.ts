@@ -30,9 +30,14 @@ const config: Config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        '3xl': '1600px',
+
       },
     },
     extend: {
+      screens: {
+        '3xl': '1600px',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
