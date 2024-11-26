@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -5,51 +7,36 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { X, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const modalVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.8,
-    y: 20,
-  },
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      damping: 25,
-      stiffness: 300,
-    },
+    transition: { type: "spring", damping: 25, stiffness: 300 },
   },
-  exit: {
-    opacity: 0,
-    scale: 0.95,
-    y: -20,
-    transition: {
-      duration: 0.3,
-    },
-  },
+  exit: { opacity: 0, scale: 0.95, y: -20, transition: { duration: 0.2 } },
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const OurEdgeModal = ({ active, onClose, id }) => {
   const [loading, setLoading] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
 
-  // Trigger exit animation before closing modal
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(() => {
-      onClose(); // Reset the active state after animation
-    }, 300); // Matches the duration of the exit animation
+    setTimeout(() => onClose(), 200);
   };
 
   useEffect(() => {
-    if (!active) {
-      setIsClosing(false); // Reset isClosing state when modal is closed
-    }
+    if (!active) setIsClosing(false);
   }, [active]);
 
   return (
@@ -62,27 +49,28 @@ const OurEdgeModal = ({ active, onClose, id }) => {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={handleClose} // Close modal on clicking background
+            onClick={handleClose}
           />
 
           <motion.div
             variants={modalVariants}
             initial="hidden"
-            animate={isClosing ? "exit" : "visible"} // Trigger exit animation on close
+            animate={isClosing ? "exit" : "visible"}
             exit="exit"
-            className="w-full 3xl:max-w-[1100px] bg-white dark:bg-[rgb(23,23,23)] rounded-2xl overflow-hidden z-10 shadow-2xl border border-gray-200 dark:border-gray-800"
+            className="w-full max-w-5xl bg-gray-900 rounded-2xl overflow-hidden z-10 border border-yellow-500/30"
           >
             <div className="relative group">
               <Swiper
                 spaceBetween={0}
-                effect="fade"
                 pagination={{
                   clickable: true,
-                  dynamicBullets: true,
+                  bulletActiveClass: "bg-yellow-500",
+                  bulletClass:
+                    "swiper-pagination-bullet bg-gray-400 opacity-50",
                 }}
                 navigation={{
                   prevEl: ".swiper-button-prev",
@@ -93,8 +81,8 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                   delay: 5000,
                   disableOnInteraction: false,
                 }}
-                modules={[Pagination, Navigation, Autoplay, EffectFade]}
-                className="w-full h-64 sm:h-80 3xl:h-[500px] 3xl:w-[1100px]"
+                modules={[Pagination, Navigation, Autoplay]}
+                className="w-full h-80 sm:h-96 lg:h-[500px]"
               >
                 {active.images.map((image, index) => (
                   <SwiperSlide key={index} className="relative">
@@ -108,69 +96,76 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                       onLoadingComplete={() => setLoading(false)}
                     />
                     {loading && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-900">
-                        <div className="w-12 h-12 border-4 border-[rgb(255,228,0)] border-t-transparent rounded-full animate-spin" />
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
+                        <div className="w-12 h-12 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin" />
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </SwiperSlide>
                 ))}
 
-                <div className="swiper-button-prev !hidden group-hover:!flex !w-12 !h-12 !bg-white/90 dark:!bg-black/90 !rounded-full !text-black dark:!text-white hover:!bg-[rgb(255,228,0)] transition-all duration-200">
+                <div className="swiper-button-prev !hidden group-hover:!flex !w-10 !h-10 !bg-yellow-500/80 !rounded-full !text-gray-900 hover:!bg-yellow-400 transition-all duration-200">
                   <ChevronLeft className="w-6 h-6" />
                 </div>
-                <div className="swiper-button-next !hidden group-hover:!flex !w-12 !h-12 !bg-white/90 dark:!bg-black/90 !rounded-full !text-black dark:!text-white hover:!bg-[rgb(255,228,0)] transition-all duration-200">
+                <div className="swiper-button-next !hidden group-hover:!flex !w-10 !h-10 !bg-yellow-500/80 !rounded-full !text-gray-900 hover:!bg-yellow-400 transition-all duration-200">
                   <ChevronRight className="w-6 h-6" />
                 </div>
               </Swiper>
 
               <motion.button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-10 p-3 bg-white dark:bg-black bg-opacity-90 hover:bg-[rgb(255,228,0)] dark:hover:bg-[rgb(255,228,0)] rounded-full transition-all duration-200 transform hover:scale-110 hover:rotate-90"
+                className="absolute top-4 right-4 z-10 p-2 bg-gray-800/80 hover:bg-yellow-500 rounded-full transition-all duration-200 transform hover:scale-110"
                 whileTap={{ scale: 0.9 }}
               >
-                <X className="w-5 h-5 text-black dark:text-white" />
+                <X className="w-5 h-5 text-white" />
               </motion.button>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
-              className="p-6 sm:p-8 space-y-6"
-            >
-              <div className="flex items-start justify-between">
-                <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600 dark:from-white dark:to-gray-400">
-                  {active.title}
-                </h3>
-              </div>
+            <div className="p-6 sm:p-8 space-y-6">
+              <motion.h3
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-3xl font-bold text-yellow-500"
+              >
+                {active.title}
+              </motion.h3>
 
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <motion.p
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-lg text-gray-300 leading-relaxed"
+              >
                 {active.description}
-              </p>
+              </motion.p>
 
-              <div className="text-gray-600 dark:text-gray-400 max-h-48 overflow-y-auto pr-4 custom-scrollbar space-y-4">
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-gray-400 max-h-48 overflow-y-auto pr-4 custom-scrollbar space-y-4"
+              >
                 {typeof active.content === "function"
                   ? active.content()
                   : active.content}
-              </div>
+              </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
               >
                 <a
                   href={active.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-4 text-lg font-bold rounded-full bg-gradient-to-r from-[rgb(255,228,0)] to-[rgb(255,200,0)] text-black hover:from-[rgb(255,200,0)] hover:to-[rgb(255,228,0)] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="inline-flex items-center px-6 py-3 text-lg font-semibold rounded-full bg-yellow-500 text-gray-900 hover:bg-yellow-400 transition-all duration-200 transform hover:-translate-y-1"
                 >
                   {active.ctaText}
                   <ArrowRight className="ml-2 w-5 h-5 animate-bounce-x" />
                 </a>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       )}

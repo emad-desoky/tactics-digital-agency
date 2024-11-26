@@ -185,7 +185,7 @@ const ImageModal = ({ imageSrc, onClose }) => {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative bg-white rounded-lg shadow-xl overflow-hidden max-w-4xl w-full mx-auto"
+        className="relative bg-black rounded-lg shadow-xl overflow-hidden max-w-4xl w-full mx-auto"
       >
         <button
           onClick={onClose}
