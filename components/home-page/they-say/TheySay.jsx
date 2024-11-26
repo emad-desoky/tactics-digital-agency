@@ -69,7 +69,7 @@ const TheySay = () => {
   return (
     <div
       id="TheySay"
-      className="bg-black flex justify-center py-32"
+      className="bg-gradient-to-r from-gray-800 to-black flex justify-center py-32"
       ref={sectionRef} // Attach ref to the container
     >
       <div className="relative z-20  flex flex-row sm:w-[100%] xl:w-[98%] xl:h-[400px] lg:w-[99%] 3xl:w-[83%] 3xl:h-[400px] bg-white border-4 border-black rounded-lg shadow-lg overflow-hidden">
@@ -80,7 +80,7 @@ const TheySay = () => {
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} // Trigger based on visibility
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-[40px] md:text-[50px] lg:text-[60px] xl:text-[105px] font-nourd leading-[1] text-white px-[70px]">
+          <h1 className="text-[45px] md:text-[50px] lg:text-[60px] xl:text-[110px] font-nourd leading-[1] text-white px-[80px]">
             THEY{" "}
             <span className="text-[60px] md:text-[80px] lg:text-[100px] xl:text-[130px] font-bold text-[rgb(255,228,0)]">
               SAY
