@@ -19,7 +19,7 @@ export default function ExpandableCardDemo() {
 
   return (
     <BackgroundBeamsWithCollision>
-      <div className="bg-white   w-full py-4">
+      <div className="bg-gradient-to-r from-gray-800 to-black   w-full py-4">
         <div id="OurEdge" ref={sectionRef} className="container max-w-full">
           <div className="flex flex-col lg:flex-row items-start justify-between space-y-12 lg:space-y-0 lg:space-x-12">
             <motion.div
