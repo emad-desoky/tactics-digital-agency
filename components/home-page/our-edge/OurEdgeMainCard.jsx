@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 const OurEdgeCard = ({ card, onClick, index }) => (
   <motion.div
     onClick={onClick}
-    className="group relative flex flex-col justify-between h-full cursor-pointer overflow-hidden rounded-2xl shadow-lg border border-[rgba(255,228,0,0.2)] transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-white dark:bg-[rgb(43,43,43)]"
+    className="group relative flex flex-col justify-between h-full 2xl:h-[330px] 3xl:h-full cursor-pointer overflow-hidden rounded-2xl shadow-lg border border-[rgba(255,228,0,0.2)] transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-white dark:bg-[rgb(43,43,43)]"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 20 }}

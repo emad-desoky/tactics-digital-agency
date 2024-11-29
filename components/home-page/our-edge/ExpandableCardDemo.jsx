@@ -19,7 +19,7 @@ export default function ExpandableCardDemo() {
 
   return (
     <BackgroundBeamsWithCollision>
-      <div className="bg-gradient-to-r from-gray-800 to-black   w-full py-4">
+      <div className="bg-[rgb(43,43,43)]   w-full py-4 p-8">
         <div id="OurEdge" ref={sectionRef} className="container max-w-full">
           <div className="flex flex-col lg:flex-row items-start justify-between space-y-12 lg:space-y-0 lg:space-x-12">
             <motion.div
@@ -27,11 +27,14 @@ export default function ExpandableCardDemo() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="flex mt-32 h-[500px]"
+              className="flex mt-32 3xl:h-[500px] 2xl:h-[450px]"
             >
-              <div className="bg-[rgb(43,43,43)] rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:scale-105">
-                <h1 className="text-[110px] font-bold text-white mt-24 leading-[2]">
-                  Our <span className="text-[rgb(255,228,0)]">Edge</span>
+              <div className="bg-[rgb(255,228,0)]  rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <h1 className="text-[170px] font-semibold text-white leading-[130px] 3xl:mt-20 2xl:mt-12 text-center">
+                  OUR{" "}
+                  <span className="text-[rgb(43,43,43)] text-[150px] ml-3">
+                    EDGE
+                  </span>
                 </h1>
               </div>
             </motion.div>

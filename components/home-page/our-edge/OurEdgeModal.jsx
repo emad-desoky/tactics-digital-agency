@@ -43,7 +43,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
     <AnimatePresence>
       {active && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8"
+          className="fixed inset-0 z-50 flex justify-center p-4 sm:p-6 md:p-8  3xl:p-14 2xl:m-4 2xl:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -61,7 +61,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
             initial="hidden"
             animate={isClosing ? "exit" : "visible"}
             exit="exit"
-            className="w-full max-w-5xl bg-gray-900 rounded-2xl overflow-hidden z-10 border border-yellow-500/30"
+            className="w-full max-w-5xl  bg-[rgb(43,43,43)] rounded-2xl overflow-hidden z-10 border border-yellow-500/30"
           >
             <div className="relative group">
               <Swiper
@@ -82,7 +82,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                   disableOnInteraction: false,
                 }}
                 modules={[Pagination, Navigation, Autoplay]}
-                className="w-full h-80 sm:h-96 lg:h-[500px]"
+                className="w-full h-80 sm:h-96 lg:h-[500px] 3xl:h-[500px] 2xl:h-[400px]"
               >
                 {active.images.map((image, index) => (
                   <SwiperSlide key={index} className="relative">
@@ -90,7 +90,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                       src={image}
                       alt={`${active.title} image ${index + 1}`}
                       layout="fill"
-                      objectFit="cover"
+                      objectFit="contain"
                       quality={90}
                       className="transition-transform duration-500 group-hover:scale-105"
                       onLoadingComplete={() => setLoading(false)}
@@ -113,19 +113,19 @@ const OurEdgeModal = ({ active, onClose, id }) => {
 
               <motion.button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-10 p-2 bg-gray-800/80 hover:bg-yellow-500 rounded-full transition-all duration-200 transform hover:scale-110"
+                className="absolute top-4  right-4 z-10 p-2 bg-gray-800/80 hover:bg-yellow-500 rounded-full transition-all duration-200 transform hover:scale-110"
                 whileTap={{ scale: 0.9 }}
               >
                 <X className="w-5 h-5 text-white" />
               </motion.button>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
+            <div className="p-6 sm:p-8 space-y-6 2xl:p-0 3xl:p-6">
               <motion.h3
                 variants={contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-3xl font-bold text-yellow-500"
+                className="text-3xl font-bold text-[rgb(255,228,0)]"
               >
                 {active.title}
               </motion.h3>
@@ -134,7 +134,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                 variants={contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-lg text-gray-300 leading-relaxed"
+                className="text-2xl text-gray-300 leading-relaxed"
               >
                 {active.description}
               </motion.p>
@@ -143,7 +143,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                 variants={contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-gray-400 max-h-48 overflow-y-auto pr-4 custom-scrollbar space-y-4"
+                className="text-gray-400 max-h-48 overflow-y-auto pr-4 custom-scrollbar space-y-4 text-lg"
               >
                 {typeof active.content === "function"
                   ? active.content()
@@ -159,7 +159,7 @@ const OurEdgeModal = ({ active, onClose, id }) => {
                   href={active.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 text-lg font-semibold rounded-full bg-yellow-500 text-gray-900 hover:bg-yellow-400 transition-all duration-200 transform hover:-translate-y-1"
+                  className="inline-flex items-center px-6 py-3 text-lg font-semibold rounded-full bg-[rgb(255,228,0)] text-gray-900 hover:bg-yellow-400 transition-all duration-200 transform hover:-translate-y-1"
                 >
                   {active.ctaText}
                   <ArrowRight className="ml-2 w-5 h-5 animate-bounce-x" />

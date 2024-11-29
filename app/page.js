@@ -10,6 +10,9 @@ import ContactDetails from "@/components/home-page/contact-details/ContactDetail
 import GetInTouch from "@/components/contact-us/GetInTouch";
 import Navbar from "@/components/navbar/Navbar";
 import { ServicesParallax } from "@/components/home-page/services-parallax/ServicesParallax";
+import { Testimonials } from "@/components/home-page/they-say/Testimonials";
+import ContactForm from "@/components/home-page/contact-details/NewContactForm";
+import Footer from "@/components/home-page/footer/Footer";
 
 export default function Home() {
   return (
@@ -19,14 +22,16 @@ export default function Home() {
         <Hero />
         <OurStory />
         <Achievements />
-        <TheySay />
+        <Testimonials />
         <ExpandableCardDemo />
         <ServicesParallax />
         <Partners />
         <OurMix />
         <OurValues />
         <ContactDetails />
-        <GetInTouch />
+
+        <ContactForm />
+        <Footer />
       </div>
     </div>
   );

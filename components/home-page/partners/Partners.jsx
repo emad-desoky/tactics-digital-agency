@@ -38,15 +38,15 @@ const Partners = () => {
   return (
     <div
       id="Partners"
-      className="bg-gradient-to-r from-gray-800 to-black py-[75px] flex justify-center"
+      className="bg-[rgb(43,43,43)] py-[75px] flex justify-center"
     >
-      <div className="w-[80%] bg-black rounded-xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-gray-300">
+      <div className="w-[85%] bg-black rounded-xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-gray-300">
         {/* Left side (Partners of Success box) */}
         <div className="w-[40%]  flex justify-center items-center">
           {" "}
           {/* Increased padding here */}
           <motion.div
-            className="bg-[rgb(255,228,0)] text-white rounded-lg h-[98%]" // More padding in box
+            className="bg-[rgb(255,228,0)] text-white rounded-lg h-[96%]" // More padding in box
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
