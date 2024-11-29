@@ -3,6 +3,20 @@ import "./globals.css";
 export const metadata = {
   title: "Tactics Digital Agency",
   description: "ALL-DIGITAL SERVICES.",
+  openGraph: {
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+      {
+        url: "/og-image-square.png",
+        width: 400,
+        height: 400,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
