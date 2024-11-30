@@ -62,7 +62,7 @@ const OurStory = () => {
             }}
             className="w-full md:w-[380px] md:h-[375px] xl:h-[335px] xl:w-[380px] 3xl:w-[380px] lg:w-[380px] lg:h-[355px] bg-[rgb(255,228,0)] h-[300px] p-16 flex items-center justify-center"
           >
-            <h1 className="text-[80px] text-[rgb(43,43,43)] font-nourd font-semibold leading-tight">
+            <h1 className="text-[80px] text-[rgb(43,43,43)] font-nourd leading-tight">
               <span className="text-white text-[105px]">OUR</span> STORY
             </h1>
           </motion.div>
@@ -77,9 +77,9 @@ const OurStory = () => {
             }}
             className="w-full md:w-3/4 p-8 flex flex-col justify-between space-y-6"
           >
-            <p className="text-lg leading-tight text-black">
+            <p className="text-lg leading-tight text-black font-nourd">
               In 2018,{" "}
-              <span className="text-[rgb(73,68,22)] font-bold text-xl">
+              <span className="text-[rgb(73,68,22)] font-nourd text-xl font-heavy">
                 TACTICS®
               </span>{" "}
               began as a bold vision to redefine how brands connect in a digital
@@ -98,7 +98,7 @@ const OurStory = () => {
               strategies that empower brands to shine in crowded markets.
               <br />
               <br />
-              <span className="text-[rgb(68,63,21)] font-bold">
+              <span className="text-[rgb(68,63,21)] font-heavy">
                 TACTICS®
               </span>{" "}
               isn&#8217;t just a marketing agency - we&#8217;re your partner in
@@ -110,7 +110,7 @@ const OurStory = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[rgb(255,228,0)] text-black py-2 px-4 rounded hover:bg-[rgb(255,228,0)] hover:text-black transition-opacity"
+                className="bg-[rgb(255,228,0)] text-black py-2 px-4 rounded hover:bg-[rgb(255,228,0)] hover:text-black transition-opacity font-nourd"
                 aria-label="Read the full story"
                 onClick={handleFullStoryClick}
               >

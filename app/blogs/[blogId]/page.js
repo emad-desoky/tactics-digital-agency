@@ -1,5 +1,5 @@
 import { getBlogById } from "@/model/blogs";
-import styles from './page.module.css'; // Import the CSS module
+import styles from "./page.module.css"; // Import the CSS module
 
 export default async function Blog({ params }) {
   const { blogId } = await params;
@@ -12,7 +12,7 @@ export default async function Blog({ params }) {
           {/* Admin name and date */}
           <div className="flex items-center justify-between text-gray-500 text-sm mb-4">
             <p>{blog.adminName}</p>
-            <p>{blog.date.toUTCString()}</p>
+            <p>{new Date(blog.date).toUTCString()}</p>
           </div>
 
           {/* Title */}
@@ -28,7 +28,7 @@ export default async function Blog({ params }) {
           {/* Content */}
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
-            className={`${styles.content} text-lg leading-relaxed space-y-6`}  // Apply CSS module
+            className={`${styles.content} text-lg leading-relaxed space-y-6`} // Apply CSS module
           />
         </div>
       ) : (

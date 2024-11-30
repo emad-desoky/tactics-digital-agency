@@ -1,11 +1,11 @@
-import Navbar from "@/components/navbar/Navbar"
-import Head from "next/head"
+import Footer from "@/components/home-page/footer/Footer";
+import Navbar from "@/components/navbar/Navbar";
+import Head from "next/head";
 
-export default function AboutUsLayout({children}) {
+export default function AboutUsLayout({ children }) {
   return (
-    
     <>
-    <Head>
+      <Head>
         <title>About Us - Tactics Digital Agency</title>
         <meta
           name="description"
@@ -44,6 +44,7 @@ export default function AboutUsLayout({children}) {
       </Head>
       <Navbar />
       {children}
+      <Footer />
     </>
-  )
+  );
 }

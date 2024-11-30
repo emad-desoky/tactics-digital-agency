@@ -1,19 +1,48 @@
+/* Common styles for the blog content */
 .content p {
-    margin-bottom: 1.5em;
-    line-height: 1.8;
+  margin-bottom: 1.5em;
+  line-height: 1.8;
+}
+
+/* Styling for h2 elements inside content */
+.content h2 {
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-weight: bold;
+  color: #ffe400; /* yellow */
+}
+
+/* Styling for links inside content */
+.content a {
+  color: #ffe400; /* yellow */
+  text-decoration: underline;
+}
+
+/* Additional content styles */
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5em 0;
+}
+
+/* Styling for blockquotes inside content */
+.content blockquote {
+  border-left: 4px solid #ffe400;
+  padding-left: 1em;
+  color: #cccccc; /* light gray */
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .content {
+    padding: 1em;
   }
-  
-  /* Styling for h2 elements inside content */
+
   .content h2 {
-    font-size: 1.5em;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    font-weight: bold;
-    color: #f8e112;
+    font-size: 1.25em;
   }
-  
-  /* Styling for links inside content */
-  .content a {
-    color: #f8e112;
-    text-decoration: underline;
-  }
+}

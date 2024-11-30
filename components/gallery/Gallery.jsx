@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { ImageList, ImageListItem, Typography } from "@mui/material";
 import GalleryModal from "./GalleryModal"; // Import the modal component
@@ -75,14 +75,14 @@ const Gallery = () => {
         style={{
           maxHeight: "auto", // Adjust this to control container height
           overflowY: "auto", // Enables vertical scroll
-          padding: "100px", // Adds padding around the container
+          padding: "5%", // Adds padding around the container
           backgroundColor: "rgba(0, 0, 0, 0.7)", // Slightly darker background for outer container
           boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)", // Optional shadow for separation
         }}
       >
         <div
           style={{
-            padding: "40px",
+            padding: "2%",
             backgroundColor: "rgb(43, 43, 43)", // Dark background
             minHeight: "auto",
             color: "rgb(255, 228, 0)", // Font color for the overall container
@@ -132,7 +132,7 @@ const Gallery = () => {
               boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)", // Subtle shadow for modern aesthetics
             }}
             variant="quilted"
-            cols={4}
+            cols={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6, "2xl": 7, "3xl": 8 }}
             rowHeight={200}
             gap={8}
           >

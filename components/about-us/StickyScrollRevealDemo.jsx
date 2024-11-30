@@ -7,7 +7,7 @@ const content = [
     description:
       "At TACTICS®, we excel in translating strategic vision into tangible results. Our dedicated team of digital marketing planners, media buyers, graphic designers, content creators, digital strategists, and technologists collaborate seamlessly to craft innovative campaigns that drive measurable outcomes. We are driven by a relentless pursuit of performance, focusing on enhancing conversion rates, expanding organic reach, and optimizing ROI for our clients.",
     content: (
-      <div className="h-full text-[rgb(255,228,0)] w-full font-nourd text-xl bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+      <div className="h-full text-[rgb(255,228,0)] w-full font-nourd text-xl bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center">
         Performance Excellence
       </div>
     ),
@@ -17,13 +17,13 @@ const content = [
     description:
       "TACTICS® is a fully integrated 360° digital marketing agency renowned for its performance-driven approach. Since our inception in 2018, we have established ourselves as industry leaders, founded by a team of digital experts committed to delivering tailored solutions that align perfectly with your budget, timeline, and quality standards. Specializing primarily in real estate marketing solutions, we offer an extensive array of services designed to elevate your real estate company's online presence and market performance",
     content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
+      <div className="h-full w-full flex items-center justify-center text-white">
         <Image
           src="/AboutUs.jpg"
-          width={300}
-          height={300}
+          width={400}
+          height={400}
           className="h-full w-full object-cover"
-          alt="linear board demo"
+          alt="About Us"
         />
       </div>
     ),
@@ -51,7 +51,7 @@ const content = [
   {
     title: "Vision",
     description:
-      "Our vision is To redefine digital marketing by consistently delivering exceptional performance and innovation, becoming the trusted partner of choice for businesses seeking transformative growth in the digital landscape.",
+      "Our vision is to redefine digital marketing by consistently delivering exceptional performance and innovation, becoming the trusted partner of choice for businesses seeking transformative growth in the digital landscape.",
     content: (
       <div className="h-full w-full font-nourd text-xl bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
         Vision
@@ -71,7 +71,7 @@ const content = [
   {
     title: "CEO Message",
     description:
-      "As CEO of TACTICS®, I am proud to lead a team of passionate professionals dedicated to driving impactful results for our clients. We are committed to leveraging our expertise and strategic insights to navigate the complexities of digital marketing with agility and innovation. Our goal is to empower businesses to thrive in an increasingly competitive digitallandscape.",
+      "As CEO of TACTICS®, I am proud to lead a team of passionate professionals dedicated to driving impactful results for our clients. We are committed to leveraging our expertise and strategic insights to navigate the complexities of digital marketing with agility and innovation. Our goal is to empower businesses to thrive in an increasingly competitive digital landscape.",
     content: (
       <div className="h-full p-4 w-full font-nourd text-xl bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
         CEO Message
@@ -79,6 +79,7 @@ const content = [
     ),
   },
 ];
+
 export function StickyScrollRevealDemo() {
   return (
     <div>

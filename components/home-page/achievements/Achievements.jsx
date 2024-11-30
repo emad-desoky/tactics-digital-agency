@@ -63,7 +63,7 @@ const Achievements = () => {
               className="mb-4 bg-white"
             />
             <Counter target={achievement.target} />
-            <h2 className="mt-2 text-[20px] sm:text-[25px] md:text-[30px]">
+            <h2 className="mt-2 text-[20px] sm:text-[25px] md:text-[30px] font-nourd">
               {achievement.title}
             </h2>
           </motion.div>

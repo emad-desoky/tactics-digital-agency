@@ -51,7 +51,7 @@ const Partners = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-[90px] font-semibold leading-tight text-center text-white mt-20 px-2">
+            <h1 className="text-[90px] font-nourd leading-tight text-center text-white mt-20 px-2">
               {" "}
               {/* Increased text size */}
               PARTNERS
