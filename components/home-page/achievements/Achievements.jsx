@@ -1,40 +1,41 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
+import {
+  Building2,
+  Users,
+  UtensilsCrossed,
+  Globe,
+  Briefcase,
+  LayoutDashboard,
+  Megaphone,
+  DollarSign,
+  UserCheck,
+  Video,
+  Camera,
+  Map,
+} from "lucide-react";
 
 const achievementsData = [
-  { title: "Real Estate Developers", target: 13 },
-  { title: "Real Estate Brokers", target: "+30" },
-  { title: "Food & Beverage Clients", target: 10 },
-  { title: "Digital Brand Served", target: "+40" },
-  { title: "Overseas Brand Served", target: "+20" },
-  { title: "360 Campaigns Managed", target: 130 },
-  { title: "Digital Campaigns", target: "+800" },
-  { title: "Digital Spending", target: "+11M" },
-  { title: "Leads Generated", target: "+750k" },
-  { title: "Video Produced", target: "+90" },
-  { title: "Products Photographed", target: "+40k" },
-  { title: "Markets Served", target: 9 },
-  // { title: "Tactics Family", target: 20 },
+  { title: "Real Estate Developers", target: 13, icon: Building2 },
+  { title: "Real Estate Brokers", target: "+30", icon: Users },
+  { title: "Food & Beverage Clients", target: 10, icon: UtensilsCrossed },
+  { title: "Digital Brand Served", target: "+40", icon: Globe },
+  { title: "Overseas Brand Served", target: "+20", icon: Briefcase },
+  { title: "360 Campaigns Managed", target: 130, icon: LayoutDashboard },
+  { title: "Digital Campaigns", target: "+800", icon: Megaphone },
+  { title: "Digital Spending", target: "+11M", icon: DollarSign },
+  { title: "Leads Generated", target: "+750k", icon: UserCheck },
+  { title: "Video Produced", target: "+90", icon: Video },
+  { title: "Products Photographed", target: "+40k", icon: Camera },
+  { title: "Markets Served", target: 9, icon: Map },
 ];
 
 const Achievements = () => {
   return (
-    <div className="relative bg-[rgb(43,43,43)]  overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/element4.jpg" // Correct path to the background image
-          alt="Background Element"
-          layout="fill"
-          objectFit="cover" // Ensures the image covers the entire div
-          className="opacity-10" // Adjust opacity as needed
-        />
-      </div>
-
+    <div className="relative bg-black overflow-hidden py-16">
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-9 px-3 z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 z-10 relative container mx-auto"
         initial="hidden"
         animate="visible"
         variants={{
@@ -49,21 +50,17 @@ const Achievements = () => {
         {achievementsData.map((achievement, index) => (
           <motion.div
             key={index}
-            className="text-center text-white flex font-nourd flex-col items-center"
+            className="text-center text-white flex flex-col items-center justify-start h-full"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <Image
-              src="/client2.png"
-              alt={achievement.title}
-              width={100}
-              height={75}
-              className="mb-4 bg-white"
-            />
+            <div className="mb-4 flex items-center justify-center w-20 h-20 rounded-full bg-gray-800">
+              <achievement.icon className="w-10 h-10 text-[rgb(255,228,0)]" />
+            </div>
             <Counter target={achievement.target} />
-            <h2 className="mt-2 text-[20px] sm:text-[25px] md:text-[30px] font-nourd">
+            <h2 className="mt-2 text-lg sm:text-xl md:text-2xl font-bold">
               {achievement.title}
             </h2>
           </motion.div>
@@ -79,11 +76,10 @@ const Counter = ({ target }) => {
   const ref = useRef(null);
   const controls = useAnimation();
 
-  // Ensure target is always a string
   const targetString = target.toString();
   const numericTarget = parseInt(targetString.replace(/[^0-9]/g, ""), 10);
-  const prefix = targetString.startsWith("+") ? "+" : ""; // Detect if there's a "+" symbol
-  const suffix = targetString.replace(/[0-9+]/g, "").trim(); // Extract suffix like "k" or "M"
+  const prefix = targetString.startsWith("+") ? "+" : "";
+  const suffix = targetString.replace(/[0-9+]/g, "").trim();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -112,8 +108,8 @@ const Counter = ({ target }) => {
   useEffect(() => {
     if (isVisible) {
       let start = 0;
-      const duration = 2000; // Animation duration in milliseconds
-      const increment = numericTarget / (duration / 50); // Increment value for 50ms interval
+      const duration = 2000;
+      const increment = numericTarget / (duration / 50);
 
       const interval = setInterval(() => {
         start += increment;

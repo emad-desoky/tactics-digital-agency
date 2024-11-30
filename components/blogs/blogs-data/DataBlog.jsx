@@ -21,7 +21,7 @@ export async function DataBlog({ pageNo = 1 }) {
       <div className="container mx-auto flex flex-col lg:flex-row gap-6 px-4 lg:px-0">
         {/* Left Section (Blog Cards with Pagination) */}
         <div className="w-full lg:w-3/4">
-          <h2 className="text-4xl text-center text-yellow-500 mb-10 font-bold">
+          <h2 className="text-4xl text-center text-[rgb(255,228,0)] mb-10 font-bold">
             Latest Blogs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -53,7 +53,7 @@ export async function DataBlog({ pageNo = 1 }) {
                       {blog.date.toUTCString()}
                     </p>
                     <Link
-                      className="rounded-full px-4 py-2 text-white flex items-center space-x-2 bg-yellow-500 hover:bg-yellow-600 transition duration-200 ease-in-out mt-4 text-sm font-bold"
+                      className="rounded-full px-4 py-2 text-white flex items-center space-x-2 bg-[rgb(255,228,0)] hover:bg-yellow-600 transition duration-200 ease-in-out mt-4 text-sm font-bold"
                       href={`/blogs/${blog.id}`}
                     >
                       <span>Show Blog</span>
@@ -71,7 +71,7 @@ export async function DataBlog({ pageNo = 1 }) {
                 key={index}
                 href={`?pageNo=${index + 1}`} // Generate page number links
                 className={`px-4 py-2 mx-2 rounded-md ${
-                  pageNo == index + 1 ? "bg-yellow-500" : "bg-gray-700"
+                  pageNo == index + 1 ? "bg-[rgb(255,228,0)]" : "bg-gray-700"
                 } text-white hover:bg-yellow-600`}
               >
                 {index + 1}
@@ -93,7 +93,7 @@ export async function DataBlog({ pageNo = 1 }) {
 
           {/* Recent Posts */}
           <div className="bg-gray-800 p-6 rounded-xl mb-6">
-            <h3 className="text-yellow-500 text-2xl mb-4 font-bold">
+            <h3 className="text-[rgb(255,228,0)] text-2xl mb-4 font-bold">
               Recent Posts
             </h3>
             {blogs.slice(0, 3).map((blog) => (
@@ -110,7 +110,7 @@ export async function DataBlog({ pageNo = 1 }) {
 
           {/* Categories */}
           <div className="bg-gray-800 p-6 rounded-xl">
-            <h3 className="text-yellow-500 text-2xl mb-4 font-bold">
+            <h3 className="text-[rgb(255,228,0)] text-2xl mb-4 font-bold">
               Categories
             </h3>
             <div className="text-gray-300">

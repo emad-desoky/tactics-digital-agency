@@ -86,7 +86,7 @@ const OurMix = () => {
         ))}
 
         {/* "OUR MIX" Box spanning two pictures */}
-        <div className="absolute right-[28%] transform -translate-x-1/2 bg-[rgb(43,43,43)] rounded-lg shadow-lg w-[300px] sm:w-[350px] md:w-[380px] h-full flex flex-col items-center justify-center z-10">
+        <div className="absolute right-[30%] transform -translate-x-1/2 bg-[rgb(43,43,43)]  shadow-lg w-[320px] sm:w-[350px] md:w-[380px] h-full flex flex-col items-center justify-center z-10">
           <h2 className="text-[44px] sm:text-[64px] md:text-[88px] font-bold text-white font-nourd leading-tight tracking-tight">
             OUR
           </h2>
