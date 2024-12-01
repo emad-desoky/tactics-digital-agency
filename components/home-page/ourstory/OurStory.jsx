@@ -50,7 +50,7 @@ const OurStory = () => {
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0, transition: { duration: 1 } },
           }}
-          className="relative bg px-2 py-2 z-20 flex flex-col md:flex-row w-[91%] sm:w-[98%] md:w-[95%] md:h-[510px] lg:h-[370px] lg:w-[98%] xl:w-[95%] xl:h-[350px] 2xl:w-[100%] 3xl:w-[100%] 3xl:h-[350px]  bg-[rgba(255,255,255)] rounded-lg shadow-lg overflow-hidden"
+          className="relative bg px-2 py-2 z-20 flex flex-col md:flex-row w-[91%] sm:w-[98%] md:w-[95%] md:h-[510px] lg:h-[370px] lg:w-[98%] xl:w-[95%] xl:h-[350px] 2xl:w-[90%] 3xl:w-[100%] 3xl:h-[350px]  bg-[rgba(255,255,255)] rounded-lg shadow-lg overflow-hidden"
         >
           {/* Animated Left Side Box */}
           <motion.div

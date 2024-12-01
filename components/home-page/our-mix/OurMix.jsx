@@ -25,7 +25,7 @@ const OurMix = () => {
   return (
     <div id="OurMix" className="bg-white">
       {/* Row 1 - 6 Images */}
-      <div className="col-span-2 sm:col-span-4 xs:col-span-2 flex 3xl:h-[300px] flex-wrap">
+      <div className="col-span-2 sm:col-span-4 xs:col-span-2 flex 3xl:h-[300px] flex-wrap ">
         {images.slice(0, 6).map((image, index) => (
           <div
             key={index}
@@ -86,7 +86,7 @@ const OurMix = () => {
         ))}
 
         {/* "OUR MIX" Box spanning two pictures */}
-        <div className="absolute right-[30%] transform -translate-x-1/2 bg-[rgb(43,43,43)]  shadow-lg w-[320px] sm:w-[350px] md:w-[380px] h-full flex flex-col items-center justify-center z-10">
+        <div className="absolute 2xl:right-[27%] 3xl:right-[30%] transform -translate-x-1/2 bg-[rgb(43,43,43)]  shadow-lg w-[320px] sm:w-[350px] md:w-[380px] h-full flex flex-col items-center justify-center z-10">
           <h2 className="text-[44px] sm:text-[64px] md:text-[88px] font-bold text-white font-nourd leading-tight tracking-tight">
             OUR
           </h2>

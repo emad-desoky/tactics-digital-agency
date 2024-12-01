@@ -1,0 +1,22 @@
+.partners-swiper {
+  --swiper-pagination-color: #ffe400;
+  --swiper-pagination-bullet-inactive-color: #4b5563;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+}
+
+.partners-swiper .swiper-pagination-bullet {
+  transition: all 0.3s ease;
+}
+
+.partners-swiper .swiper-pagination-bullet:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 768px) {
+  .partners-swiper {
+    --swiper-pagination-bullet-size: 10px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+  }
+}
