@@ -32,7 +32,7 @@ const OurEdgeCard = ({ card, onClick, index }) => (
         </p>
       </div>
       <motion.div
-        className="mt-4 flex items-center text-[rgb(255,228,0)] font-semibold"
+        className="mt-4 flex items-center text-black font-semibold"
         initial={{ x: -10, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
