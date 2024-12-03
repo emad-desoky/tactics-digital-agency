@@ -1,59 +1,120 @@
 "use client";
 
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { DotBackgroundDemo } from "@/components/ui/DotBackgroundDemo";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-export function Testimonials() {
-  const testimonials = [
-    {
-      quote:
-        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-      name: "Michael Rodriguez",
-      designation: "CTO at InnovateSphere",
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-      name: "Emily Watson",
-      designation: "Operations Director at CloudScale",
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-      name: "James Kim",
-      designation: "Engineering Lead at DataPro",
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-      name: "Lisa Thompson",
-      designation: "VP of Technology at FutureNet",
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ];
+const testimonials = [
+  {
+    quote:
+      "Client reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working well. With a client review, you'll know what's working, the current status, and upcoming plans and strategies.",
+    name: "Omar Amin",
+    position: "SR. Graphic Designer",
+    image:
+      "https://www.shutterstock.com/image-photo/happy-handsome-young-business-leader-260nw-2375039955.jpg",
+  },
+  {
+    quote:
+      "The implementation process was seamless and the results were outstanding. Highly recommend their services.The implementation process was seamless and the results were outstanding. Highly recommend their services.The implementation process was seamless and the results were outstanding. Highly recommend their services.The implementation process was seamless and the results were outstanding. Highly recommend their services.",
+    name: "Sarah Chen",
+    position: "Product Manager",
+    image:
+      "https://i.pinimg.com/736x/a7/65/f1/a765f13c8e253e7a50ca5eb313394259.jpg",
+  },
+  {
+    quote:
+      "Outstanding support team and excellent communication throughout the project.The implementation process was seamless and the results were outstanding. Highly recommend their services.The implementation process was seamless and the results were outstanding. Highly recommend their services.The implementation process was seamless and the results were outstanding. Highly recommend their services.",
+    name: "Michael Rodriguez",
+    position: "Technical Director",
+    image:
+      "https://i.pinimg.com/736x/a7/65/f1/a765f13c8e253e7a50ca5eb313394259.jpg",
+  },
+];
 
+export default function TestimonialSection() {
   return (
-    <div className="bg-black">
-      <motion.h2
-        className="text-center text-7xl font-bold text-white mb-4"
-        initial={{ opacity: 0, y: -50 }}
+    <div className="min-h-screen bg-[#1A1A1A] flex flex-col items-center justify-center py-20">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        className="text-[#FFE400] text-7xl font-bold mb-20 text-center"
       >
-        What They Say
-      </motion.h2>
-      <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+        They Say
+      </motion.h1>
+
+      <div className="w-full max-w-7xl mx-auto px-4">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop={true}
+          className="w-full"
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex items-stretch gap-8 mx-auto relative"
+              >
+                {/* Yellow accent bar */}
+
+                {/* Image container with yellow background */}
+                <div className="relative">
+                  <div className="absolute left-0 top-0 w-[300px] h-[400px] bg-[#FFE400]" />
+                  <div className="relative z-10 w-[300px] h-[400px] translate-x-4 translate-y-4">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Content container */}
+                <div className="flex-1 border border-[#FFE400] px-12 flex flex-col ml-[-20px]">
+                  <div className="text-[#FFE400] text-8xl font-serif">
+                    {"”"}
+                    <p className="text-[#FFE400] text-xl font-bold leading-relaxed flex-grow">
+                      {testimonial.quote}
+                    </p>
+                  </div>
+
+                  <div className="mt-2">
+                    <h3 className="text-[#FFE400] text-2xl font-bold">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-[#FFE400] text-xl">
+                      {testimonial.position}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <style jsx global>{`
+        .swiper-pagination-bullet {
+          background: #ffe400 !important;
+          opacity: 0.5;
+          width: 10px;
+          height: 10px;
+          margin: 0 5px;
+        }
+        .swiper-pagination-bullet-active {
+          opacity: 1;
+        }
+      `}</style>
     </div>
   );
 }
