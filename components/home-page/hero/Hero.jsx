@@ -18,7 +18,7 @@ const Hero = () => {
       >
         {Data.map((item, index) => (
           <SwiperSlide key={item.id} className="relative h-full w-full">
-            <div className="relative w-full h-[450px] 2xl:w-[1600px] 3xl:w-[1900px] xl:w-[1550px] lg:w-[1275px] md:w-[1100px] sm:w-[760px]   2xl:h-[738px] 3xl:h-[955px] sm:h-[465px] xl:h-[805px] lg:h-[805px] md:h-[555px]">
+            <div className="relative w-full h-[450px] 2xl:w-[1600px] 3xl:w-[1900px] xl:w-[1550px] lg:w-[1275px] md:w-[1100px] sm:w-[760px]   2xl:h-[764px] 3xl:h-[955px] sm:h-[465px] xl:h-[805px] lg:h-[805px] md:h-[555px]">
               <Image
                 src={item.image}
                 alt={item.title}
