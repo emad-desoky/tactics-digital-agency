@@ -44,9 +44,9 @@ export function Testimonials() {
   ];
 
   return (
-    <DotBackgroundDemo>
+    <div className="bg-black">
       <motion.h2
-        className="text-center text-7xl font-bold text-[#2B2B2B] mb-4"
+        className="text-center text-7xl font-bold text-white mb-4"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -54,6 +54,6 @@ export function Testimonials() {
         What They Say
       </motion.h2>
       <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
-    </DotBackgroundDemo>
+    </div>
   );
 }

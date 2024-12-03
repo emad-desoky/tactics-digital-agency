@@ -45,17 +45,17 @@ const Partners = () => {
   return (
     <section id="partners" className="bg-black py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="bg-[rgb(43,43,43)] rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto 3xl:max-w-7xl">
+        <div className="bg-[rgb(43,43,43)] shadow-2xl overflow-hidden max-w-5xl mx-auto 3xl:max-w-7xl">
           <div className="flex flex-col md:flex-row">
             {/* Left side (Partners of Success box) */}
-            <div className="w-full md:w-1/3 p-1">
+            <div className="w-full md:w-1/4 p-1">
               <motion.div
-                className="bg-[#FFE400] h-full flex items-center justify-center p-4"
+                className="bg-[#FFE400] h-full flex items-center justify-center"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-nourd text-center text-4xl sm:text-5xl md:text-6xl font-bold leading-none">
+                <h2 className="font-nourd text-center text-2xl sm:text-5xl md:text-2xl xl:text-4xl 3xl:text-5xl font-bold leading-none mt-2 mb-2">
                   <span className="text-white">PARTNERS</span>
                   <br />
                   <span className="text-gray-900">OF</span>
@@ -66,7 +66,7 @@ const Partners = () => {
             </div>
 
             {/* Right side (Swiper for multiple slides) */}
-            <div className="w-full md:w-2/3 p-4 md:p-6">
+            <div className="w-full md:w-3/4 p-4 md:p-6">
               <Swiper
                 modules={[Autoplay, Pagination]}
                 spaceBetween={20}
