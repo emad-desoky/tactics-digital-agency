@@ -86,11 +86,11 @@ const OurMix = () => {
         ))}
 
         {/* "OUR MIX" Box spanning two pictures */}
-        <div className="absolute 2xl:right-[27%] 3xl:right-[30%] transform -translate-x-1/2 bg-[rgb(43,43,43)]  shadow-lg w-[320px] sm:w-[350px] md:w-[380px] h-full flex flex-col items-center justify-center z-10">
-          <h2 className="text-[44px] sm:text-[64px] md:text-[88px] font-bold text-white font-nourd leading-tight tracking-tight">
+        <div className="absolute xl:right-[25%] 2xl:right-[27%] 3xl:right-[30%] transform -translate-x-1/2 bg-[rgb(43,43,43)]  shadow-lg w-[320px] lg:w-[300px] sm:w-[350px] md:w-[380px] h-full flex flex-col items-center justify-center z-10">
+          <h2 className="text-[44px] sm:text-[64px] md:text-[88px] lg:text-[70px] font-bold text-white font-nourd leading-tight tracking-tight">
             OUR
           </h2>
-          <span className="text-[44px] sm:text-[64px] md:text-[88px] font-bold text-[rgb(255,228,0)] font-nourd tracking-tight leading-tight">
+          <span className="text-[44px] sm:text-[64px] md:text-[88px] lg:text-[70px] font-bold text-[rgb(255,228,0)] font-nourd tracking-tight leading-tight">
             FAMILY
           </span>
         </div>

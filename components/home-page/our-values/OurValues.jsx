@@ -30,10 +30,10 @@ const OurValues = () => {
       id="OurValues"
       className="bg-[rgb(43,43,43)] py-12 flex justify-center "
     >
-      <div className="relative z-20 flex flex-col md:flex-row w-11/12 lg:w-3/4 3xl:w-[1400px] bg-black rounded-lg shadow-lg overflow-hidden">
+      <div className="relative z-20 flex flex-col md:flex-row w-11/12 lg:w-3/4 3xl:w-[1490px] 2xl:w-[1170px] xl:w-[970px] bg-black shadow-lg overflow-hidden">
         {/* Left side (fixed) */}
         <motion.div
-          className="w-full md:w-1/4 bg-[rgb(255,228,0)]  flex items-center justify-start md:justify-center "
+          className="w-full md:w-1/4 bg-[rgb(255,228,0)]  flex items-center justify-start md:justify-center"
           initial={{ x: -100, opacity: 0 }} // Initial position and opacity
           animate={{ x: 0, opacity: 1 }} // Final position and opacity
           transition={{ duration: 0.5 }} // Transition duration
@@ -67,7 +67,7 @@ const OurValues = () => {
                     objectFit="cover" // Ensures the image covers the container
                     quality={100} // Optional: for better image quality
                     fill
-                    className="rounded-lg transition-transform duration-300 ease-in-out" // Rounded corners with transition
+                    className="transition-transform duration-300 ease-in-out" // Rounded corners with transition
                   />
                 </motion.div>
               </SwiperSlide>

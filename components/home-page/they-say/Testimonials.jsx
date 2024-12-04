@@ -37,7 +37,7 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <div className="min-h-screen bg-[#1A1A1A] flex flex-col items-center justify-center py-20">
+    <div className="min-h-screen bg-[#1A1A1A] flex flex-col items-center justify-center py-20 ">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
