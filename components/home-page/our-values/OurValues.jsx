@@ -30,7 +30,7 @@ const OurValues = () => {
       id="OurValues"
       className="bg-[rgb(43,43,43)] py-12 flex justify-center "
     >
-      <div className="relative z-20 flex flex-col md:flex-row w-11/12 lg:w-3/4 3xl:w-[1490px] 2xl:w-[1170px] xl:w-[970px] bg-black shadow-lg overflow-hidden">
+      <div className="relative z-20 flex flex-col md:flex-row sm:w-[920px] md:w-[880px] lg:w-[1000px] 3xl:w-[1490px] 2xl:w-[1170px] xl:w-[970px] bg-black shadow-lg overflow-hidden">
         {/* Left side (fixed) */}
         <motion.div
           className="w-full md:w-1/4 bg-[rgb(255,228,0)]  flex items-center justify-start md:justify-center"

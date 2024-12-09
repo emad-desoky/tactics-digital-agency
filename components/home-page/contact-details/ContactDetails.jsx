@@ -24,7 +24,7 @@ const ContactDetails = () => {
       <DotBackgroundDemo>
         <div
           id="ContactDetails"
-          className="relative w-full 3xl:max-w-[1525px] 2xl:max-w-[1200px] xl:max-w-[1000px] overflow-hidden flex h-[400px] flex-col items-center justify-center py-12 px-4"
+          className="relative w-full 3xl:max-w-[1525px] 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[1030px] md:max-w-[920px] overflow-hidden flex h-[400px] flex-col items-center justify-center py-12 px-4"
         >
           {/* Contact Details Section */}
           <div className="relative z-20 h-auto flex flex-col md:flex-row bg-white overflow-hidden shadow-lg">
