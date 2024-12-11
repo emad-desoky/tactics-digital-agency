@@ -12,27 +12,28 @@ import "swiper/css/pagination";
 
 const Partners = () => {
   // Create slides data
-  const slidesData = Array.from({ length: 3 }, (_, index) => (
+  const slidesData = Array.from({ length: 5 }, (_, index) => (
     <SwiperSlide key={`partners-slide-${index}`}>
       <motion.div
-        className="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6"
+        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
       >
-        {Array.from({ length: 15 }, (_, clientIndex) => {
-          const imageNumber = index * 15 + clientIndex + 1;
+        {Array.from({ length: 18 }, (_, clientIndex) => {
+          const imageNumber = index * 18 + clientIndex + 1;
+          if (imageNumber > 89) return null; // Skip rendering if we've exceeded 89 logos
           return (
             <div
               key={`client-${imageNumber}`}
               className="flex justify-center items-center p-2 md:p-3 bg-transparent rounded-lg hover:bg-white/10 transition-colors duration-300"
             >
               <Image
-                src={`/client${imageNumber}.png`}
+                src={`/${imageNumber}.png`}
                 alt={`Client ${imageNumber}`}
-                width={60}
-                height={60}
+                width={90}
+                height={90}
                 className="object-contain hover:scale-110 transition-transform duration-300"
               />
             </div>

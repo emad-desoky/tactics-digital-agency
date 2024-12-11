@@ -2,7 +2,6 @@
 
 import React, { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import OurEdgeCards from "./OurEdgeCards";
 import OurEdgeModal from "./OurEdgeModal";
 import { cards } from "./Cards";
@@ -19,7 +18,7 @@ export default function ExpandableCardDemo() {
 
   return (
     <BackgroundBeamsWithCollision>
-      <div className="bg-[rgb(43,43,43)]   w-full py-4 p-8">
+      <div className="bg-[rgb(43,43,43)] w-full py-24 p-12">
         <div id="OurEdge" ref={sectionRef} className="container max-w-full">
           <div className="flex flex-col lg:flex-row items-start justify-between space-y-12 lg:space-y-0 lg:space-x-12">
             <motion.div
@@ -27,12 +26,12 @@ export default function ExpandableCardDemo() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="flex mt-32 3xl:h-[500px] 2xl:h-[450px]"
+              className="w-full lg:w-1/3"
             >
-              <div className="bg-[rgb(255,228,0)]  rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:scale-105">
-                <h1 className="text-[170px] font-semibold text-white leading-[130px] 3xl:mt-20 2xl:mt-12 text-center">
-                  OUR{" "}
-                  <span className="text-[rgb(43,43,43)] text-[150px] ml-3">
+              <div className="bg-[rgb(255,228,0)] p-14 shadow-lg transform transition-all duration-300 hover:shadow-xl h-full flex flex-col justify-center 3xl:w-full 2xl:w-full xl:w-full 3xl:h-[375px] lg:h-[475px] lg:w-[350px] lg:m-1 xl:my-1 xl:h-[355px] 2xl:h-[360px] ">
+                <h1 className="3xl:text-8xl  font-semibold text-white leading-tight text-center">
+                  OUR
+                  <span className="text-[rgb(43,43,43)] 3xl:text-[100px] sm:text-6xl md:text-7xl lg:text-8xl block mt-2">
                     EDGE
                   </span>
                 </h1>

@@ -1,4 +1,5 @@
 import "./globals.css";
+import { NextUIProvider } from "@nextui-org/react";
 
 export const metadata = {
   title: "Tactics Digital Agency",
@@ -110,7 +111,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NextUIProvider>{children}</NextUIProvider>
+      </body>
     </html>
   );
 }

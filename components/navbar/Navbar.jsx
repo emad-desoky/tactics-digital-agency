@@ -1,100 +1,105 @@
 "use client";
+
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaTiktok,
-  FaYoutube,
-  FaBehance,
-  FaTwitter,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
-import { useRouter } from "next/navigation";
+  Facebook,
+  Instagram,
+  Youtube,
+  Twitter,
+  Home,
+  BookOpen,
+  Briefcase,
+  ImageIcon,
+  Info,
+  Menu,
+  X,
+} from "lucide-react";
+
+const NavItems = [
+  { name: "Home", href: "/", icon: Home },
+  { name: "Blogs", href: "/blogs", icon: BookOpen },
+  { name: "Careers", href: "/careers", icon: Briefcase },
+  { name: "Gallery", href: "/gallery", icon: ImageIcon },
+  { name: "About Us", href: "/about-us", icon: Info },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
 
   const toggleNavbar = () => setIsOpen(!isOpen);
 
-  const handleLinkClick = (link) => {
-    if (link === "Join Us") {
-      router.push("/join-us");
-    } else if (link === "About Us") {
-      router.push("/about-us");
-    } else if (link === "Gallery") {
-      router.push("/gallery");
-    } else if (link === "Home") {
-      router.push("/");
-    } else if (link === "Blogs") {
-      router.push("/blogs");
-    } else {
-      const sectionId = link.replace(/\s+/g, "");
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      } else {
-        console.error(`No section found for ID: ${sectionId}`);
-      }
-    }
-    setIsOpen(false);
-  };
-
   return (
-    <nav
-      className={`fixed top-0  w-full flex justify-between items-center px-4 md:px-24 z-50 shadow-md transition-opacity duration-300 bg-[rgb(43,43,43,0.14)] font-nourd
-      }`}
-      style={{ height: "90px" }} // Fixed height to prevent overlap with content
-    >
+    <nav className="fixed top-0 w-full flex justify-between items-center px-4 md:px-24 z-50 bg-[rgb(0,0,0,0)] h-20 md:h-24">
       {/* Logo */}
       <div className="flex items-center z-10">
-        <Image src="/logo.ico" alt="Logo" width={200} height={100} />
+        <Link href="/">
+          <Image src="/logo.png" alt="Logo" width={400} height={80} />
+        </Link>
       </div>
 
       {/* Mobile Menu Icon */}
       <div className="md:hidden cursor-pointer z-10" onClick={toggleNavbar}>
         {isOpen ? (
-          <FaTimes
-            size={24}
-            className="text-white transition-transform duration-300 transform rotate-90"
-          />
+          <X size={24} className="text-white" />
         ) : (
-          <FaBars
-            size={24}
-            className="text-white transition-transform duration-300"
-          />
+          <Menu size={24} className="text-white" />
         )}
       </div>
 
       {/* Nav Links */}
       <ul
-        className={`flex-col md:flex md:flex-row md:space-x-6 text-black gap-x-10 transition-all duration-300 ease-in-out relative z-10 ${
+        className={`md:flex md:items-center md:space-x-6 text-white transition-all duration-300 ease-in-out ${
           isOpen
-            ? "top-16 left-0 w-full p-4 absolute bg-[rgba(43,43,43,0.9)]"
-            : "top-[-200px] md:top-0"
+            ? "absolute top-full left-0 w-full p-4 bg-black bg-opacity-90 flex flex-col space-y-4"
+            : "hidden"
         }`}
       >
-        {["Home", "Blogs", "Careers", "Gallery", "About Us"].map((link) => (
-          <li
-            key={link}
-            className="rounded-md px-2 py-2 text-lg font-medium text-white hover:bg-[rgb(255,228,0)] hover:text-slate-950 cursor-pointer"
-            onClick={() => handleLinkClick(link)}
-          >
-            {link}
+        {NavItems.map((item) => (
+          <li key={item.name}>
+            <Link
+              href={item.href}
+              className="rounded-md px-2 py-2 text-2xl font-medium hover:bg-[rgb(255,228,0)] hover:text-black transition-colors duration-200 flex items-center space-x-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <item.icon className="w-6 h-6" />
+              <span>{item.name}</span>
+            </Link>
           </li>
         ))}
       </ul>
 
       {/* Social Media Icons */}
-      <div className="hidden md:flex space-x-4 text-white z-50">
-        <FaFacebookF className="cursor-pointer hover:text-gray-400" />
-        <FaInstagram className="cursor-pointer hover:text-gray-400" />
-        <FaTiktok className="cursor-pointer hover:text-gray-400" />
-        <FaYoutube className="cursor-pointer hover:text-gray-400" />
-        <FaBehance className="cursor-pointer hover:text-gray-400" />
-        <FaTwitter className="cursor-pointer hover:text-gray-400" />
+      <div className="hidden md:flex space-x-6 text-white">
+        <Link
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Facebook className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+        </Link>
+        <Link
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Instagram className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+        </Link>
+        <Link
+          href="https://youtube.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Youtube className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+        </Link>
+        <Link
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Twitter className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+        </Link>
       </div>
     </nav>
   );

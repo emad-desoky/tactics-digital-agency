@@ -1,3 +1,5 @@
+import { nextui } from "@nextui-org/react";
+
 import type { Config, PluginAPI } from "tailwindcss/types/config";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 import tailwindcssAnimate from "tailwindcss-animate"; // Replace require with import
@@ -16,12 +18,14 @@ import svgToDataUri from "mini-svg-data-uri";
 
 
 const config: Config = {
-  darkMode: ["class"], // Enable dark mode using the 'class' strategy
+  darkMode: "class", // Enable dark mode using the 'class' strategy
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+
   ],
   prefix: "",
   theme: {
@@ -71,7 +75,9 @@ const config: Config = {
       },
     },
   },
+
   plugins: [
+    nextui(),
     require('tailwind-scrollbar'),
     tailwindcssAnimate, // Replaced require with imported variable
     addVariablesForColors,

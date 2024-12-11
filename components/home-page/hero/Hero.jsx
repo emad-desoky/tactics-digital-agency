@@ -1,40 +1,46 @@
 "use client";
-import Image from "next/image";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Data } from "./Data";
+import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="transition-opacity duration-1000">
+    <div className="w-full h-[80svh] sm:h-[100svh]">
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
-        spaceBetween={0}
-        slidesPerView={1}
+        navigation
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        loop={true}
+        className="w-full h-full"
       >
-        {Data.map((item, index) => (
-          <SwiperSlide key={item.id} className="relative h-full w-full">
-            <div className="relative w-full h-[450px] 2xl:w-[1600px] 3xl:w-[1900px] xl:w-[1550px] lg:w-[1275px] md:w-[1100px] sm:w-[760px]   2xl:h-[764px] 3xl:h-[955px] sm:h-[465px] xl:h-[805px] lg:h-[805px] md:h-[555px]">
+        {Data.map((item) => (
+          <SwiperSlide key={item.id} className="relative w-full h-full">
+            <div className="relative w-full h-full">
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                objectFit="cover" // Ensures the image covers the container
-                quality={75} // Optimize image quality for faster loading
-                loading={index === 0 ? "eager" : "lazy"} // Eager load the first image, lazy load the rest
-                priority={index === 0} // Prioritize the first image for faster initial loading
-                className="absolute inset-0 object-cover" // Ensures the image covers the container responsively
+                sizes="100vw"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+                quality={90}
+                priority
+                className="!relative !h-full !w-full"
               />
             </div>
-            <div className="absolute bottom-10 left-4 md:left-10 text-white px-4 md:px-16">
-              <h2 className="text-2xl md:text-3xl lg:text-5xl font-nourd">
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 z-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 text-center drop-shadow-lg">
                 {item.title}
               </h2>
-              <p className="text-md md:text-lg lg:text-2xl mt-2 font-nourd text-[rgb(255,228,0)]">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center max-w-3xl drop-shadow-lg">
                 {item.description}
               </p>
             </div>
