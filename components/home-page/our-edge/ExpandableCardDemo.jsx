@@ -29,9 +29,9 @@ export default function ExpandableCardDemo() {
               className="w-full lg:w-1/3"
             >
               <div className="bg-[rgb(255,228,0)] p-14 shadow-lg transform transition-all duration-300 hover:shadow-xl h-full flex flex-col justify-center 3xl:w-full 2xl:w-full xl:w-full 3xl:h-[375px] lg:h-[475px] lg:w-[350px] lg:m-1 xl:my-1 xl:h-[355px] 2xl:h-[360px] ">
-                <h1 className="3xl:text-8xl  font-semibold text-white leading-tight text-center">
+                <h1 className="3xl:text-[100px] 2xl:text-[105px] xl:text-[100px]  lg:text-[100px] md:text-[100px] sm:text-[80px] text-[50px] font-nourd text-white text-center leading-tight">
                   OUR
-                  <span className="text-[rgb(43,43,43)] 3xl:text-[100px] sm:text-6xl md:text-7xl lg:text-8xl block mt-2">
+                  <span className="text-[rgb(43,43,43)] 3xl:text-[95px] 2xl:text-[95px] xl:text-[90px] lg:text-[88px] md:text-[86px] font-bold  sm:text-[70px] md:text-7xl lg:text-8xl block mt-2">
                     EDGE
                   </span>
                 </h1>

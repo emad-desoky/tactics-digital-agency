@@ -56,12 +56,12 @@ const Partners = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-nourd text-center text-2xl sm:text-5xl md:text-2xl xl:text-4xl 3xl:text-5xl font-bold leading-none mt-2 mb-2">
+                <h2 className="font-nourd text-center text-2xl sm:text-4xl md:text-4xl xl:text-5xl 3xl:text-6xl leading-none mt-2 mb-2">
                   <span className="text-white">PARTNERS</span>
                   <br />
-                  <span className="text-gray-900">OF</span>
+                  <span className="text-gray-900 font-bold">OF</span>
                   <br />
-                  <span className="text-gray-900">SUCCESS</span>
+                  <span className="text-gray-900 font-bold">SUCCESS</span>
                 </h2>
               </motion.div>
             </div>

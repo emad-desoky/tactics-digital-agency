@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="w-full h-[80svh] sm:h-[100svh]">
+    <div className="w-full h-[40svh] sm:h-[80svh] md:h-[100svh]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
