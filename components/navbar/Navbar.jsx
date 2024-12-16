@@ -19,10 +19,10 @@ import {
 
 const NavItems = [
   { name: "Home", href: "/", icon: Home },
-  { name: "Blogs", href: "/blogs", icon: BookOpen },
-  { name: "Careers", href: "/careers", icon: Briefcase },
-  { name: "Gallery", href: "/gallery", icon: ImageIcon },
   { name: "About Us", href: "/about-us", icon: Info },
+  { name: "Blogs", href: "/blogs", icon: BookOpen },
+  { name: "Gallery", href: "/gallery", icon: ImageIcon },
+  { name: "Careers", href: "/careers", icon: Briefcase },
 ];
 
 const Navbar = () => {
@@ -77,28 +77,28 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Facebook className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Facebook className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Instagram className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Instagram className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
           href="https://youtube.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Youtube className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Youtube className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
           href="https://twitter.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Twitter className="w-6 h-6 cursor-pointer hover:text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Twitter className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
       </div>
     </nav>

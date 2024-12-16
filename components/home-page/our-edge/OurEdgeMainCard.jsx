@@ -11,17 +11,17 @@ const OurEdgeCard = ({ card, onClick, index }) => (
     exit={{ opacity: 0, y: 20 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
   >
-    <div className="relative z-10 flex flex-col justify-between p-6 flex-grow">
+    <div className="relative z-10 flex flex-col justify-between p-[9px] flex-grow">
       <div>
-        <h3 className="text-xl font-bold text-black dark:text-white mb-2">
+        <h3 className="flex items-center justify-center text-5xl font-bold text-[rgb(255,228,0)] dark:text-white">
           {card.title}
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
+        {/* <p className="text-sm text-gray-600 dark:text-gray-300">
           {card.description}
-        </p>
+        </p> */}
       </div>
       <motion.div
-        className="mt-4 flex items-center text-black font-semibold"
+        className="mt-4 flex items-center text-[rgb(255,228,0)] font-semibold"
         initial={{ x: -10, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}

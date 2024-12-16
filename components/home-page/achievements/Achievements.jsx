@@ -56,7 +56,7 @@ const Achievements = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <div className="mb-4 flex items-center justify-center w-20 h-20 rounded-full bg-gray-800">
+            <div className="mb-4 flex items-center justify-center w-20 h-20 rounded-full bg-black">
               <achievement.icon className="w-10 h-10 text-[rgb(255,228,0)]" />
             </div>
             <Counter target={achievement.target} />

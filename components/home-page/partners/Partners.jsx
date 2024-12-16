@@ -46,22 +46,22 @@ const Partners = () => {
   return (
     <section id="partners" className="bg-black py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="bg-[rgb(43,43,43)] shadow-2xl overflow-hidden max-w-5xl mx-auto 3xl:max-w-[1500px] 2xl:max-w-[1175px] xl:max-w-[974px]">
+        <div className="bg-black shadow-2xl overflow-hidden max-w-5xl mx-auto 3xl:max-w-[1500px] 2xl:max-w-[1175px] xl:max-w-[974px]">
           <div className="flex flex-col md:flex-row">
             {/* Left side (Partners of Success box) */}
             <div className="w-full md:w-1/4 p-1">
               <motion.div
-                className="bg-[#FFE400] h-full flex items-center justify-center"
+                className="bg-black h-full flex items-center justify-center"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="font-nourd text-center text-2xl sm:text-4xl md:text-4xl xl:text-5xl 3xl:text-6xl leading-none mt-2 mb-2">
-                  <span className="text-white">PARTNERS</span>
+                  <span className="text-[rgb(255,228,0)]">PARTNERS</span>
                   <br />
-                  <span className="text-gray-900 font-bold">OF</span>
+                  <span className="text-white font-bold">OF</span>
                   <br />
-                  <span className="text-gray-900 font-bold">SUCCESS</span>
+                  <span className="text-white font-bold">SUCCESS</span>
                 </h2>
               </motion.div>
             </div>
