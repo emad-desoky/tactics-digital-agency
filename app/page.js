@@ -21,7 +21,6 @@ export default function Home() {
         <OurStory />
         <Achievements />
         <TestimonialSection />
-        <ExpandableCardDemo />
         <ServicesParallax />
         <Partners />
         <OurMix />

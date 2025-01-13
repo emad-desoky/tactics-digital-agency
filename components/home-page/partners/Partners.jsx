@@ -76,6 +76,7 @@ const Partners = () => {
                 pagination={{ clickable: true }}
                 loop={true}
                 className="partners-swiper"
+                style={{ paddingBottom: "30px" }}
               >
                 {slidesData}
               </Swiper>

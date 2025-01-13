@@ -11,7 +11,7 @@ import Image from "next/image";
 import { createPortal } from "react-dom";
 
 export const HeroParallax = ({ products }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -61,7 +61,6 @@ export const HeroParallax = ({ products }) => {
           translateY,
           opacity,
         }}
-        className=""
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -69,7 +68,7 @@ export const HeroParallax = ({ products }) => {
               product={product}
               translate={translateX}
               key={product.title}
-              onImageClick={() => setSelectedImage(product.thumbnail)}
+              onProductClick={() => setSelectedProduct(product)}
             />
           ))}
         </motion.div>
@@ -79,7 +78,7 @@ export const HeroParallax = ({ products }) => {
               product={product}
               translate={translateXReverse}
               key={product.title}
-              onImageClick={() => setSelectedImage(product.thumbnail)}
+              onProductClick={() => setSelectedProduct(product)}
             />
           ))}
         </motion.div>
@@ -89,16 +88,16 @@ export const HeroParallax = ({ products }) => {
               product={product}
               translate={translateX}
               key={product.title}
-              onImageClick={() => setSelectedImage(product.thumbnail)}
+              onProductClick={() => setSelectedProduct(product)}
             />
           ))}
         </motion.div>
       </motion.div>
       <AnimatePresence>
-        {selectedImage && (
-          <ImageModal
-            imageSrc={selectedImage}
-            onClose={() => setSelectedImage(null)}
+        {selectedProduct && (
+          <ProductModal
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
           />
         )}
       </AnimatePresence>
@@ -120,7 +119,7 @@ const Header = () => {
   );
 };
 
-const ProductCard = ({ product, translate, onImageClick }) => {
+const ProductCard = ({ product, translate, onProductClick }) => {
   return (
     <motion.div
       style={{
@@ -130,10 +129,10 @@ const ProductCard = ({ product, translate, onImageClick }) => {
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-[480px] w-[43rem] relative flex-shrink-0"
     >
       <div
-        onClick={() => onImageClick(product.thumbnail)}
+        onClick={() => onProductClick(product)}
         className="block group-hover/product:shadow-2xl cursor-pointer"
       >
         <Image
@@ -152,19 +151,19 @@ const ProductCard = ({ product, translate, onImageClick }) => {
   );
 };
 
-const ImageModal = ({ imageSrc, onClose }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+const ProductModal = ({ product, onClose }) => {
   const [portalContainer, setPortalContainer] = useState(null);
 
   useEffect(() => {
     const container = document.createElement("div");
     document.body.appendChild(container);
     setPortalContainer(container);
-
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.body.removeChild(container);
+      if (container && container.parentElement) {
+        container.parentElement.removeChild(container);
+      }
       document.body.style.overflow = "unset";
     };
   }, []);
@@ -185,11 +184,11 @@ const ImageModal = ({ imageSrc, onClose }) => {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative bg-black rounded-lg shadow-xl overflow-hidden max-w-4xl w-full mx-auto"
+        className="relative bg-[rgb(43,43,43)] rounded-lg shadow-xl overflow-hidden max-w-4xl w-full mx-auto p-8"
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-800 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 transition-opacity z-10"
+          className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
           aria-label="Close modal"
         >
           <svg
@@ -208,42 +207,17 @@ const ImageModal = ({ imageSrc, onClose }) => {
           </svg>
         </button>
 
-        <div className="relative w-full" style={{ paddingTop: "75%" }}>
-          {!isLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
-              <svg
-                className="animate-spin h-8 w-8 text-gray-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v8H4z"
-                ></path>
-              </svg>
-            </div>
-          )}
-          <Image
-            src={imageSrc}
-            alt="Modal Image"
-            layout="fill"
-            objectFit="contain"
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${
-              isLoaded ? "opacity-100" : "opacity-0"
-            }`}
-            onLoadingComplete={() => setIsLoaded(true)}
-          />
-        </div>
+        <h2 className="text-4xl font-bold mb-6 text-[rgb(255,228,0)]">
+          {product.title}
+        </h2>
+        <ul className="space-y-4">
+          {product.description.map((item, index) => (
+            <li key={index} className="flex items-start text-white">
+              <span className="text-[rgb(255,228,0)] mr-2">•</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </motion.div>
     </motion.div>,
     portalContainer
