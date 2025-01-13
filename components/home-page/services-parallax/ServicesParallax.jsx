@@ -23,10 +23,10 @@ export const products = [
     link: "/ADV-CREATIVE.png",
     thumbnail: "/ADV-CREATIVE.png",
     description: [
-      "Strategic Campaign Development: Creating impactful advertising campaigns aligned with business goals.",
-      "Creative Concept Development: Generating innovative ideas and concepts for advertising.",
-      "Cross-Platform Creative Solutions: Developing cohesive creative assets across different media.",
-      "Ad Copy & Visual Design: Crafting compelling messages and visuals that drive engagement.",
+      "Ad Concept & Design: Developing visually compelling and strategic creatives for ads across platforms (Google, Facebook, etc.)",
+      "Banner Ads & Display Ads: Designing static and animated display ads for paid media campaigns.",
+      "Social Media Ads: Creating customized ad creatives tailored for each social platform.",
+      "Print Advertising: Designing traditional print ads for magazines, newspapers, or billboards.",
     ],
   },
   {
@@ -34,10 +34,11 @@ export const products = [
     link: "/content.png",
     thumbnail: "/content.png",
     description: [
-      "Content Strategy Development: Planning and executing comprehensive content strategies.",
-      "Content Creation & Curation: Developing engaging and relevant content for various platforms.",
-      "Content Calendar Management: Organizing and scheduling content delivery.",
-      "Content Performance Analysis: Measuring and optimizing content effectiveness.",
+      " Content Strategy: Planning and executing a long-term content approach.",
+      " Blog Writing & Copywriting: Engaging content for blogs, articles, and websites.",
+      " Infographics & Visual Content: Data visualization and design services.",
+      " Video Production: Creation of branded video content for campaigns.",
+      "  Podcasts & Audio Content: Developing audio content for podcasts or brand promotions.",
     ],
   },
   {
@@ -45,10 +46,9 @@ export const products = [
     link: "/CREATIVECAMPAIGNS&STORYTELLING.png",
     thumbnail: "/CREATIVECAMPAIGNS&STORYTELLING.png",
     description: [
-      "Brand Storytelling: Crafting compelling narratives that connect with audiences.",
-      "Campaign Conceptualization: Developing unique and engaging campaign concepts.",
-      "Multi-Channel Storytelling: Creating cohesive stories across different platforms.",
-      "Narrative Strategy: Building long-term storytelling frameworks for brands.",
+      " Creative Direction: Overseeing the artistic and creative vision for campaigns.",
+      " Storyboarding & Concept Development: Pre-visualizing and conceptualizing  campaigns, videos, or advertising ideas.",
+      " Campaign Conceptualization: Developing unique and engaging concepts for marketing campaigns.",
     ],
   },
   {
@@ -56,10 +56,10 @@ export const products = [
     link: "/Graphic-Design.png",
     thumbnail: "/Graphic-Design.png",
     description: [
-      "Visual Design Solutions: Creating impactful graphics for various mediums.",
-      "UI/UX Design: Designing user-friendly interfaces and experiences.",
-      "Illustration & Icon Design: Developing custom illustrations and icon sets.",
-      "Layout & Typography: Creating visually appealing and readable designs.",
+      "Visual Design for Digital & Print: Designing banners, flyers, brochures, posters, and other marketing materials.",
+      " Custom Illustrations: Creating illustrations that represent the brand’s story.",
+      "Infographics: Designing data-driven visuals for complex ideas in an easy-to understand format.",
+      " Packaging Design: Designing packaging that resonates with the brand’s identity.",
     ],
   },
   {
@@ -67,10 +67,10 @@ export const products = [
     link: "/PHOTOGRAPHY&VISUALCONTENT.png",
     thumbnail: "/PHOTOGRAPHY&VISUALCONTENT.png",
     description: [
-      "Professional Photography: Capturing high-quality images for various purposes.",
-      "Visual Content Strategy: Planning and creating engaging visual content.",
-      "Photo Editing & Retouching: Enhancing images to meet brand standards.",
-      "Visual Asset Management: Organizing and maintaining visual content libraries.",
+      "Product Photography: Professional photo shoots to highlight products for commerce or marketing.",
+      " Lifestyle Photography: Capturing brand-aligned images for social media and websites.",
+      "Corporate Photography: Headshots, team photos, and office settings for business websites and brochures.",
+      "Custom Stock Photography: Creating unique stock photography for exclusive brand use.",
     ],
   },
   {
@@ -78,10 +78,10 @@ export const products = [
     link: "/PRINTDESIGN&COLLATERAL.png",
     thumbnail: "/PRINTDESIGN&COLLATERAL.png",
     description: [
-      "Print Material Design: Creating effective print marketing materials.",
-      "Brochure & Catalog Design: Developing informative and attractive publications.",
-      "Packaging Design: Designing eye-catching product packaging.",
-      "Business Collateral: Creating professional business cards and stationery.",
+      "Brochures & Flyers: Designing promotional materials for distribution at events,trade shows, or campaigns.",
+      "Business Cards & Stationery: Custom-designed business cards, letterheads,and other corporate stationery.",
+      "Catalogs & Booklets: Creating print-ready layouts for product catalogs,company profiles, or event booklets.",
+      " Posters, Billboards & Signage: Large-format design for outdoor advertising.",
     ],
   },
   {
@@ -89,10 +89,9 @@ export const products = [
     link: "/REPUTATIONMANAGEMENT.png",
     thumbnail: "/REPUTATIONMANAGEMENT.png",
     description: [
-      "Online Reputation Monitoring: Tracking and managing brand perception.",
-      "Crisis Communication Planning: Developing strategies for reputation protection.",
-      "Review Management: Handling customer feedback and reviews.",
-      "Brand Sentiment Analysis: Measuring and improving brand perception.",
+      " Online Reputation Monitoring: Tracking brand mentions and reviews.",
+      " Review Management: Encouraging positive reviews and addressing negative ones.",
+      " Crisis Communication: Strategies to handle online crises.",
     ],
   },
   {
@@ -100,10 +99,10 @@ export const products = [
     link: "/SEARCH-ENGINE.png",
     thumbnail: "/SEARCH-ENGINE.png",
     description: [
-      "SEO Strategy Development: Creating comprehensive search optimization plans.",
-      "Keyword Research & Analysis: Identifying valuable search terms and opportunities.",
-      "Technical SEO Implementation: Optimizing website structure and performance.",
-      "Content Optimization: Enhancing content for better search visibility.",
+      " On-Page SEO: Optimizing website content, structure, and user experience.",
+      "Off-Page SEO & Link Building: Building authority through backlinks and external partnerships.",
+      " Technical SEO: Optimizing website architecture, mobile responsiveness, and site speed.",
+      " Local SEO: Enhancing visibility for businesses within a specific geographic area.",
     ],
   },
   {
@@ -111,10 +110,10 @@ export const products = [
     link: "/Social-Media.png",
     thumbnail: "/Social-Media.png",
     description: [
-      "Social Media Strategy: Developing platform-specific engagement strategies.",
-      "Community Management: Building and maintaining online communities.",
-      "Social Content Creation: Producing engaging social media content.",
-      "Social Analytics & Reporting: Measuring and optimizing social performance.",
+      "Social Media Strategy: Developing platform-specific strategies for engaging with the audience.",
+      " Social Media Management: Daily management of social media platforms (posting, commenting, etc.).",
+      " Influencer Marketing: Engaging with influencers to promote products/services.",
+      " Community Building: Creating and nurturing online communities.",
     ],
   },
   {
@@ -122,10 +121,9 @@ export const products = [
     link: "/SOCIALMEDIACREATIVECONTENT.png",
     thumbnail: "/SOCIALMEDIACREATIVECONTENT.png",
     description: [
-      "Platform-Specific Content: Creating optimized content for each social platform.",
-      "Visual Content Creation: Designing engaging social media visuals.",
-      "Social Video Production: Developing short-form video content.",
-      "Social Campaign Assets: Creating cohesive campaign materials.",
+      "Social Media Graphics: Designing visually appealing graphics for social posts,stories, and ads.",
+      " Carousel Ads: Multi-image ad creatives for Facebook, Instagram, and LinkedIn.",
+      "Stories & Reels Content: Crafting engaging visuals for Instagram Stories, Reels, or TikTok.",
     ],
   },
   {
@@ -133,10 +131,10 @@ export const products = [
     link: "/STRATEGY.png",
     thumbnail: "/STRATEGY.png",
     description: [
-      "Marketing Strategy Development: Creating comprehensive marketing plans.",
-      "Market Research & Analysis: Understanding market trends and opportunities.",
-      "Competitive Analysis: Evaluating market position and competition.",
-      "ROI Planning & Measurement: Ensuring marketing effectiveness.",
+      " Digital Marketing Strategy Development: Crafting personalized digital marketing plans aligned with business objectives.",
+      " Market Research & Competitive Analysis: In-depth research to understand the market and competitors.",
+      " Brand Strategy: Developing a cohesive brand identity and positioning.",
+      " Conversion Rate Optimization (CRO) Consulting: Enhancing website and funnel performance.",
     ],
   },
   {
@@ -144,10 +142,9 @@ export const products = [
     link: "/VIDEOPRODUCTION&EDITING.png",
     thumbnail: "/VIDEOPRODUCTION&EDITING.png",
     description: [
-      "Video Content Production: Creating professional video content.",
-      "Post-Production & Editing: Refining and finalizing video projects.",
-      "Motion Graphics: Developing animated visual elements.",
-      "Video Strategy & Planning: Developing effective video content plans.",
+      " Promotional Videos: Producing brand, product, or service-focused promotional videos.",
+      "Explainer Videos: Creating short videos explaining complex concepts or products.",
+      "Animation & Motion Graphics: Developing engaging animations for marketing campaigns or websites.",
     ],
   },
   {
@@ -155,10 +152,10 @@ export const products = [
     link: "/WEB-DEVELOPMENT.png",
     thumbnail: "/WEB-DEVELOPMENT.png",
     description: [
-      "Website Design & Development: Creating modern, responsive websites.",
-      "E-commerce Solutions: Building online shopping experiences.",
-      "Website Maintenance: Ensuring optimal website performance.",
-      "Web Application Development: Creating custom web applications.",
+      " Website Design & Development: Building responsive, SEO-friendly websites.",
+      "E-commerce Development: Developing and optimizing e-commerce platforms(e.g., Shopify, WooCommerce).",
+      " Landing Page Creation: High-conversion landing pages for campaigns.",
+      "User Experience (UX) & User Interface (UI) Design: Optimizing digital platforms for engagement and ease of use.",
     ],
   },
   {

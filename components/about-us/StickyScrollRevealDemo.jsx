@@ -15,7 +15,7 @@ const content = [
   {
     title: "About us",
     description:
-      "TACTICS® is a fully integrated 360° digital marketing agency renowned for its performance-driven approach. Since our inception in 2018, we have established ourselves as industry leaders, founded by a team of digital experts committed to delivering tailored solutions that align perfectly with your budget, timeline, and quality standards. Specializing primarily in real estate marketing solutions, we offer an extensive array of services designed to elevate your real estate company's online presence and market performance",
+      "is a ful-service digital and creative marketing agency known for its innovation andresults-driven approach. Since our establishment in 2018, we’ve become leaders in deliveringdigital and creative solutions tailored to meet diverse industry needs. Our team of experts is committed to providing customized strategies that align with your budget, timelines, and goals.From digital marketing to creative services, we offer a broad range of solutions designed to enhance your brand’s visibility and performance across al sectors.",
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
         <Image
@@ -31,7 +31,7 @@ const content = [
   {
     title: "Strategic Insight",
     description:
-      "With deep industry knowledge and a commitment to strategic thought, TACTICS® blends expertise from various disciplines to deliver precise and impactful results. We leverage unique market insights and cutting-edge technologies to stay ahead of industry trends, ensuring that our clients receive unparalleled service and value.",
+      " Combining creativity with strategic insight, TACTICS® delivers impactful results that set you apart in a crowded marketplace. We harness unique market knowledge and cutting-edge technology to anticipate trends and adapt to the changing landscape. This enables us to provide our clients with both digital and creative solutions that ensure their competitive advantage, regardless of industry.",
     content: (
       <div className="h-full font-nourd text-xl w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
         Strategic Insight
@@ -41,7 +41,7 @@ const content = [
   {
     title: "Mission",
     description:
-      "Our mission is to empower businesses through data-driven digital strategies that maximize growth and exceed expectations. We are dedicated to providing superior quality deliverables that set new standards in digital marketing excellence.",
+      " Our mission is to empower businesses with data-driven digital strategies and creative services that accelerate growth and exceed expectations. We are dedicated toproducing superior results that push the boundaries of digital and creative marketing.",
     content: (
       <div className="h-full w-full font-nourd text-xl bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
         Mission
@@ -51,7 +51,7 @@ const content = [
   {
     title: "Vision",
     description:
-      "Our vision is to redefine digital marketing by consistently delivering exceptional performance and innovation, becoming the trusted partner of choice for businesses seeking transformative growth in the digital landscape.",
+      "Our vision is to redefine digital and creative marketing by consistently delivering innovative, high-performance solutions, making us the trusted partner for businesses looking to achieve significant growth and success.",
     content: (
       <div className="h-full w-full font-nourd text-xl bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
         Vision

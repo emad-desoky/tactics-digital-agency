@@ -5,7 +5,7 @@ import GetInTouch from "@/components/contact-us/GetInTouch";
 export default function AboutUsPage() {
   return (
     <>
-      <Slider />
+      <Slider image="/about-us.png" />
       <StickyScrollRevealDemo />
     </>
   );
