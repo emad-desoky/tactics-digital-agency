@@ -19,7 +19,7 @@ import {
 
 const NavItems = [
   { name: "Home", href: "/", icon: Home },
-  { name: "About Us", href: "/about-us", icon: Info },
+  { name: "AboutUs", href: "/about-us", icon: Info },
   { name: "Blogs", href: "/blogs", icon: BookOpen },
   { name: "Gallery", href: "/gallery", icon: ImageIcon },
   { name: "Careers", href: "/careers", icon: Briefcase },
@@ -60,7 +60,7 @@ const Navbar = () => {
           <li key={item.name}>
             <Link
               href={item.href}
-              className="rounded-md px-2 py-2 text-2xl font-medium hover:bg-[rgb(255,228,0)] hover:text-black transition-colors duration-200 flex items-center space-x-2"
+              className="rounded-md px-2 py-2 text-xl  hover:bg-[rgb(255,228,0)] hover:text-black transition-colors duration-200 flex items-center space-x-6"
               onClick={() => setIsOpen(false)}
             >
               <item.icon className="w-6 h-6" />
@@ -71,34 +71,34 @@ const Navbar = () => {
       </ul>
 
       {/* Social Media Icons */}
-      <div className="hidden md:flex space-x-6 text-white">
+      <div className="hidden md:flex space-x-4 text-white">
         <Link
           href="https://facebook.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Facebook className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Facebook className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Instagram className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Instagram className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
           href="https://youtube.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Youtube className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Youtube className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
           href="https://twitter.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Twitter className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Twitter className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
       </div>
     </nav>
