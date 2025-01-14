@@ -27,14 +27,13 @@ const Partners = () => {
           return (
             <div
               key={`client-${imageNumber}`}
-              className="flex justify-center items-center p-2 md:p-3 bg-transparent rounded-lg hover:bg-white/10 transition-colors duration-300"
+              className="flex justify-center items-center p-3 md:p-4 bg-transparent rounded-lg hover:bg-white/10 transition-colors duration-300"
             >
               <Image
                 src={`/${imageNumber}.png`}
                 alt={`Client ${imageNumber}`}
-                width={90}
-                height={90}
-                className="object-contain hover:scale-110 transition-transform duration-300"
+                width={100}
+                height={100}
               />
             </div>
           );
