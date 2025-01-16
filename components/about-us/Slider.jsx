@@ -8,7 +8,7 @@ export function Slider({ image }) {
 
   return (
     <ImagesSlider
-      className="h-[46rem] sm:h-[30rem] md:h-[36rem] lg:h-[42rem] xl:h-[46rem] 2xl:h-[50rem] 3xl:h-[60rem]"
+      className="h-[46rem] sm:h-[30rem] md:h-[36rem] lg:h-[42rem] xl:h-[46rem] 2xl:h-[50rem] 3xl:h-[60rem] brightness-200"
       images={images}
     >
       <motion.div
