@@ -62,6 +62,21 @@ export const HeroParallax = ({ products }) => {
     springConfig
   );
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (selectedProduct) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "0px"; // Prevent layout shift
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [selectedProduct]);
+
   return (
     <div
       ref={ref}
@@ -191,15 +206,16 @@ const ProductModal = ({ product, onClose }) => {
 
   useEffect(() => {
     const container = document.createElement("div");
+    container.style.position = "fixed";
+    container.style.inset = "0";
+    container.style.zIndex = "50";
     document.body.appendChild(container);
     setPortalContainer(container);
-    document.body.style.overflow = "hidden";
 
     return () => {
       if (container && container.parentElement) {
         container.parentElement.removeChild(container);
       }
-      document.body.style.overflow = "unset";
     };
   }, []);
 
@@ -211,7 +227,7 @@ const ProductModal = ({ product, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4 overflow-y-auto overscroll-none touch-none"
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0, y: 20 }}
