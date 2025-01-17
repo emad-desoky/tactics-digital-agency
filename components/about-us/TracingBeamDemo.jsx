@@ -3,7 +3,7 @@ import React from "react";
 // import Image from "next/image";
 // import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "../ui/tracing-beam";
-import { StickyScrollRevealDemo } from "./StickyScrollRevealDemo";
+import { StickyScrollRevealDemo } from "./Tabss";
 
 export function TracingBeamDemo() {
   return (

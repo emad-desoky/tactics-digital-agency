@@ -177,7 +177,6 @@ const ProductCard = ({ product, translate, onProductClick, isMobile }) => {
           src={product.thumbnail}
           height={600}
           width={600}
-          className="object-cover object-center absolute h-full w-full inset-0 transform group-hover/product:scale-105 transition-all duration-700 ease-out"
           alt={product.title}
         />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover/product:opacity-100 transition-opacity duration-500" />

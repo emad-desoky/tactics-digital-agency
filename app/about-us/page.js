@@ -1,12 +1,11 @@
 import { Slider } from "@/components/about-us/Slider";
-import { StickyScrollRevealDemo } from "@/components/about-us/StickyScrollRevealDemo";
-import GetInTouch from "@/components/contact-us/GetInTouch";
+import { Tabss } from "@/components/about-us/Tabss";
 
 export default function AboutUsPage() {
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <Slider image="/about-us.png" />
-      <StickyScrollRevealDemo />
-    </>
+      <Tabss />
+    </div>
   );
 }
