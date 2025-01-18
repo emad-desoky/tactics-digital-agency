@@ -7,7 +7,6 @@ export default async function BlogsPage({ searchParams }) {
   return (
     <>
       <Slider image="/Blogs.png" />
-
       <Navbar />
       <DataBlog pageNo={pageNo} />
     </>
