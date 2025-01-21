@@ -84,7 +84,7 @@ const OurMix = () => {
   }, [swapPositions]);
 
   // Calculate middle position for different screen sizes
-  const middlePosition = 5; // For a grid of 10 items, position 5 is the middle
+  const middlePosition = 1; // For a grid of 10 items, position 5 is the middle
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 w-full">
