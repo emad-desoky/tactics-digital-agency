@@ -1,130 +1,136 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Image from "next/image"; // Import the Image component
-import imagePaths from "./ImagePaths"; // Adjust the path based on your folder structure
+
+import { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
+
+const imagePaths = [
+  {
+    src: "/director1.jpg",
+    name: "Sarah Wilson",
+    position: "Creative Director",
+  },
+  {
+    src: "/director2.jpg",
+    name: "Michael Chen",
+    position: "Art Director",
+  },
+  {
+    src: "/director3.jpg",
+    name: "Emma Rodriguez",
+    position: "Senior Designer",
+  },
+  {
+    src: "/director4.jpg",
+    name: "David Kim",
+    position: "Technical Lead",
+  },
+  {
+    src: "/director5.jpg",
+    name: "Lisa Thompson",
+    position: "Project Manager",
+  },
+  {
+    src: "/director6.jpg",
+    name: "James Anderson",
+    position: "UX Designer",
+  },
+  {
+    src: "/director7.jpg",
+    name: "Maria Garcia",
+    position: "Visual Designer",
+  },
+  {
+    src: "/director8.jpg",
+    name: "Alex Turner",
+    position: "Motion Designer",
+  },
+  {
+    src: "/director9.jpg",
+    name: "Rachel Lee",
+    position: "Product Designer",
+  },
+];
 
 const OurMix = () => {
   const [images, setImages] = useState(imagePaths);
 
-  useEffect(() => {
-    const randomizeImages = () => {
-      setImages((prevImages) => {
-        const newImages = [...prevImages];
-        const randomIndex = Math.floor(Math.random() * newImages.length);
-        const randomImage =
-          imagePaths[Math.floor(Math.random() * imagePaths.length)];
-        newImages[randomIndex] = randomImage;
-        return newImages;
-      });
-    };
-
-    const interval = setInterval(randomizeImages, 1000);
-    return () => clearInterval(interval);
+  const getRandomIndices = useCallback((count) => {
+    const indices = new Set();
+    while (indices.size < count) {
+      const index = Math.floor(Math.random() * imagePaths.length);
+      if (!indices.has(index)) {
+        indices.add(index);
+      }
+    }
+    return Array.from(indices);
   }, []);
 
+  const swapPositions = useCallback(() => {
+    const indices = getRandomIndices(3);
+
+    setImages((prevImages) => {
+      const newImages = [...prevImages];
+      const temp = newImages[indices[0]];
+      newImages[indices[0]] = newImages[indices[1]];
+      newImages[indices[1]] = newImages[indices[2]];
+      newImages[indices[2]] = temp;
+      return newImages;
+    });
+  }, [getRandomIndices]);
+
+  useEffect(() => {
+    const interval = setInterval(swapPositions, 1500);
+    return () => clearInterval(interval);
+  }, [swapPositions]);
+
+  // Calculate middle position for different screen sizes
+  const middlePosition = 5; // For a grid of 10 items, position 5 is the middle
+
   return (
-    <div id="OurMix" className="bg-white">
-      {/* Row 1 - 6 Images */}
-      <div className="col-span-2 sm:col-span-4 xs:col-span-2 flex 3xl:h-[300px] flex-wrap ">
-        {images.slice(0, 6).map((image, index) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 w-full">
+      {[...Array(10)].map((_, index) => {
+        if (index === middlePosition) {
+          return (
+            <div
+              key="family-block"
+              className="relative aspect-[3/4] w-full bg-[rgb(43,43,43)] flex flex-col items-center justify-center"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                OUR
+              </h2>
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[rgb(255,228,0)] leading-tight">
+                FAMILY
+              </span>
+            </div>
+          );
+        }
+
+        const imageIndex = index < middlePosition ? index : index - 1;
+        const image = images[imageIndex];
+
+        return (
           <div
-            key={index}
-            className="flex-1 relative group sm:w-1/2 xs:w-full h-[150px] sm:h-[200px] md:h-[300px]"
+            key={`${image.name}-${imageIndex}`}
+            className="relative aspect-[3/4] w-full group"
           >
-            <Image
-              src={image.src}
-              alt={`Image ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-none transition-all duration-500"
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw" // Responsive sizes
-              quality={75} // Optimize quality
-              placeholder="blur" // Placeholder for loading
-              blurDataURL={image.src} // Use a low-quality version for blur
-              loading="lazy" // Enable lazy loading
-            />
-            {/* Overlay text on hover with yellow background */}
-            <div className="absolute inset-0 bg-[rgb(255,228,0)] bg-opacity-80 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity duration-500">
-              <h3 className="text-black text-lg font-bold sm:mt-0 mt-40 font-nourd">
-                {image.name}
-              </h3>
-              <p className="text-white text-sm font-nourd leading-3">
-                {image.position}
-              </p>
+            <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
+              <Image
+                src={image.src || "/placeholder.svg"}
+                alt={`Team member ${image.name}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33.33vw, (max-width: 1024px) 25vw, 20vw"
+                quality={90}
+                priority={index < 4}
+              />
+              <div className="absolute inset-0 bg-[rgb(255,228,0)] bg-opacity-90 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300">
+                <h3 className="text-black text-lg font-bold">{image.name}</h3>
+                <p className="text-black text-sm">{image.position}</p>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
-
-      {/* Row 2 - 6 Images with "OUR MIX" Box */}
-      <div className="col-span-8 sm:col-span-4 xs:col-span-2 flex relative flex-wrap">
-        {images.slice(6, 12).map((image, index) => (
-          <div
-            key={index}
-            className="flex-1 relative group sm:w-1/2 xs:w-full h-[150px] sm:h-[200px] md:h-[300px]"
-          >
-            <Image
-              src={image.src}
-              alt={`Image ${index + 7}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-none transition-all duration-500"
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-              quality={75}
-              placeholder="blur"
-              blurDataURL={image.src}
-              loading="lazy" // Enable lazy loading
-            />
-            {/* Overlay text on hover with yellow background */}
-            <div className="absolute inset-0 bg-[rgb(255,228,0)] bg-opacity-75 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity duration-500">
-              <h3 className="text-black text-lg mt-40 font-bold font-nourd leading-3">
-                {image.name}
-              </h3>
-              <p className="text-black text-sm font-nourd">{image.position}</p>
-            </div>
-          </div>
-        ))}
-
-        {/* "OUR MIX" Box spanning two pictures */}
-        <div className="absolute xl:right-[25%] 2xl:right-[27%] 3xl:right-[29%] lg:right-[26%] md:right-[9%] transform -translate-x-1/2 bg-[rgb(43,43,43)]  shadow-lg w-[320px] lg:w-[260px] sm:w-[350px] md:w-[200px] xl:w-[300px] 2xl:w-[335px] 3xl:w-[395px] h-full flex flex-col items-center justify-center z-10">
-          <h2 className="text-[44px] sm:text-[64px] md:text-[38px] lg:text-[70px] xl:text-[70px] font-bold text-white font-nourd leading-tight tracking-tight">
-            OUR
-          </h2>
-          <span className="text-[44px] sm:text-[64px] md:text-[40px] lg:text-[70px] xl:text-[70px] font-bold text-[rgb(255,228,0)] font-nourd tracking-tight leading-tight">
-            FAMILY
-          </span>
-        </div>
-      </div>
-
-      {/* Row 3 - 3 Images */}
-      <div className="col-span-8 sm:col-span-4 xs:col-span-2 fle flex-wrap">
-        {images.slice(12, 15).map((image, index) => (
-          <div
-            key={index}
-            className="flex-1 relative group sm:w-1/2 xs:w-full h-[150px] sm:h-[200px] md:h-[300px]"
-          >
-            <Image
-              src={image.src}
-              alt={`Image ${index + 13}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-none transition-all duration-500"
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-              quality={75}
-              placeholder="blur"
-              blurDataURL={image.src}
-              loading="lazy" // Enable lazy loading
-            />
-            {/* Overlay text on hover with yellow background */}
-            <div className="absolute inset-0 bg-yellow-500 bg-opacity-75 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity duration-500">
-              <h3 className="text-black leading-3 font-nourd text-lg font-bold mt-40">
-                {image.name}
-              </h3>
-              <p className="text-black text-sm">{image.position}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 };

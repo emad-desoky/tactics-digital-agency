@@ -39,10 +39,12 @@ const config: Config = {
       },
     },
     extend: {
+      
       screens: {
         '3xl': '1600px',
       },
       keyframes: {
+        
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
