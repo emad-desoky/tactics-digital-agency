@@ -105,7 +105,7 @@ const CareerComponent = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 w-full bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen py-12 px-4 w-full bg-[rgb(63,63,63)] text-white">
       <div className="text-center mb-16 max-w-4xl mx-auto">
         <h1 className="text-6xl text-[rgb(255,228,0)] mb-4">
           Join Our Team at Tactics Digital Agency
@@ -152,7 +152,7 @@ const CareerComponent = () => {
         ].map((item, index) => (
           <Card
             key={index}
-            className="p-8 hover:shadow-2xl transition-all duration-300 bg-gray-800/50 backdrop-blur-sm border border-gray-700 group"
+            className="p-8 hover:shadow-2xl transition-all duration-300 bg-[rgb(43,43,43)]  border border-gray-700 group"
           >
             <div className="text-4xl text-[#ffe400] mb-6 group-hover:scale-110 transition-transform duration-300">
               {item.icon}
@@ -165,7 +165,7 @@ const CareerComponent = () => {
         ))}
       </div>
 
-      <Card className="p-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700 mb-16 container mx-auto">
+      <Card className="p-8 bg-[rgb(43,43,43)] backdrop-blur-sm border border-gray-700 mb-16 container mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center text-white">
           Current Openings
         </h2>
@@ -173,7 +173,7 @@ const CareerComponent = () => {
           {positions.map((position, index) => (
             <li
               key={index}
-              className="flex items-center p-4 rounded-lg bg-gray-700/30 hover:bg-gray-700/50 transition-colors"
+              className="flex items-center p-4 rounded-lg bg-[rgb(63,63,63)] hover:bg-[rgb(53,53,53)] transition-colors"
             >
               <FaBriefcase className="mr-3 text-[#ffe400] text-xl" />
               <span className="text-lg text-white">{position}</span>
@@ -183,7 +183,7 @@ const CareerComponent = () => {
       </Card>
 
       <div className="flex flex-col lg:flex-row gap-12 container mx-auto">
-        <Card className="p-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700 lg:w-1/2 shadow-xl">
+        <Card className="p-8 bg-[rgb(43,43,43)] backdrop-blur-sm border border-gray-700 lg:w-1/2 shadow-xl">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             Apply Now
           </h2>

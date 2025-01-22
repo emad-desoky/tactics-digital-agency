@@ -82,7 +82,7 @@ export function DataBlogClient({ initialBlogs, totalPages, pageNo, allTags }) {
                   className={`px-4 py-2 rounded-md transition-colors duration-200 ${
                     pageNo == index + 1
                       ? "bg-[rgb(255,228,0)] text-gray-900 font-semibold"
-                      : "bg-gray-800 text-white hover:bg-gray-700"
+                      : "bg-[rgb(43,43,43)] text-white hover:bg-[rgb(83,83,83)]"
                   }`}
                 >
                   {index + 1}
