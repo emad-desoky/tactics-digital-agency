@@ -8,7 +8,7 @@ const page = () => {
   return (
     <>
       <Navbar />
-      <Slider image="/career.png" />
+      <Slider image="/Career.png" />
       <CareerComponent />
       <Footer />
     </>
