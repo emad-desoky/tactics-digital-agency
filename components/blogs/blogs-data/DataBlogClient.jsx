@@ -28,7 +28,7 @@ export function DataBlogClient({ initialBlogs, totalPages, pageNo, allTags }) {
             {blogs.map((blog) => (
               <Card
                 key={blog.id}
-                className="bg-gray-800 border border-gray-700 hover:border-[rgb(255,228,0)] transition-all duration-300 overflow-hidden"
+                className="bg-[rgb(43,43,43)] border border-gray-700 hover:border-[rgb(255,228,0)] transition-all duration-300 overflow-hidden"
                 shadow="lg"
               >
                 {blog.image ? (
@@ -95,7 +95,7 @@ export function DataBlogClient({ initialBlogs, totalPages, pageNo, allTags }) {
         {/* Right Section (Sidebar) */}
         <div className="w-full lg:w-1/4 space-y-8">
           {/* Search Box */}
-          <Card className="bg-gray-800 p-6 border border-gray-700">
+          <Card className="bg-[rgb(43,43,43)] p-6 border border-gray-700">
             <CardBody>
               <h3 className="text-xl font-semibold text-[rgb(255,228,0)] mb-4">
                 Search Blogs
@@ -111,7 +111,7 @@ export function DataBlogClient({ initialBlogs, totalPages, pageNo, allTags }) {
           </Card>
 
           {/* Recent Posts */}
-          <Card className="bg-gray-800 p-6 border border-gray-700">
+          <Card className="bg-[rgb(43,43,43)] p-6 border border-gray-700">
             <CardBody>
               <h3 className="text-xl font-semibold text-[rgb(255,228,0)] mb-4">
                 Recent Posts
@@ -130,7 +130,7 @@ export function DataBlogClient({ initialBlogs, totalPages, pageNo, allTags }) {
           </Card>
 
           {/* Tags */}
-          <Card className="bg-gray-800 p-6 border border-gray-700">
+          <Card className="bg-[rgb(43,43,43)] p-6 border border-gray-700">
             <CardBody>
               <h3 className="text-xl font-semibold text-[rgb(255,228,0)] mb-4">
                 Tags

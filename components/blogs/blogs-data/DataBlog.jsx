@@ -12,7 +12,7 @@ export async function DataBlog({ pageNo = 1 }) {
   const { blogs, totalPages, allTags } = await DataBlogServer({ pageNo });
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+    <section className="py-16 bg-[rgb(63,63,63)]">
       <div className="container mx-auto px-4 lg:px-8">
         <h1 className="text-5xl font-bold text-center text-[rgb(255,228,0)] mb-12 tracking-tight">
           Latest Blogs
@@ -26,7 +26,7 @@ export async function DataBlog({ pageNo = 1 }) {
       </div>
 
       {/* Footer Section */}
-      <footer className="bg-gray-800 text-gray-300 mt-16 py-12">
+      <footer className="bg-[rgb(43,43,43)] text-gray-300 mt-16 py-12">
         <div className="container mx-auto text-center">
           <p className="text-sm mb-6">
             © {new Date().getFullYear()} Alpha Beto Translations. All rights
