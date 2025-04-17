@@ -1,65 +1,51 @@
 "use client";
-import { Dialog, DialogContent, IconButton, Typography } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 
-const GalleryModal = ({ open, onClose, imageSrc, format }) => {
+import { useEffect } from "react";
+
+export default function GalleryModal({ open, onClose, imageSrc, format }) {
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (open) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogContent
-        style={{
-          position: "relative",
-          padding: 0,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "rgb(43, 43, 43)",
-        }}
+    <div
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+      onClick={onClose}
+      style={{ animation: "fadeIn 0.3s ease-out forwards" }}
+    >
+      <div
+        className="relative max-w-4xl max-h-[90vh] p-4"
+        onClick={(e) => e.stopPropagation()}
+        style={{ animation: "fadeIn 0.3s ease-out 0.1s forwards" }}
       >
-        <IconButton
+        <button
+          className="absolute top-2 right-2 bg-white/10 rounded-full p-1 text-white hover:bg-white/30 transition-colors"
           onClick={onClose}
-          style={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            zIndex: 1,
-            color: "white",
-          }}
         >
-          <CloseIcon />
-        </IconButton>
-
+          ✕
+        </button>
         <img
           src={imageSrc || "/placeholder.svg"}
-          alt={`Selected ${format} image`}
-          style={{
-            width: "100%",
-            height: "auto",
-            maxHeight: "90vh",
-            objectFit: "contain",
-          }}
+          alt="Gallery image"
+          className="max-h-[85vh] w-auto object-contain"
         />
-
-        {format && (
-          <Typography
-            variant="subtitle1"
-            style={{
-              color: "rgb(255, 228, 0)",
-              padding: "10px",
-              textAlign: "center",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-            }}
-          >
-            {format} Format
-            {format === "portrait" && " (1080x1920)"}
-            {format === "square" && " (1:1)"}
-            {format === "landscape" && " (3:1)"}
-          </Typography>
-        )}
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
-};
-
-export default GalleryModal;
+}

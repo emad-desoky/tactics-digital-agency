@@ -1,295 +1,274 @@
 "use client";
 
-import { useState } from "react";
-import { ImageList, ImageListItem, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 import GalleryModal from "./GalleryModal";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Define image aspect ratios based on WhatsApp chat
-const imageFormats = {
-  portrait: { cols: 1, rows: 2 }, // 1080 x 1920 portrait
-  square: { cols: 1, rows: 1 }, // 1:1 square
-  landscape: { cols: 2, rows: 1 }, // 3:1 landscape
-  wide: { cols: 2, rows: 2 }, // Wide format
-};
-
-// Updated images array with proper aspect ratios
-const images = [
-  {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
-    ...imageFormats.wide,
-    format: "wide",
-  },
-  {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
-    ...imageFormats.square,
-    format: "square",
-  },
+// Use the provided image URLs with some modified to be full-width portraits
+const galleryImages = [
+  // Page 1 - standard layout
   {
     src: "https://images.unsplash.com/photo-1526927071144-dbe4c41835e4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D",
-    ...imageFormats.portrait,
     format: "portrait",
-  },
-  {
-    src: "https://st2.depositphotos.com/2931363/6569/i/450/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg",
-    ...imageFormats.square,
-    format: "square",
+    cols: 1,
+    rows: 2,
   },
   {
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ019r2GcVfsd94tVr8ru4YT-aGSuZCwDj1g&s",
-    ...imageFormats.landscape,
     format: "landscape",
+    cols: 2,
+    rows: 1,
   },
   {
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
-    ...imageFormats.wide,
-    format: "wide",
-  },
-  {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
-    ...imageFormats.square,
-    format: "square",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1526927071144-dbe4c41835e4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D",
-    ...imageFormats.portrait,
-    format: "portrait",
+    format: "landscape",
+    cols: 2,
+    rows: 1,
   },
   {
     src: "https://st2.depositphotos.com/2931363/6569/i/450/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg",
-    ...imageFormats.square,
     format: "square",
+    cols: 1,
+    rows: 1,
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
+    format: "square",
+    cols: 1,
+    rows: 1,
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
+    format: "square",
+    cols: 1,
+    rows: 1,
+  },
+
+  // Page 2 - with full-width portrait
+  {
+    src: "https://images.unsplash.com/photo-1526927071144-dbe4c41835e4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D",
+    format: "wide-portrait",
+    cols: 3,
+    rows: 1,
   },
   {
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ019r2GcVfsd94tVr8ru4YT-aGSuZCwDj1g&s",
-    ...imageFormats.landscape,
     format: "landscape",
+    cols: 2,
+    rows: 1,
+  },
+  {
+    src: "https://st2.depositphotos.com/2931363/6569/i/450/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg",
+    format: "square",
+    cols: 1,
+    rows: 1,
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
+    format: "landscape",
+    cols: 2,
+    rows: 1,
+  },
+  {
+    src: "https://st2.depositphotos.com/2931363/6569/i/450/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg",
+    format: "square",
+    cols: 1,
+    rows: 1,
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFv1LJuW59sR1KW6BDD5ietN8eJlEZLk7eA&s",
+    format: "square",
+    cols: 1,
+    rows: 1,
   },
 ];
 
-const Gallery = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
-  const [selectedFormat, setSelectedFormat] = useState("");
-  const [filterFormat, setFilterFormat] = useState("all");
+// Split images into pages of 6 images each
+const imagesPerPage = 7;
+const paginatedImages = galleryImages.reduce((acc, image, index) => {
+  const pageIndex = Math.floor(index / imagesPerPage);
+  if (!acc[pageIndex]) {
+    acc[pageIndex] = [];
+  }
+  acc[pageIndex].push(image);
+  return acc;
+}, []);
 
-  const handleImageClick = (imageSrc, format) => {
-    setSelectedImage(imageSrc);
-    setSelectedFormat(format);
-    setOpenModal(true);
+export default function Gallery() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState("next");
+
+  const totalPages = paginatedImages.length;
+  const currentImages = paginatedImages[currentPage] || [];
+
+  const handlePrevPage = () => {
+    if (currentPage > 0 && !isAnimating) {
+      setAnimationDirection("prev");
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentPage(currentPage - 1);
+      }, 300);
+    }
   };
 
-  const handleCloseModal = () => {
-    setOpenModal(false);
+  const handleNextPage = () => {
+    if (currentPage < totalPages - 1 && !isAnimating) {
+      setAnimationDirection("next");
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentPage(currentPage + 1);
+      }, 300);
+    }
   };
 
-  // Filter images based on selected format
-  const filteredImages =
-    filterFormat === "all"
-      ? images
-      : images.filter((img) => img.format === filterFormat);
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating]);
+
+  const openModal = (image) => {
+    setSelectedImage(image.src);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
-    <>
+    <div className="w-full max-w-[70%] mx-auto p-4 md:p-8 bg-[rgb(43,43,43)]">
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-serif">Our Gallery</h1>
+      </div>
+
       <div
+        className={`grid grid-cols-3 gap-3 md:gap-4 relative transition-all duration-500 ${
+          isAnimating ? "opacity-0" : "opacity-100"
+        }`}
         style={{
-          maxHeight: "auto",
-          overflowY: "auto",
-          padding: "5%",
-          backgroundColor: "rgba(0, 0, 0, 0.7)",
-          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
+          transform: isAnimating
+            ? `translateX(${animationDirection === "next" ? "-20px" : "20px"})`
+            : "translateX(0)",
+          transition:
+            "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
-        <div
-          style={{
-            padding: "2%",
-            backgroundColor: "rgb(43, 43, 43)",
-            minHeight: "auto",
-            color: "rgb(255, 228, 0)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {/* Title and Description */}
-          <Typography
-            variant="h4"
-            align="center"
-            gutterBottom
-            style={{
-              color: "rgb(255, 228, 0)",
-              fontWeight: "bold",
-              letterSpacing: "2px",
-            }}
-          >
-            Gallery
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            gutterBottom
-            style={{
-              color: "rgb(255, 228, 0)",
-              maxWidth: "600px",
-              marginBottom: "20px",
-              fontSize: "18px",
-              lineHeight: "1.6",
-            }}
-          >
-            Browse our collection of images in different formats: portrait
-            (1080x1920), square (1:1), and landscape (3:1).
-          </Typography>
+        {currentImages.map((image, index) => {
+          // Calculate grid span based on image format
+          const colSpan = image.cols || 1;
+          const rowSpan = image.rows || 1;
 
-          {/* Format Filter Buttons */}
-          <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-            <button
-              onClick={() => setFilterFormat("all")}
+          return (
+            <div
+              key={index}
+              className={`relative cursor-pointer transition-transform hover:scale-[1.02] ${
+                colSpan === 2 ? "col-span-2" : colSpan === 3 ? "col-span-3" : ""
+              } ${rowSpan === 2 ? "row-span-2" : ""}`}
+              onClick={() => openModal(image)}
               style={{
-                padding: "8px 16px",
-                backgroundColor:
-                  filterFormat === "all" ? "rgb(255, 228, 0)" : "transparent",
-                color: filterFormat === "all" ? "black" : "rgb(255, 228, 0)",
-                border: "1px solid rgb(255, 228, 0)",
-                borderRadius: "4px",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
+                gridColumn: `span ${colSpan}`,
+                gridRow: `span ${rowSpan}`,
               }}
             >
-              All
-            </button>
-            <button
-              onClick={() => setFilterFormat("portrait")}
-              style={{
-                padding: "8px 16px",
-                backgroundColor:
-                  filterFormat === "portrait"
-                    ? "rgb(255, 228, 0)"
-                    : "transparent",
-                color:
-                  filterFormat === "portrait" ? "black" : "rgb(255, 228, 0)",
-                border: "1px solid rgb(255, 228, 0)",
-                borderRadius: "4px",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            >
-              Portrait
-            </button>
-            <button
-              onClick={() => setFilterFormat("square")}
-              style={{
-                padding: "8px 16px",
-                backgroundColor:
-                  filterFormat === "square"
-                    ? "rgb(255, 228, 0)"
-                    : "transparent",
-                color: filterFormat === "square" ? "black" : "rgb(255, 228, 0)",
-                border: "1px solid rgb(255, 228, 0)",
-                borderRadius: "4px",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            >
-              Square
-            </button>
-            <button
-              onClick={() => setFilterFormat("landscape")}
-              style={{
-                padding: "8px 16px",
-                backgroundColor:
-                  filterFormat === "landscape"
-                    ? "rgb(255, 228, 0)"
-                    : "transparent",
-                color:
-                  filterFormat === "landscape" ? "black" : "rgb(255, 228, 0)",
-                border: "1px solid rgb(255, 228, 0)",
-                borderRadius: "4px",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            >
-              Landscape
-            </button>
-          </div>
-
-          {/* Photo Grid */}
-          <ImageList
-            sx={{
-              width: "100%",
-              maxWidth: "1200px",
-              height: "auto",
-              borderRadius: "12px",
-              overflow: "hidden",
-              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
-            }}
-            variant="quilted"
-            cols={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6, "2xl": 7, "3xl": 8 }}
-            rowHeight={200}
-            gap={8}
-          >
-            {filteredImages.map((image, index) => (
-              <ImageListItem
-                key={index}
-                cols={image.cols || 1}
-                rows={image.rows || 1}
-                onClick={() => handleImageClick(image.src, image.format)}
+              <div
+                className="relative w-full h-full"
                 style={{
-                  cursor: "pointer",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  borderRadius: "8px",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "scale(1.05)";
-                  e.currentTarget.style.boxShadow =
-                    "0px 6px 20px rgba(0, 0, 0, 0.8)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.boxShadow = "none";
+                  aspectRatio:
+                    image.format === "portrait"
+                      ? "2/3"
+                      : image.format === "landscape"
+                      ? "3/2"
+                      : image.format === "wide-portrait"
+                      ? "16/6"
+                      : image.format === "wide"
+                      ? "16/9"
+                      : "1/1",
                 }}
               >
                 <img
                   src={image.src || "/placeholder.svg"}
-                  alt={`Gallery Image ${index + 1} - ${image.format}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-full object-cover"
                 />
-                {/* Format label */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "8px",
-                    right: "8px",
-                    backgroundColor: "rgba(0,0,0,0.7)",
-                    color: "rgb(255, 228, 0)",
-                    padding: "4px 8px",
-                    borderRadius: "4px",
-                    fontSize: "12px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {image.format}
-                </div>
-              </ImageListItem>
-            ))}
-          </ImageList>
-
-          {/* Modal for showing clicked image */}
-          <GalleryModal
-            open={openModal}
-            onClose={handleCloseModal}
-            imageSrc={selectedImage}
-            format={selectedFormat}
-          />
-        </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
-    </>
-  );
-};
 
-export default Gallery;
+      {/* Enhanced Pagination */}
+      <div className="flex items-center justify-center mt-8 md:mt-10">
+        <div className="flex items-center bg-gray-100 rounded-full p-1 shadow-sm">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage === 0 || isAnimating}
+            className={`flex items-center justify-center w-8 h-8 rounded-full ${
+              currentPage === 0 || isAnimating
+                ? "text-gray-400 cursor-not-allowed"
+                : "text-gray-700 hover:bg-white hover:shadow-md"
+            } transition-all duration-300`}
+            aria-label="Previous page"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          <div className="flex items-center px-2 space-x-2">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  if (!isAnimating && currentPage !== index) {
+                    setAnimationDirection(
+                      index > currentPage ? "next" : "prev"
+                    );
+                    setIsAnimating(true);
+                    setTimeout(() => {
+                      setCurrentPage(index);
+                    }, 300);
+                  }
+                }}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentPage === index
+                    ? "bg-black scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to page ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages - 1 || isAnimating}
+            className={`flex items-center justify-center w-8 h-8 rounded-full ${
+              currentPage === totalPages - 1 || isAnimating
+                ? "text-gray-400 cursor-not-allowed"
+                : "text-gray-700 hover:bg-white hover:shadow-md"
+            } transition-all duration-300`}
+            aria-label="Next page"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+
+        <span className="text-sm text-gray-500 ml-3 font-medium">
+          {currentPage + 1} / {totalPages}
+        </span>
+      </div>
+
+      {/* Image Modal */}
+      <GalleryModal
+        open={modalOpen}
+        onClose={closeModal}
+        imageSrc={selectedImage}
+      />
+    </div>
+  );
+}

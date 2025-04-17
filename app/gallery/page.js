@@ -5,12 +5,12 @@ import { Slider } from "@/components/about-us/Slider";
 
 export default function GalleryPage() {
   return (
-    <>
+    <div className="bg-[rgb(43,43,43)]">
       <Slider image="/gallery.png" />
 
       <Navbar />
       <Gallery />
       <Footer />
-    </>
+    </div>
   );
 }
