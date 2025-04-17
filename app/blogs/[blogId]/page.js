@@ -1,6 +1,16 @@
 import { getBlogById } from "@/model/blogs";
 import styles from "./page.module.css"; // Import the CSS module
 
+export async function generateMetadata({ params }) {
+  const { blogId } = await params;
+  const blog = await getBlogById(blogId);
+
+  return {
+    title: blog.title,
+    description: blog.description,
+  };
+}
+
 export default async function Blog({ params }) {
   const { blogId } = await params;
   const blog = await getBlogById(blogId);
