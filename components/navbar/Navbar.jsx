@@ -96,32 +96,25 @@ const Navbar = () => {
         {/* Social Media Icons for Mobile */}
         <div className="md:hidden flex space-x-4 mt-6">
           <Link
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/16UcPPA2ze/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Facebook className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
           </Link>
           <Link
-            href="https://instagram.com"
+            href="https://www.instagram.com/tacticsdigitalagency?igsh=MTM0NDVmYnlrbHpzMw=="
             target="_blank"
             rel="noopener noreferrer"
           >
             <Instagram className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
           </Link>
           <Link
-            href="https://youtube.com"
+            href="https://m.youtube.com/@TacticsDigitalAgency?fbclid=PAQ0xDSwKXH4FleHRuA2FlbQIxMAABp3xaz6mNcMzgbGo-BKdTRoLT5-6QTNtJpixpO31pQqzLvSMeo4RQ4efytnTL_aem_y-FZwFJeGKVIhop9G7Lx7Q"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Youtube className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
-          </Link>
-          <Link
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Twitter className="w-6 h-6 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
           </Link>
         </div>
       </div>
@@ -132,32 +125,25 @@ const Navbar = () => {
         style={{ opacity: scrollOpacity }}
       >
         <Link
-          href="https://facebook.com"
+          href="https://www.facebook.com/share/16UcPPA2ze/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Facebook className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
-          href="https://instagram.com"
+          href="https://www.instagram.com/tacticsdigitalagency?igsh=MTM0NDVmYnlrbHpzMw=="
           target="_blank"
           rel="noopener noreferrer"
         >
           <Instagram className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
         <Link
-          href="https://youtube.com"
+          href="https://m.youtube.com/@TacticsDigitalAgency?fbclid=PAQ0xDSwKXH4FleHRuA2FlbQIxMAABp3xaz6mNcMzgbGo-BKdTRoLT5-6QTNtJpixpO31pQqzLvSMeo4RQ4efytnTL_aem_y-FZwFJeGKVIhop9G7Lx7Q"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Youtube className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
-        </Link>
-        <Link
-          href="https://twitter.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Twitter className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
         </Link>
       </div>
     </nav>

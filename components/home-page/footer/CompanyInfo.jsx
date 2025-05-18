@@ -6,15 +6,15 @@ const CompanyInfo = () => {
     <div className="space-y-4">
       <div className="flex items-center space-x-3 text-gray-400">
         <Building2 className="w-5 h-5" />
-        <span>123 Innovation Street, Tech City, TC 12345</span>
+        <span>خلف مستشفي السعودي الالمانى شارع الشعراوى جسر السويس</span>
       </div>
       <div className="flex items-center space-x-3 text-gray-400">
         <Phone className="w-5 h-5" />
-        <span>+1 (555) 123-4567</span>
+        <span>01222238755</span>
       </div>
       <div className="flex items-center space-x-3 text-gray-400">
         <Mail className="w-5 h-5" />
-        <span>contact@company.com</span>
+        <span>Tacticsdigitalagency@gmail.com</span>
       </div>
     </div>
   );

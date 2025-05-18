@@ -152,13 +152,25 @@ const GetInTouch = () => {
           <a href="#" aria-label="Facebook" className="hover:text-white">
             <FaFacebook />
           </a>
-          <a href="#" aria-label="Instagram" className="hover:text-white">
+          <a
+            href="https://www.instagram.com/tacticsdigitalagency?igsh=MTM0NDVmYnlrbHpzMw=="
+            aria-label="Instagram"
+            className="hover:text-white"
+          >
             <FaInstagram />
           </a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-white">
+          <a
+            href="https://www.linkedin.com/company/tacticsdigitalagencyegypt/?fbclid=PAQ0xDSwKXH2VleHRuA2FlbQIxMQABp-ysyKdtfnI1b4rOBllc_nFMSfHRA--2kUt54W15XLu2NviOczHYLVu-v1v5_aem_qLSF2TvvzHkbcXei1yeH4A"
+            aria-label="LinkedIn"
+            className="hover:text-white"
+          >
             <FaLinkedin />
           </a>
-          <a href="#" aria-label="TikTok" className="hover:text-white">
+          <a
+            href="https://www.tiktok.com/@tacticsdigitalagency?_t=ZS-8wT16KhCDSx&_r=1"
+            aria-label="TikTok"
+            className="hover:text-white"
+          >
             <FaTiktok />
           </a>
         </div>
