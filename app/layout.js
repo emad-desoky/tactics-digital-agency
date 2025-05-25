@@ -30,6 +30,7 @@ export const metadata = {
     address: false,
     telephone: false,
   },
+  // This is crucial - it sets the base URL for all relative paths
   metadataBase: new URL("https://www.tacticsdigitalagency.net"),
   alternates: {
     canonical: "/",
@@ -44,7 +45,8 @@ export const metadata = {
     siteName: "Tactics Digital Agency",
     images: [
       {
-        url: "/og-tactics-image.jpg",
+        // Using absolute URL to ensure it works across all domains
+        url: "https://www.tacticsdigitalagency.net/og-tactics-image.jpg",
         width: 1200,
         height: 630,
         alt: "Tactics Digital Agency - 360° Digital Growth Solutions",
@@ -58,7 +60,7 @@ export const metadata = {
     description:
       "Creativity-driven digital growth with comprehensive 360° digital marketing solutions, web development, SEO, branding, and creative services.",
     creator: "@tacticsdigital",
-    images: ["/og-tactics-image.jpg"],
+    images: ["https://www.tacticsdigitalagency.net/og-tactics-image.jpg"],
   },
   robots: {
     index: true,
@@ -77,6 +79,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // Get the current domain dynamically
+  const currentDomain = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://www.tacticsdigitalagency.net";
+
   return (
     <html lang="en">
       <head>
@@ -88,7 +95,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#ffe400" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
 
-        {/* Essential Open Graph tags for WhatsApp - MUST be first */}
+        {/* Essential Open Graph tags - Using absolute URLs */}
         <meta
           property="og:title"
           content="Tactics Digital Agency - 360° Digital Growth Solutions"
@@ -104,7 +111,7 @@ export default function RootLayout({ children }) {
         />
         <meta property="og:site_name" content="Tactics Digital Agency" />
 
-        {/* Image meta tags - Using your domain for better reliability */}
+        {/* Image meta tags - Using absolute URLs for both domains */}
         <meta
           property="og:image"
           content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
@@ -119,6 +126,16 @@ export default function RootLayout({ children }) {
         <meta
           property="og:image:alt"
           content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+
+        {/* Fallback image for Vercel domain */}
+        <meta
+          property="og:image"
+          content="https://tactics-digital-agency.vercel.app/og-tactics-image.jpg"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://tactics-digital-agency.vercel.app/og-tactics-image.jpg"
         />
 
         {/* Additional image meta tags for WhatsApp compatibility */}
@@ -161,12 +178,17 @@ export default function RootLayout({ children }) {
           content="Welcome to TACTICS DIGITAL AGENCY - 360° Digital Growth Solutions"
         />
 
-        {/* Additional meta tags for broader compatibility */}
+        {/* Domain verification meta tags */}
+        <link rel="canonical" href="https://www.tacticsdigitalagency.net/" />
         <meta property="og:locale" content="en_US" />
         <meta
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
+
+        {/* DNS prefetch for faster loading */}
+        <link rel="dns-prefetch" href="//www.tacticsdigitalagency.net" />
+        <link rel="preconnect" href="https://www.tacticsdigitalagency.net" />
 
         {/* Structured data */}
         <script
@@ -220,28 +242,6 @@ export default function RootLayout({ children }) {
                 "Creative Design",
                 "Digital Strategy",
               ],
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Tactics Digital Agency",
-              url: "https://www.tacticsdigitalagency.net",
-              description: "360° Digital Growth Solutions",
-              publisher: {
-                "@type": "Organization",
-                name: "Tactics Digital Agency",
-              },
-              potentialAction: {
-                "@type": "SearchAction",
-                target:
-                  "https://www.tacticsdigitalagency.net/search?q={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
             }),
           }}
         />
