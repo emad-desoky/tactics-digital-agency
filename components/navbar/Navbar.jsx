@@ -7,7 +7,6 @@ import {
   Facebook,
   Instagram,
   Youtube,
-  Twitter,
   Home,
   BookOpen,
   Briefcase,
@@ -15,6 +14,7 @@ import {
   Info,
   Menu,
   X,
+  Shield,
 } from "lucide-react";
 
 const NavItems = [
@@ -93,6 +93,16 @@ const Navbar = () => {
           </Link>
         ))}
 
+        {/* Admin Button */}
+        <Link
+          href="/admin"
+          className="rounded-md px-2 py-2 text-xl hover:bg-red-600 hover:text-white transition-colors duration-200 flex items-center space-x-6 border border-red-500 text-red-400"
+          onClick={() => setIsOpen(false)}
+        >
+          <Shield className="w-6 h-6" />
+          <span>Admin</span>
+        </Link>
+
         {/* Social Media Icons for Mobile */}
         <div className="md:hidden flex space-x-4 mt-6">
           <Link
@@ -119,32 +129,43 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Social Media Icons for Desktop - Fades on scroll */}
+      {/* Desktop Admin Button - Fades on scroll */}
       <div
-        className="hidden md:flex space-x-4 text-white z-20 transition-opacity duration-300"
+        className="hidden md:flex items-center space-x-4 z-20 transition-opacity duration-300"
         style={{ opacity: scrollOpacity }}
       >
         <Link
-          href="https://www.facebook.com/share/16UcPPA2ze/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/admin"
+          className="rounded-md px-3 py-2 text-sm hover:bg-red-600 hover:text-white transition-colors duration-200 flex items-center space-x-2 border border-red-500 text-red-400"
         >
-          <Facebook className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          <Shield className="w-4 h-4" />
+          <span>Admin</span>
         </Link>
-        <Link
-          href="https://www.instagram.com/tacticsdigitalagency?igsh=MTM0NDVmYnlrbHpzMw=="
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Instagram className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
-        </Link>
-        <Link
-          href="https://m.youtube.com/@TacticsDigitalAgency?fbclid=PAQ0xDSwKXH4FleHRuA2FlbQIxMAABp3xaz6mNcMzgbGo-BKdTRoLT5-6QTNtJpixpO31pQqzLvSMeo4RQ4efytnTL_aem_y-FZwFJeGKVIhop9G7Lx7Q"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Youtube className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
-        </Link>
+
+        {/* Social Media Icons for Desktop */}
+        <div className="flex space-x-4 text-white">
+          <Link
+            href="https://www.facebook.com/share/16UcPPA2ze/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Facebook className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          </Link>
+          <Link
+            href="https://www.instagram.com/tacticsdigitalagency?igsh=MTM0NDVmYnlrbHpzMw=="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Instagram className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          </Link>
+          <Link
+            href="https://m.youtube.com/@TacticsDigitalAgency?fbclid=PAQ0xDSwKXH4FleHRuA2FlbQIxMAABp3xaz6mNcMzgbGo-BKdTRoLT5-6QTNtJpixpO31pQqzLvSMeo4RQ4efytnTL_aem_y-FZwFJeGKVIhop9G7Lx7Q"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Youtube className="w-4 h-4 cursor-pointer text-[rgb(255,228,0)] transition-colors duration-200" />
+          </Link>
+        </div>
       </div>
     </nav>
   );
