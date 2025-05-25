@@ -93,16 +93,6 @@ const Navbar = () => {
           </Link>
         ))}
 
-        {/* Admin Button */}
-        <Link
-          href="/admin"
-          className="rounded-md px-2 py-2 text-xl hover:bg-red-600 hover:text-white transition-colors duration-200 flex items-center space-x-6 border border-red-500 text-red-400"
-          onClick={() => setIsOpen(false)}
-        >
-          <Shield className="w-6 h-6" />
-          <span>Admin</span>
-        </Link>
-
         {/* Social Media Icons for Mobile */}
         <div className="md:hidden flex space-x-4 mt-6">
           <Link
@@ -136,7 +126,7 @@ const Navbar = () => {
       >
         <Link
           href="/admin"
-          className="rounded-md px-3 py-2 text-sm hover:bg-red-600 hover:text-white transition-colors duration-200 flex items-center space-x-2 border border-red-500 text-red-400"
+          className="rounded-md px-3 py-2 text-sm hover:bg-yellow-400 hover:text-black transition-colors duration-200 flex items-center space-x-2 border border-yellow-500  text-yellow-400"
         >
           <Shield className="w-4 h-4" />
           <span>Admin</span>
