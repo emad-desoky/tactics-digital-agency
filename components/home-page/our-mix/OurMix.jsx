@@ -6,48 +6,48 @@ import Image from "next/image";
 const imagePaths = [
   {
     src: "/director1.jpg",
-    name: "Habiba Mostafa",
-    position: "Tactician",
+    name: "Gina Sameh",
+    position: "Account Manager",
   },
   {
     src: "/director2.jpg",
-    name: "Arwa Rizq",
-    position: "Tactician",
+    name: "Mostafa Ashraf",
+    position: "Marketing Manager",
   },
   {
     src: "/director3.jpg",
     name: "Hussein ahmed ",
-    position: "Tactician",
+    position: "Graphic Designer",
   },
   {
     src: "/director4.jpg",
-    name: "Sara Samy",
-    position: "Tactician",
+    name: "Dareen Zohny",
+    position: "Video Editor",
   },
   {
     src: "/director5.jpg",
-    name: "Mostafa Ashraf",
-    position: "Owner & CEO",
+    name: "Omar Amin",
+    position: "Sr Graphic Designer",
   },
   {
     src: "/director6.jpg",
-    name: "Mohamed Yasser",
-    position: "Tactician",
+    name: "Sondos Mohamed",
+    position: "Creative Videographer",
   },
   {
     src: "/director7.jpg",
-    name: "Omar Amin",
-    position: "Tactician",
+    name: "Melody Essam",
+    position: "Digital Marketing Specialist",
   },
   {
     src: "/director8.jpg",
-    name: "Salma basyouni",
-    position: "Tactician",
+    name: "Diaa Abdullah",
+    position: "Video Montage",
   },
   {
-    src: "/director9.jpg",
-    name: "Farida Khaled",
-    position: "Tactician",
+    src: "/director2.jpg",
+    name: "Mostafa Ashraf",
+    position: "Marketing Manager",
   },
 ];
 
