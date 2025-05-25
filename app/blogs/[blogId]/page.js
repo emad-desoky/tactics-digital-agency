@@ -7,59 +7,159 @@ export async function generateMetadata({ params } = {}) {
 
   if (!blog) {
     return {
-      title: "Blog Not Found",
+      title: "Blog Not Found - Tactics Digital Agency",
       description: "The requested blog post could not be found.",
+      openGraph: {
+        title: "Blog Not Found - Tactics Digital Agency",
+        description: "The requested blog post could not be found.",
+        images: [
+          {
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
+            width: 1200,
+            height: 630,
+            alt: "Tactics Digital Agency",
+          },
+        ],
+      },
     };
   }
 
-  // Extract first image from content for OG image
-  const imageMatch = blog.content?.match(/<img[^>]+src="([^">]+)"/);
-  const contentImage = imageMatch ? imageMatch[1] : null;
+  // Enhanced image extraction - try multiple patterns
+  let contentImage = null;
 
-  // Create a clean excerpt from content (remove HTML tags)
-  const cleanContent = blog.content?.replace(/<[^>]*>/g, "") || "";
+  // Try different image patterns in the content
+  const imagePatterns = [
+    /<img[^>]+src="([^">]+)"/i,
+    /<img[^>]+src='([^'>]+)'/i,
+    /!\[.*?\]$$([^)]+)$$/i, // Markdown images
+  ];
+
+  for (const pattern of imagePatterns) {
+    const match = blog.content?.match(pattern);
+    if (match && match[1]) {
+      contentImage = match[1];
+      break;
+    }
+  }
+
+  // If no image in content, check if blog has a featured image field
+  const blogImage = blog.featuredImage || blog.image || contentImage;
+
+  // Create a clean excerpt from content (remove HTML tags and limit length)
+  const cleanContent =
+    blog.content
+      ?.replace(/<[^>]*>/g, "")
+      .replace(/\s+/g, " ")
+      .trim() || "";
   const excerpt =
-    cleanContent.length > 160
-      ? cleanContent.substring(0, 157) + "..."
+    cleanContent.length > 155
+      ? cleanContent.substring(0, 152) + "..."
       : cleanContent;
 
-  const ogImage = contentImage || "/og-blog-default.jpg";
+  // Use blog description or excerpt, prioritizing the description
+  const metaDescription =
+    blog.description ||
+    excerpt ||
+    `Read ${blog.title} on Tactics Digital Agency blog.`;
+
+  // Ensure we have a fallback image
+  const ogImage =
+    blogImage ||
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s";
+
+  // Make sure image URLs are absolute
+  const absoluteImageUrl = ogImage.startsWith("http")
+    ? ogImage
+    : `https://www.tacticsdigitalagency.net${ogImage}`;
+
+  const blogUrl = `https://www.tacticsdigitalagency.net/blogs/${blogId}`;
 
   return {
-    title: blog.title,
-    description: blog.description || excerpt,
+    title: `${blog.title} | Tactics Digital Agency Blog`,
+    description: metaDescription,
     keywords: [
-      blog.title.split(" ").slice(0, 5), // Use first 5 words from title as keywords
+      ...blog.title.split(" ").slice(0, 5),
       "digital marketing",
       "SEO",
       "web development",
       "tactics digital agency",
+      "blog",
     ].flat(),
     authors: [{ name: blog.adminName || "Tactics Digital Agency" }],
     publishedTime: blog.date,
+    modifiedTime: blog.updatedAt || blog.date,
+    category: blog.category || "Digital Marketing",
     openGraph: {
       type: "article",
+      url: blogUrl,
       title: blog.title,
-      description: blog.description || excerpt,
+      description: metaDescription,
       publishedTime: blog.date,
+      modifiedTime: blog.updatedAt || blog.date,
       authors: [blog.adminName || "Tactics Digital Agency"],
+      section: blog.category || "Digital Marketing",
+      tags: blog.tags || ["digital marketing", "SEO", "web development"],
       images: [
         {
-          url: ogImage,
+          url: absoluteImageUrl,
           width: 1200,
           height: 630,
           alt: blog.title,
+          type: absoluteImageUrl.includes(".png") ? "image/png" : "image/jpeg",
+        },
+        {
+          url: absoluteImageUrl,
+          width: 800,
+          height: 600,
+          alt: blog.title,
+          type: absoluteImageUrl.includes(".png") ? "image/png" : "image/jpeg",
         },
       ],
+      siteName: "Tactics Digital Agency",
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
       title: blog.title,
-      description: blog.description || excerpt,
-      images: [ogImage],
+      description: metaDescription,
+      creator: "@tacticsdigital",
+      site: "@tacticsdigital",
+      images: [
+        {
+          url: absoluteImageUrl,
+          alt: blog.title,
+        },
+      ],
     },
     alternates: {
-      canonical: `/blogs/${blogId}`,
+      canonical: blogUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    other: {
+      // Enhanced social media meta tags
+      "og:image:secure_url": absoluteImageUrl,
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": blog.title,
+      "article:author": blog.adminName || "Tactics Digital Agency",
+      "article:published_time": blog.date,
+      "article:modified_time": blog.updatedAt || blog.date,
+      "article:section": blog.category || "Digital Marketing",
+      "twitter:image:alt": blog.title,
+      // WhatsApp optimization
+      "whatsapp:image": absoluteImageUrl,
+      // LinkedIn optimization
+      "linkedin:owner": "tactics-digital-agency",
     },
   };
 }
@@ -83,30 +183,59 @@ export default async function Blog({ params }) {
     );
   }
 
-  // Structured data for the blog post
+  // Enhanced structured data for the blog post
+  const imageMatch = blog.content?.match(/<img[^>]+src="([^">]+)"/);
+  const contentImage = imageMatch ? imageMatch[1] : null;
+  const blogImage =
+    blog.featuredImage ||
+    blog.image ||
+    contentImage ||
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s";
+
+  const absoluteImageUrl = blogImage.startsWith("http")
+    ? blogImage
+    : `https://www.tacticsdigitalagency.net${blogImage}`;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: blog.title,
-    description: blog.description,
+    description:
+      blog.description ||
+      blog.content?.replace(/<[^>]*>/g, "").substring(0, 160),
+    image: {
+      "@type": "ImageObject",
+      url: absoluteImageUrl,
+      width: 1200,
+      height: 630,
+    },
     author: {
       "@type": "Person",
       name: blog.adminName || "Tactics Digital Agency",
+      url: "https://www.tacticsdigitalagency.net/about",
     },
     publisher: {
       "@type": "Organization",
       name: "Tactics Digital Agency",
       logo: {
         "@type": "ImageObject",
-        url: "https://tacticsdigitalagency.com/logo.png",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
+        width: 1200,
+        height: 630,
       },
+      url: "https://www.tacticsdigitalagency.net",
     },
     datePublished: blog.date,
-    dateModified: blog.date,
+    dateModified: blog.updatedAt || blog.date,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://tacticsdigitalagency.com/blogs/${blogId}`,
+      "@id": `https://www.tacticsdigitalagency.net/blogs/${blogId}`,
     },
+    url: `https://www.tacticsdigitalagency.net/blogs/${blogId}`,
+    keywords:
+      blog.tags?.join(", ") || "digital marketing, SEO, web development",
+    articleSection: blog.category || "Digital Marketing",
+    wordCount: blog.content?.replace(/<[^>]*>/g, "").split(" ").length || 0,
   };
 
   return (
@@ -187,7 +316,7 @@ export default async function Blog({ params }) {
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                     blog.title
                   )}&url=${encodeURIComponent(
-                    `https://tacticsdigitalagency.com/blogs/${blogId}`
+                    `https://www.tacticsdigitalagency.net/blogs/${blogId}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -197,7 +326,7 @@ export default async function Blog({ params }) {
                 </a>
                 <a
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                    `https://tacticsdigitalagency.com/blogs/${blogId}`
+                    `https://www.tacticsdigitalagency.net/blogs/${blogId}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
