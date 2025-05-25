@@ -51,10 +51,17 @@ export const metadata = {
         type: "image/jpeg",
       },
       {
-        url: "/og-home.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Tactics Digital Agency Homepage",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
+        width: 800,
+        height: 600,
+        alt: "Tactics Digital Agency - Digital Excellence",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
+        width: 400,
+        height: 400,
+        alt: "Tactics Digital Agency - Digital Excellence",
         type: "image/jpeg",
       },
     ],
@@ -88,19 +95,34 @@ export const metadata = {
     canonical: "https://www.tacticsdigitalagency.net/",
   },
   other: {
-    // Enhanced social media meta tags
+    // WhatsApp specific optimizations
+    "og:image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
+    "og:image:secure_url":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
     "og:image:width": "1200",
     "og:image:height": "630",
     "og:image:type": "image/jpeg",
-    "og:image:secure_url":
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
-    "twitter:image:alt":
+    "og:image:alt":
       "Tactics Digital Agency - Transform Your Business with Digital Excellence",
-    // WhatsApp optimization
+
+    // Additional WhatsApp meta tags
     "whatsapp:image":
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
-    // LinkedIn optimization
+    "whatsapp:title": "Tactics Digital Agency",
+    "whatsapp:description":
+      "Welcome to TACTICS DIGITAL AGENCY - Transform Your Business with Digital Excellence",
+
+    // Enhanced social media meta tags
+    "twitter:image:alt":
+      "Tactics Digital Agency - Transform Your Business with Digital Excellence",
     "linkedin:owner": "tactics-digital-agency",
+
+    // Additional image meta tags for better compatibility
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s",
   },
 };
 

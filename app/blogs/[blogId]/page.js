@@ -62,15 +62,18 @@ export async function generateMetadata({ params } = {}) {
     excerpt ||
     `Read ${blog.title} on Tactics Digital Agency blog.`;
 
-  // Ensure we have a fallback image
+  // Ensure we have a fallback image - WhatsApp prefers HTTPS images
   const ogImage =
     blogImage ||
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s";
 
-  // Make sure image URLs are absolute
-  const absoluteImageUrl = ogImage.startsWith("http")
-    ? ogImage
-    : `https://www.tacticsdigitalagency.net${ogImage}`;
+  // Make sure image URLs are absolute and HTTPS
+  let absoluteImageUrl = ogImage;
+  if (!ogImage.startsWith("http")) {
+    absoluteImageUrl = `https://www.tacticsdigitalagency.net${ogImage}`;
+  } else if (ogImage.startsWith("http://")) {
+    absoluteImageUrl = ogImage.replace("http://", "https://");
+  }
 
   const blogUrl = `https://www.tacticsdigitalagency.net/blogs/${blogId}`;
 
@@ -114,6 +117,13 @@ export async function generateMetadata({ params } = {}) {
           alt: blog.title,
           type: absoluteImageUrl.includes(".png") ? "image/png" : "image/jpeg",
         },
+        {
+          url: absoluteImageUrl,
+          width: 400,
+          height: 400,
+          alt: blog.title,
+          type: absoluteImageUrl.includes(".png") ? "image/png" : "image/jpeg",
+        },
       ],
       siteName: "Tactics Digital Agency",
       locale: "en_US",
@@ -146,18 +156,30 @@ export async function generateMetadata({ params } = {}) {
       },
     },
     other: {
-      // Enhanced social media meta tags
+      // Enhanced social media meta tags for WhatsApp
+      "og:image": absoluteImageUrl,
       "og:image:secure_url": absoluteImageUrl,
       "og:image:width": "1200",
       "og:image:height": "630",
+      "og:image:type": absoluteImageUrl.includes(".png")
+        ? "image/png"
+        : "image/jpeg",
       "og:image:alt": blog.title,
       "article:author": blog.adminName || "Tactics Digital Agency",
       "article:published_time": blog.date,
       "article:modified_time": blog.updatedAt || blog.date,
       "article:section": blog.category || "Digital Marketing",
       "twitter:image:alt": blog.title,
-      // WhatsApp optimization
+
+      // WhatsApp specific optimization
       "whatsapp:image": absoluteImageUrl,
+      "whatsapp:title": blog.title,
+      "whatsapp:description": metaDescription,
+
+      // Additional image meta tags for better compatibility
+      image: absoluteImageUrl,
+      thumbnail: absoluteImageUrl,
+
       // LinkedIn optimization
       "linkedin:owner": "tactics-digital-agency",
     },

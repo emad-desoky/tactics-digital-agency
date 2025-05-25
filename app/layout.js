@@ -114,7 +114,24 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#ffe400" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
 
-        {/* Enhanced Open Graph tags */}
+        {/* Primary Open Graph tags - WhatsApp reads these first */}
+        <meta
+          property="og:title"
+          content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Creativity-driven digital growth with comprehensive 360° digital marketing solutions, web development, SEO, branding, and creative services."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://www.tacticsdigitalagency.net"
+        />
+        <meta property="og:site_name" content="Tactics Digital Agency" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Enhanced Open Graph Image tags for WhatsApp */}
         <meta
           property="og:image"
           content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s"
@@ -131,8 +148,26 @@ export default function RootLayout({ children }) {
           content="Tactics Digital Agency - 360° Digital Growth Solutions"
         />
 
+        {/* Additional image meta tags for WhatsApp compatibility */}
+        <meta
+          name="image"
+          content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s"
+        />
+        <meta
+          name="thumbnail"
+          content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s"
+        />
+
         {/* Enhanced Twitter tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="Creativity-driven digital growth with comprehensive 360° digital marketing solutions, web development, SEO, branding, and creative services."
+        />
         <meta
           name="twitter:image"
           content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s"
@@ -147,11 +182,20 @@ export default function RootLayout({ children }) {
           property="whatsapp:image"
           content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_sP7b4z4nmHbyUyQ9kdQbcGtXljwPNCjNQ&s"
         />
+        <meta property="whatsapp:title" content="Tactics Digital Agency" />
+        <meta
+          property="whatsapp:description"
+          content="Welcome to TACTICS DIGITAL AGENCY - 360° Digital Growth Solutions"
+        />
 
-        <meta property="og:site_name" content="Tactics Digital Agency" />
-        <meta property="og:locale" content="en_US" />
+        {/* Additional meta tags for better social media compatibility */}
         <meta property="og:locale:alternate" content="ar_SA" />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
 
+        {/* Structured data scripts remain the same */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
