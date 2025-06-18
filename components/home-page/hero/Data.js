@@ -5,7 +5,15 @@ export const Data = [
   },
   {
     id: "2",
-    image: "/slider.png",
+    image: "/brocar.png",
+  },
+  {
+    id: "3",
+    image: "/ezzi.png",
+  },
+  {
+    id: "3",
+    image: "/west.png",
   },
 
   // Add a new entry for the fourth slide

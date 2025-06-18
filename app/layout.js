@@ -44,7 +44,7 @@ export const metadata = {
     siteName: "Tactics Digital Agency",
     images: [
       {
-        url: "https://agency.entasher.com/Images/actualsize/2024/12/Logo_5864b8e70b1a4afb8c2f6e760664ed7d.png",
+        url: "/og-tactics-image.jpg",
         width: 1200,
         height: 630,
         alt: "Tactics Digital Agency - 360° Digital Growth Solutions",
