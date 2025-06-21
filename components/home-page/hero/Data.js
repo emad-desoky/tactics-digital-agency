@@ -5,15 +5,23 @@ export const Data = [
   },
   {
     id: "2",
-    image: "/brocar.png",
+    image: "/slider1.png",
   },
   {
     id: "3",
-    image: "/ezzi.png",
+    image: "/slider2.png",
   },
   {
-    id: "3",
-    image: "/west.png",
+    id: "4",
+    image: "/slider3.png",
+  },
+  {
+    id: "5",
+    image: "/slider4.png",
+  },
+  {
+    id: "6",
+    image: "/slider5.png",
   },
 
   // Add a new entry for the fourth slide
