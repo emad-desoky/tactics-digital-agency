@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { cn } from "@/lib/utils";
 import { DotBackgroundDemo } from "@/components/ui/DotBackgroundDemo";
+import Image from "next/image";
 
 const ContactDetails = () => {
   const locations = [
@@ -28,17 +28,14 @@ const ContactDetails = () => {
         >
           {/* Contact Details Section */}
           <div className="relative z-20 h-auto flex flex-col md:flex-row bg-white overflow-hidden shadow-lg">
-            <div className="w-full md:w-1/4 bg-[rgb(255,228,0)] flex items-center justify-center h-[270px] 3xl:h-[267px] xl:h-[285px]  2xl:h-[267px] md:h-[283px]  lg:h-[284px] md:mt-1 md:ml-1">
-              <h1
-                className={cn(
-                  "text-[28px] sm:text-[32px] md:text-[40px] lg:text-[45px] font-bold text-[rgb(43,43,43)] px-4 md:px-8 font-nourd leading-[36px] md:leading-[50px] tracking-wide text-center"
-                )}
-              >
-                <span className="text-white tracking-wide text-[24px] sm:text-[28px] md:text-[35px]">
-                  CONTACT{" "}
-                </span>
-                DETAILS
-              </h1>
+            <div className="w-full md:w-1/4 bg-[rgb(255,228,0)] flex items-center justify-center h-[270px] 3xl:h-[267px] xl:h-[285px] 2xl:h-[267px] md:h-[283px] lg:h-[284px] md:mt-1 md:ml-1 relative">
+              <Image
+                src="/contact destails .jpg"
+                alt="Contact Details"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
             </div>
             <div className="w-full md:w-3/4 p-6 sm:p-8 md:p-16 flex flex-col justify-start space-y-6">
               <div className="flex flex-col md:flex-row justify-between items-center text-sm sm:text-lg leading-relaxed text-black space-y-6 md:space-y-0">

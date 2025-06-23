@@ -47,7 +47,7 @@ const Partners = () => {
       <div className="container mx-auto px-4">
         <div className="bg-black shadow-2xl overflow-hidden max-w-5xl mx-auto 3xl:max-w-[1500px] 2xl:max-w-[1175px] xl:max-w-[974px]">
           <div className="flex flex-col md:flex-row">
-            {/* Left side (Partners of Success box) */}
+            {/* Left side (Partners of Success image) */}
             <div className="w-full md:w-1/4 p-1">
               <motion.div
                 className="bg-black h-full flex items-center justify-center"
@@ -55,13 +55,15 @@ const Partners = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-nourd text-center text-2xl sm:text-4xl md:text-4xl xl:text-5xl 3xl:text-6xl leading-none mt-2 mb-2">
-                  <span className="text-[rgb(255,228,0)]">PARTNERS</span>
-                  <br />
-                  <span className="text-white font-bold">OF</span>
-                  <br />
-                  <span className="text-white font-bold">SUCCESS</span>
-                </h2>
+                <div className="relative w-full h-full min-h-[200px] md:min-h-[300px]">
+                  <Image
+                    src="/Partners Of Success.jpg"
+                    alt="Partners Of Success"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
+                </div>
               </motion.div>
             </div>
 
