@@ -6,16 +6,19 @@ import Image from "next/image";
 const ContactDetails = () => {
   const locations = [
     {
-      title: "ALEX.",
-      address: "121, Galal EL Desouky St, Wabour El Maya",
+      title: "DIGITAL KITCHEN",
+      subtitle: "Cairo",
+      address: "Joseph Tito Axis - Nozha - Cairo, Egypt",
     },
     {
-      title: "CAIRO",
-      address: "Smart Village, KM 28 Cairo/Alex Desert Road",
+      title: "MEDIA STUDIO",
+      subtitle: "Cairo",
+      address: "10th district - Zahraa Nasr City - Cairo, Egypt",
     },
     {
-      title: "BOSTON",
-      address: "16 Noreen RD, MANSFIELD, MA 02048 USA",
+      title: "BUSINESS DEV.",
+      subtitle: "Giza",
+      address: "Plaza España Mall, Second Al Shiekh Zayed - Giza, Egypt",
     },
   ];
 
@@ -37,13 +40,16 @@ const ContactDetails = () => {
                 sizes="(max-width: 768px) 100vw, 25vw"
               />
             </div>
-            <div className="w-full md:w-3/4 p-6 sm:p-8 md:p-16 flex flex-col justify-start space-y-6">
+            <div className="w-full md:w-3/4 p-6 sm:p-8 md:p-16 flex flex-col justify-start space-y-5">
               <div className="flex flex-col md:flex-row justify-between items-center text-sm sm:text-lg leading-relaxed text-black space-y-6 md:space-y-0">
                 {locations.map((location, index) => (
                   <React.Fragment key={location.title}>
                     <div className="text-center px-2 sm:px-4">
-                      <p className="text-black font-bold text-2xl sm:text-3xl md:text-4xl">
+                      <p className="text-black font-bold text-xl sm:text-2xl md:text-xl">
                         {location.title}
+                      </p>
+                      <p className="text-black font-semibold text-lg sm:text-xl md:text-lg mb-1">
+                        {location.subtitle}
                       </p>
                       <p className="text-xs sm:text-sm md:text-base">
                         {location.address}
@@ -58,8 +64,8 @@ const ContactDetails = () => {
                   </React.Fragment>
                 ))}
               </div>
-              <p className="text-black mt-4 text-center text-xs sm:text-sm md:text-lg">
-                Call us: +20 120 795 5561
+              <p className="text-black mt-4 text-center text-xs sm:text-sm md:text-sm">
+                Call us: +20 122 223 8755
               </p>
             </div>
           </div>
