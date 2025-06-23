@@ -1,18 +1,12 @@
-import React from "react";
-import { Github, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Linkedin, Instagram, Youtube, Facebook } from "lucide-react";
 
 const SocialLinks = () => {
   const socialLinks = [
-    // {
-    //   icon: <Github className="w-5 h-5" />,
-    //   href: "https://github.com",
-    //   label: "GitHub",
-    // },
-    // {
-    //   icon: <Twitter className="w-5 h-5" />,
-    //   href: "https://twitter.com",
-    //   label: "Twitter",
-    // },
+    {
+      icon: <Facebook className="w-5 h-5" />,
+      href: "https://www.facebook.com/share/16UcPPA2ze/",
+      label: "Facebook",
+    },
     {
       icon: <Linkedin className="w-5 h-5" />,
       href: "https://www.linkedin.com/company/tacticsdigitalagencyegypt/?fbclid=PAQ0xDSwKXH2VleHRuA2FlbQIxMQABp-ysyKdtfnI1b4rOBllc_nFMSfHRA--2kUt54W15XLu2NviOczHYLVu-v1v5_aem_qLSF2TvvzHkbcXei1yeH4A",
@@ -28,10 +22,19 @@ const SocialLinks = () => {
       href: "https://m.youtube.com/@TacticsDigitalAgency?fbclid=PAQ0xDSwKXH4FleHRuA2FlbQIxMAABp3xaz6mNcMzgbGo-BKdTRoLT5-6QTNtJpixpO31pQqzLvSMeo4RQ4efytnTL_aem_y-FZwFJeGKVIhop9G7Lx7Q",
       label: "YouTube",
     },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+        </svg>
+      ),
+      href: "https://www.tiktok.com/@tacticsdigitalagency",
+      label: "TikTok",
+    },
   ];
 
   return (
-    <div className="flex space-x-6">
+    <div className="flex space-x-6 mt-6">
       {socialLinks.map((social) => (
         <a
           key={social.label}

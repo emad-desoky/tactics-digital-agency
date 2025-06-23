@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "./Logo";
 import SocialLinks from "./SocialLinks";
 import CompanyInfo from "./CompanyInfo";
@@ -40,10 +39,10 @@ const Footer = () => {
             <CompanyInfo />
           </div>
 
-          {/* Map */}
+          {/* Map - Made bigger and better aligned */}
           <div className="md:col-span-2 lg:col-span-1">
             <h3 className="text-lg font-semibold mb-6">Find Us</h3>
-            <div className="h-48 rounded-lg overflow-hidden">
+            <div className="h-80 md:h-96 lg:h-52 rounded-lg overflow-hidden">
               <Map />
             </div>
           </div>
@@ -53,7 +52,8 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Company. All rights reserved.
+              © {new Date().getFullYear()} TACTICS® Digital Agency. All rights
+              reserved.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               <a
