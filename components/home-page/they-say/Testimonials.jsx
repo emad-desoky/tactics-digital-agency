@@ -11,27 +11,66 @@ import "swiper/css/pagination";
 const testimonials = [
   {
     quote:
-      "Client reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working well.Client reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working wellClient reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working well With a client review, you'll know what's working, the current status, and upcoming plans and strategies.",
-    name: "Omar Amin",
-    position: "SR. Graphic Designer",
-    image:
-      "https://www.shutterstock.com/image-photo/happy-handsome-young-business-leader-260nw-2375039955.jpg",
+      "Working with TACTICS® has been transformative for our brand. Their strategic approach and creative excellence helped us achieve remarkable growth in our digital presence. The team's dedication to understanding our vision and translating it into measurable results is truly exceptional.",
+    name: "Azza",
+    position: "Brand Strategy Director",
+    image: "/Azza.png",
   },
   {
     quote:
-      "The implementation process was seamless and the results were outstanding. Highly recommend their services.Client reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working wellClient reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working well",
-    name: "Sarah Chen",
-    position: "Product Manager",
-    image:
-      "https://i.pinimg.com/736x/a7/65/f1/a765f13c8e253e7a50ca5eb313394259.jpg",
+      "TACTICS® delivered beyond our expectations. Their innovative campaigns and data-driven strategies significantly boosted our market reach. The collaborative approach and professional expertise made the entire process seamless and highly effective.",
+    name: "Bassam",
+    position: "Marketing Executive",
+    image: "/Bassam.png",
   },
   {
     quote:
-      "Outstanding support team and excellent communication throughout the project.Client reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working wellClient reviews and client check-ins provide the feedback you need and offer essential information to keep your relationship working well",
-    name: "Michael Rodriguez",
-    position: "Technical Director",
-    image:
-      "https://i.pinimg.com/736x/a7/65/f1/a765f13c8e253e7a50ca5eb313394259.jpg",
+      "The creative vision and strategic thinking at TACTICS® is unmatched. They transformed our brand narrative and helped us connect with our audience in ways we never thought possible. Their attention to detail and commitment to excellence is remarkable.",
+    name: "Mostafa Osama",
+    position: "Creative Director",
+    image: "/Mostafa Osama .png",
+  },
+  {
+    quote:
+      "As a content creator, I've worked with many agencies, but TACTICS® stands out for their innovative approach and technical expertise. They understand the digital landscape and know how to create content that truly resonates with audiences.",
+    name: "Huzefa",
+    position: "Content Creator & Photographer",
+    image: "/Huzefa.png",
+  },
+  {
+    quote:
+      "TACTICS® brought fresh perspectives to our business challenges. Their strategic insights and creative solutions helped us navigate complex market dynamics and achieve sustainable growth. The partnership has been invaluable to our success.",
+    name: "Zohny",
+    position: "Business Development Manager",
+    image: "/Zohny.png",
+  },
+  {
+    quote:
+      "The team at TACTICS® understands the importance of authentic brand storytelling. Their campaigns not only increased our visibility but also strengthened our connection with customers. The results speak for themselves.",
+    name: "Ahmed Abdulwahab",
+    position: "Brand Manager",
+    image: "/Ahmed Abdulwahab.png",
+  },
+  {
+    quote:
+      "TACTICS® has been instrumental in our digital transformation journey. Their comprehensive approach to marketing strategy and execution has delivered consistent results and helped establish our market leadership position.",
+    name: "Adel",
+    position: "CEO & Founder",
+    image: "/Adel.png",
+  },
+  {
+    quote:
+      "The professionalism and expertise at TACTICS® is evident in every project they undertake. Their ability to blend creativity with strategic thinking has made them an invaluable partner in our growth journey.",
+    name: "Ahmed Hany",
+    position: "Operations Director",
+    image: "/Ahmed Hany .png",
+  },
+  {
+    quote:
+      "TACTICS® consistently delivers innovative solutions that drive real business impact. Their deep understanding of market trends and consumer behavior has helped us stay ahead of the competition and achieve remarkable success.",
+    name: "Ahmed Taha",
+    position: "Strategic Partnerships Lead",
+    image: "/Ahmed Taha .png",
   },
 ];
 
@@ -69,7 +108,7 @@ export default function TestimonialSection() {
                   <div className="absolute left-0 top-0 w-[150px] h-[200px] md:w-[300px] md:h-[400px] bg-[#FFE400]" />
                   <div className="relative z-10 w-[150px] h-[200px] md:w-[300px] md:h-[400px] translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4">
                     <Image
-                      src={testimonial.image}
+                      src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
                       fill
                       className="object-cover rounded-md"
@@ -80,7 +119,7 @@ export default function TestimonialSection() {
                 {/* Content container */}
                 <div className="flex-1 border border-[#FFE400] p-4 sm:p-8 flex flex-col">
                   <div className="text-[#FFE400] text-4xl md:text-6xl font-serif mb-4">
-                    {"”"}
+                    &quot;
                   </div>
                   <p className="text-[#FFE400] text-sm sm:text-base md:text-lg leading-relaxed flex-grow">
                     {testimonial.quote}

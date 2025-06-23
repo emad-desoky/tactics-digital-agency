@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
@@ -22,7 +22,7 @@ const OurStory = () => {
           controls.start("visible");
         }
       },
-      { threshold: 0.3 } // Trigger when 50% of the section is visible
+      { threshold: 0.3 } // Trigger when 30% of the section is visible
     );
 
     if (sectionRef.current) {
@@ -50,9 +50,9 @@ const OurStory = () => {
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0, transition: { duration: 1 } },
           }}
-          className="relative bg px-2 py-2 z-20 flex flex-col md:flex-row w-[91%] sm:w-[98%] md:w-[95%] md:h-[510px] lg:h-[370px] lg:w-[98%] xl:w-[95%] xl:h-[350px] 2xl:w-[85%] 3xl:w-[100%] 3xl:h-[350px]  bg-[rgba(255,255,255)] rounded-lg shadow-lg overflow-hidden"
+          className="relative bg px-2 py-2 z-20 flex flex-col md:flex-row w-[91%] sm:w-[98%] md:w-[95%] md:h-[510px] lg:h-[370px] lg:w-[98%] xl:w-[95%] xl:h-[350px] 2xl:w-[85%] 3xl:w-[100%] 3xl:h-[350px] bg-[rgba(255,255,255)] rounded-lg shadow-lg overflow-hidden"
         >
-          {/* Animated Left Side Box */}
+          {/* Animated Image Section */}
           <motion.div
             initial="hidden"
             animate={controls}
@@ -60,11 +60,15 @@ const OurStory = () => {
               hidden: { scale: 0.8 },
               visible: { scale: 1, transition: { duration: 0.8 } },
             }}
-            className="w-full md:w-[380px] md:h-[375px] xl:h-[335px] xl:w-[380px] 3xl:w-[380px] lg:w-[380px] lg:h-[355px] bg-[rgb(255,228,0)] h-[300px] p-16 flex items-center justify-center"
+            className="w-full md:w-[380px] md:h-[375px] xl:h-[335px] xl:w-[380px] 3xl:w-[380px] lg:w-[380px] lg:h-[355px] h-[300px] relative overflow-hidden"
           >
-            <h1 className="text-[80px] text-[rgb(43,43,43)] font-nourd leading-tight">
-              <span className="text-white text-[105px]">OUR</span> STORY
-            </h1>
+            <Image
+              src="/Our Story.jpg"
+              alt="Our Story"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 380px"
+            />
           </motion.div>
 
           {/* Text Content Section */}
@@ -124,7 +128,7 @@ const OurStory = () => {
         <Image
           src="/element1.png"
           alt="Decorative Element"
-          width={120} // Set desired size
+          width={120}
           height={120}
           className="absolute right-0 z-10 3xl:translate-x-28"
         />
