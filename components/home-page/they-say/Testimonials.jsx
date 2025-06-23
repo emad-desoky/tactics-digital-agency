@@ -11,66 +11,66 @@ import "swiper/css/pagination";
 const testimonials = [
   {
     quote:
-      "Working with TACTICS® has been transformative for our brand. Their strategic approach and creative excellence helped us achieve remarkable growth in our digital presence. The team's dedication to understanding our vision and translating it into measurable results is truly exceptional.",
-    name: "Azza",
-    position: "Brand Strategy Director",
-    image: "/Azza.png",
-  },
-  {
-    quote:
-      "TACTICS® delivered beyond our expectations. Their innovative campaigns and data-driven strategies significantly boosted our market reach. The collaborative approach and professional expertise made the entire process seamless and highly effective.",
-    name: "Bassam",
-    position: "Marketing Executive",
-    image: "/Bassam.png",
-  },
-  {
-    quote:
-      "The creative vision and strategic thinking at TACTICS® is unmatched. They transformed our brand narrative and helped us connect with our audience in ways we never thought possible. Their attention to detail and commitment to excellence is remarkable.",
-    name: "Mostafa Osama",
-    position: "Creative Director",
-    image: "/Mostafa Osama .png",
-  },
-  {
-    quote:
-      "As a content creator, I've worked with many agencies, but TACTICS® stands out for their innovative approach and technical expertise. They understand the digital landscape and know how to create content that truly resonates with audiences.",
-    name: "Huzefa",
-    position: "Content Creator & Photographer",
+      "Since we partnered with Tactics, we've seen a real shift in how our brand shows up online. Their team handled everything—from content and design to ads and insights—with creativity and care. The results felt real and consistent across all platforms.",
+    name: "Huzefa Quriesh",
+    position: "CEO, Ezzi Tools",
     image: "/Huzefa.png",
   },
   {
     quote:
-      "TACTICS® brought fresh perspectives to our business challenges. Their strategic insights and creative solutions helped us navigate complex market dynamics and achieve sustainable growth. The partnership has been invaluable to our success.",
-    name: "Zohny",
-    position: "Business Development Manager",
-    image: "/Zohny.png",
+      "Tactics helped us stand out in a tough market. Their content was sharp, their ads delivered, and they always kept our goals front and center. It's rare to find a team that understands both real estate and digital this well.",
+    name: "Mostafa Osama",
+    position: "Sales Manager, Golden Real Estate",
+    image: "/Mostafa Osama .png",
   },
   {
     quote:
-      "The team at TACTICS® understands the importance of authentic brand storytelling. Their campaigns not only increased our visibility but also strengthened our connection with customers. The results speak for themselves.",
-    name: "Ahmed Abdulwahab",
-    position: "Brand Manager",
-    image: "/Ahmed Abdulwahab.png",
+      "Tactics didn't just give us content and ads—they gave us structure, strategy, and solid results. They felt like part of our internal team from day one.",
+    name: "Bassam Said",
+    position: "Commercial Director, Samco Holding",
+    image: "/Bassam.png",
   },
   {
     quote:
-      "TACTICS® has been instrumental in our digital transformation journey. Their comprehensive approach to marketing strategy and execution has delivered consistent results and helped establish our market leadership position.",
-    name: "Adel",
-    position: "CEO & Founder",
+      "From ad planning to event coverage, Tactics was fast, focused, and flexible. Their production team captured everything exactly how we imagined—if not better.",
+    name: "Azza Othman",
+    position: "Head of Sales, Investors Developments",
+    image: "/Azza.png",
+  },
+  {
+    quote:
+      "Our campaigns with Tactics were spot-on. They knew who to target, how to speak to them, and how to drive results that our sales team could actually feel.",
+    name: "Ahmed Taha",
+    position: "Sales Manager, Samco Holding",
+    image: "/Ahmed Taha .png",
+  },
+  {
+    quote:
+      "We wanted a team that could take over our digital work from A to Z—and Tactics delivered. From brand messaging to conversion tracking, they covered every detail.",
+    name: "Dr. Adel Abdeljawad",
+    position: "CEO, Jawad Developments",
     image: "/Adel.png",
   },
   {
     quote:
-      "The professionalism and expertise at TACTICS® is evident in every project they undertake. Their ability to blend creativity with strategic thinking has made them an invaluable partner in our growth journey.",
+      "Working with Tactics made a real difference for our venture. Their approach was strategic, their execution was creative, and the impact was clear from the first few weeks.",
     name: "Ahmed Hany",
-    position: "Operations Director",
+    position: "Chairman, Good People Ventures",
     image: "/Ahmed Hany .png",
   },
   {
     quote:
-      "TACTICS® consistently delivers innovative solutions that drive real business impact. Their deep understanding of market trends and consumer behavior has helped us stay ahead of the competition and achieve remarkable success.",
-    name: "Ahmed Taha",
-    position: "Strategic Partnerships Lead",
-    image: "/Ahmed Taha .png",
+      "Tactics helped us reach our audience fast and effectively. Their understanding of broker culture and fast-paced markets gave us an edge in both messaging and performance.",
+    name: "Mahmoud Zohny",
+    position: "Head of Brokers, SV Developments",
+    image: "/Zohny.png",
+  },
+  {
+    quote:
+      "Partnering with Tactics was a game-changer for our media strategy at Khaled Sabry Developments. Their media buying delivered real results with exceptional ROI and precise targeting. What stood out even more was the premium quality of their media production—each video was sharp, on-brand, and perfectly tailored to the high-end real estate market in Egypt.",
+    name: "Ahmed Abdelwahab",
+    position: "Marketing Director, Khaled Sabry Developments",
+    image: "/Ahmed Abdulwahab.png",
   },
 ];
 
