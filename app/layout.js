@@ -1,5 +1,6 @@
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
+import SocialMediaPopups from "@/components/SocialMediaPopups";
 
 export const metadata = {
   title: {
@@ -190,14 +191,34 @@ export default function RootLayout({ children }) {
                 "Creativity-driven digital growth with comprehensive 360° digital marketing solutions",
               slogan: "creativity-driven digital growth",
               foundingDate: "2020",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "SA",
-                addressRegion: "Riyadh",
-              },
+              address: [
+                {
+                  "@type": "PostalAddress",
+                  name: "Digital Kitchen",
+                  streetAddress: "Joseph Tito Axis - Nozha",
+                  addressLocality: "Cairo",
+                  addressCountry: "EG",
+                },
+                {
+                  "@type": "PostalAddress",
+                  name: "Media Studio",
+                  streetAddress: "10th district - Zahraa Nasr City",
+                  addressLocality: "Cairo",
+                  addressCountry: "EG",
+                },
+                {
+                  "@type": "PostalAddress",
+                  name: "Business Dev. Office",
+                  streetAddress: "Plaza España Mall, Second Al Shiekh Zayed",
+                  addressLocality: "Giza",
+                  addressCountry: "EG",
+                },
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
+                telephone: "+20-122-223-8755",
                 contactType: "customer service",
+                email: "ask@tacticsdigitalagency.net",
                 availableLanguage: ["English", "Arabic"],
               },
               sameAs: [
@@ -208,9 +229,9 @@ export default function RootLayout({ children }) {
               ],
               serviceArea: {
                 "@type": "Place",
-                name: "Worldwide",
+                name: "Egypt",
               },
-              areaServed: "Worldwide",
+              areaServed: "Egypt",
               knowsAbout: [
                 "Digital Marketing",
                 "Web Development",
@@ -247,7 +268,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <NextUIProvider>{children}</NextUIProvider>
+        <NextUIProvider>
+          {children}
+          <SocialMediaPopups />
+        </NextUIProvider>
       </body>
     </html>
   );
