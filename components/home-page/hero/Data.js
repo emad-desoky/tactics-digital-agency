@@ -5,23 +5,31 @@ export const Data = [
   },
   {
     id: "2",
-    image: "/slider1.png",
+    image: "/slide1.jpg",
   },
   {
     id: "3",
-    image: "/slider2.png",
+    image: "/slide2.jpg",
   },
   {
     id: "4",
-    image: "/slider3.png",
+    image: "/slide3.jpg",
   },
   {
     id: "5",
-    image: "/slider4.png",
+    image: "/slide4.jpg",
   },
   {
     id: "6",
-    image: "/slider5.png",
+    image: "/slide5.jpg",
+  },
+  {
+    id: "7",
+    image: "/slide6.jpg",
+  },
+  {
+    id: "8",
+    image: "/slide7.jpg",
   },
 
   // Add a new entry for the fourth slide
