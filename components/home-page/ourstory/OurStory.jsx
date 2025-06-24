@@ -63,7 +63,7 @@ const OurStory = () => {
             className="w-full md:w-[380px] md:h-[375px] xl:h-[335px] xl:w-[380px] 3xl:w-[380px] lg:w-[380px] lg:h-[355px] h-[300px] relative overflow-hidden"
           >
             <Image
-              src="/Our Story.jpg"
+              src="/Our Story .jpg"
               alt="Our Story"
               fill
               className="object-cover"
