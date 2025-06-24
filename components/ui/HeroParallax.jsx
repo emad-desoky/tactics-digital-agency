@@ -141,14 +141,6 @@ const Header = () => {
         Welcome To <br />
         <span className="text-[rgb(255,228,0)]">Our Services</span>
       </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="max-w-2xl text-base sm:text-lg md:text-xl mt-4 md:mt-8 text-white/80"
-      >
-        Reach Out To Us For Any Queries
-      </motion.p>
     </div>
   );
 };

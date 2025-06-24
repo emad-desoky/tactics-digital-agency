@@ -31,7 +31,7 @@ const ContactDetails = () => {
         >
           {/* Contact Details Section */}
           <div className="relative z-20 h-auto flex flex-col md:flex-row bg-white overflow-hidden shadow-lg">
-            <div className="w-full md:w-1/4 bg-[rgb(255,228,0)] flex items-center justify-center h-[270px] 3xl:h-[267px] xl:h-[285px] 2xl:h-[267px] md:h-[283px] lg:h-[284px] md:mt-1 md:ml-1 relative">
+            <div className="w-full md:w-1/4 bg-[rgb(255,228,0)] flex items-center justify-center  h-[270px] 3xl:h-[267px] xl:h-[285px] 2xl:h-[267px] md:h-[283px] lg:h-[284px] md:mt-1 md:ml-1 md:mb-1 relative">
               <Image
                 src="/contact destails .jpg"
                 alt="Contact Details"
@@ -40,7 +40,7 @@ const ContactDetails = () => {
                 sizes="(max-width: 768px) 100vw, 25vw"
               />
             </div>
-            <div className="w-full md:w-3/4 p-6 sm:p-8 md:p-16 flex flex-col justify-start space-y-5">
+            <div className="w-full md:w-3/4 p-6 sm:p-8 md:p-16 flex flex-col justify-start space-y-6">
               <div className="flex flex-col md:flex-row justify-between items-center text-sm sm:text-lg leading-relaxed text-black space-y-6 md:space-y-0">
                 {locations.map((location, index) => (
                   <React.Fragment key={location.title}>
@@ -64,9 +64,6 @@ const ContactDetails = () => {
                   </React.Fragment>
                 ))}
               </div>
-              <p className="text-black mt-4 text-center text-xs sm:text-sm md:text-sm">
-                Call us: +20 122 223 8755
-              </p>
             </div>
           </div>
         </div>

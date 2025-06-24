@@ -34,7 +34,7 @@ const testimonials = [
     quote:
       "From ad planning to event coverage, Tactics was fast, focused, and flexible. Their production team captured everything exactly how we imagined—if not better.",
     name: "Azza Othman",
-    position: "Head of Sales, Investors Developments",
+    position: "Sales Director - IUNU Developments",
     image: "/Azza.png",
   },
   {
