@@ -31,9 +31,6 @@ export const Timeline = ({ data }) => {
         <h2 className="text-lg md:text-8xl mb-4 text-[rgb(255,228,0)] font-bold dark:text-white max-w-4xl">
           Changelog From Our Journey
         </h2>
-        <p className="text-white dark:text-neutral-300 text-xl md:text-2xl max-w-sm">
-          Welcome to our full story
-        </p>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

@@ -29,89 +29,49 @@ const customStyles = `
     }
   }
 `;
-
 const content = [
   {
-    title: "Performance Excellence",
-    description:
-      "At TACTICS®, we excel in translating strategic vision into tangible results. Our dedicated team of digital marketing planners, media buyers, graphic designers, content creators, digital strategists, and technologists collaborate seamlessly to craft innovative campaigns that drive measurable outcomes. We are driven by a relentless pursuit of performance, focusing on enhancing conversion rates, expanding organic reach, and optimizing ROI for our clients.",
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/performance.png"
-          alt="Performance Excellence"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "About us",
+    id: "about-us",
+    title: "About Us",
     description:
       "TACTICS® is a full-service digital and creative marketing agency known for its innovation and results-driven approach. Since our establishment in 2018, we've become leaders in delivering digital and creative solutions tailored to meet diverse industry needs. Our team of experts is committed to providing customized strategies that align with your budget, timelines, and goals. From digital marketing to creative services, we offer a broad range of solutions designed to enhance your brand's visibility and performance across all sectors.",
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/aboutus.png"
-          alt="About Us"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "About Us",
   },
   {
-    title: "Strategic Insight",
-    description:
-      "Combining creativity with strategic insight, TACTICS® delivers impactful results that set you apart in a crowded marketplace. We harness unique market knowledge and cutting-edge technology to anticipate trends and adapt to the changing landscape. This enables us to provide our clients with both digital and creative solutions that ensure their competitive advantage, regardless of industry.",
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/strategic.png"
-          alt="Strategic Insight"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
-  },
-  {
+    id: "mission",
     title: "Mission",
     description:
       "Our mission is to empower businesses with data-driven digital strategies and creative services that accelerate growth and exceed expectations. We are dedicated to producing superior results that push the boundaries of digital and creative marketing.",
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/mission.png"
-          alt="Mission"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "Mission",
   },
   {
+    id: "vision",
     title: "Vision",
     description:
       "Our vision is to redefine digital and creative marketing by consistently delivering innovative, high-performance solutions, making us the trusted partner for businesses looking to achieve significant growth and success.",
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/vision.png"
-          alt="Vision"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "Vision",
   },
   {
+    id: "strategic-insight",
+    title: "Strategic Insight",
+    description:
+      "Combining creativity with strategic insight, TACTICS® delivers impactful results that set you apart in a crowded marketplace. We harness unique market knowledge and cutting-edge technology to anticipate trends and adapt to the changing landscape. This enables us to provide our clients with both digital and creative solutions that ensure their competitive advantage, regardless of industry.",
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "Strategic Insight",
+  },
+  {
+    id: "performance-excellence",
+    title: "Performance Excellence",
+    description:
+      "At TACTICS®, we excel in translating strategic vision into tangible results. Our dedicated team of digital marketing planners, media buyers, graphic designers, content creators, digital strategists, and technologists collaborate seamlessly to craft innovative campaigns that drive measurable outcomes. We are driven by a relentless pursuit of performance, focusing on enhancing conversion rates, expanding organic reach, and optimizing ROI for our clients.",
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "Performance Excellence",
+  },
+  {
+    id: "core-values",
     title: "Core Values",
     description: (
       <ul className="list-none space-y-2 text-white text-base md:text-2xl">
@@ -152,36 +112,18 @@ const content = [
         </li>
       </ul>
     ),
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/strategic.png"
-          alt="Core Values"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "Core Values",
   },
   {
+    id: "ceo-message",
     title: "CEO Message",
     description:
       "As CEO of TACTICS®, I am proud to lead a team of passionate professionals dedicated to driving impactful results for our clients. We are committed to leveraging our expertise and strategic insights to navigate the complexities of digital marketing with agility and innovation. Our goal is to empower businesses to thrive in an increasingly competitive digital landscape.",
-    content: (
-      <div className="h-full w-full relative min-h-[300px] md:min-h-[400px]">
-        <Image
-          src="/ceo.png"
-          alt="CEO Message"
-          fill
-          className="object-cover rounded-lg"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    ),
+    image: "/placeholder.svg?height=400&width=600",
+    alt: "CEO Message",
   },
 ];
-
 export function Tabss() {
   return (
     <>
