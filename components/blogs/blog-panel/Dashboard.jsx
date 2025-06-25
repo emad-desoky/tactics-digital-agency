@@ -11,39 +11,52 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
 } from "recharts";
 import {
   TrendingUp,
   Eye,
   Calendar,
   FileText,
-  Users,
+  RefreshCw,
   Clock,
 } from "lucide-react";
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
     fetchDashboardData();
+    // Auto-refresh every 60 seconds
+    const interval = setInterval(fetchDashboardData, 60000);
+    return () => clearInterval(interval);
   }, []);
 
-  const fetchDashboardData = async () => {
+  const fetchDashboardData = async (showRefreshing = false) => {
+    if (showRefreshing) setRefreshing(true);
+
     try {
-      const response = await fetch("/api/dashboard");
+      const response = await fetch("/api/dashboard", {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      });
       const dashboardData = await response.json();
       setData(dashboardData);
+      setLastUpdated(new Date(dashboardData.lastUpdated));
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
     } finally {
       setLoading(false);
+      if (showRefreshing) setRefreshing(false);
     }
+  };
+
+  const handleRefresh = () => {
+    fetchDashboardData(true);
   };
 
   if (loading) {
@@ -61,8 +74,6 @@ const Dashboard = () => {
       </div>
     );
   }
-
-  const COLORS = ["#FFE400", "#FFA500", "#FF6B6B", "#4ECDC4", "#45B7D1"];
 
   const statsCards = [
     {
@@ -103,12 +114,36 @@ const Dashboard = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-2">
-          Welcome back, Admin! 👋
-        </h1>
-        <p className="text-gray-600">
-          Here&apos;s what&apos;s happening with your blog today.
-        </p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">
+              Welcome back, Admin! 👋
+            </h1>
+            <p className="text-gray-600">
+              Here&apos;s what&apos;s happening with your blog today.
+            </p>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="text-sm text-gray-500">
+              {lastUpdated && (
+                <p className="flex items-center">
+                  <Clock className="w-4 h-4 mr-1" />
+                  Last updated: {lastUpdated.toLocaleTimeString()}
+                </p>
+              )}
+            </div>
+            <button
+              onClick={handleRefresh}
+              disabled={refreshing}
+              className="p-2 text-gray-600 hover:text-gray-800 transition-colors disabled:opacity-50 border border-gray-300 rounded-lg hover:bg-gray-50"
+              title="Refresh dashboard"
+            >
+              <RefreshCw
+                className={`w-5 h-5 ${refreshing ? "animate-spin" : ""}`}
+              />
+            </button>
+          </div>
+        </div>
       </motion.div>
 
       {/* Stats Cards */}
@@ -202,7 +237,7 @@ const Dashboard = () => {
                     </p>
                     <p className="text-sm text-gray-500 flex items-center">
                       <Eye className="w-4 h-4 mr-1" />
-                      {blog.views.toLocaleString()} views
+                      {(blog.views || 0).toLocaleString()} views
                     </p>
                   </div>
                 </div>
@@ -234,10 +269,16 @@ const Dashboard = () => {
                   <span className="font-medium">{activity.action}</span>{" "}
                   {activity.blog}
                 </p>
-                <p className="text-sm text-gray-500 flex items-center">
-                  <Clock className="w-4 h-4 mr-1" />
-                  {activity.date}
-                </p>
+                <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <Clock className="w-4 h-4 mr-1" />
+                    {activity.date}
+                  </span>
+                  <span className="flex items-center">
+                    <Eye className="w-4 h-4 mr-1" />
+                    {(activity.views || 0).toLocaleString()} views
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -259,18 +300,27 @@ const Dashboard = () => {
           </div>
           <div className="text-center">
             <p className="text-2xl font-bold">
-              {Math.round(data.totalViews / data.totalBlogs)}
+              {data.totalBlogs > 0
+                ? Math.round(data.totalViews / data.totalBlogs)
+                : 0}
             </p>
             <p className="text-sm opacity-80">Avg Views per Blog</p>
           </div>
           <div className="text-center">
             <p className="text-2xl font-bold">
-              {Math.round((data.blogsThisMonth / 30) * 7)}
+              {data.blogsThisMonth > 0
+                ? Math.round((data.blogsThisMonth / 30) * 7)
+                : 0}
             </p>
             <p className="text-sm opacity-80">Weekly Average</p>
           </div>
         </div>
       </motion.div>
+
+      {/* Auto-refresh indicator */}
+      <div className="text-center text-sm text-gray-500">
+        <p>Dashboard refreshes automatically every minute</p>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Calendar, User, Eye, ArrowLeft, Tag } from "lucide-react";
 import Image from "next/image";
 import SocialShare from "@/components/blogs/SocialShare";
+import { headers } from "next/headers";
 
 export async function generateMetadata({ params }) {
   const { blogId } = params;
@@ -92,8 +93,16 @@ export default async function BlogPage({ params }) {
     );
   }
 
-  // Increment view count
-  await incrementBlogViews(blogId);
+  // Check if this is a real user visit (not a bot or crawler)
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const isBot = /bot|crawler|spider|crawling/i.test(userAgent);
+
+  // Only increment view count for real users, not bots
+  if (!isBot) {
+    // Increment view count - use the API route to ensure it's counted
+    await incrementBlogViews(blogId);
+  }
 
   return (
     <div className="min-h-screen bg-white">

@@ -5,8 +5,8 @@ export async function POST(request, { params }) {
   try {
     const { blogId } = params;
 
-    // Increment view count
-    await prisma.blog.update({
+    // Increment view count in the database
+    const updatedBlog = await prisma.blog.update({
       where: { id: blogId },
       data: {
         views: {
@@ -15,7 +15,10 @@ export async function POST(request, { params }) {
       },
     });
 
-    return NextResponse.json({ message: "View counted successfully" });
+    return NextResponse.json({
+      success: true,
+      views: updatedBlog.views,
+    });
   } catch (error) {
     console.error("Error incrementing view count:", error);
     return NextResponse.json(

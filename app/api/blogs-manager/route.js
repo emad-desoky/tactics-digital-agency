@@ -3,6 +3,7 @@ import prisma from "@/prisma/prisma";
 
 export async function GET() {
   try {
+    // Add cache control headers to prevent caching
     const blogs = await prisma.blog.findMany({
       select: {
         id: true,
@@ -12,13 +13,21 @@ export async function GET() {
         date: true,
         views: true,
         image: true,
+        tags: true,
       },
       orderBy: {
         date: "desc",
       },
     });
 
-    return NextResponse.json(blogs);
+    return NextResponse.json(blogs, {
+      headers: {
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    });
   } catch (error) {
     console.error("Error fetching blogs:", error);
     return NextResponse.json(

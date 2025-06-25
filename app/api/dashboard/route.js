@@ -12,7 +12,7 @@ export async function GET() {
     // Total blogs
     const totalBlogs = await prisma.blog.count();
 
-    // Total views
+    // Total views - get fresh data
     const totalViewsResult = await prisma.blog.aggregate({
       _sum: {
         views: true,
@@ -47,7 +47,7 @@ export async function GET() {
       },
     });
 
-    // Monthly data for charts (last 12 months)
+    // Monthly data for charts (last 12 months) - include real view data
     const monthlyData = [];
     for (let i = 11; i >= 0; i--) {
       const monthStart = new Date(now.getFullYear(), now.getMonth() - i, 1);
@@ -62,6 +62,7 @@ export async function GET() {
         },
       });
 
+      // Get actual view counts for blogs published in this month
       const monthViewsResult = await prisma.blog.aggregate({
         where: {
           date: {
@@ -81,7 +82,7 @@ export async function GET() {
       });
     }
 
-    // Top performing blogs
+    // Top performing blogs - get current view counts
     const topBlogs = await prisma.blog.findMany({
       select: {
         id: true,
@@ -99,6 +100,7 @@ export async function GET() {
       select: {
         title: true,
         date: true,
+        views: true,
       },
       orderBy: {
         date: "desc",
@@ -110,6 +112,7 @@ export async function GET() {
       action: "Published",
       blog: blog.title,
       date: new Date(blog.date).toLocaleDateString(),
+      views: blog.views || 0,
     }));
 
     const dashboardData = {
@@ -121,9 +124,17 @@ export async function GET() {
       monthlyData,
       topBlogs,
       recentActivity,
+      lastUpdated: new Date().toISOString(),
     };
 
-    return NextResponse.json(dashboardData);
+    return NextResponse.json(dashboardData, {
+      headers: {
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    });
   } catch (error) {
     console.error("Dashboard API Error:", error);
     return NextResponse.json(
