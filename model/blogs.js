@@ -1,78 +1,109 @@
 import prisma from "@/prisma/prisma";
-import { faker } from '@faker-js/faker';
 
-
+// Initialize database with sample data
 export async function initDB() {
-    // Number of blogs you want to insert
-    const numberOfBlogs = 10;
-  
-    // Loop to insert the specified number of random blogs
-    for (let i = 0; i < numberOfBlogs; i++) {
-      const title = faker.lorem.words(4);  // Generate a random title with 4 words
-      const description = faker.lorem.sentence();  // Generate a random description
-      const adminName = faker.person.fullName();
-      const content = faker.lorem.paragraphs(3);  // Generate random content with 3 paragraphs  
-      const date = faker.date.past(1);  // Generate a random past date within the last year
-  
-      // Insert blog into the database
-      await prisma.blog.create({
-        data: {
-          title,
-          description,
-          content,
-          adminName,
-          date,
-        },
-      });
-  
-      console.log(`Blog ${i + 1} created: ${title}`);
-    }
-  
-    console.log(`${numberOfBlogs} blogs have been added to the database.`);
+  const numberOfBlogs = 10;
+
+  for (let i = 0; i < numberOfBlogs; i++) {
+    const title = `Sample Blog Post ${i + 1}`;
+    const description = `This is a sample description for blog post ${i + 1}`;
+    const adminName = "Admin User";
+    const content = `<p>This is sample content for blog post ${
+      i + 1
+    }. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>`;
+    const date = new Date(
+      Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000
+    );
+    const views = Math.floor(Math.random() * 1000);
+
+    await prisma.blog.create({
+      data: {
+        title,
+        description,
+        content,
+        adminName,
+        date,
+        views,
+        tags: [`tag${i + 1}`, "sample"],
+      },
+    });
+
+    console.log(`Blog ${i + 1} created: ${title}`);
   }
 
-// Latest blogs will show first
+  console.log(`${numberOfBlogs} blogs have been added to the database.`);
+}
+
+// Get sorted blogs with pagination
 export async function getSortedBlogs(pageNo, pageSize) {
-    const skip = (pageNo - 1) * pageSize;  // Skip blogs for previous pages
-    return await prisma.blog.findMany({
-      skip: skip,               // Skip the first (pageNo - 1) * pageSize blogs
-      take: pageSize,           // Take the number of blogs based on pageSize
-      orderBy: {
-        date: 'desc',           // Sort by date in descending order
-      },
-    });
-  }
-  
+  const skip = (pageNo - 1) * pageSize;
+  return await prisma.blog.findMany({
+    skip: skip,
+    take: pageSize,
+    orderBy: {
+      date: "desc",
+    },
+  });
+}
 
+// Get total blog count
 export async function getBlogsLength() {
-    return await prisma.blog.count();
+  return await prisma.blog.count();
 }
 
+// Search blogs by title
 export async function getSearchedBlogs(searchQuery) {
-    return await prisma.blog.findMany({
-      where: {
-        title: {
-          contains: searchQuery, // Filter by title using `contains`
-          mode: 'insensitive', // Case-insensitive search
-        },
+  return await prisma.blog.findMany({
+    where: {
+      title: {
+        contains: searchQuery,
+        mode: "insensitive",
       },
-    });
-  }
-  
-  
+    },
+  });
+}
 
+// Get blog by ID
 export async function getBlogById(id) {
-    return await prisma.blog.findUnique({where: {id}});
+  return await prisma.blog.findUnique({
+    where: { id },
+  });
 }
 
+// Add new blog
 export async function addBlog(blog) {
-    return await prisma.blog.create({data: blog});
+  return await prisma.blog.create({
+    data: {
+      ...blog,
+      views: 0,
+      date: new Date(),
+    },
+  });
 }
 
+// Delete blog
 export async function deleteBlog(id) {
-    return await prisma.blog.delete({where: {id}});
+  return await prisma.blog.delete({
+    where: { id },
+  });
 }
 
-export async function updateBlog(blog) {
-    return await prisma.blog.update({where: {id}, data: blog});
+// Update blog
+export async function updateBlog(id, blog) {
+  return await prisma.blog.update({
+    where: { id },
+    data: blog,
+  });
+}
+
+// Increment blog views
+export async function incrementBlogViews(id) {
+  return await prisma.blog.update({
+    where: { id },
+    data: {
+      views: {
+        increment: 1,
+      },
+    },
+  });
 }

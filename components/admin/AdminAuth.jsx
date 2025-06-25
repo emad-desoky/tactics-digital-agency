@@ -21,9 +21,13 @@ const AdminAuth = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     if (password === "123") {
-      // Store authentication in localStorage
-      localStorage.setItem("adminAuthenticated", "true");
-      localStorage.setItem("adminAuthTime", Date.now().toString());
+      // Set authentication cookies
+      document.cookie = `adminAuthenticated=true; path=/; max-age=${
+        24 * 60 * 60
+      }`;
+      document.cookie = `adminAuthTime=${Date.now()}; path=/; max-age=${
+        24 * 60 * 60
+      }`;
 
       // Redirect to blog-panel
       router.push("/blog-panel");
@@ -36,17 +40,13 @@ const AdminAuth = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center p-4">
-      {/* Background Pattern */}
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-md"
       >
-        {/* Admin Panel Card */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-8">
-          {/* Header */}
           <div className="text-center mb-8">
             <motion.div
               initial={{ scale: 0 }}
@@ -60,10 +60,8 @@ const AdminAuth = () => {
             <p className="text-gray-300">Enter your password to continue</p>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
-              {/* Username Field (Disabled/Display only) */}
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <User className="h-5 w-5 text-gray-400" />
@@ -76,7 +74,6 @@ const AdminAuth = () => {
                 />
               </div>
 
-              {/* Password Field */}
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Lock className="h-5 w-5 text-gray-400" />
@@ -103,7 +100,6 @@ const AdminAuth = () => {
               </div>
             </div>
 
-            {/* Error Message */}
             {error && (
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
@@ -114,7 +110,6 @@ const AdminAuth = () => {
               </motion.div>
             )}
 
-            {/* Submit Button */}
             <motion.button
               type="submit"
               disabled={isLoading || !password}
@@ -133,7 +128,6 @@ const AdminAuth = () => {
             </motion.button>
           </form>
 
-          {/* Footer */}
           <div className="mt-8 text-center">
             <p className="text-gray-400 text-sm">
               Tactics Digital Agency
@@ -143,7 +137,6 @@ const AdminAuth = () => {
           </div>
         </div>
 
-        {/* Decorative Elements */}
         <div className="absolute -top-4 -left-4 w-24 h-24 bg-yellow-400/20 rounded-full blur-xl"></div>
         <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-yellow-600/20 rounded-full blur-xl"></div>
       </motion.div>

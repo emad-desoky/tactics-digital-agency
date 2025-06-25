@@ -144,10 +144,6 @@ export default function Gallery() {
 
   return (
     <div className="w-full max-w-[70%] mx-auto p-4 md:p-8 bg-[rgb(43,43,43)]">
-      <div className="mb-6 md:mb-8">
-        <h1 className="text-2xl md:text-3xl font-serif">Our Gallery</h1>
-      </div>
-
       <div
         className={`grid grid-cols-3 gap-3 md:gap-4 relative transition-all duration-500 ${
           isAnimating ? "opacity-0" : "opacity-100"

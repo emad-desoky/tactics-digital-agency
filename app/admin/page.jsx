@@ -9,25 +9,30 @@ export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Check if user is already authenticated
     const checkAuth = () => {
-      const authStatus = localStorage.getItem("adminAuthenticated");
-      const authTime = localStorage.getItem("adminAuthTime");
+      // Check cookies for authentication
+      const cookies = document.cookie.split(";");
+      const authCookie = cookies.find((cookie) =>
+        cookie.trim().startsWith("adminAuthenticated=")
+      );
+      const authTimeCookie = cookies.find((cookie) =>
+        cookie.trim().startsWith("adminAuthTime=")
+      );
 
-      if (authStatus === "true" && authTime) {
-        // Check if authentication is still valid (24 hours)
-        const authTimeMs = Number.parseInt(authTime);
+      if (authCookie?.includes("true") && authTimeCookie) {
+        const authTime = Number.parseInt(authTimeCookie.split("=")[1]);
         const currentTime = Date.now();
         const twentyFourHours = 24 * 60 * 60 * 1000;
 
-        if (currentTime - authTimeMs < twentyFourHours) {
-          // Already authenticated, redirect to blog-panel
+        if (currentTime - authTime < twentyFourHours) {
           router.push("/blog-panel");
           return;
         } else {
-          // Authentication expired
-          localStorage.removeItem("adminAuthenticated");
-          localStorage.removeItem("adminAuthTime");
+          // Clear expired cookies
+          document.cookie =
+            "adminAuthenticated=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          document.cookie =
+            "adminAuthTime=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
       }
       setIsLoading(false);

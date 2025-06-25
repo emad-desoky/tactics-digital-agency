@@ -1,27 +1,59 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Save, Eye, Upload, X } from "lucide-react";
+import { Save, Eye, Upload, X, ArrowLeft } from "lucide-react";
 import "react-quill/dist/quill.snow.css";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const AddBlog = () => {
+const EditBlog = ({ blogId }) => {
   const router = useRouter();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     content: "",
-    adminName: "Admin",
+    adminName: "",
     image: "",
     tags: [],
   });
   const [newTag, setNewTag] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [wordCount, setWordCount] = useState(0);
+
+  useEffect(() => {
+    fetchBlog();
+  }, [blogId]);
+
+  const fetchBlog = async () => {
+    try {
+      const response = await fetch(`/api/blogs-manager/${blogId}`);
+      const blog = await response.json();
+      setFormData({
+        title: blog.title || "",
+        description: blog.description || "",
+        content: blog.content || "",
+        adminName: blog.adminName || "",
+        image: blog.image || "",
+        tags: blog.tags || [],
+      });
+
+      // Calculate initial word count
+      const words =
+        blog.content
+          ?.replace(/<[^>]*>/g, "")
+          .split(/\s+/)
+          .filter(Boolean) || [];
+      setWordCount(words.length);
+    } catch (error) {
+      console.error("Error fetching blog:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const modules = {
     toolbar: [
@@ -89,8 +121,8 @@ const AddBlog = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/blogs", {
-        method: "POST",
+      const response = await fetch(`/api/blogs-manager/${blogId}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -100,15 +132,23 @@ const AddBlog = () => {
       if (response.ok) {
         router.push("/blog-panel/blogs");
       } else {
-        throw new Error("Failed to create blog");
+        throw new Error("Failed to update blog");
       }
     } catch (error) {
-      console.error("Error creating blog:", error);
-      alert("Failed to create blog");
+      console.error("Error updating blog:", error);
+      alert("Failed to update blog");
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto space-y-6">
@@ -117,7 +157,15 @@ const AddBlog = () => {
         animate={{ opacity: 1, y: 0 }}
         className="flex justify-between items-center"
       >
-        <h1 className="text-3xl font-bold text-gray-800">Create New Blog</h1>
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={() => router.back()}
+            className="p-2 text-gray-600 hover:text-gray-800 transition-colors"
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </button>
+          <h1 className="text-3xl font-bold text-gray-800">Edit Blog</h1>
+        </div>
         <div className="flex space-x-3">
           <button
             type="button"
@@ -133,7 +181,7 @@ const AddBlog = () => {
             className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-black rounded-lg font-semibold flex items-center space-x-2 transition-colors disabled:opacity-50"
           >
             <Save className="w-5 h-5" />
-            <span>{isSubmitting ? "Publishing..." : "Publish Blog"}</span>
+            <span>{isSubmitting ? "Updating..." : "Update Blog"}</span>
           </button>
         </div>
       </motion.div>
@@ -341,4 +389,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default EditBlog;

@@ -1,25 +1,25 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
 model Blog {
-  id          String      @id @default(uuid())
+  id          String   @id @default(uuid())
   title       String
   description String
   adminName   String
-  content     String      // HTML Content
-  date        DateTime    @default(now())
-  image       String      @default("https://placehold.co/600x400") // Image URL
+  content     String // HTML Content
+  date        DateTime @default(now())
+  image       String   @default("https://placehold.co/600x400") // Image URL
+  views       Int      @default(0) // NEW: Track blog views
+  tags        String[] @default([]) // NEW: Array of tags
+  updatedAt   DateTime @updatedAt // NEW: Track when blog was last updated
 }
