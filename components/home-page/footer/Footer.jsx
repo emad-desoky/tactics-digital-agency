@@ -5,7 +5,7 @@ import CompanyInfo from "./CompanyInfo";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-16">
           {/* Left Side - Logo, Social Links, and Partners */}
           <div className="space-y-8">

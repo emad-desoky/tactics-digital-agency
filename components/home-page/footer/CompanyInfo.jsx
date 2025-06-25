@@ -1,6 +1,6 @@
 import { Email } from "@mui/icons-material";
 import { Mail, Phone, MapPin } from "lucide-react";
-
+import Map from "@/components/home-page/footer/Map";
 const CompanyInfo = () => {
   const locations = [
     {
@@ -22,7 +22,7 @@ const CompanyInfo = () => {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mt-7">
       {/* <h3 className="text-xl font-semibold text-white mb-6">Contact Info</h3> */}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -54,7 +54,7 @@ const CompanyInfo = () => {
           <h4 className="text-lg font-medium text-gray-300 mb-4">
             Get In Touch
           </h4>
-          <div className="space-y-4">
+          <div className="space-y-10">
             <div className="flex items-center space-x-3 text-gray-400 p-3  rounded-lg">
               <Phone className="w-7 h-7 text-yellow-400" />
               <div>
@@ -71,6 +71,9 @@ const CompanyInfo = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="">
+        <Map />
       </div>
     </div>
   );
