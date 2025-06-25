@@ -24,10 +24,10 @@ const BlogsManager = () => {
   useEffect(() => {
     fetchBlogs();
 
-    // Set up polling to refresh data every 15 seconds
+    // Set up more frequent polling for real-time updates (every 5 seconds)
     const interval = setInterval(() => {
       fetchBlogs(false, true);
-    }, 15000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -37,24 +37,37 @@ const BlogsManager = () => {
     if (!silent) setLoading(true);
 
     try {
-      // Add timestamp to prevent caching
+      // Add timestamp and force fresh data from Supabase
       const timestamp = new Date().getTime();
-      const response = await fetch(`/api/blogs-manager?t=${timestamp}`, {
-        cache: "no-store",
-        headers: {
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          Pragma: "no-cache",
-          Expires: "0",
-        },
-      });
+      const response = await fetch(
+        `/api/blogs-manager?t=${timestamp}&fresh=true`,
+        {
+          method: "GET",
+          cache: "no-store",
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            Pragma: "no-cache",
+            Expires: "0",
+            "X-Requested-With": "XMLHttpRequest",
+          },
+        }
+      );
 
       if (!response.ok) {
-        throw new Error("Failed to fetch blogs");
+        throw new Error(`Failed to fetch blogs: ${response.status}`);
       }
 
       const data = await response.json();
-      setBlogs(data);
-      setLastUpdated(new Date());
+
+      // Only update if data has actually changed
+      if (JSON.stringify(data) !== JSON.stringify(blogs)) {
+        setBlogs(data);
+        setLastUpdated(new Date());
+
+        if (!silent) {
+          console.log("Blogs data updated:", data.length, "blogs loaded");
+        }
+      }
     } catch (error) {
       console.error("Error fetching blogs:", error);
     } finally {
@@ -64,6 +77,7 @@ const BlogsManager = () => {
   };
 
   const handleRefresh = () => {
+    console.log("Manual refresh triggered");
     fetchBlogs(true);
   };
 
@@ -78,9 +92,14 @@ const BlogsManager = () => {
           throw new Error("Failed to delete blog");
         }
 
+        // Remove from local state immediately
         setBlogs(blogs.filter((blog) => blog.id !== id));
+
+        // Refresh data to ensure consistency
+        setTimeout(() => fetchBlogs(false, true), 1000);
       } catch (error) {
         console.error("Error deleting blog:", error);
+        alert("Failed to delete blog. Please try again.");
       }
     }
   };
@@ -88,17 +107,19 @@ const BlogsManager = () => {
   const filteredBlogs = blogs
     .filter(
       (blog) =>
-        blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        blog.description.toLowerCase().includes(searchTerm.toLowerCase())
+        blog.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.description?.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
       switch (sortBy) {
         case "views":
-          return b.views - a.views;
+          return (b.views || 0) - (a.views || 0);
         case "title":
-          return a.title.localeCompare(b.title);
+          return (a.title || "").localeCompare(b.title || "");
         default:
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
+          return (
+            new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()
+          );
       }
     });
 
@@ -106,6 +127,9 @@ const BlogsManager = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+        <p className="ml-4 text-gray-600">
+          Loading fresh data from Supabase...
+        </p>
       </div>
     );
   }
@@ -120,15 +144,16 @@ const BlogsManager = () => {
             onClick={handleRefresh}
             disabled={refreshing}
             className="p-2 text-gray-600 hover:text-gray-800 transition-colors disabled:opacity-50 border border-gray-300 rounded-lg hover:bg-gray-50"
-            title="Refresh data"
+            title="Refresh data from Supabase"
           >
             <RefreshCw
               className={`w-5 h-5 ${refreshing ? "animate-spin" : ""}`}
             />
           </button>
-          <span className="text-sm text-gray-500">
-            Last updated: {lastUpdated.toLocaleTimeString()}
-          </span>
+          <div className="text-sm text-gray-500">
+            <p>Last updated: {lastUpdated.toLocaleTimeString()}</p>
+            <p className="text-xs">Auto-refresh: Every 5 seconds</p>
+          </div>
         </div>
         <Link
           href="/blog-panel/add-blog"
@@ -139,9 +164,9 @@ const BlogsManager = () => {
         </Link>
       </div>
 
-      {/* Stats Summary */}
+      {/* Real-time Stats Summary */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg shadow-md p-4">
+        <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-blue-500">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Total Blogs</p>
@@ -153,11 +178,11 @@ const BlogsManager = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-4">
+        <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-green-500">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total Views</p>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-sm text-gray-600">Total Views (Live)</p>
+              <p className="text-2xl font-bold text-green-600">
                 {blogs
                   .reduce((sum, blog) => sum + (blog.views || 0), 0)
                   .toLocaleString()}
@@ -169,7 +194,7 @@ const BlogsManager = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-4">
+        <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-purple-500">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Avg Views</p>
@@ -188,7 +213,7 @@ const BlogsManager = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-4">
+        <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-yellow-500">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Most Viewed</p>
@@ -226,7 +251,7 @@ const BlogsManager = () => {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
           >
             <option value="date">Sort by Date</option>
-            <option value="views">Sort by Views</option>
+            <option value="views">Sort by Views (Live)</option>
             <option value="title">Sort by Title</option>
           </select>
         </div>
@@ -236,11 +261,11 @@ const BlogsManager = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredBlogs.map((blog, index) => (
           <motion.div
-            key={blog.id}
+            key={`${blog.id}-${blog.views}`} // Include views in key to trigger re-render
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow border-l-4 border-yellow-400"
           >
             {blog.image && (
               <img
@@ -262,7 +287,7 @@ const BlogsManager = () => {
                   <Calendar className="w-4 h-4 mr-1" />
                   {new Date(blog.date).toLocaleDateString()}
                 </span>
-                <span className="flex items-center font-semibold text-green-600">
+                <span className="flex items-center font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
                   <Eye className="w-4 h-4 mr-1" />
                   {(blog.views || 0).toLocaleString()} views
                 </span>
@@ -305,12 +330,20 @@ const BlogsManager = () => {
       {filteredBlogs.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">No blogs found</p>
+          {searchTerm && (
+            <p className="text-gray-400 text-sm mt-2">
+              Try adjusting your search term: {searchTerm}
+            </p>
+          )}
         </div>
       )}
 
-      {/* Auto-refresh indicator */}
-      <div className="text-center text-sm text-gray-500">
-        <p>Data refreshes automatically every 15 seconds</p>
+      {/* Live Update Indicator */}
+      <div className="text-center text-sm text-gray-500 bg-green-50 p-3 rounded-lg">
+        <div className="flex items-center justify-center space-x-2">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <p>Live data from Supabase - Updates every 5 seconds</p>
+        </div>
       </div>
     </div>
   );

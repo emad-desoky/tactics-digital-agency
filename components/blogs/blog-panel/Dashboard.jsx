@@ -29,24 +29,43 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchDashboardData();
-    // Auto-refresh every 60 seconds
-    const interval = setInterval(fetchDashboardData, 60000);
+    // More frequent auto-refresh for real-time updates (every 10 seconds)
+    const interval = setInterval(() => fetchDashboardData(false, true), 10000);
     return () => clearInterval(interval);
   }, []);
 
-  const fetchDashboardData = async (showRefreshing = false) => {
+  const fetchDashboardData = async (showRefreshing = false, silent = false) => {
     if (showRefreshing) setRefreshing(true);
 
     try {
-      const response = await fetch("/api/dashboard", {
+      // Force fresh data from Supabase
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/api/dashboard?t=${timestamp}&fresh=true`, {
+        method: "GET",
         cache: "no-store",
         headers: {
-          "Cache-Control": "no-cache",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+          "X-Requested-With": "XMLHttpRequest",
         },
       });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch dashboard data: ${response.status}`);
+      }
+
       const dashboardData = await response.json();
-      setData(dashboardData);
-      setLastUpdated(new Date(dashboardData.lastUpdated));
+
+      // Only update if data has actually changed
+      if (!data || JSON.stringify(dashboardData) !== JSON.stringify(data)) {
+        setData(dashboardData);
+        setLastUpdated(new Date(dashboardData.lastUpdated));
+
+        if (!silent) {
+          console.log("Dashboard data updated:", dashboardData);
+        }
+      }
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
     } finally {
@@ -56,6 +75,7 @@ const Dashboard = () => {
   };
 
   const handleRefresh = () => {
+    console.log("Manual dashboard refresh triggered");
     fetchDashboardData(true);
   };
 
@@ -63,6 +83,7 @@ const Dashboard = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+        <p className="ml-4 text-gray-600">Loading live data from Supabase...</p>
       </div>
     );
   }
@@ -70,7 +91,13 @@ const Dashboard = () => {
   if (!data) {
     return (
       <div className="text-center text-red-500">
-        Error loading dashboard data
+        <p>Error loading dashboard data</p>
+        <button
+          onClick={() => fetchDashboardData(true)}
+          className="mt-4 px-4 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -84,7 +111,7 @@ const Dashboard = () => {
       change: "+12%",
     },
     {
-      title: "Total Views",
+      title: "Total Views (Live)",
       value: data.totalViews.toLocaleString(),
       icon: Eye,
       color: "bg-green-500",
@@ -120,23 +147,29 @@ const Dashboard = () => {
               Welcome back, Admin! 👋
             </h1>
             <p className="text-gray-600">
-              Here&apos;s what&apos;s happening with your blog today.
+              Heres whats happening with your blog today (Live Data).
             </p>
           </div>
           <div className="flex items-center space-x-4">
             <div className="text-sm text-gray-500">
               {lastUpdated && (
-                <p className="flex items-center">
-                  <Clock className="w-4 h-4 mr-1" />
-                  Last updated: {lastUpdated.toLocaleTimeString()}
-                </p>
+                <div>
+                  <p className="flex items-center">
+                    <Clock className="w-4 h-4 mr-1" />
+                    Last updated: {lastUpdated.toLocaleTimeString()}
+                  </p>
+                  <p className="text-xs text-green-600 flex items-center">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-1"></div>
+                    Live from Supabase
+                  </p>
+                </div>
               )}
             </div>
             <button
               onClick={handleRefresh}
               disabled={refreshing}
               className="p-2 text-gray-600 hover:text-gray-800 transition-colors disabled:opacity-50 border border-gray-300 rounded-lg hover:bg-gray-50"
-              title="Refresh dashboard"
+              title="Refresh dashboard from Supabase"
             >
               <RefreshCw
                 className={`w-5 h-5 ${refreshing ? "animate-spin" : ""}`}
@@ -146,16 +179,22 @@ const Dashboard = () => {
         </div>
       </motion.div>
 
-      {/* Stats Cards */}
+      {/* Stats Cards with Live Data */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statsCards.map((stat, index) => (
           <motion.div
-            key={stat.title}
+            key={`${stat.title}-${stat.value}`} // Include value in key for re-render
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white rounded-xl shadow-lg p-6 border border-gray-100"
+            className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 relative overflow-hidden"
           >
+            {/* Live indicator for views */}
+            {stat.title.includes("Views") && (
+              <div className="absolute top-2 right-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              </div>
+            )}
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm font-medium">
@@ -184,7 +223,7 @@ const Dashboard = () => {
           className="bg-white rounded-xl shadow-lg p-6"
         >
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            Monthly Performance
+            Monthly Performance (Live Data)
           </h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data.monthlyData}>
@@ -219,12 +258,12 @@ const Dashboard = () => {
           className="bg-white rounded-xl shadow-lg p-6"
         >
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            Top Performing Blogs
+            Top Performing Blogs (Live Views)
           </h3>
           <div className="space-y-4">
             {data.topBlogs.map((blog, index) => (
               <div
-                key={blog.id}
+                key={`${blog.id}-${blog.views}`}
                 className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
               >
                 <div className="flex items-center space-x-3">
@@ -235,9 +274,10 @@ const Dashboard = () => {
                     <p className="font-medium text-gray-800 truncate max-w-48">
                       {blog.title}
                     </p>
-                    <p className="text-sm text-gray-500 flex items-center">
+                    <p className="text-sm text-green-600 flex items-center font-semibold">
                       <Eye className="w-4 h-4 mr-1" />
                       {(blog.views || 0).toLocaleString()} views
+                      <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse ml-2"></div>
                     </p>
                   </div>
                 </div>
@@ -255,12 +295,12 @@ const Dashboard = () => {
         className="bg-white rounded-xl shadow-lg p-6"
       >
         <h3 className="text-xl font-semibold text-gray-800 mb-4">
-          Recent Activity
+          Recent Activity (Live Data)
         </h3>
         <div className="space-y-3">
           {data.recentActivity.map((activity, index) => (
             <div
-              key={index}
+              key={`${activity.blog}-${activity.views}-${index}`}
               className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
             >
               <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
@@ -274,7 +314,7 @@ const Dashboard = () => {
                     <Clock className="w-4 h-4 mr-1" />
                     {activity.date}
                   </span>
-                  <span className="flex items-center">
+                  <span className="flex items-center text-green-600 font-semibold">
                     <Eye className="w-4 h-4 mr-1" />
                     {(activity.views || 0).toLocaleString()} views
                   </span>
@@ -292,7 +332,7 @@ const Dashboard = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
         className="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl shadow-lg p-6 text-black"
       >
-        <h3 className="text-xl font-semibold mb-4">Quick Summary</h3>
+        <h3 className="text-xl font-semibold mb-4">Quick Summary (Live)</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center">
             <p className="text-2xl font-bold">{data.blogsThisYear}</p>
@@ -317,9 +357,12 @@ const Dashboard = () => {
         </div>
       </motion.div>
 
-      {/* Auto-refresh indicator */}
-      <div className="text-center text-sm text-gray-500">
-        <p>Dashboard refreshes automatically every minute</p>
+      {/* Live Update Indicator */}
+      <div className="text-center text-sm text-gray-500 bg-green-50 p-3 rounded-lg">
+        <div className="flex items-center justify-center space-x-2">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <p>Live dashboard - Updates every 10 seconds from Supabase</p>
+        </div>
       </div>
     </div>
   );
