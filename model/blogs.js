@@ -63,11 +63,16 @@ export async function getSearchedBlogs(searchQuery) {
   });
 }
 
-// Get blog by ID
 export async function getBlogById(id) {
-  return await prisma.blog.findUnique({
-    where: { id },
-  });
+  try {
+    const blog = await prisma.blog.findUnique({
+      where: { id },
+    });
+    return blog;
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    return null;
+  }
 }
 
 // Add new blog
@@ -96,14 +101,172 @@ export async function updateBlog(id, blog) {
   });
 }
 
-// Increment blog views
 export async function incrementBlogViews(id) {
-  return await prisma.blog.update({
-    where: { id },
-    data: {
-      views: {
-        increment: 1,
+  try {
+    // If we're on the server side, directly update the database
+    if (typeof window === "undefined") {
+      const updatedBlog = await prisma.blog.update({
+        where: { id },
+        data: {
+          views: {
+            increment: 1,
+          },
+        },
+      });
+      return { success: true, views: updatedBlog.views };
+    } else {
+      // If we're on the client side, make an API call
+      const response = await fetch(`/api/blogs/${id}/view`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to increment view count");
+      }
+
+      return await response.json();
+    }
+  } catch (error) {
+    console.error("Error incrementing views:", error);
+    return { success: false, error: error.message };
+  }
+}
+
+export async function getAllBlogs(page = 1, limit = 10) {
+  try {
+    const skip = (page - 1) * limit;
+
+    const [blogs, total] = await Promise.all([
+      prisma.blog.findMany({
+        skip,
+        take: limit,
+        orderBy: {
+          date: "desc",
+        },
+        select: {
+          id: true,
+          title: true,
+          description: true,
+          image: true,
+          adminName: true,
+          date: true,
+          views: true,
+          tags: true,
+        },
+      }),
+      prisma.blog.count(),
+    ]);
+
+    return {
+      blogs,
+      total,
+      pages: Math.ceil(total / limit),
+      currentPage: page,
+    };
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    return {
+      blogs: [],
+      total: 0,
+      pages: 0,
+      currentPage: 1,
+    };
+  }
+}
+
+// Get fresh blog data for dashboard
+export async function getDashboardData() {
+  try {
+    const now = new Date();
+    const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+
+    // Total blogs
+    const totalBlogs = await prisma.blog.count();
+
+    // Total views - get fresh data
+    const totalViewsResult = await prisma.blog.aggregate({
+      _sum: {
+        views: true,
       },
-    },
-  });
+    });
+    const totalViews = totalViewsResult._sum.views || 0;
+
+    // Blogs this week
+    const blogsThisWeek = await prisma.blog.count({
+      where: {
+        date: {
+          gte: startOfWeek,
+        },
+      },
+    });
+
+    // Blogs this month
+    const blogsThisMonth = await prisma.blog.count({
+      where: {
+        date: {
+          gte: startOfMonth,
+        },
+      },
+    });
+
+    // Blogs this year
+    const blogsThisYear = await prisma.blog.count({
+      where: {
+        date: {
+          gte: startOfYear,
+        },
+      },
+    });
+
+    // Top performing blogs
+    const topBlogs = await prisma.blog.findMany({
+      select: {
+        id: true,
+        title: true,
+        views: true,
+      },
+      orderBy: {
+        views: "desc",
+      },
+      take: 5,
+    });
+
+    // Recent activity
+    const recentBlogs = await prisma.blog.findMany({
+      select: {
+        title: true,
+        date: true,
+        views: true,
+      },
+      orderBy: {
+        date: "desc",
+      },
+      take: 10,
+    });
+
+    return {
+      totalBlogs,
+      totalViews,
+      blogsThisWeek,
+      blogsThisMonth,
+      blogsThisYear,
+      topBlogs,
+      recentActivity: recentBlogs.map((blog) => ({
+        action: "Published",
+        blog: blog.title,
+        date: new Date(blog.date).toLocaleDateString(),
+        views: blog.views || 0,
+      })),
+      lastUpdated: new Date().toISOString(),
+    };
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+    throw error;
+  }
 }

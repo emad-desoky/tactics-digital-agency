@@ -1,5 +1,4 @@
-import { getBlogById } from "@/model/blogs";
-import { incrementBlogViews } from "@/model/blogs";
+import { getBlogById, incrementBlogViews } from "@/model/blogs";
 import Link from "next/link";
 import { Calendar, User, Eye, ArrowLeft, Tag } from "lucide-react";
 import Image from "next/image";
@@ -66,6 +65,8 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPage({ params }) {
   const { blogId } = params;
+
+  // Get fresh blog data
   const blog = await getBlogById(blogId);
 
   if (!blog) {
@@ -100,7 +101,7 @@ export default async function BlogPage({ params }) {
 
   // Only increment view count for real users, not bots
   if (!isBot) {
-    // Increment view count - use the API route to ensure it's counted
+    // Increment view count using your existing model function
     await incrementBlogViews(blogId);
   }
 
