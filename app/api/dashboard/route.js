@@ -14,59 +14,54 @@ export async function GET(request) {
 
     // Get current date info
     const now = new Date();
-    const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+    const startOfWeek = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() - now.getDay()
+    );
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const startOfYear = new Date(now.getFullYear(), 0, 1);
 
-    // Force fresh data from Supabase
-    const [
-      totalBlogs,
-      totalViewsResult,
-      blogsThisWeek,
-      blogsThisMonth,
-      blogsThisYear,
-      topBlogs,
-      recentBlogs,
-    ] = await Promise.all([
-      // Total blogs
-      prisma.blog.count(),
+    // Simplified queries to avoid timeouts
+    try {
+      // Basic counts first
+      const totalBlogs = await prisma.blog.count();
+      console.log("Total blogs:", totalBlogs);
 
-      // Total views - force fresh aggregation
-      prisma.blog.aggregate({
-        _sum: {
+      // Get total views with a simpler query
+      const allBlogs = await prisma.blog.findMany({
+        select: {
           views: true,
+          date: true,
         },
-      }),
+      });
+      console.log("Fetched all blogs for calculations:", allBlogs.length);
 
-      // Blogs this week
-      prisma.blog.count({
-        where: {
-          date: {
-            gte: startOfWeek,
-          },
-        },
-      }),
+      const totalViews = allBlogs.reduce(
+        (sum, blog) => sum + (blog.views || 0),
+        0
+      );
+      console.log("Total views calculated:", totalViews);
 
-      // Blogs this month
-      prisma.blog.count({
-        where: {
-          date: {
-            gte: startOfMonth,
-          },
-        },
-      }),
+      // Calculate time-based counts from the fetched data
+      const blogsThisWeek = allBlogs.filter(
+        (blog) => new Date(blog.date) >= startOfWeek
+      ).length;
+      const blogsThisMonth = allBlogs.filter(
+        (blog) => new Date(blog.date) >= startOfMonth
+      ).length;
+      const blogsThisYear = allBlogs.filter(
+        (blog) => new Date(blog.date) >= startOfYear
+      ).length;
 
-      // Blogs this year
-      prisma.blog.count({
-        where: {
-          date: {
-            gte: startOfYear,
-          },
-        },
-      }),
+      console.log("Time-based counts:", {
+        blogsThisWeek,
+        blogsThisMonth,
+        blogsThisYear,
+      });
 
-      // Top performing blogs - fresh view counts
-      prisma.blog.findMany({
+      // Get top blogs with a simple query
+      const topBlogs = await prisma.blog.findMany({
         select: {
           id: true,
           title: true,
@@ -76,10 +71,11 @@ export async function GET(request) {
           views: "desc",
         },
         take: 5,
-      }),
+      });
+      console.log("Top blogs:", topBlogs.length);
 
-      // Recent activity
-      prisma.blog.findMany({
+      // Get recent blogs
+      const recentBlogs = await prisma.blog.findMany({
         select: {
           title: true,
           date: true,
@@ -89,86 +85,108 @@ export async function GET(request) {
           date: "desc",
         },
         take: 10,
-      }),
-    ]);
+      });
+      console.log("Recent blogs:", recentBlogs.length);
 
-    const totalViews = totalViewsResult._sum.views || 0;
+      // Generate monthly data (simplified)
+      const monthlyData = [];
+      for (let i = 11; i >= 0; i--) {
+        const monthStart = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        const monthEnd = new Date(now.getFullYear(), now.getMonth() - i + 1, 0);
 
-    console.log("Dashboard data from Supabase:");
-    console.log("- Total blogs:", totalBlogs);
-    console.log("- Total views:", totalViews);
-    console.log(
-      "- Top blog views:",
-      topBlogs.map((b) => ({ title: b.title, views: b.views }))
-    );
+        const monthBlogs = allBlogs.filter((blog) => {
+          const blogDate = new Date(blog.date);
+          return blogDate >= monthStart && blogDate <= monthEnd;
+        });
 
-    // Monthly data for charts (last 12 months) - include real view data
-    const monthlyData = [];
-    for (let i = 11; i >= 0; i--) {
-      const monthStart = new Date(now.getFullYear(), now.getMonth() - i, 1);
-      const monthEnd = new Date(now.getFullYear(), now.getMonth() - i + 1, 0);
+        const monthViews = monthBlogs.reduce(
+          (sum, blog) => sum + (blog.views || 0),
+          0
+        );
 
-      const [monthBlogs, monthViewsResult] = await Promise.all([
-        prisma.blog.count({
-          where: {
-            date: {
-              gte: monthStart,
-              lte: monthEnd,
-            },
-          },
-        }),
-        prisma.blog.aggregate({
-          where: {
-            date: {
-              gte: monthStart,
-              lte: monthEnd,
-            },
-          },
-          _sum: {
-            views: true,
-          },
-        }),
-      ]);
+        monthlyData.push({
+          month: monthStart.toLocaleDateString("en-US", { month: "short" }),
+          blogs: monthBlogs.length,
+          views: monthViews,
+        });
+      }
 
-      monthlyData.push({
-        month: monthStart.toLocaleDateString("en-US", { month: "short" }),
-        blogs: monthBlogs,
-        views: monthViewsResult._sum.views || 0,
+      const recentActivity = recentBlogs.map((blog) => ({
+        action: "Published",
+        blog: blog.title,
+        date: new Date(blog.date).toLocaleDateString(),
+        views: blog.views || 0,
+      }));
+
+      const dashboardData = {
+        totalBlogs,
+        totalViews,
+        blogsThisWeek,
+        blogsThisMonth,
+        blogsThisYear,
+        monthlyData,
+        topBlogs,
+        recentActivity,
+        lastUpdated: new Date().toISOString(),
+      };
+
+      console.log("Dashboard data prepared successfully");
+
+      return NextResponse.json(dashboardData, {
+        headers: {
+          "Cache-Control":
+            "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+          "X-Timestamp": new Date().toISOString(),
+        },
+      });
+    } catch (dbError) {
+      console.error("Database query error:", dbError);
+
+      // Return fallback data if database queries fail
+      const fallbackData = {
+        totalBlogs: 0,
+        totalViews: 0,
+        blogsThisWeek: 0,
+        blogsThisMonth: 0,
+        blogsThisYear: 0,
+        monthlyData: Array.from({ length: 12 }, (_, i) => ({
+          month: new Date(
+            now.getFullYear(),
+            now.getMonth() - (11 - i),
+            1
+          ).toLocaleDateString("en-US", {
+            month: "short",
+          }),
+          blogs: 0,
+          views: 0,
+        })),
+        topBlogs: [],
+        recentActivity: [],
+        lastUpdated: new Date().toISOString(),
+        error: "Database connection issue",
+      };
+
+      return NextResponse.json(fallbackData, {
+        status: 200, // Return 200 with fallback data instead of error
+        headers: {
+          "Cache-Control":
+            "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+          "X-Timestamp": new Date().toISOString(),
+        },
       });
     }
-
-    const recentActivity = recentBlogs.map((blog) => ({
-      action: "Published",
-      blog: blog.title,
-      date: new Date(blog.date).toLocaleDateString(),
-      views: blog.views || 0,
-    }));
-
-    const dashboardData = {
-      totalBlogs,
-      totalViews,
-      blogsThisWeek,
-      blogsThisMonth,
-      blogsThisYear,
-      monthlyData,
-      topBlogs,
-      recentActivity,
-      lastUpdated: new Date().toISOString(),
-    };
-
-    return NextResponse.json(dashboardData, {
-      headers: {
-        "Cache-Control":
-          "no-store, no-cache, must-revalidate, proxy-revalidate",
-        Pragma: "no-cache",
-        Expires: "0",
-        "X-Timestamp": new Date().toISOString(),
-      },
-    });
   } catch (error) {
     console.error("Dashboard API Error:", error);
     return NextResponse.json(
-      { error: "Failed to fetch dashboard data", details: error.message },
+      {
+        error: "Failed to fetch dashboard data",
+        details: error.message,
+        timestamp: new Date().toISOString(),
+      },
       { status: 500 }
     );
   }
