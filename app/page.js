@@ -12,16 +12,14 @@ import Footer from "@/components/home-page/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 
 export const metadata = {
-  title:
-    "Tactics Digital Agency - Transform Your Business with Digital Excellence",
+  title: "Tactics Digital Agency - Creativity Driven Digital Growth",
   description:
     "Welcome to Tactics Digital Agency. We specialize in digital marketing, web development, SEO optimization, and brand strategy to accelerate your business growth in the digital world.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.tacticsdigitalagency.net/",
-    title:
-      "Tactics Digital Agency - Transform Your Business with Digital Excellence",
+    title: "Tactics Digital Agency - Creativity Driven Digital Growth",
     description:
       "Welcome to Tactics Digital Agency. We specialize in digital marketing, web development, SEO optimization, and brand strategy to accelerate your business growth in the digital world.",
     siteName: "Tactics Digital Agency",
@@ -37,8 +35,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Tactics Digital Agency - Transform Your Business with Digital Excellence",
+    title: "Tactics Digital Agency - Creativity Driven Digital Growth",
     description:
       "Welcome to Tactics Digital Agency. We specialize in digital marketing, web development, SEO optimization, and brand strategy to accelerate your business growth in the digital world.",
     creator: "@tacticsdigital",
