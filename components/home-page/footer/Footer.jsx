@@ -1,8 +1,15 @@
+"use client";
+
 import Logo from "./Logo";
 import SocialLinks from "./SocialLinks";
 import CompanyInfo from "./CompanyInfo";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const Footer = () => {
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/201095059730", "_blank");
+  };
+
   return (
     <footer className="bg-black text-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,50 +31,44 @@ const Footer = () => {
           <div className="text-center">
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <div className="flex flex-wrap justify-center gap-8">
-              {["About", "Services", "Portfolio", "Blogs", "Contact"].map(
-                (link) => (
-                  <a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    {link}
-                  </a>
-                )
-              )}
+              {[
+                { name: "About", href: "/about" },
+                { name: "Services", href: "/services" },
+                { name: "Portfolio", href: "/portfolio" },
+                { name: "Blogs", href: "/blogs" },
+                { name: "Contact", href: "/contact" },
+              ].map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        {/* <div className="border-t border-gray-800 py-8"> */}
-        {/* <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-gray-800 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © {new Date().getFullYear()} TACTICS® Digital Agency. All rights
               reserved.
             </div>
-            <div className="flex space-x-6 text-sm text-gray-400">
-              <a
-                href="#privacy"
-                className="hover:text-white transition-colors duration-300"
+            <div className="flex items-center space-x-2 text-gray-400 text-sm">
+              <span>Developed by Nova Development</span>
+              <button
+                onClick={handleWhatsAppClick}
+                className="text-green-500 hover:text-green-400 transition-colors duration-300 hover:scale-110 transform"
+                aria-label="Contact on WhatsApp"
               >
-                Privacy Policy
-              </a>
-              <a
-                href="#terms"
-                className="hover:text-white transition-colors duration-300"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#cookies"
-                className="hover:text-white transition-colors duration-300"
-              >
-                Cookie Policy
-              </a>
+                <WhatsAppIcon className="w-5 h-5" />
+              </button>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
