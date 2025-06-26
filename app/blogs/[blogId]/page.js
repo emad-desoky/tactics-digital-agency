@@ -5,6 +5,23 @@ import Image from "next/image";
 import SocialShare from "@/components/blogs/SocialShare";
 import { headers } from "next/headers";
 
+// Helper function to convert base64 to blob URL (server-side)
+async function convertBase64ToUrl(base64Data, blogId) {
+  if (!base64Data || !base64Data.startsWith("data:image/")) {
+    return null;
+  }
+
+  try {
+    // For social media, we need to serve the image as a proper URL
+    // We'll create an API endpoint that serves the base64 image
+    const baseUrl = "https://www.tacticsdigitalagency.net";
+    return `${baseUrl}/api/blog-image/${blogId}`;
+  } catch (error) {
+    console.error("Error converting base64:", error);
+    return null;
+  }
+}
+
 export async function generateMetadata({ params }) {
   const { blogId } = params;
   const blog = await getBlogById(blogId);
@@ -30,35 +47,88 @@ export async function generateMetadata({ params }) {
     excerpt ||
     `Read ${blog.title} on Tactics Digital Agency blog.`;
 
+  const baseUrl = "https://www.tacticsdigitalagency.net";
+  let blogImageUrl = `${baseUrl}/og-tactics-image.jpg`; // Default fallback
+
+  // CRITICAL: Handle base64 images for social media
+  if (blog.image && blog.image.startsWith("data:image/")) {
+    // Convert base64 to accessible URL for social media
+    blogImageUrl = `${baseUrl}/api/blog-image/${blogId}`;
+  } else if (blog.image && blog.image.startsWith("http")) {
+    // Already a proper URL
+    blogImageUrl = blog.image;
+  }
+
+  const blogUrl = `${baseUrl}/blogs/${blogId}`;
+
   return {
     title: `${blog.title} | Tactics Digital Agency Blog`,
     description: metaDescription,
     keywords: blog.tags?.join(", ") || "digital marketing, blog",
+
     openGraph: {
       title: blog.title,
       description: metaDescription,
+      url: blogUrl,
+      siteName: "Tactics Digital Agency",
+      type: "article",
+      publishedTime: blog.date,
+      modifiedTime: blog.updatedAt || blog.date,
+      authors: [blog.adminName],
+      section: "Blog",
+      tags: blog.tags || [],
       images: [
         {
-          url: blog.image || "/placeholder.svg?height=630&width=1200",
+          url: blogImageUrl,
           width: 1200,
           height: 630,
           alt: blog.title,
+          type: "image/jpeg",
         },
       ],
-      type: "article",
-      publishedTime: blog.date,
-      authors: [blog.adminName],
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${blogId}`,
     },
+
     twitter: {
       card: "summary_large_image",
+      site: "@tacticsdigital",
+      creator: "@tacticsdigital",
       title: blog.title,
       description: metaDescription,
-      images: [blog.image || "/placeholder.svg?height=630&width=1200"],
-      creator: "@tacticsdigital",
+      images: [blogImageUrl],
     },
+
+    other: {
+      "og:image": blogImageUrl,
+      "og:image:secure_url": blogImageUrl,
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": blog.title,
+      "og:image:type": "image/jpeg",
+
+      // WhatsApp specific
+      "whatsapp:image": blogImageUrl,
+      "whatsapp:title": blog.title,
+      "whatsapp:description": metaDescription,
+
+      // Additional image meta
+      image: blogImageUrl,
+      thumbnail: blogImageUrl,
+    },
+
     alternates: {
       canonical: `/blogs/${blogId}`,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -66,7 +136,6 @@ export async function generateMetadata({ params }) {
 export default async function BlogPage({ params }) {
   const { blogId } = params;
 
-  // Get fresh blog data
   const blog = await getBlogById(blogId);
 
   if (!blog) {
@@ -94,14 +163,11 @@ export default async function BlogPage({ params }) {
     );
   }
 
-  // Check if this is a real user visit (not a bot or crawler)
   const headersList = headers();
   const userAgent = headersList.get("user-agent") || "";
   const isBot = /bot|crawler|spider|crawling/i.test(userAgent);
 
-  // Only increment view count for real users, not bots
   if (!isBot) {
-    // Increment view count using your existing model function
     await incrementBlogViews(blogId);
   }
 
@@ -119,7 +185,6 @@ export default async function BlogPage({ params }) {
               Back to Blogs
             </Link>
 
-            {/* Breadcrumb */}
             <div className="hidden md:flex items-center space-x-2 text-sm text-gray-500">
               <Link href="/" className="hover:text-gray-900 transition-colors">
                 Home
@@ -140,7 +205,7 @@ export default async function BlogPage({ params }) {
         </div>
       </nav>
 
-      {/* Hero Image Section */}
+      {/* Hero Image Section - Base64 works fine for display */}
       <div className="relative h-96 md:h-[500px] overflow-hidden">
         <Image
           src={blog.image || "/placeholder.svg?height=500&width=1200"}
@@ -154,9 +219,7 @@ export default async function BlogPage({ params }) {
 
       {/* Article Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
-        {/* Article Header */}
         <header className="mb-12">
-          {/* Tags */}
           {blog.tags && blog.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
               {blog.tags.map((tag) => (
@@ -181,7 +244,6 @@ export default async function BlogPage({ params }) {
             </p>
           )}
 
-          {/* Meta Information */}
           <div className="flex flex-wrap items-center gap-6 text-gray-500 pb-8 border-b border-gray-200">
             <div className="flex items-center">
               <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mr-3">
@@ -213,7 +275,6 @@ export default async function BlogPage({ params }) {
           </div>
         </header>
 
-        {/* Article Content */}
         <article className="prose prose-lg prose-gray max-w-none mb-12">
           <div
             className="content"
@@ -221,12 +282,10 @@ export default async function BlogPage({ params }) {
           />
         </article>
 
-        {/* Share Section */}
         <div className="bg-gray-50 rounded-xl p-8 mb-12">
           <SocialShare title={blog.title} blogId={blog.id} />
         </div>
 
-        {/* Author Bio */}
         <div className="bg-white border border-gray-200 rounded-xl p-8">
           <div className="flex items-start space-x-6">
             <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
