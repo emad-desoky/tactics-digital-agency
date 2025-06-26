@@ -36,19 +36,19 @@ const SocialLinks = () => {
   const partners = [
     {
       name: "Google",
-      logo: "https://logowik.com/content/uploads/images/lorem-lorem7797.logowik.com.webp",
+      logo: "/partner2.jpg",
     },
     {
       name: "Microsoft",
-      logo: "https://logowik.com/content/uploads/images/lorem-lorem7797.logowik.com.webp",
+      logo: "/partner1.jpg",
     },
     {
       name: "Adobe",
-      logo: "https://logowik.com/content/uploads/images/lorem-lorem7797.logowik.com.webp",
+      logo: "/partner3.jpg",
     },
     {
       name: "Meta",
-      logo: "https://logowik.com/content/uploads/images/lorem-lorem7797.logowik.com.webp",
+      logo: "/nova6.png",
     },
   ];
 

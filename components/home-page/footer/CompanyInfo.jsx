@@ -15,10 +15,10 @@ const CompanyInfo = () => {
       name: "Business Dev. Office - Giza",
       address: "Plaza España Mall, Second Al Shiekh Zayed - Giza, Egypt",
     },
-    {
-      name: "Creative Hub - Alexandria",
-      address: "Corniche Road - Sidi Gaber - Alexandria, Egypt",
-    },
+    // {
+    //   name: "Creative Hub - Alexandria",
+    //   address: "Corniche Road - Sidi Gaber - Alexandria, Egypt",
+    // },
   ];
 
   return (
