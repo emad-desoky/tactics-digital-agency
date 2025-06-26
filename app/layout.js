@@ -89,13 +89,87 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#ffe400" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
 
-        {/* Robots meta */}
+        {/* Essential Open Graph tags for WhatsApp - MUST be first */}
+        <meta
+          property="og:title"
+          content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Creativity-driven digital growth with comprehensive 360° digital marketing solutions, web development, SEO, branding, and creative services."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://www.tacticsdigitalagency.net/"
+        />
+        <meta property="og:site_name" content="Tactics Digital Agency" />
+
+        {/* Image meta tags - Using your domain for better reliability */}
+        <meta
+          property="og:image"
+          content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta
+          property="og:image:alt"
+          content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+
+        {/* Additional image meta tags for WhatsApp compatibility */}
+        <meta
+          name="image"
+          content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
+        />
+        <meta
+          name="thumbnail"
+          content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
+        />
+
+        {/* Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="Creativity-driven digital growth with comprehensive 360° digital marketing solutions, web development, SEO, branding, and creative services."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Tactics Digital Agency - 360° Digital Growth Solutions"
+        />
+
+        {/* WhatsApp specific meta tags */}
+        <meta
+          property="whatsapp:image"
+          content="https://www.tacticsdigitalagency.net/og-tactics-image.jpg"
+        />
+        <meta property="whatsapp:title" content="Tactics Digital Agency" />
+        <meta
+          property="whatsapp:description"
+          content="Welcome to TACTICS DIGITAL AGENCY - 360° Digital Growth Solutions"
+        />
+
+        {/* Additional meta tags for broader compatibility */}
+        <meta property="og:locale" content="en_US" />
         <meta
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
 
-        {/* Structured data for organization */}
+        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
