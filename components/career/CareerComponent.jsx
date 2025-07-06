@@ -264,11 +264,11 @@ const CareerComponent = () => {
             </Button>
           </form>
         </Card>
-        <div className="w-2/3 h-full flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <Image
-            src="/careers.PNG"
+            src="/family.jpg"
             alt="Tactics Digital Agency"
-            className="rounded-2xl shadow-2xl border border-gray-700 hover:scale-105 transition-transform duration-300"
+            className="rounded-2xl lg:h-[500px] shadow-2xl border border-gray-700 hover:scale-105 transition-transform duration-300"
           />
         </div>
       </div>

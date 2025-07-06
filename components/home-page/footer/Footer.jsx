@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-16">
           {/* Left Side - Logo, Social Links, and Partners */}
           <div className="space-y-8">
@@ -32,11 +32,9 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <div className="flex flex-wrap justify-center gap-8">
               {[
-                { name: "About", href: "/about" },
-                { name: "Services", href: "/services" },
-                { name: "Portfolio", href: "/portfolio" },
+                { name: "About", href: "/about-us" },
                 { name: "Blogs", href: "/blogs" },
-                { name: "Contact", href: "/contact" },
+                { name: "Gallery", href: "/gallery" },
               ].map((link) => (
                 <a
                   key={link.name}

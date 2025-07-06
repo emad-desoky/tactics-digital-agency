@@ -34,22 +34,10 @@ const SocialLinks = () => {
   ];
 
   const partners = [
-    {
-      name: "Google",
-      logo: "/partner2.jpg",
-    },
-    {
-      name: "Microsoft",
-      logo: "/partner1.jpg",
-    },
-    {
-      name: "Adobe",
-      logo: "/partner3.jpg",
-    },
-    {
-      name: "Meta",
-      logo: "/nova6.png",
-    },
+    { name: "Google", logo: "/partner2.jpg" },
+    { name: "Microsoft", logo: "/partner1.jpg" },
+    { name: "Adobe", logo: "/partner3.jpg" },
+    { name: "Meta", logo: "/nova6.png" },
   ];
 
   return (
@@ -76,9 +64,9 @@ const SocialLinks = () => {
       {/* Partners Section */}
       <div className="text-center lg:text-left">
         <h4 className="text-lg font-medium text-gray-300 mb-4">Our Partners</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 ">
+        <div className="flex overflow-x-auto space-x-4 md:grid md:grid-cols-4 md:space-x-0 md:gap-4">
           {partners.map((partner, index) => (
-            <div key={index} className="">
+            <div key={index} className="flex-shrink-0 md:flex-shrink">
               <img
                 src={
                   partner.logo ||

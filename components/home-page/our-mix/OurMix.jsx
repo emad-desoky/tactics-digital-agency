@@ -5,22 +5,22 @@ import Image from "next/image";
 
 const imagePaths = [
   {
-    src: "/director1.jpg",
-    name: "Gina Sameh",
+    src: "/team/Web.Jana.jpg",
+    name: "Jana",
     position: "Account Manager",
   },
   {
-    src: "/director2.jpg",
+    src: "/team/Web.Mostafa.jpg",
     name: "Mostafa Ashraf",
     position: "Marketing Manager",
   },
   {
-    src: "/director3.jpg",
+    src: "/team/Web.Hussien.jpg",
     name: "Hussein ahmed ",
     position: "Graphic Designer",
   },
   {
-    src: "/director4.jpg",
+    src: "/team/Web.Dareen.jpg",
     name: "Dareen Zohny",
     position: "Video Editor",
   },
@@ -35,8 +35,8 @@ const imagePaths = [
     position: "Creative Videographer",
   },
   {
-    src: "/director7.jpg",
-    name: "Melody Essam",
+    src: "/team/Web.Hagar.jpg",
+    name: "Hagar",
     position: "Digital Marketing Specialist",
   },
   {
@@ -45,9 +45,9 @@ const imagePaths = [
     position: "Video Montage",
   },
   {
-    src: "/director2.jpg",
-    name: "Mostafa Ashraf",
-    position: "Marketing Manager",
+    src: "/team/Web.Mariam.jpg",
+    name: "Mariam",
+    position: "",
   },
 ];
 
@@ -123,10 +123,10 @@ const OurMix = () => {
                 quality={90}
                 priority={index < 4}
               />
-              <div className="absolute inset-0 bg-[rgb(255,228,0)] bg-opacity-90 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300">
+              {/* <div className="absolute inset-0 bg-[rgb(255,228,0)] bg-opacity-90 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300">
                 <h3 className="text-black text-lg font-bold">{image.name}</h3>
                 <p className="text-black text-sm">{image.position}</p>
-              </div>
+              </div> */}
             </div>
           </div>
         );
