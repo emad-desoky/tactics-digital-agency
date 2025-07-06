@@ -120,7 +120,7 @@ const OurMix = () => {
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 33.33vw, (max-width: 1024px) 25vw, 20vw"
-                quality={90}
+                quality={100}
                 priority={index < 4}
               />
               {/* <div className="absolute inset-0 bg-[rgb(255,228,0)] bg-opacity-90 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300">
