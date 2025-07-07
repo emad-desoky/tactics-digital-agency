@@ -29,28 +29,6 @@ export default function AboutUsPage() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: -80,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          className="relative z-10 flex flex-col justify-center items-center w-full h-full"
-        >
-          {/* Content to overlay on the video */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4">
-            {"Creativity Driven, Digital Growth"}
-          </h1>
-          <p className="mt-4 text-lg text-white text-center px-4">
-            {"Watch our story unfold."}
-          </p>
-        </motion.div>
       </div>
       <Tabss />
     </div>
