@@ -1,34 +1,22 @@
-"use client"; // 'use client' is needed for motion.div and potentially for iframe interactions
+"use client";
 
 import { Tabss } from "@/components/about-us/Tabss";
-import { motion } from "framer-motion";
 
 export default function AboutUsPage() {
-  // YouTube embed URL for the video: https://www.youtube.com/watch?v=z_PaOkiBRFE
-  // Parameters:
-  // ?autoplay=1 - auto-plays the video
-  // &mute=1 - mutes the video
-  // &loop=1 - loops the video
-  // &playlist=z_PaOkiBRFE - required for loop to work with a single video
-  // &controls=0 - hides video controls
-  // &showinfo=0 - hides video title and uploader
-  // &modestbranding=1 - removes YouTube logo
-  // &iv_load_policy=3 - hides annotations
-  // &rel=0 - prevents showing related videos at the end
-  const youtubeEmbedUrl =
-    "https://www.youtube.com/embed/z_PaOkiBRFE?autoplay=1&mute=1&loop=1&playlist=z_PaOkiBRFE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0";
-
   return (
     <div className="min-h-screen bg-background">
       <div className="relative w-full h-[30rem] xs:h-[34rem] sm:h-[38rem] md:h-[42rem] lg:h-[46rem] xl:h-[50rem] 2xl:h-[54rem] 3xl:h-[60rem] overflow-hidden">
-        <iframe
+        <video
           className="absolute inset-0 w-full h-full object-cover brightness-200"
-          src={youtubeEmbedUrl}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+          autoPlay
+          loop
+          playsInline
+          controls={false}
+        >
+          <source src="/your-video.mp4" type="video/mp4" />
+          <source src="/your-video.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       <Tabss />
     </div>
