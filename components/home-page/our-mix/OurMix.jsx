@@ -5,47 +5,47 @@ import Image from "next/image";
 
 const imagePaths = [
   {
-    src: "/team/Web.Jana.jpg",
+    src: "/team/nour-ezzat.jpg",
     name: "Jana",
     position: "Account Manager",
   },
   {
-    src: "/team/Web.Mostafa.jpg",
+    src: "/team/Web.Dareen.jpg",
     name: "Mostafa Ashraf",
     position: "Marketing Manager",
   },
   {
-    src: "/team/Web.Hussien.jpg",
+    src: "/team/Web.Hagar.jpg",
     name: "Hussein ahmed ",
     position: "Graphic Designer",
   },
   {
-    src: "/team/Web.Dareen.jpg",
+    src: "/team/Web.Hussien.jpg",
     name: "Dareen Zohny",
     position: "Video Editor",
   },
   {
-    src: "/director5.jpg",
+    src: "/team/Web.Jana.jpg",
     name: "Omar Amin",
     position: "Sr Graphic Designer",
   },
   {
-    src: "/director6.jpg",
+    src: "/team/Web.Mariam.jpg",
     name: "Sondos Mohamed",
     position: "Creative Videographer",
   },
   {
-    src: "/team/Web.Hagar.jpg",
+    src: "/team/Web.Mostafa.jpg",
     name: "Hagar",
     position: "Digital Marketing Specialist",
   },
   {
-    src: "/director8.jpg",
+    src: "/team/Web.Nourhan .jpg",
     name: "Diaa Abdullah",
     position: "Video Montage",
   },
   {
-    src: "/team/Web.Mariam.jpg",
+    src: "/team/Web.Ola.jpg",
     name: "Mariam",
     position: "",
   },
