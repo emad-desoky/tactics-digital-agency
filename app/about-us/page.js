@@ -3,37 +3,52 @@
 import { Tabss } from "@/components/about-us/Tabss";
 
 export default function AboutUsPage() {
-  // Most aggressive YouTube embed parameters to hide all controls and branding
   const youtubeEmbedUrl =
-    "https://www.youtube.com/embed/z_PaOkiBRFE?autoplay=1&mute=0&loop=1&playlist=z_PaOkiBRFE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&fs=0&cc_load_policy=0&disablekb=1&playsinline=1&start=0&end=0&origin=" +
-    (typeof window !== "undefined" ? window.location.origin : "");
+    "https://www.youtube.com/embed/z_PaOkiBRFE?autoplay=1&mute=0&loop=1&playlist=z_PaOkiBRFE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&fs=0&cc_load_policy=0&disablekb=1&playsinline=1";
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="relative w-full h-[30rem] xs:h-[34rem] sm:h-[38rem] md:h-[42rem] lg:h-[46rem] xl:h-[50rem] 2xl:h-[54rem] 3xl:h-[60rem] overflow-hidden">
+    <>
+      {/* FULL SCREEN VIDEO - NO CONTAINERS, NO BULLSHIT */}
+      <div
+        className="fixed top-0 left-0 w-screen h-screen z-0 overflow-hidden"
+        style={{
+          width: "100vw",
+          height: "100vh",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: -1,
+        }}
+      >
         <iframe
-          className="absolute inset-0 w-full h-full object-cover brightness-[.5] pointer-events-none"
           src={youtubeEmbedUrl}
           title="Background video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "100vw",
+            height: "56.25vw", // 16:9 aspect ratio
+            minHeight: "100vh",
+            minWidth: "177.78vh", // 16:9 aspect ratio
+            transform: "translate(-50%, -50%)",
+            pointerEvents: "none", // DISABLE ALL MOUSE INTERACTIONS
             border: "none",
             outline: "none",
           }}
-        ></iframe>
-
-        {/* Overlay to block any remaining YouTube UI */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "transparent",
-            zIndex: 1,
-          }}
         />
       </div>
-      <Tabss />
-    </div>
+
+      {/* CONTENT OVER VIDEO */}
+      <div className="relative z-10 min-h-screen bg-transparent">
+        <div className="h-[30rem] xs:h-[34rem] sm:h-[38rem] md:h-[42rem] lg:h-[46rem] xl:h-[50rem] 2xl:h-[54rem] 3xl:h-[60rem] relative">
+          {/* Video space */}
+        </div>
+        <Tabss />
+      </div>
+    </>
   );
 }
