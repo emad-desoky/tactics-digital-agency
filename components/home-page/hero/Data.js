@@ -1,8 +1,8 @@
 export const Data = [
-  {
-    id: "1",
-    image: "/slider.png",
-  },
+  // {
+  //   id: "1",
+  //   image: "/slider.png",
+  // },
   {
     id: "2",
     image: "/slide1.jpg",
