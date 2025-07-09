@@ -105,7 +105,7 @@ const CareerComponent = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 w-full bg-[rgb(63,63,63)] text-white">
+    <div className="min-h-screen py-12 px-4 w-full bg-neutral-800 text-white">
       <div className="text-center mb-16 max-w-4xl mx-auto">
         <h1 className="text-6xl text-[rgb(255,228,0)] mb-4">
           Join Our Team at Tactics Digital Agency
