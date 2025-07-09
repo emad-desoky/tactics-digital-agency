@@ -10,6 +10,7 @@ import TestimonialSection from "@/components/home-page/they-say/Testimonials";
 import ContactForm from "@/components/home-page/contact-details/NewContactForm";
 import Footer from "@/components/home-page/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
+import VideoBackgroundWithControls from "@/components/home-page/video-background-with-controls"; // Import the new Client Component
 
 export const metadata = {
   title: "Tactics Digital Agency - Creativity Driven Digital Growth",
@@ -52,6 +53,8 @@ export default function Home() {
       <div>
         <Navbar />
         <Hero />
+        {/* Video Section with controls, now a separate Client Component */}
+        <VideoBackgroundWithControls />
         <OurStory />
         <Achievements />
         <TestimonialSection />

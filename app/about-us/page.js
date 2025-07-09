@@ -1,10 +1,28 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { Tabss } from "@/components/about-us/Tabss";
+import { VolumeX, Volume2 } from "lucide-react"; // Import icons
 
 export default function AboutUsPage() {
+  const [isMuted, setIsMuted] = useState(true); // State to track mute status, set to true for initial mute
+  const iframeRef = useRef(null); // Ref to access the iframe element
+
+  // YouTube embed URL with autoplay=1, loop=1, controls=0, and enablejsapi=1 for JavaScript control
   const youtubeEmbedUrl =
-    "https://www.youtube.com/embed/z_PaOkiBRFE?autoplay=1&mute=0&loop=1&playlist=z_PaOkiBRFE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&fs=0&cc_load_policy=0&disablekb=1&playsinline=1";
+    "https://www.youtube.com/embed/z_PaOkiBRFE?autoplay=1&mute=1&loop=1&playlist=z_PaOkiBRFE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&fs=0&cc_load_policy=0&disablekb=1&playsinline=1&enablejsapi=1";
+
+  const toggleMute = () => {
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      // Send a postMessage to the iframe to control the YouTube player
+      const command = isMuted ? "unMute" : "mute";
+      iframeRef.current.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: command }),
+        "*" // Use '*' for targetOrigin for simplicity, but specify domain for security in production
+      );
+      setIsMuted(!isMuted);
+    }
+  };
 
   return (
     <>
@@ -21,6 +39,7 @@ export default function AboutUsPage() {
         }}
       >
         <iframe
+          ref={iframeRef} // Assign ref to the iframe
           src={youtubeEmbedUrl}
           title="Background video"
           frameBorder="0"
@@ -40,6 +59,21 @@ export default function AboutUsPage() {
             outline: "none",
           }}
         />
+      </div>
+
+      {/* Mute/Unmute Button positioned on the left side - OUTSIDE video container */}
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50">
+        <button
+          onClick={toggleMute}
+          className="p-3 rounded-full bg-gray-800 text-white shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition-colors duration-200 pointer-events-auto"
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? (
+            <VolumeX className="h-5 w-5" />
+          ) : (
+            <Volume2 className="h-5 w-5" />
+          )}
+        </button>
       </div>
 
       {/* CONTENT OVER VIDEO */}
