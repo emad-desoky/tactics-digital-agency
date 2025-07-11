@@ -53,10 +53,11 @@ export default function Home() {
       <div>
         <Navbar />
         <Hero />
-        {/* Video Section with controls, now a separate Client Component */}
-        <VideoBackgroundWithControls />
+
         <OurStory />
         <Achievements />
+        {/* Video Section with controls, now a separate Client Component */}
+        <VideoBackgroundWithControls />
         <TestimonialSection />
         <ServicesParallax />
         <Partners />
