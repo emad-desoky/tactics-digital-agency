@@ -37,6 +37,7 @@ export function DataBlogClient({ initialBlogs, totalPages, pageNo, allTags }) {
                     alt={blog.title}
                     width={500}
                     height={300}
+                    unoptimized
                     className="object-cover w-full h-48"
                   />
                 ) : (
