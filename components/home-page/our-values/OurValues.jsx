@@ -13,16 +13,11 @@ const OurValues = () => {
   // Data for images located in the public folder
   const slidesData = [
     {
-      src: "/value1j.jpg",
+      src: "/our-value/website Our Values 01.jpg",
       alt: "value1",
     },
-    { src: "/value2.jpg", alt: "value2" },
-    { src: "/value3.jpg", alt: "value3" },
-    { src: "/value4.jpg", alt: "value4" },
-    { src: "/value5.jpg", alt: "value5" },
-    { src: "/value6.jpg", alt: "value6" },
-    { src: "/value7.jpg", alt: "value7" },
-    { src: "/value8.jpg", alt: "value8" },
+    { src: "/our-value/website Our Values 02.jpg", alt: "value2" },
+    { src: "/our-value/website Our Values 04.jpg", alt: "value3" },
   ];
 
   return (

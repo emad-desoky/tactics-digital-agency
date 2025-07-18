@@ -14,7 +14,7 @@ export async function DataBlog({ pageNo = 1 }) {
 
   return (
     <>
-      <section className="py-16 bg-neutral-800">
+      <section className="py-16 bg-[#E9E5DC]">
         <div className="container mx-auto px-4 lg:px-8">
           <h1 className="text-5xl font-bold text-center text-[rgb(255,228,0)] mb-12 tracking-tight">
             Latest Blogs
