@@ -10,8 +10,7 @@ export default function VideoBackgroundWithControls() {
   // YouTube embed URL with autoplay=1, loop=1, controls=0, and enablejsapi=1 for JavaScript control
   // Changed mute=0 to mute=1 to ensure autoplay works reliably
   const youtubeEmbedUrl =
-    "https://www.youtube.com/embed/z_PaOkiBRFE?autoplay=1&mute=1&loop=1&playlist=z_PaOkiBRFE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&fs=0&cc_load_policy=0&disablekb=1&playsinline=1&enablejsapi=1";
-
+    "https://www.youtube.com/embed/oHky0sWMyWs?autoplay=1&mute=1&loop=1&playlist=oHky0sWMyWs&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&fs=0&cc_load_policy=0&disablekb=1&playsinline=1&enablejsapi=1";
   const toggleMute = () => {
     if (iframeRef.current && iframeRef.current.contentWindow) {
       // Send a postMessage to the iframe to control the YouTube player
