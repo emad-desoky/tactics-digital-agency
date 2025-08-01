@@ -143,7 +143,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="w-full max-w-[70%] mx-auto p-4 md:p-8 bg-[rgb(43,43,43)]">
+    <div className="w-full max-w-[70%] mx-auto p-4 md:p-8 bg-neutral-900">
       <div
         className={`grid grid-cols-3 gap-3 md:gap-4 relative transition-all duration-500 ${
           isAnimating ? "opacity-0" : "opacity-100"
@@ -180,12 +180,12 @@ export default function Gallery() {
                     image.format === "portrait"
                       ? "2/3"
                       : image.format === "landscape"
-                      ? "3/2"
-                      : image.format === "wide-portrait"
-                      ? "16/6"
-                      : image.format === "wide"
-                      ? "16/9"
-                      : "1/1",
+                        ? "3/2"
+                        : image.format === "wide-portrait"
+                          ? "16/6"
+                          : image.format === "wide"
+                            ? "16/9"
+                            : "1/1",
                 }}
               >
                 <img

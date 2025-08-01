@@ -5,7 +5,7 @@ import { Slider } from "@/components/about-us/Slider";
 
 export default function GalleryPage() {
   return (
-    <div className="bg-[rgb(43,43,43)]">
+    <div className="bg-neutral-900">
       <Slider image="/gallery.png" />
 
       <Navbar />

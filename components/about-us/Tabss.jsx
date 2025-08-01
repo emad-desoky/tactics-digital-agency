@@ -189,7 +189,7 @@ export function Tabss() {
       <style jsx global>
         {customStyles}
       </style>
-      <div className="w-full max-w-full mx-auto px-4 py-6 md:py-12 bg-[#2B2B2B] min-h-[600px]">
+      <div className="w-full max-w-full mx-auto px-4 py-6 md:py-12 bg-neutral-900 min-h-[600px]">
         <div className="tabs-scroll">
           <Tabs
             aria-label="TACTICS® Information"
