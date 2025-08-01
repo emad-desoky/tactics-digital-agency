@@ -150,24 +150,32 @@ const ContactForm = () => {
             <p className="text-gray-300 mb-4">
               Services you&apos;re interested in *
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 max-h-60 overflow-y-auto">
+            <div className="space-y-3 max-h-60 overflow-y-auto pr-2 border border-gray-600 rounded-lg p-4 bg-[rgb(35,35,36)]">
               {services.map((service) => (
                 <label
                   key={service}
-                  className="flex items-center space-x-3 cursor-pointer"
+                  className="flex items-start space-x-3 cursor-pointer p-2 rounded-lg hover:bg-[rgb(45,45,46)] transition-colors"
                 >
                   <input
                     type="checkbox"
                     name="services"
                     value={service}
-                    className="w-5 h-5 rounded text-[rgb(43,43,43)] focus:ring-[rgb(43,43,43)]"
+                    className="w-4 h-4 mt-0.5 rounded text-blue-600 focus:ring-blue-500 flex-shrink-0"
                     onChange={handleChange}
                     checked={formData.services.includes(service)}
                   />
-                  <span className="text-gray-300 text-sm">{service}</span>
+                  <span className="text-gray-300 text-sm leading-relaxed break-words w-full">
+                    {service}
+                  </span>
                 </label>
               ))}
             </div>
+            {formData.services.length > 0 && (
+              <p className="text-xs text-gray-400 mt-2">
+                {formData.services.length} service
+                {formData.services.length !== 1 ? "s" : ""} selected
+              </p>
+            )}
           </div>
 
           <div>
