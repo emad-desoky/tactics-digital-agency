@@ -3,12 +3,106 @@ import { Resend } from "resend";
 
 const resend = new Resend("re_Xq4S5sm5_8GKjGd2Vry3LxFfWL3bpfosd");
 
+const submissionTracker = new Map();
+
+setInterval(() => {
+  const oneHourAgo = Date.now() - 3600000;
+  for (const [key, data] of submissionTracker.entries()) {
+    if (data.timestamp < oneHourAgo) {
+      submissionTracker.delete(key);
+    }
+  }
+}, 3600000);
+
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePhone = (phone) => {
+  const phoneRegex = /^[\d\s\-+$$$$]{10,}$/;
+  return phoneRegex.test(phone);
+};
+
+const validateName = (name) => {
+  const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+  return nameRegex.test(name);
+};
+
+const containsSuspiciousContent = (text) => {
+  const suspiciousPatterns = [
+    /https?:\/\//i,
+    /<script/i,
+    /viagra|cialis|casino|lottery|crypto|bitcoin/i,
+    /<[^>]*>/g,
+    /\[url=/i,
+  ];
+  return suspiciousPatterns.some((pattern) => pattern.test(text));
+};
+
+const checkRateLimit = (email, ip) => {
+  const key = `${email}-${ip}`;
+  const now = Date.now();
+  const oneHourAgo = now - 3600000;
+
+  if (submissionTracker.has(key)) {
+    const data = submissionTracker.get(key);
+
+    // Remove submissions older than 1 hour
+    data.submissions = data.submissions.filter((time) => time > oneHourAgo);
+
+    // Check if exceeded limit (3 submissions per hour)
+    if (data.submissions.length >= 3) {
+      return false;
+    }
+
+    data.submissions.push(now);
+    submissionTracker.set(key, data);
+  } else {
+    submissionTracker.set(key, {
+      submissions: [now],
+      timestamp: now,
+    });
+  }
+
+  return true;
+};
+
 export async function POST(request) {
   try {
     const formData = await request.json();
-    const { name, mobile, email, companyName, services, notes } = formData;
+    const {
+      name,
+      mobile,
+      email,
+      companyName,
+      services,
+      notes,
+      website,
+      submittedAt,
+    } = formData;
 
-    // Validate required fields
+    if (website) {
+      console.log("[v0] Honeypot triggered - spam detected");
+      // Return success to fool bots
+      return NextResponse.json(
+        { message: "Contact form submitted successfully" },
+        { status: 200 }
+      );
+    }
+
+    const ip =
+      request.headers.get("x-forwarded-for") ||
+      request.headers.get("x-real-ip") ||
+      "unknown";
+
+    if (!checkRateLimit(email, ip)) {
+      return NextResponse.json(
+        { message: "Too many submissions. Please try again later." },
+        { status: 429 }
+      );
+    }
+
     if (
       !name ||
       !mobile ||
@@ -18,10 +112,64 @@ export async function POST(request) {
       services.length === 0
     ) {
       return NextResponse.json(
-        {
-          message:
-            "All fields are required and at least one service must be selected",
-        },
+        { message: "All required fields must be filled" },
+        { status: 400 }
+      );
+    }
+
+    if (!validateEmail(email)) {
+      return NextResponse.json(
+        { message: "Invalid email format" },
+        { status: 400 }
+      );
+    }
+
+    if (!validatePhone(mobile)) {
+      return NextResponse.json(
+        { message: "Invalid phone number format" },
+        { status: 400 }
+      );
+    }
+
+    if (!validateName(name)) {
+      return NextResponse.json(
+        { message: "Invalid name format" },
+        { status: 400 }
+      );
+    }
+
+    if (companyName.length < 2 || companyName.length > 100) {
+      return NextResponse.json(
+        { message: "Company name must be between 2 and 100 characters" },
+        { status: 400 }
+      );
+    }
+
+    if (notes) {
+      if (notes.length < 10 || notes.length > 5000) {
+        return NextResponse.json(
+          { message: "Notes must be between 10 and 5000 characters" },
+          { status: 400 }
+        );
+      }
+
+      if (containsSuspiciousContent(notes)) {
+        console.log("[v0] Suspicious content detected in notes");
+        return NextResponse.json(
+          { message: "Your message contains invalid content" },
+          { status: 400 }
+        );
+      }
+    }
+
+    if (
+      containsSuspiciousContent(name) ||
+      containsSuspiciousContent(companyName) ||
+      (notes && containsSuspiciousContent(notes))
+    ) {
+      console.log("[v0] Suspicious content detected");
+      return NextResponse.json(
+        { message: "Your submission contains invalid content" },
         { status: 400 }
       );
     }

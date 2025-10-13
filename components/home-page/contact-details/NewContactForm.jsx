@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Send } from "lucide-react";
 
 const services = [
@@ -28,9 +28,97 @@ const ContactForm = () => {
     companyName: "",
     services: [],
     notes: "",
+    website: "", // Honeypot field - should remain empty
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+  const formStartTime = useRef(Date.now());
+
+  useEffect(() => {
+    // Record when form was loaded
+    formStartTime.current = Date.now();
+  }, []);
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    // Allow various phone formats
+    const phoneRegex = /^[\d\s\-+$$$$]{10,}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const validateName = (name) => {
+    // Name should be 2-50 characters, letters and spaces only
+    const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+    return nameRegex.test(name);
+  };
+
+  const containsSuspiciousContent = (text) => {
+    const suspiciousPatterns = [
+      /https?:\/\//i, // URLs
+      /<script/i, // Script tags
+      /viagra|cialis|casino|lottery|crypto|bitcoin/i, // Common spam keywords
+      /<[^>]*>/g, // HTML tags
+      /\[url=/i, // BBCode
+    ];
+    return suspiciousPatterns.some((pattern) => pattern.test(text));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (!validateName(formData.name)) {
+      newErrors.name =
+        "Please enter a valid name (letters only, 2-50 characters)";
+    }
+
+    if (!formData.mobile.trim()) {
+      newErrors.mobile = "Mobile number is required";
+    } else if (!validatePhone(formData.mobile)) {
+      newErrors.mobile = "Please enter a valid phone number";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.companyName.trim()) {
+      newErrors.companyName = "Company name is required";
+    } else if (
+      formData.companyName.length < 2 ||
+      formData.companyName.length > 100
+    ) {
+      newErrors.companyName =
+        "Company name must be between 2 and 100 characters";
+    }
+
+    if (formData.services.length === 0) {
+      newErrors.services = "Please select at least one service";
+    }
+
+    if (formData.notes && containsSuspiciousContent(formData.notes)) {
+      newErrors.notes = "Your message contains invalid content";
+    }
+
+    if (
+      formData.notes &&
+      (formData.notes.length < 10 || formData.notes.length > 5000)
+    ) {
+      newErrors.notes =
+        "Notes must be between 10 and 5000 characters if provided";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -48,10 +136,45 @@ const ContactForm = () => {
         [name]: value,
       }));
     }
+
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: undefined,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.website) {
+      console.log("[v0] Honeypot triggered - spam detected");
+      // Silently fail for bots
+      setFormData({
+        name: "",
+        mobile: "",
+        email: "",
+        companyName: "",
+        services: [],
+        notes: "",
+        website: "",
+      });
+      return;
+    }
+
+    const timeTaken = Date.now() - formStartTime.current;
+    if (timeTaken < 3000) {
+      console.log("[v0] Form submitted too quickly - spam detected");
+      alert("Please take your time to fill out the form properly.");
+      return;
+    }
+
+    if (!validateForm()) {
+      alert("Please fix the errors in the form before submitting.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -60,7 +183,10 @@ const ContactForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          submittedAt: Date.now(),
+        }),
       });
 
       if (response.ok) {
@@ -74,7 +200,10 @@ const ContactForm = () => {
           companyName: "",
           services: [],
           notes: "",
+          website: "",
         });
+        setErrors({});
+        formStartTime.current = Date.now();
       } else {
         const errorData = await response.json();
         alert(`Failed to send message: ${errorData.message}`);
@@ -96,28 +225,52 @@ const ContactForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          <div
+            style={{ position: "absolute", left: "-9999px" }}
+            aria-hidden="true"
+          >
+            <input
+              type="text"
+              name="website"
+              tabIndex="-1"
+              autoComplete="off"
+              value={formData.website}
+              onChange={handleChange}
+            />
+          </div>
+
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <input
                 type="text"
                 name="name"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors"
+                className={`w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors ${
+                  errors.name ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="Name *"
                 onChange={handleChange}
                 value={formData.name}
               />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
             </div>
             <div>
               <input
                 type="tel"
                 name="mobile"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors"
+                className={`w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors ${
+                  errors.mobile ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="Mobile Number *"
                 onChange={handleChange}
                 value={formData.mobile}
               />
+              {errors.mobile && (
+                <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>
+              )}
             </div>
           </div>
 
@@ -127,22 +280,34 @@ const ContactForm = () => {
                 type="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors"
+                className={`w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors ${
+                  errors.email ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="E-mail *"
                 onChange={handleChange}
                 value={formData.email}
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
             <div>
               <input
                 type="text"
                 name="companyName"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors"
+                className={`w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors ${
+                  errors.companyName ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="Company Name *"
                 onChange={handleChange}
                 value={formData.companyName}
               />
+              {errors.companyName && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.companyName}
+                </p>
+              )}
             </div>
           </div>
 
@@ -176,17 +341,25 @@ const ContactForm = () => {
                 {formData.services.length !== 1 ? "s" : ""} selected
               </p>
             )}
+            {errors.services && (
+              <p className="text-red-500 text-sm mt-1">{errors.services}</p>
+            )}
           </div>
 
           <div>
             <textarea
               name="notes"
               rows="4"
-              className="w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors"
-              placeholder="Notes"
+              className={`w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors ${
+                errors.notes ? "border-2 border-red-500" : ""
+              }`}
+              placeholder="Notes (optional, min 10 characters if provided)"
               onChange={handleChange}
               value={formData.notes}
             ></textarea>
+            {errors.notes && (
+              <p className="text-red-500 text-sm mt-1">{errors.notes}</p>
+            )}
           </div>
 
           <button
