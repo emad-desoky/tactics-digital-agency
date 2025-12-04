@@ -50,6 +50,10 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <meta
+        name="google-site-verification"
+        content="WfEC3EhctBeZ37eh_aWcuDOuIJ2n0xNBA398_oVODm0"
+      />
       <div>
         <Navbar />
         <Hero />
