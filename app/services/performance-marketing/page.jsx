@@ -40,7 +40,7 @@ export default function PerformanceMarketingPage() {
               Spend).
             </p>
             <Link
-              href="/contact-us"
+              href="/#contact"
               className="inline-flex items-center gap-2 bg-[rgb(255,228,0)] text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
             >
               Get Your Free Audit <FaArrowRight />
@@ -94,7 +94,7 @@ export default function PerformanceMarketingPage() {
             strategy that actually works.
           </p>
           <Link
-            href="/contact-us"
+            href="/#contact"
             className="inline-block bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-neutral-800 transition-colors"
           >
             Start Now
