@@ -354,7 +354,7 @@ export default function BestMarketingAgencyPage() {
                       portfolio in Real Estate, SaaS, and E-commerce, they are
                       the go-to for companies needing to scale.
                     </p>
-                    {/* Fixed Spacing Bug: Increased gap to gap-6 and added flex-col on mobile */}
+
                     <div className="grid sm:grid-cols-2 gap-6 mb-8">
                       <div className="bg-neutral-900/50 p-6 rounded-lg border border-neutral-700 h-full">
                         <h5 className="text-[rgb(255,228,0)] font-bold text-sm mb-2">
@@ -376,14 +376,14 @@ export default function BestMarketingAgencyPage() {
                       </div>
                     </div>
                     <Link
-                      href="/#contact"
+                      href="/contact-us"
                       className="inline-flex items-center gap-2 bg-[rgb(255,228,0)] text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
                     >
                       Get A Free Strategy Session <FaArrowRight />
                     </Link>
                   </div>
 
-                  {/* Competitor List - REAL NAMES ADDED FOR AUTHORITY */}
+                  {/* Competitor List */}
                   <div className="space-y-4">
                     <h3 className="text-xl font-bold text-white mt-8 mb-4">
                       The Branding Giants (Best for TV & Billboards)
@@ -515,7 +515,7 @@ export default function BestMarketingAgencyPage() {
                 </div>
               </section>
 
-              {/* TESTIMONIALS SECTION - REAL DATA */}
+              {/* TESTIMONIALS SECTION */}
               <section
                 id="reviews"
                 className="bg-gradient-to-br from-neutral-800 to-neutral-900 p-8 rounded-2xl border border-gray-700"
@@ -560,7 +560,7 @@ export default function BestMarketingAgencyPage() {
                 </div>
               </section>
 
-              {/* METHODOLOGY & EXTERNAL LINKS */}
+              {/* METHODOLOGY */}
               <section className="text-sm text-gray-400 bg-neutral-900 p-6 rounded-xl border border-gray-800">
                 <p>
                   <strong>Our Methodology:</strong> This review is based on
@@ -582,7 +582,6 @@ export default function BestMarketingAgencyPage() {
 
             {/* Right Column: Sticky Sidebar */}
             <aside className="lg:col-span-4">
-              {/* Added space-y-6 here to fix the "Intact Boxes" bug */}
               <div className="sticky top-28 space-y-6">
                 {/* CTA Card */}
                 <div className="bg-[rgb(255,228,0)] p-6 rounded-2xl shadow-xl text-black relative overflow-hidden group">
@@ -595,7 +594,7 @@ export default function BestMarketingAgencyPage() {
                     best marketing agency in Egypt.
                   </p>
                   <Link
-                    href="/#contact"
+                    href="/contact-us"
                     className="block w-full bg-black text-white text-center py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors relative z-10"
                   >
                     Get Free Audit
@@ -637,7 +636,7 @@ export default function BestMarketingAgencyPage() {
                   </nav>
                 </div>
 
-                {/* Internal Link: Services - UPDATED LINKS */}
+                {/* Internal Links Widget */}
                 <div className="bg-neutral-900 p-6 rounded-2xl border border-gray-700 group hover:border-[rgb(255,228,0)] transition-colors">
                   <h3 className="text-white font-bold mb-2">
                     Grow Your Business
