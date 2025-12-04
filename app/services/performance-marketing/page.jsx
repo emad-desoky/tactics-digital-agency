@@ -4,9 +4,8 @@ import Footer from "@/components/home-page/footer/Footer";
 import {
   FaChartLine,
   FaSearchDollar,
-  FaTarget,
+  FaBullseye,
   FaArrowRight,
-  FaCheckCircle,
 } from "react-icons/fa";
 
 export const metadata = {
@@ -14,6 +13,8 @@ export const metadata = {
   description:
     "Maximize your ROI with Tactics. We specialize in Meta Ads, Google Ads, and Performance Marketing strategies tailored for the Egyptian market.",
 };
+
+export const dynamic = "force-static";
 
 export default function PerformanceMarketingPage() {
   return (
@@ -39,7 +40,7 @@ export default function PerformanceMarketingPage() {
               Spend).
             </p>
             <Link
-              href="/#contact"
+              href="/contact-us"
               className="inline-flex items-center gap-2 bg-[rgb(255,228,0)] text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
             >
               Get Your Free Audit <FaArrowRight />
@@ -55,7 +56,7 @@ export default function PerformanceMarketingPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-8 rounded-2xl bg-neutral-950 border border-gray-800">
-              <FaTarget className="text-4xl text-[rgb(255,228,0)] mb-6" />
+              <FaBullseye className="text-4xl text-[rgb(255,228,0)] mb-6" />
               <h3 className="text-2xl font-bold mb-4">Precision Targeting</h3>
               <p className="text-gray-400">
                 We use advanced audience segmentation to reach the exact people
@@ -93,7 +94,7 @@ export default function PerformanceMarketingPage() {
             strategy that actually works.
           </p>
           <Link
-            href="/#contact"
+            href="/contact-us"
             className="inline-block bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-neutral-800 transition-colors"
           >
             Start Now
