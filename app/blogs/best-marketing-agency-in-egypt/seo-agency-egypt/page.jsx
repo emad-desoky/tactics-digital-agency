@@ -245,8 +245,8 @@ export default function SEOAgencyPage() {
                   </h3>
                   <p className="text-gray-300 mb-3">
                     Ensures your website is properly crawlable, fast-loading,
-                    and follows Google's technical guidelines. Includes XML
-                    sitemaps, robots.txt optimization, Core Web Vitals
+                    and follows Google&lsquo;s technical guidelines. Includes
+                    XML sitemaps, robots.txt optimization, Core Web Vitals
                     improvement, and schema markup implementation.
                   </p>
                   <p className="text-sm text-gray-400">
@@ -424,7 +424,7 @@ export default function SEOAgencyPage() {
                   >
                     Google Search Console
                   </a>{" "}
-                  - Monitor your site's performance in Google Search
+                  - Monitor your site&lsquo;s performance in Google Search
                 </li>
                 <li>
                   •{" "}

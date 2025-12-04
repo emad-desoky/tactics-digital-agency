@@ -187,7 +187,7 @@ export default function WebDevelopmentPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Statista's Egypt eCommerce Report
+                  Statistics Egypt eCommerce Report
                 </a>
                 , e-commerce platforms are growing 25% year-over-year, making
                 professional web development critical for business growth.
@@ -285,7 +285,7 @@ export default function WebDevelopmentPage() {
                     <strong>LCP (Largest Contentful Paint)</strong>,{" "}
                     <strong>FID (First Input Delay)</strong>, and{" "}
                     <strong>CLS (Cumulative Layout Shift)</strong>. Read
-                    Google's official guidelines on{" "}
+                    Google&apos;s official guidelines on{" "}
                     <a
                       href="https://web.dev/vitals/"
                       className="text-[rgb(255,228,0)] hover:underline"

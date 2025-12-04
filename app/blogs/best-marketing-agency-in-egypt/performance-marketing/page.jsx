@@ -180,7 +180,7 @@ export default function PerformanceMarketingPage() {
 
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-white mb-6">
-                Performance Marketing in 2025: What's Changed
+                Performance Marketing in 2025: What&apos;s Changed
               </h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 The performance marketing landscape in Egypt has evolved
@@ -272,7 +272,7 @@ export default function PerformanceMarketingPage() {
                     Retargeting Campaigns
                   </h3>
                   <p className="text-gray-300 mb-3">
-                    Bring back 95% of visitors who didn't convert. We use
+                    Bring back 95% of visitors who didn&apos;t convert. We use
                     dynamic retargeting, sequential messaging, and frequency
                     capping to avoid ad fatigue while maximizing ROI.
                   </p>

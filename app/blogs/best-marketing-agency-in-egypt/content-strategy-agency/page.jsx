@@ -178,7 +178,7 @@ export default function ContentStrategyPage() {
                 Content Marketing Strategy Framework
               </h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Content marketing isn't just writing. It's a strategic framework
+                Content marketing isnt just writing. Its a strategic framework
                 that aligns business goals with audience needs. According to{" "}
                 <a
                   href="https://www.hubspot.com/state-of-content-marketing"
@@ -186,7 +186,7 @@ export default function ContentStrategyPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  HubSpot's State of Content Marketing
+                  HubSpots State of Content Marketing
                 </a>
                 , businesses with documented content strategies achieve 3x
                 better results.
@@ -198,8 +198,8 @@ export default function ContentStrategyPage() {
                     1. Audience Research & Personas
                   </h3>
                   <p className="text-gray-300 mb-3">
-                    Before writing, understand who you're writing for. We create
-                    detailed buyer personas including: demographics, pain
+                    Before writing, understand who you&apos;re writing for. We
+                    create detailed buyer personas including: demographics, pain
                     points, search intent, content preferences, and
                     decision-making process. This ensures every piece of content
                     serves a specific purpose.

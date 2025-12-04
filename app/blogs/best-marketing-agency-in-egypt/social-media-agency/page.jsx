@@ -135,8 +135,8 @@ export default function SocialMediaPage() {
                 Social Media Marketing in Egypt: Building Community & Brand
               </h2>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Egypt's social media landscape is dynamic and growing. The best
-                social media agencies understand local culture, platform
+                Egypt&apos;s social media landscape is dynamic and growing. The
+                best social media agencies understand local culture, platform
                 algorithms, and audience behavior to create campaigns that
                 resonate and drive engagement.
               </p>
@@ -176,8 +176,8 @@ export default function SocialMediaPage() {
                 Social Media Strategy for Egyptian Brands
               </h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Egypt's social media landscape is unique. With over 55 million
-                active social media users, Facebook dominates at 95%
+                Egypt&apos;s social media landscape is unique. With over 55
+                million active social media users, Facebook dominates at 95%
                 penetration, while Instagram, TikTok, and LinkedIn are growing
                 rapidly. Learn more from{" "}
                 <a
@@ -186,7 +186,7 @@ export default function SocialMediaPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  DataReportal's Digital 2024 Egypt Report
+                  DataReportal&#39;s Digital 2024 Egypt Report
                 </a>
                 .
               </p>
