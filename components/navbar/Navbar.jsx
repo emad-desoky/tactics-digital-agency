@@ -22,6 +22,7 @@ const NavItems = [
   { name: "AboutUs", href: "/about-us", icon: Info },
   { name: "Blogs", href: "/blogs", icon: BookOpen },
   { name: "Gallery", href: "/gallery", icon: ImageIcon },
+  { name: "Services", href: "/services", icon: Menu },
   { name: "Careers", href: "/careers", icon: Briefcase },
 ];
 

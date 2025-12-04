@@ -6,10 +6,10 @@
 export const manualBlogs = [
   {
     id: "best-marketing-agency-in-egypt", // Acts as the slug for routing
-    title: "Best Marketing Agency in Egypt", // The card title
+    title: "Best Marketing Agency in Egypt (2025 Review)", // The card title
     description:
-      "Discover top-tier strategies for SEO, social media, and performance marketing in Cairo to grow your business in 2025. A complete guide to choosing the right partner.",
-    image: "/blogs/best-marketing-agency.png", // Ensure this image exists in your public folder
+      "We reviewed the top 10 best marketing agencies in Egypt for 2025. Compare pricing, services, and results. Find out why Tactics ranks #1 for SEO and Performance.",
+    image: "/blogs/best-marketing-agency.png", // Corrected path
     date: "2024-12-04",
     tags: ["SEO", "Digital Marketing", "Agency", "Growth"],
     isManual: true, // Internal flag
