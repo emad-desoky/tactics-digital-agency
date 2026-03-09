@@ -11,9 +11,9 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "Performance Marketing Agency Egypt 2025 | ROI-Focused Specialists",
+  title: "Performance Marketing Agency Egypt 2026 | ROI-Focused Specialists",
   description:
-    "Best performance marketing agencies in Egypt for 2025. Specialized in paid ads, conversion optimization, and measurable ROI for Cairo businesses and beyond.",
+    "Best performance marketing agencies in Egypt for 2026. Specialized in paid ads, conversion optimization, and measurable ROI for Cairo businesses and beyond.",
   keywords: [
     "performance marketing egypt",
     "performance agency cairo",
@@ -28,7 +28,7 @@ export const metadata = {
       "https://tactics.eg/blogs/best-marketing-agency-in-egypt/performance-marketing",
   },
   openGraph: {
-    title: "Performance Marketing Agency Egypt 2025 | ROI-Focused",
+    title: "Performance Marketing Agency Egypt 2026 | ROI-Focused",
     description: "Expert ranking of performance marketing agencies in Egypt.",
     url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/performance-marketing",
     type: "article",
@@ -65,7 +65,7 @@ export default function PerformanceMarketingPage() {
       {
         "@type": "Article",
         headline:
-          "Performance Marketing Agency Egypt 2025: ROI-Focused Specialists",
+          "Performance Marketing Agency Egypt 2026: ROI-Focused Specialists",
         description:
           "Expert guide to performance marketing agencies in Egypt specializing in paid advertising, conversion optimization, and measurable ROI.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
@@ -85,7 +85,7 @@ export default function PerformanceMarketingPage() {
           <div className="absolute inset-0 z-0 opacity-40">
             <Image
               src="/blogs/blog3.png"
-              alt="Performance Marketing Agency Egypt 2025"
+              alt="Performance Marketing Agency Egypt 2026"
               fill
               className="object-cover blur-sm"
               priority
@@ -121,7 +121,7 @@ export default function PerformanceMarketingPage() {
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Performance{" "}
               <span className="text-[rgb(255,228,0)]">Marketing Agency</span>{" "}
-              Egypt 2025
+              Egypt 2026
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Expert ranking of top performance marketing specialists in Egypt
@@ -180,7 +180,7 @@ export default function PerformanceMarketingPage() {
 
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-white mb-6">
-                Performance Marketing in 2025: What&apos;s Changed
+                Performance Marketing in 2026: What&apos;s Changed
               </h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 The performance marketing landscape in Egypt has evolved

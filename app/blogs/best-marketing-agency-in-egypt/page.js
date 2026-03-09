@@ -44,14 +44,14 @@ const testimonials = [
 ];
 
 export const metadata = {
-  title: "Best Digital Agency in Egypt 2025 | Top 10 Marketing Agencies Ranked",
+  title: "Best Digital Agency in Egypt 2026 | Top 10 Marketing Agencies Ranked",
   description:
-    "Discover the best digital agencies in Egypt 2025. We reviewed top 10 marketing agencies comparing ROI, pricing, services & results. Find why Tactics ranks #1 for growth.",
+    "Discover the best digital agencies in Egypt 2026. We reviewed top 10 marketing agencies comparing ROI, pricing, services & results. Find why Tactics ranks #1 for growth.",
   keywords: [
-    "best digital agency in egypt 2025",
+    "best digital agency in egypt 2026",
     "best digital marketing agency egypt",
     "top digital agencies cairo",
-    "best marketing agency egypt 2025",
+    "best marketing agency egypt 2026",
     "digital marketing companies egypt",
     "top 10 marketing agencies cairo",
     "performance marketing egypt",
@@ -70,7 +70,7 @@ export const metadata = {
     canonical: "https://tactics.eg/blogs/best-marketing-agency-in-egypt",
   },
   openGraph: {
-    title: "Best Digital Agency in Egypt 2025 | Top 10 Ranked",
+    title: "Best Digital Agency in Egypt 2026 | Top 10 Ranked",
     description:
       "Compare the top 10 digital marketing agencies in Egypt. Expert review of pricing, services, and ROI for Cairo agencies.",
     url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt",
@@ -81,13 +81,13 @@ export const metadata = {
         url: "/blogs/best-marketing-agency.png",
         width: 1200,
         height: 630,
-        alt: "Best Digital Agency in Egypt 2025 - Top Marketing Agencies Ranked",
+        alt: "Best Digital Agency in Egypt 2026 - Top Marketing Agencies Ranked",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Digital Agency in Egypt 2025",
+    title: "Best Digital Agency in Egypt 2026",
     description:
       "Top 10 digital marketing agencies in Egypt ranked by ROI and performance.",
     images: ["/blogs/best-marketing-agency.png"],
@@ -116,7 +116,7 @@ export default function BestMarketingAgencyPage() {
           {
             "@type": "ListItem",
             position: 3,
-            name: "Best Digital Agency in Egypt 2025",
+            name: "Best Digital Agency in Egypt 2026",
             item: "https://tactics.eg/blogs/best-marketing-agency-in-egypt",
           },
         ],
@@ -124,11 +124,11 @@ export default function BestMarketingAgencyPage() {
       {
         "@type": "Article",
         headline:
-          "Best Digital Agency in Egypt 2025: Top 10 Marketing Agencies Ranked",
+          "Best Digital Agency in Egypt 2026: Top 10 Marketing Agencies Ranked",
         alternativeHeadline:
           "Top Digital Marketing Agencies in Cairo Compared & Ranked",
         description:
-          "Expert-reviewed guide to the best digital marketing and performance agencies in Egypt. Compare pricing, services, and ROI for 2025.",
+          "Expert-reviewed guide to the best digital marketing and performance agencies in Egypt. Compare pricing, services, and ROI for 2026.",
         author: {
           "@type": "Organization",
           name: "Tactics Digital Agency",
@@ -151,7 +151,7 @@ export default function BestMarketingAgencyPage() {
         mainEntity: [
           {
             "@type": "Question",
-            name: "Which is the best digital agency in Egypt in 2025?",
+            name: "Which is the best digital agency in Egypt in 2026?",
             acceptedAnswer: {
               "@type": "Answer",
               text: "Tactics Digital Agency is ranked #1 for performance marketing and SEO in Egypt due to transparent reporting, proven ROI, and data-driven strategies serving clients like Samco Holding and Ezzi Tools.",
@@ -256,7 +256,7 @@ export default function BestMarketingAgencyPage() {
           <div className="absolute inset-0 z-0 opacity-40">
             <Image
               src="/blogs/best-marketing-agency.png"
-              alt="Digital Marketing Agencies in Egypt - Top Performers 2025"
+              alt="Digital Marketing Agencies in Egypt - Top Performers 2026"
               fill
               className="object-cover blur-sm"
               priority
@@ -294,18 +294,18 @@ export default function BestMarketingAgencyPage() {
             <div className="max-w-4xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgb(255,228,0)]/10 border border-[rgb(255,228,0)]/20 text-[rgb(255,228,0)] text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[rgb(255,228,0)] animate-pulse"></span>
-                2025 Complete Guide
+                2026 Complete Guide
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
                 Best Digital Agency <br className="hidden md:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,228,0)] to-yellow-500">
-                  in Egypt 2025
+                  in Egypt 2026
                 </span>
               </h1>
               <p className="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-8">
                 Complete guide to the{" "}
                 <strong>top 10 digital marketing agencies in Egypt</strong> for
-                2025. Compare pricing, services, ROI, and specialist expertise.
+                2026. Compare pricing, services, ROI, and specialist expertise.
                 See why Tactics is ranked #1 for performance and growth.
               </p>
 
@@ -357,15 +357,15 @@ export default function BestMarketingAgencyPage() {
               <section className="prose prose-lg prose-invert max-w-none text-gray-300">
                 <p className="lead text-xl md:text-2xl leading-relaxed font-light text-white mb-8">
                   Searching for the{" "}
-                  <strong>best digital agency in Egypt 2025</strong>? The right
+                  <strong>best digital agency in Egypt 2026</strong>? The right
                   agency can transform your business. The wrong one will drain
                   your budget.
                 </p>
                 <p>
-                  In 2025, the Egyptian digital marketing landscape is more
+                  In 2026, the Egyptian digital marketing landscape is more
                   competitive than ever. With over 5,300+ monthly searches for{" "}
                   <strong className="text-[rgb(255,228,0)]">
-                    best digital agency in egypt 2025
+                    best digital agency in egypt 2026
                   </strong>
                   , businesses are actively looking for trusted partners. At{" "}
                   <Link
@@ -398,7 +398,7 @@ export default function BestMarketingAgencyPage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-[rgb(255,228,0)] rounded-full"></span>
-                      2025 Pricing Benchmarks
+                      2026 Pricing Benchmarks
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-[rgb(255,228,0)] rounded-full"></span>
@@ -461,6 +461,42 @@ export default function BestMarketingAgencyPage() {
                         Social Media Agencies Egypt
                       </Link>
                     </li>
+                    <li className="flex items-center gap-2">
+                      <FaArrowRight className="text-[rgb(255,228,0)] text-xs" />
+                      <Link
+                        href="/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt"
+                        className="text-[rgb(255,228,0)] hover:underline"
+                      >
+                        Real Estate Marketing Egypt
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <FaArrowRight className="text-[rgb(255,228,0)] text-xs" />
+                      <Link
+                        href="/blogs/best-marketing-agency-in-egypt/branding-agency-egypt"
+                        className="text-[rgb(255,228,0)] hover:underline"
+                      >
+                        Branding Agency Egypt
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <FaArrowRight className="text-[rgb(255,228,0)] text-xs" />
+                      <Link
+                        href="/blogs/best-marketing-agency-in-egypt/content-creation-agency-egypt"
+                        className="text-[rgb(255,228,0)] hover:underline"
+                      >
+                        Content Creation Agency Egypt
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <FaArrowRight className="text-[rgb(255,228,0)] text-xs" />
+                      <Link
+                        href="/blogs/digital-marketing-pricing-egypt-2026"
+                        className="text-[rgb(255,228,0)] hover:underline"
+                      >
+                        Digital Marketing Pricing Guide 2026
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </section>
@@ -490,7 +526,7 @@ export default function BestMarketingAgencyPage() {
                     Statists Egypt Digital Advertising Market outlook
                   </a>
                   , the digital ad spend is expected to reach $2.1 billion by
-                  2025, emphasizing the critical importance of finding the right
+                  2026, emphasizing the critical importance of finding the right
                   agency partner.
                 </p>
 
@@ -581,7 +617,7 @@ export default function BestMarketingAgencyPage() {
 
               <section className="mb-16">
                 <h2 className="text-3xl font-bold text-white mb-6">
-                  Comprehensive Agency Comparison (2025)
+                  Comprehensive Agency Comparison (2026)
                 </h2>
                 <div className="overflow-x-auto mb-8">
                   <table className="w-full text-gray-300 text-sm">
@@ -641,7 +677,7 @@ export default function BestMarketingAgencyPage() {
                 </h2>
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   Confused about pricing? Here&apos;s what you should expect
-                  across different service levels in Egypt for 2025, based on
+                  across different service levels in Egypt for 2026, based on
                   industry benchmarks from{" "}
                   <a
                     href="https://www.hubspot.com/pricing/marketing"
@@ -846,7 +882,7 @@ export default function BestMarketingAgencyPage() {
                   Egypt&apos;s digital agency market is diverse. You have global
                   franchises focused on brand awareness and agile growth-focused
                   agencies. Here&apos;s the complete breakdown of the best
-                  digital agencies in Cairo and Egypt for 2025:
+                  digital agencies in Cairo and Egypt for 2026:
                 </p>
 
                 <div className="space-y-8">
@@ -1044,7 +1080,7 @@ export default function BestMarketingAgencyPage() {
                     <div className="p-4 rounded-xl border border-gray-800 bg-neutral-950 mt-6 text-center">
                       <p className="text-gray-400 text-sm italic">
                         Rankings based on service breadth, technical expertise,
-                        client ROI, and market presence as of 2025.
+                        client ROI, and market presence as of 2026.
                       </p>
                     </div>
                   </div>
@@ -1054,13 +1090,13 @@ export default function BestMarketingAgencyPage() {
               {/* PRICING TABLE SECTION */}
               <section id="pricing">
                 <h2 className="text-3xl font-bold text-white mb-3">
-                  Digital Agency Pricing in Egypt (2025 Benchmarks)
+                  Digital Agency Pricing in Egypt (2026 Benchmarks)
                 </h2>
                 <p className="text-gray-300 mb-6">
                   What&apos;s the real cost of hiring a{" "}
                   <strong>digital agency in Egypt</strong>? Pricing varies
                   dramatically. Here&apos;s what you should expect to pay for
-                  professional digital marketing services in 2025:
+                  professional digital marketing services in 2026:
                 </p>
 
                 <div className="overflow-x-auto rounded-xl border border-gray-700 shadow-lg mb-6">
@@ -1260,7 +1296,7 @@ export default function BestMarketingAgencyPage() {
                       href="#pricing"
                       className="hover:text-[rgb(255,228,0)] transition-colors flex items-center justify-between"
                     >
-                      Pricing Guide 2025 <FaChevronRight className="text-xs" />
+                      Pricing Guide 2026 <FaChevronRight className="text-xs" />
                     </a>
                     <a
                       href="#reviews"
@@ -1433,7 +1469,7 @@ export default function BestMarketingAgencyPage() {
             </h2>
             <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
               Common questions about hiring digital marketing agencies in Egypt
-              for 2025.
+              for 2026.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-neutral-950 p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition-colors">

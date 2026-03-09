@@ -11,15 +11,15 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "Best Web Development Agency in Egypt 2025 | Custom Solutions",
+  title: "Best Web Development Agency in Egypt 2026 | Custom Solutions",
   description:
-    "Find the best web development agencies in Egypt for 2025. Expert ranking of companies specializing in custom websites, e-commerce, and web apps for Cairo businesses.",
+    "Find the best web development agencies in Egypt for 2026. Expert ranking of companies specializing in custom websites, e-commerce, and web apps for Cairo businesses.",
   keywords: [
     "web development agency egypt",
     "best web developers cairo",
     "e-commerce development egypt",
     "web design agency cairo",
-    "website development egypt 2025",
+    "website development egypt 2026",
   ],
   robots: { index: true, follow: true },
   alternates: {
@@ -27,7 +27,7 @@ export const metadata = {
       "https://tactics.eg/blogs/best-marketing-agency-in-egypt/web-development-agency",
   },
   openGraph: {
-    title: "Best Web Development Agency in Egypt 2025",
+    title: "Best Web Development Agency in Egypt 2026",
     description: "Expert ranking of web development agencies in Egypt.",
     url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/web-development-agency",
     type: "article",
@@ -63,7 +63,7 @@ export default function WebDevelopmentPage() {
       },
       {
         "@type": "Article",
-        headline: "Best Web Development Agency in Egypt 2025: Custom Solutions",
+        headline: "Best Web Development Agency in Egypt 2026: Custom Solutions",
         description:
           "Guide to top web development agencies in Egypt specializing in custom websites and e-commerce.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
@@ -83,7 +83,7 @@ export default function WebDevelopmentPage() {
           <div className="absolute inset-0 z-0 opacity-40">
             <Image
               src="/blogs/blog4.png"
-              alt="Best Web Development Agency Egypt 2025"
+              alt="Best Web Development Agency Egypt 2026"
               fill
               className="object-cover blur-sm"
               priority
@@ -117,7 +117,7 @@ export default function WebDevelopmentPage() {
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Best Web{" "}
               <span className="text-[rgb(255,228,0)]">Development Agency</span>{" "}
-              Egypt 2025
+              Egypt 2026
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Expert ranking of top web development specialists in Egypt
@@ -424,7 +424,7 @@ export default function WebDevelopmentPage() {
 
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-white mb-6">
-                Web Development Pricing in Egypt (2025)
+                Web Development Pricing in Egypt (2026)
               </h2>
               <div className="overflow-x-auto rounded-xl border border-gray-700 mb-6">
                 <table className="w-full text-left text-sm text-gray-400">

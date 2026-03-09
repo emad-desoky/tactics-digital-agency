@@ -11,9 +11,9 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "Content Strategy Agency Egypt 2025 | SEO-Focused Content Marketing",
+  title: "Content Strategy Agency Egypt 2026 | SEO-Focused Content Marketing",
   description:
-    "Best content strategy agencies in Egypt for 2025. Expert ranking specializing in SEO content, blog writing, and content marketing for Cairo businesses.",
+    "Best content strategy agencies in Egypt for 2026. Expert ranking specializing in SEO content, blog writing, and content marketing for Cairo businesses.",
   keywords: [
     "content strategy agency egypt",
     "seo content writing egypt",
@@ -27,7 +27,7 @@ export const metadata = {
       "https://tactics.eg/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
   },
   openGraph: {
-    title: "Content Strategy Agency Egypt 2025 | SEO Content",
+    title: "Content Strategy Agency Egypt 2026 | SEO Content",
     description: "Expert ranking of content strategy agencies in Egypt.",
     url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
     type: "article",
@@ -64,7 +64,7 @@ export default function ContentStrategyPage() {
       {
         "@type": "Article",
         headline:
-          "Content Strategy Agency Egypt 2025: SEO-Focused Content Marketing",
+          "Content Strategy Agency Egypt 2026: SEO-Focused Content Marketing",
         description:
           "Guide to top content strategy agencies in Egypt specializing in SEO content.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
@@ -84,7 +84,7 @@ export default function ContentStrategyPage() {
           <div className="absolute inset-0 z-0 opacity-40">
             <Image
               src="/blogs/blog1.png"
-              alt="Content Strategy Agency Egypt 2025"
+              alt="Content Strategy Agency Egypt 2026"
               fill
               className="object-cover blur-sm"
               priority
@@ -117,7 +117,7 @@ export default function ContentStrategyPage() {
 
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               <span className="text-[rgb(255,228,0)]">Content Strategy</span>{" "}
-              Agency Egypt 2025
+              Agency Egypt 2026
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Expert ranking of top content strategy agencies in Egypt

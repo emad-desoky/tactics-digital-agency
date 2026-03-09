@@ -11,12 +11,12 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "Best SEO Agency in Egypt 2025 | Top Ranked for Organic Growth",
+  title: "Best SEO Agency in Egypt 2026 | Top Ranked for Organic Growth",
   description:
-    "Find the best SEO agency in Egypt for 2025. Expert ranking of top SEO companies, comparing services, pricing, and real ROI results for businesses in Cairo and beyond.",
+    "Find the best SEO agency in Egypt for 2026. Expert ranking of top SEO companies, comparing services, pricing, and real ROI results for businesses in Cairo and beyond.",
   keywords: [
     "best seo agency egypt",
-    "seo agency cairo 2025",
+    "seo agency cairo 2026",
     "top seo companies egypt",
     "seo services egypt",
     "organic search egypt",
@@ -28,7 +28,7 @@ export const metadata = {
       "https://tactics.eg/blogs/best-marketing-agency-in-egypt/seo-agency-egypt",
   },
   openGraph: {
-    title: "Best SEO Agency in Egypt 2025 | Top Ranked",
+    title: "Best SEO Agency in Egypt 2026 | Top Ranked",
     description:
       "Compare top SEO agencies in Egypt. Expert review with pricing and ROI.",
     url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/seo-agency-egypt",
@@ -80,7 +80,7 @@ export default function SEOAgencyPage() {
       {
         "@type": "Article",
         headline:
-          "Best SEO Agency in Egypt 2025: Top Ranked for Organic Growth",
+          "Best SEO Agency in Egypt 2026: Top Ranked for Organic Growth",
         description:
           "Expert guide to the best SEO agencies in Egypt. Compare services, pricing, and real ROI results.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
@@ -98,7 +98,7 @@ export default function SEOAgencyPage() {
             name: "What is the best SEO agency in Egypt?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Tactics is ranked as the best SEO agency in Egypt for 2025, specializing in organic growth, keyword optimization, and technical SEO for Cairo-based businesses.",
+              text: "Tactics is ranked as the best SEO agency in Egypt for 2026, specializing in organic growth, keyword optimization, and technical SEO for Cairo-based businesses.",
             },
           },
           {
@@ -132,7 +132,7 @@ export default function SEOAgencyPage() {
           <div className="absolute inset-0 z-0 opacity-40">
             <Image
               src="/blogs/best-marketing-agency.png"
-              alt="Best SEO Agency Egypt 2025"
+              alt="Best SEO Agency Egypt 2026"
               fill
               className="object-cover blur-sm"
               priority
@@ -165,7 +165,7 @@ export default function SEOAgencyPage() {
 
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Best <span className="text-[rgb(255,228,0)]">SEO Agency</span> in
-              Egypt 2025
+              Egypt 2026
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Expert ranking of top SEO companies in Egypt specializing in
@@ -350,7 +350,7 @@ export default function SEOAgencyPage() {
 
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-white mb-6">
-                Top SEO Agencies in Egypt 2025
+                Top SEO Agencies in Egypt 2026
               </h2>
               <div className="space-y-8">
                 <div className="border border-gray-800 rounded-lg p-6 bg-neutral-900/50 hover:border-[rgb(255,228,0)]/30 transition-colors">

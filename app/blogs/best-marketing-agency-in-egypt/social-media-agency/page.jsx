@@ -12,9 +12,9 @@ import {
 
 export const metadata = {
   title:
-    "Best Social Media Agency in Egypt 2025 | Cairo Social Marketing Experts",
+    "Best Social Media Agency in Egypt 2026 | Cairo Social Marketing Experts",
   description:
-    "Top social media agencies in Egypt for 2025. Expert ranking specializing in content creation, community management, and social advertising for Cairo businesses.",
+    "Top social media agencies in Egypt for 2026. Expert ranking specializing in content creation, community management, and social advertising for Cairo businesses.",
   keywords: [
     "social media agency egypt",
     "social media marketing cairo",
@@ -28,7 +28,7 @@ export const metadata = {
       "https://tactics.eg/blogs/best-marketing-agency-in-egypt/social-media-agency",
   },
   openGraph: {
-    title: "Best Social Media Agency in Egypt 2025",
+    title: "Best Social Media Agency in Egypt 2026",
     description: "Expert ranking of social media agencies in Egypt.",
     url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/social-media-agency",
     type: "article",
@@ -65,7 +65,7 @@ export default function SocialMediaPage() {
       {
         "@type": "Article",
         headline:
-          "Best Social Media Agency in Egypt 2025: Cairo Social Marketing Experts",
+          "Best Social Media Agency in Egypt 2026: Cairo Social Marketing Experts",
         description:
           "Guide to top social media agencies in Egypt specializing in content and advertising.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
@@ -85,7 +85,7 @@ export default function SocialMediaPage() {
           <div className="absolute inset-0 z-0 opacity-40">
             <Image
               src="/blogs/blog2.png"
-              alt="Best Social Media Agency Egypt 2025"
+              alt="Best Social Media Agency Egypt 2026"
               fill
               className="object-cover blur-sm"
               priority
@@ -119,7 +119,7 @@ export default function SocialMediaPage() {
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Best{" "}
               <span className="text-[rgb(255,228,0)]">Social Media Agency</span>{" "}
-              Egypt 2025
+              Egypt 2026
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Expert ranking of top social media agencies in Cairo specializing
