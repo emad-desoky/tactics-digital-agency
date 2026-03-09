@@ -232,14 +232,13 @@ export default function BestMarketingAgencyPage() {
           "https://www.facebook.com/tactics",
           "https://www.instagram.com/tactics",
         ],
-      },
-      {
-        "@type": "AggregateRating",
-        "@id": "https://tactics.eg/#rating",
-        ratingValue: "5.0",
-        ratingCount: "45",
-        bestRating: "5",
-        worstRating: "1",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "5.0",
+          ratingCount: "45",
+          bestRating: "5",
+          worstRating: "1",
+        },
       },
     ],
   };
