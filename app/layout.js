@@ -1,6 +1,7 @@
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import SocialMediaPopups from "@/components/SocialMediaPopups";
+import Script from "next/script";
 
 export const metadata = {
   title: {
@@ -266,6 +267,23 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+        {/* your existing meta tags */}
+
+        {/* Google Ads / gtag */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17992790047"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17992790047');
+    `}
+        </Script>
       </head>
       <body>
         <NextUIProvider>
