@@ -28,7 +28,7 @@ const ContactForm = () => {
     companyName: "",
     services: [],
     notes: "",
-    website: "", // Honeypot field - should remain empty
+    website: "", // Honeypot field
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,256 +36,23 @@ const ContactForm = () => {
   const formStartTime = useRef(Date.now());
 
   useEffect(() => {
-    // Record when form was loaded
     formStartTime.current = Date.now();
   }, []);
 
+  // Simple disposable email check - only the most common ones
   const isFakeOrDisposableEmail = (email) => {
-    const fakeAndDisposableDomains = [
-      // Common fake/test domains
-      "test.com",
-      "example.com",
-      "sample.com",
-      "demo.com",
-      "fake.com",
-      "testing.com",
-      "temp.com",
-      "dummy.com",
-      "invalid.com",
-      "localhost",
-      // Disposable email services
-      "10minutemail.com",
-      "guerrillamail.com",
-      "mailinator.com",
+    const disposableDomains = [
       "tempmail.com",
+      "mailinator.com",
+      "guerrillamail.com",
+      "10minutemail.com",
       "throwaway.email",
       "yopmail.com",
-      "maildrop.cc",
-      "getnada.com",
-      "trashmail.com",
-      "sharklasers.com",
-      "guerrillamail.info",
-      "grr.la",
-      "guerrillamail.biz",
-      "guerrillamail.de",
-      "spam4.me",
-      "mailnesia.com",
-      "temp-mail.org",
-      "mohmal.com",
-      "emailondeck.com",
       "fakeinbox.com",
-      "mytemp.email",
-      "dispostable.com",
-      "throwawaymail.com",
-      "mintemail.com",
-      "mailcatch.com",
-      "emailfake.com",
-      "spamgourmet.com",
-      "incognitomail.org",
-      "anonymousemail.me",
-      "deadaddress.com",
-      "emailtemporanea.com",
-      "jetable.org",
-      "mailexpire.com",
-      "mailforspam.com",
-      "mailfreeonline.com",
-      "mailmoat.com",
-      "mailnull.com",
-      "meltmail.com",
-      "mintemail.com",
-      "mytrashmail.com",
-      "no-spam.ws",
-      "nospam.ze.tc",
-      "nospamfor.us",
-      "nowmymail.com",
-      "objectmail.com",
-      "obobbo.com",
-      "oneoffemail.com",
-      "onewaymail.com",
-      "pookmail.com",
-      "proxymail.eu",
-      "put2.net",
-      "qq.com",
-      "quickinbox.com",
-      "rcpt.at",
-      "recode.me",
-      "recursor.net",
-      "rtrtr.com",
-      "safe-mail.net",
-      "safetymail.info",
-      "sandelf.de",
-      "saynotospams.com",
-      "selfdestructingmail.com",
-      "sendspamhere.com",
-      "shiftmail.com",
-      "skeefmail.com",
-      "slaskpost.se",
-      "slopsbox.com",
-      "smellfear.com",
-      "snakemail.com",
-      "sneakemail.com",
-      "sofimail.com",
-      "sofort-mail.de",
-      "sogetthis.com",
-      "soodonims.com",
-      "spam.la",
-      "spamavert.com",
-      "spambob.com",
-      "spambog.com",
-      "spambog.de",
-      "spambox.us",
-      "spamcannon.com",
-      "spamcannon.net",
-      "spamcon.org",
-      "spamcorptastic.com",
-      "spamcowboy.com",
-      "spamday.com",
-      "spamex.com",
-      "spamfree24.com",
-      "spamfree24.de",
-      "spamfree24.eu",
-      "spamfree24.info",
-      "spamfree24.net",
-      "spamfree24.org",
-      "spamgourmet.com",
-      "spamgourmet.net",
-      "spamgourmet.org",
-      "spamherelots.com",
-      "spamhereplease.com",
-      "spamhole.com",
-      "spamify.com",
-      "spaminator.de",
-      "spamkill.info",
-      "spaml.com",
-      "spaml.de",
-      "spammotel.com",
-      "spamobox.com",
-      "spamoff.de",
-      "spamslicer.com",
-      "spamspot.com",
-      "spamthis.co.uk",
-      "spamthisplease.com",
-      "spamtrail.com",
-      "speed.1s.fr",
-      "supergreatmail.com",
-      "supermailer.jp",
-      "suremail.info",
-      "teewars.org",
-      "teleworm.com",
-      "teleworm.us",
-      "temp-mail.com",
-      "temp-mail.de",
-      "temp-mail.org",
-      "temp-mail.ru",
-      "tempalias.com",
-      "tempe-mail.com",
-      "tempemail.biz",
-      "tempemail.com",
-      "tempemail.net",
-      "tempinbox.co.uk",
-      "tempinbox.com",
-      "tempmail.eu",
-      "tempmail.it",
-      "tempmail2.com",
-      "tempmaildemo.com",
-      "tempmailer.com",
-      "tempmailer.de",
-      "tempomail.fr",
-      "temporarily.de",
-      "temporarioemail.com.br",
-      "temporaryemail.net",
-      "temporaryemail.us",
-      "temporaryforwarding.com",
-      "temporaryinbox.com",
-      "temporarymailaddress.com",
-      "tempthe.net",
-      "thankyou2010.com",
-      "thc.st",
-      "thelimestones.com",
-      "thisisnotmyrealemail.com",
-      "thismail.net",
-      "throwawayemailaddress.com",
-      "tilien.com",
-      "tittbit.in",
-      "tizi.com",
-      "tmailinator.com",
-      "toomail.biz",
-      "topranklist.de",
-      "tradermail.info",
-      "trash-amil.com",
-      "trash-mail.at",
-      "trash-mail.com",
-      "trash-mail.de",
-      "trash2009.com",
-      "trashemail.de",
-      "trashmail.at",
       "trashmail.com",
-      "trashmail.de",
-      "trashmail.me",
-      "trashmail.net",
-      "trashmail.org",
-      "trashmail.ws",
-      "trashmailer.com",
-      "trashymail.com",
-      "trashymail.net",
-      "trialmail.de",
-      "trillianpro.com",
-      "twinmail.de",
-      "tyldd.com",
-      "uggsrock.com",
-      "umail.net",
-      "uroid.com",
-      "us.af",
-      "venompen.com",
-      "veryrealemail.com",
-      "viditag.com",
-      "viewcastmedia.com",
-      "viewcastmedia.net",
-      "viewcastmedia.org",
-      "webm4il.info",
-      "wegwerfadresse.de",
-      "wegwerfemail.de",
-      "wegwerfmail.de",
-      "wegwerfmail.net",
-      "wegwerfmail.org",
-      "wetrainbayarea.com",
-      "wetrainbayarea.org",
-      "wh4f.org",
-      "whyspam.me",
-      "willselfdestruct.com",
-      "winemaven.info",
-      "wronghead.com",
-      "wuzup.net",
-      "wuzupmail.net",
-      "www.e4ward.com",
-      "www.gishpuppy.com",
-      "www.mailinator.com",
-      "wwwnew.eu",
-      "x.ip6.li",
-      "xagloo.com",
-      "xemaps.com",
-      "xents.com",
-      "xmaily.com",
-      "xoxy.net",
-      "yapped.net",
-      "yep.it",
-      "yogamaven.com",
-      "yopmail.com",
-      "yopmail.fr",
-      "yopmail.net",
-      "yourdomain.com",
-      "ypmail.webarnak.fr.eu.org",
-      "yuurok.com",
-      "zehnminuten.de",
-      "zehnminutenmail.de",
-      "zippymail.info",
-      "zoaxe.com",
-      "zoemail.net",
-      "zomg.info",
     ];
-
     const emailDomain = email.toLowerCase().split("@")[1];
-    return fakeAndDisposableDomains.includes(emailDomain);
+    return disposableDomains.includes(emailDomain);
   };
 
   const validateEmail = (email) => {
@@ -293,89 +60,44 @@ const ContactForm = () => {
     if (!emailRegex.test(email)) {
       return { valid: false, message: "Please enter a valid email address" };
     }
-
     if (isFakeOrDisposableEmail(email)) {
-      return {
-        valid: false,
-        message: "Please use a valid business or personal email address",
-      };
+      return { valid: false, message: "Please use a valid email address" };
     }
-
     return { valid: true };
   };
 
   const validatePhone = (phone) => {
-    // Remove all non-digit characters
     const digitsOnly = phone.replace(/\D/g, "");
-
-    // Must be between 10-15 digits
-    if (digitsOnly.length < 10 || digitsOnly.length > 15) {
-      return {
-        valid: false,
-        message: "Please enter a valid phone number (10-15 digits)",
-      };
+    // At least 8 digits
+    if (digitsOnly.length < 8) {
+      return { valid: false, message: "Please enter a valid phone number" };
     }
-
-    // Check for repeated digits (like 1111111111 or 0000000000)
+    // All same digits check
     if (/^(\d)\1+$/.test(digitsOnly)) {
       return { valid: false, message: "Please enter a valid phone number" };
     }
-
-    // Check for sequential digits (like 1234567890)
-    const isSequential = digitsOnly.split("").every((digit, i, arr) => {
-      if (i === 0) return true;
-      return Number.parseInt(digit) === Number.parseInt(arr[i - 1]) + 1;
-    });
-
-    if (isSequential) {
-      return { valid: false, message: "Please enter a valid phone number" };
-    }
-
     return { valid: true };
   };
 
-  const validateName = (name) => {
-    // Name should be 2-50 characters, letters and spaces only
-    const nameRegex = /^[a-zA-Z\s]{2,50}$/;
-    if (!nameRegex.test(name)) {
-      return {
-        valid: false,
-        message: "Please enter a valid name (letters only, 2-50 characters)",
-      };
-    }
-
-    // Check for repeated characters (like "aaaa" or "bbbb")
-    if (/(.)\1{3,}/.test(name)) {
-      return { valid: false, message: "Please enter a valid name" };
-    }
-
-    return { valid: true };
-  };
-
-  const containsSuspiciousContent = (text) => {
-    const suspiciousPatterns = [
-      /https?:\/\//i, // URLs
-      /<script/i, // Script tags
-      /viagra|cialis|casino|lottery|crypto|bitcoin|forex|trading|investment|loan|credit|debt|insurance|pharmacy|pills|drugs|weight.?loss|male.?enhancement|enlargement|dating|hookup|sex|porn|xxx|adult|escort|massage|replica|rolex|gucci|louis.?vuitton|designer|handbag|sunglasses|watches|cheap|discount|free.?money|make.?money|work.?from.?home|business.?opportunity|mlm|multi.?level|pyramid|scheme|nigerian|prince|inheritance|lottery.?winner|congratulations|claim.?prize|click.?here|act.?now|limited.?time|urgent|verify.?account|suspended.?account|unusual.?activity|confirm.?identity|social.?security|bank.?account|paypal|western.?union|wire.?transfer|bitcoin|cryptocurrency|investment.?opportunity/i, // Extensive spam keywords
-      /<[^>]*>/g, // HTML tags
-      /\[url=/i, // BBCode
-      /\b(test|fake|spam|dummy|example|sample)\b/i, // Test/fake words
-    ];
-    return suspiciousPatterns.some((pattern) => pattern.test(text));
+  // Only block URLs and HTML - nothing else
+  const containsSpamContent = (text) => {
+    const spamPatterns = [/https?:\/\//i, /www\./i, /<[^>]*>/g];
+    return spamPatterns.some((pattern) => pattern.test(text));
   };
 
   const validateForm = () => {
     const newErrors = {};
 
+    // Name - just require 2+ characters, accept ANY characters (Arabic, etc.)
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
-    } else {
-      const nameValidation = validateName(formData.name);
-      if (!nameValidation.valid) {
-        newErrors.name = nameValidation.message;
-      }
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    } else if (containsSpamContent(formData.name)) {
+      newErrors.name = "Name cannot contain links";
     }
 
+    // Mobile
     if (!formData.mobile.trim()) {
       newErrors.mobile = "Mobile number is required";
     } else {
@@ -385,6 +107,7 @@ const ContactForm = () => {
       }
     }
 
+    // Email
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else {
@@ -394,29 +117,23 @@ const ContactForm = () => {
       }
     }
 
+    // Company name - just require 2+ characters
     if (!formData.companyName.trim()) {
       newErrors.companyName = "Company name is required";
-    } else if (
-      formData.companyName.length < 2 ||
-      formData.companyName.length > 100
-    ) {
-      newErrors.companyName =
-        "Company name must be between 2 and 100 characters";
-    } else if (containsSuspiciousContent(formData.companyName)) {
-      newErrors.companyName = "Please enter a valid company name";
+    } else if (formData.companyName.trim().length < 2) {
+      newErrors.companyName = "Company name must be at least 2 characters";
+    } else if (containsSpamContent(formData.companyName)) {
+      newErrors.companyName = "Company name cannot contain links";
     }
 
+    // Services
     if (formData.services.length === 0) {
       newErrors.services = "Please select at least one service";
     }
 
-    if (formData.notes) {
-      if (containsSuspiciousContent(formData.notes)) {
-        newErrors.notes = "Your message contains invalid content";
-      } else if (formData.notes.length < 10 || formData.notes.length > 5000) {
-        newErrors.notes =
-          "Notes must be between 10 and 5000 characters if provided";
-      }
+    // Notes - optional, only check for spam content if provided
+    if (formData.notes && containsSpamContent(formData.notes)) {
+      newErrors.notes = "Notes cannot contain links";
     }
 
     setErrors(newErrors);
@@ -451,80 +168,53 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Honeypot check
     if (formData.website) {
-      // Silently fail for bots
-      setFormData({
-        name: "",
-        mobile: "",
-        email: "",
-        companyName: "",
-        services: [],
-        notes: "",
-        website: "",
-      });
       return;
     }
 
+    // Quick submit check (2 seconds)
     const timeTaken = Date.now() - formStartTime.current;
-    if (timeTaken < 3000) {
-      alert("Please take your time to fill out the form properly.");
+    if (timeTaken < 2000) {
       return;
     }
 
     if (!validateForm()) {
-      alert("Please fix the errors in the form before submitting.");
       return;
     }
 
     setIsSubmitting(true);
 
-    try {
-      // const response = await fetch("/api/submit-contact", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     ...formData,
-      //     submittedAt: Date.now(),
-      //   }),
-      // });
-      // Build WhatsApp message from form data
-      const message = `
-New Contact Request:
-Name: ${formData.name}
-Mobile: ${formData.mobile}
-Email: ${formData.email}
-Company: ${formData.companyName}
-Services: ${formData.services.join(", ")}
-Notes: ${formData.notes || "N/A"}
-  `;
+    // Format message for WhatsApp
+    const message = `*New Contact Request*
 
-      const encodedMessage = encodeURIComponent(message);
-      const phone = "201008770549";
+*Name:* ${formData.name}
+*Mobile:* ${formData.mobile}
+*Email:* ${formData.email}
+*Company:* ${formData.companyName}
+*Services:* ${formData.services.join(", ")}
+${formData.notes ? `*Notes:* ${formData.notes}` : ""}`.trim();
 
-      window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
+    // Replace with your WhatsApp number (with country code, no + or spaces)
+    const whatsappNumber = "+201008770549"; // e.g., Egypt: 20, then number
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-      setFormData({
-        name: "",
-        mobile: "",
-        email: "",
-        companyName: "",
-        services: [],
-        notes: "",
-        website: "",
-      });
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
 
-      setErrors({});
-      formStartTime.current = Date.now();
-
-      alert("Redirecting you to WhatsApp...");
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Reset form
+    setFormData({
+      name: "",
+      mobile: "",
+      email: "",
+      companyName: "",
+      services: [],
+      notes: "",
+      website: "",
+    });
+    setErrors({});
+    formStartTime.current = Date.now();
+    setIsSubmitting(false);
   };
 
   return (
@@ -664,7 +354,7 @@ Notes: ${formData.notes || "N/A"}
               className={`w-full px-4 py-3 rounded-lg bg-[rgb(40,40,41)] focus:border-[rgb(43,43,43)] focus:ring-2 focus:ring-[rgb(43,43,43)] outline-none transition-colors ${
                 errors.notes ? "border-2 border-red-500" : ""
               }`}
-              placeholder="Notes (optional, min 10 characters if provided)"
+              placeholder="Notes (optional)"
               onChange={handleChange}
               value={formData.notes}
             ></textarea>
