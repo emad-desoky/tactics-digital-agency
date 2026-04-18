@@ -479,39 +479,49 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/submit-contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          submittedAt: Date.now(),
-        }),
+      // const response = await fetch("/api/submit-contact", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     ...formData,
+      //     submittedAt: Date.now(),
+      //   }),
+      // });
+      // Build WhatsApp message from form data
+      const message = `
+New Contact Request:
+Name: ${formData.name}
+Mobile: ${formData.mobile}
+Email: ${formData.email}
+Company: ${formData.companyName}
+Services: ${formData.services.join(", ")}
+Notes: ${formData.notes || "N/A"}
+  `;
+
+      const encodedMessage = encodeURIComponent(message);
+      const phone = "201008770549";
+
+      window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
+
+      setFormData({
+        name: "",
+        mobile: "",
+        email: "",
+        companyName: "",
+        services: [],
+        notes: "",
+        website: "",
       });
 
-      if (response.ok) {
-        alert(
-          "Thank you! Your message has been sent successfully. We'll get back to you soon."
-        );
-        setFormData({
-          name: "",
-          mobile: "",
-          email: "",
-          companyName: "",
-          services: [],
-          notes: "",
-          website: "",
-        });
-        setErrors({});
-        formStartTime.current = Date.now();
-      } else {
-        const errorData = await response.json();
-        alert(`Failed to send message: ${errorData.message}`);
-      }
+      setErrors({});
+      formStartTime.current = Date.now();
+
+      alert("Redirecting you to WhatsApp...");
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred. Please try again later.");
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

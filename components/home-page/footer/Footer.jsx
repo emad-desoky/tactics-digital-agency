@@ -7,7 +7,7 @@ import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const Footer = () => {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/201095059730", "_blank");
+    window.open("https://wa.me/201038412369", "_blank");
   };
 
   return (
