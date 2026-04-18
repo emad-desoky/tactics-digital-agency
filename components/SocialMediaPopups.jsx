@@ -43,7 +43,7 @@ const SocialMediaPopups = () => {
         </button>
 
         {/* Facebook Messenger Button */}
-        <button
+        {/* <button
           onClick={handleMessengerClick}
           className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
           aria-label="Contact us on Facebook Messenger"
@@ -55,7 +55,7 @@ const SocialMediaPopups = () => {
           >
             <path d="M12 0C5.374 0 0 4.975 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.626 0 12-4.974 12-11.111C24 4.975 18.626 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.1l3.13 3.26L19.752 8.1l-6.561 6.863z" />
           </svg>
-        </button>
+        </button> */}
       </div>
 
       {/* WhatsApp Popup */}
@@ -85,7 +85,7 @@ const SocialMediaPopups = () => {
       )}
 
       {/* Messenger Popup */}
-      {showMessenger && (
+      {/* {showMessenger && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg p-6 max-w-sm w-full">
             <div className="flex justify-between items-center mb-4">
@@ -108,7 +108,7 @@ const SocialMediaPopups = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
