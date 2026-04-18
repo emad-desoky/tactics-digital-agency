@@ -143,54 +143,6 @@ export default function sitemap() {
       priority: 0.85,
     },
     // NEW BLOGS - April 2026 (Web & Mobile Development)
-    {
-      url: `${BASE_URL}/blogs/mobile-app-development-egypt-2026`,
-      lastModified: new Date("2026-04-15"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/ecommerce-website-development-egypt-2026`,
-      lastModified: new Date("2026-04-16"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/website-redesign-egypt-2026`,
-      lastModified: new Date("2026-04-17"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/wordpress-website-development-egypt-2026`,
-      lastModified: new Date("2026-04-18"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/landing-page-design-egypt-2026`,
-      lastModified: new Date("2026-04-18"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/custom-web-application-development-egypt-2026`,
-      lastModified: new Date("2026-04-18"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/small-business-website-egypt-2026`,
-      lastModified: new Date("2026-04-18"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blogs/corporate-website-development-egypt-2026`,
-      lastModified: new Date("2026-04-18"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
   ];
 
   return [...staticPages, ...servicePages, ...blogPosts];
