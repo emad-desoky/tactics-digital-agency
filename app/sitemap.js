@@ -1,148 +1,146 @@
-// Sitemap for Jeday Media - Auto-generated
-// Last updated: April 2026
+// Sitemap for Tactics Digital Agency
+// Last updated: June 2026
 
-const BASE_URL = "https://jedaymedia.com";
+const BASE_URL = "https://www.tacticsdigitalagency.net";
 
 export default function sitemap() {
+  const currentDate = new Date();
+
   // Static pages
   const staticPages = [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/about`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/about-us`,
+      lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/services`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/blogs`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/case-studies`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/gallery`,
+      lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.6,
     },
     {
-      url: `${BASE_URL}/pricing`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/careers`,
+      lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/story`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
   ];
 
   // Service pages
   const servicePages = [
     {
-      url: `${BASE_URL}/web-development`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/services`,
+      lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/seo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/social-media`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/digital-marketing-pricing-egypt`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
     },
   ];
 
-  // Blog posts - All blogs with SEO-optimized URLs
+  // Blog pages
   const blogPosts = [
-    // Pillar content - highest priority
+    // Pillar page
     {
-      url: `${BASE_URL}/blogs/best-marketing-agency-egypt`,
-      lastModified: new Date("2026-01-15"),
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt`,
+      lastModified: new Date("2026-06-17"),
       changeFrequency: "weekly",
       priority: 0.95,
     },
-    // Existing blogs
+
+    // Cluster pages under best-marketing-agency-in-egypt
     {
-      url: `${BASE_URL}/blogs/seo-agency-egypt`,
-      lastModified: new Date("2026-02-01"),
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt`,
+      lastModified: new Date("2026-06-17"),
       changeFrequency: "monthly",
       priority: 0.85,
     },
     {
-      url: `${BASE_URL}/blogs/social-media-agency-egypt`,
-      lastModified: new Date("2026-02-10"),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/blogs/performance-marketing-egypt`,
-      lastModified: new Date("2026-02-20"),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/blogs/content-strategy-agency-egypt`,
-      lastModified: new Date("2026-03-01"),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/blogs/web-development-agency-egypt`,
-      lastModified: new Date("2026-03-10"),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/blogs/real-estate-marketing-egypt`,
-      lastModified: new Date("2026-03-15"),
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/content-creation-agency-egypt`,
+      lastModified: new Date("2026-06-17"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/blogs/branding-agency-egypt`,
-      lastModified: new Date("2026-03-20"),
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/content-strategy-agency`,
+      lastModified: new Date("2026-06-17"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/blogs/content-creation-agency-egypt`,
-      lastModified: new Date("2026-03-25"),
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/performance-marketing`,
+      lastModified: new Date("2026-06-17"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt`,
+      lastModified: new Date("2026-06-17"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt`,
+      lastModified: new Date("2026-06-17"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/social-media-agency`,
+      lastModified: new Date("2026-06-17"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/social-media-packages-egypt`,
+      lastModified: new Date("2026-06-17"),
+      changeFrequency: "monthly",
+      priority: 0.88,
+    },
+    {
+      url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/web-development-agency`,
+      lastModified: new Date("2026-06-17"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
+
+    // Standalone blogs
     {
       url: `${BASE_URL}/blogs/digital-marketing-pricing-egypt`,
-      lastModified: new Date("2026-04-01"),
+      lastModified: new Date("2026-06-17"),
       changeFrequency: "monthly",
       priority: 0.85,
     },
-    // NEW BLOGS - April 2026 (Web & Mobile Development)
   ];
 
   return [...staticPages, ...servicePages, ...blogPosts];

@@ -4,6 +4,17 @@
 // 2. Add the metadata object to this array below.
 
 export const manualBlogs = [
+  {
+    id: "best-marketing-agency-in-egypt/social-media-packages-egypt",
+    title: "Social Media Packages Egypt 2026: Prices & What’s Included",
+    description:
+      "Compare social media packages in Egypt for 2026. See monthly pricing, deliverables, content volume, ad management, and how to choose the right package.",
+    image: "/blogs/social-media-packages-egypt.png",
+    date: "2026-06-17",
+    tags: ["Social Media", "Pricing", "Packages", "Egypt"],
+    isManual: true,
+    isPillar: false,
+  },
   // PILLAR PAGE
   {
     id: "best-marketing-agency-in-egypt",
