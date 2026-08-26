@@ -45,8 +45,7 @@ const article = {
     "brand identity agency Egypt",
     "branding agency Cairo",
     "corporate branding services",
-    "brand naming agency Egypt",
-    "branding prices Egypt"
+    "brand naming agency Egypt"
   ],
   "entities": [
     "Brand strategy",
@@ -153,7 +152,7 @@ const article = {
     },
     {
       "id": "pricing",
-      "title": "Branding prices in Egypt: what changes the quote?",
+      "title": "What changes a branding quote in Egypt?",
       "paragraphs": [
         "There is no responsible single price for branding because a logo-only exercise and a research-led rebrand are not equivalent. Compare the workstreams included in each proposal.",
         "A higher scope may include research, workshops, naming, strategy, messaging, a deeper identity system, more applications, launch support, or stakeholder management. Compare outputs and process before comparing totals."
@@ -191,6 +190,14 @@ const article = {
         ]
       },
       "richParagraphs": [
+        [
+          "For a dedicated cost and scope comparison, use our ",
+          {
+            "href": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/branding-prices-egypt",
+            "label": "branding prices in Egypt guide"
+          },
+          "."
+        ],
         [
           "If the objective is broader acquisition rather than brand development alone, return to the ",
           {
@@ -275,6 +282,21 @@ const article = {
     }
   ],
   "related": [
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/branding-prices-egypt",
+      "title": "Branding Prices in Egypt",
+      "description": "Compare branding costs by strategy, identity, naming, applications and rollout scope."
+    },
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/brand-naming-agency-egypt",
+      "title": "Brand Naming Agency Egypt",
+      "description": "Plan naming strategy, bilingual checks, screening and legal handoff."
+    },
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/corporate-branding-services-egypt",
+      "title": "Corporate Branding Services Egypt",
+      "description": "Build brand architecture, bilingual identity, governance and rollout systems."
+    },
     {
       "href": "/blogs/best-marketing-agency-in-egypt",
       "title": "Best Marketing Agency in Egypt",

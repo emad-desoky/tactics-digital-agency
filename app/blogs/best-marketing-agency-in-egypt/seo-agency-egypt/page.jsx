@@ -293,7 +293,7 @@ const article = {
     },
     {
       "id": "pricing",
-      "title": "How SEO agency pricing in Egypt should be compared",
+      "title": "What changes an SEO agency quote in Egypt?",
       "paragraphs": [
         "SEO can be sold as a monthly retainer, project audit, implementation sprint, content programme, local SEO engagement, or a combination. Pricing should reflect site size, technical complexity, languages/markets, services/locations, content needs, development support, and competitive difficulty.",
         "Do not compare retainers by keyword count alone. Ask what the team will actually audit, implement, write, update, link, measure, and report. Clarify whether development, content production, digital PR, translation, and tools are included."
@@ -308,6 +308,14 @@ const article = {
         "Minimum term, notice period, asset ownership, and handover."
       ],
       "richParagraphs": [
+        [
+          "For the dedicated pricing and retainer breakdown, see our ",
+          {
+            "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-cost-egypt",
+            "label": "SEO cost in Egypt guide"
+          },
+          "."
+        ],
         [
           "If organic search is one part of a wider acquisition decision, compare it with the ",
           {
@@ -371,6 +379,21 @@ const article = {
     }
   ],
   "related": [
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-cost-egypt",
+      "title": "SEO Cost in Egypt",
+      "description": "Compare monthly SEO pricing by technical, content, local, authority and reporting scope."
+    },
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/local-seo-services-egypt",
+      "title": "Local SEO Services Egypt",
+      "description": "Improve Google Business Profile, location pages, reviews and local lead tracking."
+    },
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-for-real-estate-egypt",
+      "title": "SEO for Real Estate Egypt",
+      "description": "Build project, location and buyer-intent search architecture for property leads."
+    },
     {
       "href": "/blogs/best-marketing-agency-in-egypt",
       "title": "Best Marketing Agency in Egypt",

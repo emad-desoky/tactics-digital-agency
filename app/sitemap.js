@@ -1,5 +1,5 @@
 // Sitemap for Tactics Digital Agency
-// Blog SEO cleanup updated: August 26, 2026
+// Blog SEO cleanup + 8 new commercial clusters updated: August 26, 2026
 
 const BASE_URL = "https://www.tacticsdigitalagency.net";
 const SEO_UPDATE_DATE = new Date("2026-08-26");
@@ -22,6 +22,14 @@ export default function sitemap() {
     { url: `${BASE_URL}/services/web-development`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.85 },
   ];
   const blogPosts = [
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/branding-prices-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/brand-naming-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/corporate-branding-services-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-cost-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/local-seo-services-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-for-real-estate-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt/real-estate-lead-generation-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/social-media-agency/social-media-management-companies-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/content-creation-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.85 },

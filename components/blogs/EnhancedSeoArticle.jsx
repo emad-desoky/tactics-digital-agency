@@ -8,12 +8,29 @@ import { FaArrowRight, FaCheckCircle, FaChevronRight, FaHome } from "react-icons
 
 const SITE_URL = "https://www.tacticsdigitalagency.net";
 const PILLAR_PATH = "/blogs/best-marketing-agency-in-egypt";
+const DEFAULT_PARENT = { path: PILLAR_PATH, label: "Marketing Agency Guide" };
+
+function getParent(article) {
+  if (article.isPillar) return null;
+  return article.parent || DEFAULT_PARENT;
+}
+
+function formatDate(value) {
+  if (!value) return "";
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${value}T00:00:00Z`));
+}
 
 function schemaFor(article) {
+  const parent = getParent(article);
   const crumbs = [
     ["Home", SITE_URL],
     ["Blogs", `${SITE_URL}/blogs`],
-    ...(!article.isPillar ? [["Marketing Agency Guide", `${SITE_URL}${PILLAR_PATH}`]] : []),
+    ...(parent ? [[parent.label, `${SITE_URL}${parent.path}`]] : []),
     [article.breadcrumbLabel, article.canonical],
   ];
   return {
@@ -33,7 +50,7 @@ function schemaFor(article) {
         inLanguage: "en-EG",
         articleSection: article.category,
         keywords: article.keywords,
-        isPartOf: article.isPillar ? { "@type": "Blog", "@id": `${SITE_URL}/blogs` } : { "@type": "BlogPosting", "@id": `${SITE_URL}${PILLAR_PATH}#article` },
+        isPartOf: article.isPillar ? { "@type": "Blog", "@id": `${SITE_URL}/blogs` } : { "@type": "BlogPosting", "@id": `${SITE_URL}${(article.parent || DEFAULT_PARENT).path}#article` },
         about: article.entities.map((name) => ({ "@type": "Thing", name })),
       },
       {
@@ -91,6 +108,7 @@ function Section({ s }) {
 }
 
 export default function EnhancedSeoArticle({ article }) {
+  const parent = getParent(article);
   return (
     <>
       <JsonLd data={schemaFor(article)} />
@@ -103,14 +121,14 @@ export default function EnhancedSeoArticle({ article }) {
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm text-gray-400 mb-8">
               <Link href="/" className="hover:text-[rgb(255,228,0)] flex items-center gap-1"><FaHome /> Home</Link><FaChevronRight className="text-xs text-gray-600" />
               <Link href="/blogs" className="hover:text-[rgb(255,228,0)]">Blogs</Link>
-              {!article.isPillar && <><FaChevronRight className="text-xs text-gray-600" /><Link href={PILLAR_PATH} className="hover:text-[rgb(255,228,0)]">Marketing Agency Guide</Link></>}
+              {parent && <><FaChevronRight className="text-xs text-gray-600" /><Link href={parent.path} className="hover:text-[rgb(255,228,0)]">{parent.label}</Link></>}
               <FaChevronRight className="text-xs text-gray-600" /><span className="text-gray-300">{article.breadcrumbLabel}</span>
             </nav>
             <div className="max-w-4xl">
               <div className="inline-flex rounded-full border border-[rgb(255,228,0)]/30 bg-[rgb(255,228,0)]/10 px-4 py-1 text-sm font-medium text-[rgb(255,228,0)] mb-5">{article.category}</div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">{article.h1}</h1>
               <p className="text-lg lg:text-xl text-gray-300 leading-8 mb-6">{article.heroSummary}</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400"><span>Updated: August 26, 2026</span><span>{article.readTime}</span><span>By Tactics Digital Agency Editorial Team</span></div>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400"><span>Updated: {formatDate(article.dateModified)}</span><span>{article.readTime}</span><span>By Tactics Digital Agency Editorial Team</span></div>
             </div>
           </div>
         </header>
@@ -126,7 +144,7 @@ export default function EnhancedSeoArticle({ article }) {
               <section id="related" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-6">Related guides and services</h2><div className="grid md:grid-cols-2 gap-4">{article.related.map((item) => <Link key={item.href} href={item.href} className="group bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-[rgb(255,228,0)]/50"><h3 className="text-lg font-semibold text-white group-hover:text-[rgb(255,228,0)] mb-2">{item.title}</h3><p className="text-sm text-gray-400 leading-6 mb-4">{item.description}</p><span className="text-sm text-[rgb(255,228,0)] flex items-center gap-2">Open page <FaArrowRight /></span></Link>)}</div></section>
               <section id="faqs" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-7">Frequently asked questions</h2><div className="space-y-4">{article.faqs.map((faq) => <details key={faq.q} className="bg-neutral-900 border border-gray-800 rounded-xl p-6 open:border-[rgb(255,228,0)]/30"><summary className="cursor-pointer list-none text-lg font-semibold text-white">{faq.q}</summary><p className="text-gray-400 leading-7 mt-4">{faq.a}</p></details>)}</div></section>
               <section id="author" className="scroll-mt-32 mb-14 bg-neutral-900 border border-gray-800 rounded-2xl p-7"><p className="text-xs uppercase tracking-[0.18em] text-[rgb(255,228,0)] mb-2">About this guide</p><h2 className="text-2xl font-bold text-white mb-3">Tactics Digital Agency Editorial Team</h2><p className="text-gray-400 leading-7">This guide is maintained to help businesses compare marketing options without fabricated rankings, unsupported guarantees, or invented market statistics. Pricing, platform rules, and agency offerings can change, so scope-specific details should be confirmed before signing a contract.</p></section>
-              <section className="rounded-2xl bg-[rgb(255,228,0)] text-black p-8 lg:p-10"><h2 className="text-3xl font-bold mb-4">{article.cta.title}</h2><p className="text-black/80 leading-7 mb-6 max-w-3xl">{article.cta.text}</p><a href="#contact" className="inline-flex items-center gap-2 rounded-lg bg-black text-white px-6 py-3 font-semibold hover:bg-neutral-800">{article.cta.label} <FaArrowRight /></a></section>
+              <section className="rounded-2xl bg-[rgb(255,228,0)] text-black p-8 lg:p-10">{article.cta.eyebrow && <p className="uppercase tracking-[0.16em] text-xs font-bold text-black/60 mb-3">{article.cta.eyebrow}</p>}<h2 className="text-3xl font-bold mb-4">{article.cta.title}</h2><p className="text-black/80 leading-7 mb-6 max-w-3xl">{article.cta.text}</p><a href={article.cta.href || "#contact"} className="inline-flex items-center gap-2 rounded-lg bg-black text-white px-6 py-3 font-semibold hover:bg-neutral-800">{article.cta.label || article.cta.button || "Contact Tactics"} <FaArrowRight /></a></section>
             </article>
             <aside className="hidden lg:block"><div className="sticky top-28 space-y-6"><div className="bg-neutral-900 border border-gray-800 rounded-xl p-6"><p className="text-sm font-semibold text-white mb-4">On this page</p><nav className="space-y-2 text-sm"><a href="#quick-answer" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Quick answer</a>{article.sections.map((s) => <a key={s.id} href={`#${s.id}`} className="block text-gray-400 hover:text-[rgb(255,228,0)] leading-5">{s.title}</a>)}<a href="#related" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Related guides</a><a href="#faqs" className="block text-gray-400 hover:text-[rgb(255,228,0)]">FAQs</a></nav></div><div className="bg-[rgb(255,228,0)]/5 border border-[rgb(255,228,0)]/20 rounded-xl p-6"><p className="text-[rgb(255,228,0)] font-semibold mb-2">Need a scoped recommendation?</p><p className="text-sm text-gray-400 leading-6 mb-4">Tell us the goal, market, and current channels. We can help identify what should be fixed first.</p><a href="#contact" className="text-sm text-white font-semibold inline-flex items-center gap-2">Talk to the team <FaArrowRight /></a></div></div></aside>
           </div>

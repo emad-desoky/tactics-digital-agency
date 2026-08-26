@@ -344,6 +344,16 @@ const article = {
   ],
   "related": [
     {
+      "href": "/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt/real-estate-lead-generation-egypt",
+      "title": "Real Estate Lead Generation Egypt",
+      "description": "Connect channels, landing pages, qualification, CRM and sales-stage feedback."
+    },
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-for-real-estate-egypt",
+      "title": "SEO for Real Estate Egypt",
+      "description": "Build organic visibility for property projects, locations and buyer-intent queries."
+    },
+    {
       "href": "/blogs/best-marketing-agency-in-egypt/performance-marketing",
       "title": "Performance Marketing Egypt",
       "description": "Compare paid growth agencies by tracking, media, creative testing, CRO, and quality signals."

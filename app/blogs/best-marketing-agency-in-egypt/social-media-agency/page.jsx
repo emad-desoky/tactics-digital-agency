@@ -333,6 +333,11 @@ const article = {
   ],
   "related": [
     {
+      "href": "/blogs/best-marketing-agency-in-egypt/social-media-agency/social-media-management-companies-egypt",
+      "title": "Social Media Management Companies Egypt",
+      "description": "Compare management partners by strategy, content, community, ownership and reporting."
+    },
+    {
       "href": "/blogs/best-marketing-agency-in-egypt/social-media-packages-egypt",
       "title": "Social Media Packages Egypt",
       "description": "Compare retainers and quotes by deliverables, production, paid media, community, and exclusions."
