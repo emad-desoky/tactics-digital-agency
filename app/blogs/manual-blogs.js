@@ -6,11 +6,11 @@
 export const manualBlogs = [
   {
     id: "best-marketing-agency-in-egypt/social-media-packages-egypt",
-    title: "Social Media Packages Egypt 2026: Prices & What’s Included",
+    title: "Social Media Packages Egypt 2026: Pricing & Deliverables",
     description:
-      "Compare social media packages in Egypt for 2026. See monthly pricing, deliverables, content volume, ad management, and how to choose the right package.",
+      "Compare social media packages in Egypt by strategy, content, video, community, paid media, reporting, revisions, and hidden costs.",
     image: "/blogs/social-media-packages-egypt.png",
-    date: "2026-06-17",
+    date: "2026-08-26",
     tags: ["Social Media", "Pricing", "Packages", "Egypt"],
     isManual: true,
     isPillar: false,
@@ -18,11 +18,11 @@ export const manualBlogs = [
   // PILLAR PAGE
   {
     id: "best-marketing-agency-in-egypt",
-    title: "Best Marketing Agency in Egypt (2026 Review)",
+    title: "Best Marketing Agency in Egypt 2026: Comparison Guide",
     description:
-      "We reviewed the top 10 best marketing agencies in Egypt for 2026. Compare pricing, services, and results. Find out why Tactics ranks #1 for SEO and Performance.",
+      "Compare marketing agencies in Egypt by strategy, SEO, paid media, social, content, reporting, pricing model, and commercial fit.",
     image: "/blogs/best-marketing-agency.png",
-    date: "2024-12-04",
+    date: "2026-08-26",
     tags: ["SEO", "Digital Marketing", "Agency", "Growth"],
     isManual: true,
     isPillar: true,
@@ -31,33 +31,33 @@ export const manualBlogs = [
   // CLUSTER PAGES (under best-marketing-agency-in-egypt)
   {
     id: "best-marketing-agency-in-egypt/seo-agency-egypt",
-    title: "Best SEO Agency in Egypt 2026",
+    title: "Best SEO Agency in Egypt 2026: How to Choose",
     description:
-      "Find the best SEO agency in Egypt for 2026. Expert rankings, pricing, and services comparison for top SEO companies in Cairo and across Egypt.",
+      "Compare SEO agencies in Egypt by technical SEO, query strategy, content, local SEO, authority, reporting, pricing model, and execution quality.",
     image: "/blogs/seo-agency-egypt.jpg",
-    date: "2024-12-04",
+    date: "2026-08-26",
     tags: ["SEO", "Agency", "Egypt"],
     isManual: true,
     isPillar: false,
   },
   {
     id: "best-marketing-agency-in-egypt/social-media-agency",
-    title: "Best Social Media Agency in Egypt 2026",
+    title: "Best Social Media Agency in Egypt 2026: Selection Guide",
     description:
-      "Discover the top social media marketing agencies in Egypt for 2026. Compare services, pricing, and results from leading social media experts.",
+      "Compare social media agencies in Egypt by strategy, content, community, paid media, reporting, platform fit, and lead generation.",
     image: "/blogs/social-media-agency.jpg",
-    date: "2024-12-04",
+    date: "2026-08-26",
     tags: ["Social Media", "Agency", "Egypt"],
     isManual: true,
     isPillar: false,
   },
   {
     id: "best-marketing-agency-in-egypt/performance-marketing",
-    title: "Best Performance Marketing Agency Egypt 2026",
+    title: "Performance Marketing Agency Egypt 2026: Paid Growth Guide",
     description:
-      "Find the best performance marketing agency in Egypt for Google Ads, Meta Ads, and paid campaigns. Compare ROI, pricing, and results.",
+      "Compare performance marketing agencies in Egypt by tracking, Google Ads, Meta Ads, creative testing, CRO, lead quality, reporting, and pricing.",
     image: "/blogs/performance-marketing.jpg",
-    date: "2024-12-04",
+    date: "2026-08-26",
     tags: ["Performance Marketing", "Google Ads", "Meta Ads"],
     isManual: true,
     isPillar: false,
@@ -86,33 +86,33 @@ export const manualBlogs = [
   },
   {
     id: "best-marketing-agency-in-egypt/real-estate-marketing-egypt",
-    title: "Real Estate Marketing Agency Egypt 2026",
+    title: "Real Estate Marketing Agency Egypt 2026: Lead Generation Guide",
     description:
-      "Find the best real estate marketing agency in Egypt for 2026. Expert property marketing, lead generation, and digital campaigns for developers.",
+      "Choose a real estate marketing agency in Egypt using a practical framework for lead quality, paid media, SEO, content, tracking, and sales handoff.",
     image: "/blogs/real-estate-marketing-egypt.jpg",
-    date: "2026-03-09",
+    date: "2026-08-26",
     tags: ["Real Estate", "Property Marketing", "Lead Generation"],
     isManual: true,
     isPillar: false,
   },
   {
     id: "best-marketing-agency-in-egypt/branding-agency-egypt",
-    title: "Best Branding Agency Egypt 2026",
+    title: "Best Branding Agency in Egypt 2026: Comparison Guide",
     description:
-      "Discover the top branding agencies in Egypt for 2026. Expert brand identity, logo design, and corporate rebranding services.",
+      "Compare branding agencies in Egypt by strategy, naming, identity, bilingual systems, rollout, pricing factors, and business fit.",
     image: "/blogs/branding-agency-egypt.jpg",
-    date: "2026-03-09",
+    date: "2026-08-26",
     tags: ["Branding", "Brand Identity", "Logo Design"],
     isManual: true,
     isPillar: false,
   },
   {
     id: "best-marketing-agency-in-egypt/content-creation-agency-egypt",
-    title: "Best Content Creation Agency Egypt 2026",
+    title: "Content Creation Agency Egypt 2026: Services Guide",
     description:
-      "Find the best content creation agency in Egypt for 2026. Expert video production, photography, social media content, and copywriting.",
+      "Compare content creation agencies in Egypt for video, social content, design, copy, production, repurposing, workflow, and pricing factors.",
     image: "/blogs/content-creation-egypt.jpg",
-    date: "2026-03-09",
+    date: "2026-08-26",
     tags: ["Content Creation", "Video Production", "Photography"],
     isManual: true,
     isPillar: false,

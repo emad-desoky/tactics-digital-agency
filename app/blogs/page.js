@@ -6,16 +6,16 @@ import { manualBlogs } from "./manual-blogs";
 import { FaArrowRight, FaCalendar } from "react-icons/fa";
 
 export const metadata = {
-  title: "Blog | Tactics Digital Agency - Marketing Insights Egypt",
+  title: "Digital Marketing Blog Egypt | SEO, Social & Growth",
   description:
-    "Expert marketing insights, guides, and industry analysis from Tactics Digital Agency. Learn about SEO, digital marketing, branding, and more for Egyptian businesses.",
+    "Practical Egypt marketing guides covering SEO, social media, branding, content, performance marketing, pricing, and lead generation.",
   alternates: {
     canonical: "https://www.tacticsdigitalagency.net/blogs",
   },
   openGraph: {
-    title: "Blog | Tactics Digital Agency",
+    title: "Digital Marketing Blog Egypt | Tactics",
     description:
-      "Expert marketing insights and guides for Egyptian businesses.",
+      "Decision-focused guides for Egyptian businesses comparing SEO, social media, branding, content, and paid growth.",
     url: "https://www.tacticsdigitalagency.net/blogs",
     type: "website",
   },
@@ -23,7 +23,9 @@ export const metadata = {
 
 export default function BlogsPage() {
   const pillarBlog = manualBlogs.find((blog) => blog.isPillar);
-  const clusterBlogs = manualBlogs.filter((blog) => !blog.isPillar);
+  const clusterBlogs = manualBlogs
+    .filter((blog) => !blog.isPillar)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div className="bg-neutral-950 min-h-screen text-gray-200 font-sans selection:bg-[rgb(255,228,0)] selection:text-black">
@@ -34,15 +36,15 @@ export default function BlogsPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-block bg-[rgb(255,228,0)]/10 border border-[rgb(255,228,0)]/30 rounded-full px-4 py-1 text-[rgb(255,228,0)] text-sm font-medium mb-6">
-              Insights & Guides
+              SEO & Growth Guides
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Marketing <span className="text-[rgb(255,228,0)]">Blog</span>
+              Marketing <span className="text-[rgb(255,228,0)]">Decision Guides</span>
             </h1>
             <p className="text-lg text-gray-400 leading-relaxed">
-              Expert insights on digital marketing, SEO, branding, and growth
-              strategies for Egyptian businesses. Learn from industry leaders
-              and stay ahead of the competition.
+              Practical, updated guides for Egyptian businesses comparing SEO,
+              social media, branding, content, performance marketing, pricing,
+              and agency selection - with clear decision frameworks and next steps.
             </p>
           </div>
         </div>
@@ -112,7 +114,7 @@ export default function BlogsPage() {
         {/* Cluster Articles */}
         <section>
           <h2 className="text-2xl font-bold text-white mb-8">
-            Latest Articles
+            Latest & Updated Guides
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {clusterBlogs.map((blog) => (

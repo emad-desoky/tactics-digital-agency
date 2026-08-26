@@ -1,623 +1,402 @@
-import Link from "next/link";
-import Image from "next/image";
-import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/home-page/footer/Footer";
-import ContactForm from "@/components/home-page/contact-details/NewContactForm";
-import { JsonLd } from "@/components/seo/JsonLd";
-import {
-  FaCheckCircle,
-  FaArrowRight,
-  FaChevronRight,
-  FaHome,
-  FaBuilding,
-  FaChartLine,
-  FaBullhorn,
-  FaCamera,
-  FaUsers,
-} from "react-icons/fa";
+import EnhancedSeoArticle from "@/components/blogs/EnhancedSeoArticle";
 
 export const metadata = {
-  title: "Real Estate Marketing Agency Egypt 2026 | Property Marketing Experts",
-  description:
-    "Find the best real estate marketing agency in Egypt for 2026. Expert property marketing, lead generation, and digital strategies for developers, brokers, and real estate companies in Cairo.",
-  keywords: [
-    "real estate marketing egypt",
-    "property marketing agency cairo",
-    "real estate digital marketing",
-    "real estate lead generation egypt",
-    "property developer marketing",
-    "real estate advertising cairo",
-    "compound marketing egypt",
-    "real estate social media marketing",
-  ],
-  robots: { index: true, follow: true },
-  alternates: {
-    canonical:
-      "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt",
+  "title": "Real Estate Marketing Agency Egypt 2026 | Lead Guide",
+  "description": "Choose a real estate marketing agency in Egypt using a framework for lead quality, paid media, SEO, content, tracking, and sales handoff.",
+  "alternates": {
+    "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt"
   },
-  openGraph: {
-    title: "Real Estate Marketing Agency Egypt 2026 | Top Property Marketers",
-    description:
-      "Expert real estate marketing services in Egypt. Lead generation, property advertising, and digital strategies for developers.",
-    url: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt",
-    type: "article",
-    images: [
+  "openGraph": {
+    "title": "Real Estate Marketing Agency Egypt 2026 | Lead Guide",
+    "description": "A practical lead-generation and sales-handoff guide for real estate marketing in Egypt.",
+    "url": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt",
+    "type": "article",
+    "images": [
       {
-        url: "/blogs/real-estate-marketing-egypt.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Real Estate Marketing Agency Egypt",
-      },
-    ],
+        "url": "/blogs/real-estate-marketing-egypt.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Real estate marketing agency Egypt lead generation guide"
+      }
+    ]
   },
+  "robots": {
+    "index": true,
+    "follow": true
+  }
 };
 
-export default function RealEstateMarketingPage() {
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.tacticsdigitalagency.net",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Blogs",
-            item: "https://www.tacticsdigitalagency.net/blogs",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "Best Marketing Agency",
-            item: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt",
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            name: "Real Estate Marketing Egypt",
-            item: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt",
-          },
+const article = {
+  "isPillar": false,
+  "breadcrumbLabel": "Real Estate Marketing Egypt",
+  "category": "Real Estate Marketing",
+  "h1": "Real Estate Marketing Agency Egypt 2026: A Lead Generation and Sales Handoff Guide",
+  "metaDescription": "Choose a real estate marketing agency in Egypt using a framework for lead quality, paid media, SEO, content, tracking, and sales handoff.",
+  "image": "/blogs/real-estate-marketing-egypt.jpg",
+  "imageAlt": "Real estate marketing agency in Egypt lead generation and sales funnel",
+  "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt",
+  "datePublished": "2026-03-09",
+  "dateModified": "2026-08-26",
+  "readTime": "12 min read",
+  "keywords": [
+    "real estate marketing agency Egypt",
+    "property marketing agency Egypt",
+    "real estate digital marketing Egypt",
+    "real estate lead generation Egypt",
+    "property advertising Egypt",
+    "real estate marketing Cairo"
+  ],
+  "entities": [
+    "Real estate marketing",
+    "Egypt",
+    "Cairo",
+    "Lead generation",
+    "Property advertising",
+    "Google Ads",
+    "Meta Ads",
+    "SEO",
+    "CRM"
+  ],
+  "heroSummary": "Property marketing is not just a campaign-launch problem. The agency needs to connect project positioning, creative, media, landing pages, tracking, CRM feedback, and sales follow-up so the developer or broker can see which demand is actually useful.",
+  "quickAnswer": "A strong real estate marketing agency in Egypt should be judged on qualified demand and sales handoff, not lead volume alone. Ask how the team segments buyer intent, builds project messaging, tracks sources, tests creative and landing pages, feeds lead-quality data back into campaigns, and supports organic search demand over time.",
+  "takeaways": [
+    "Define a qualified property lead before optimising campaigns.",
+    "Keep project positioning, creative, landing pages, media, and sales scripts aligned.",
+    "Use CRM outcomes to distinguish cheap leads from commercially useful leads.",
+    "Build SEO around location, project, property type, price/payment intent, and buyer questions.",
+    "Treat launch creatives as a testing system rather than one master campaign.",
+    "Measure speed-to-lead and sales follow-up because marketing cannot compensate for a broken handoff."
+  ],
+  "sections": [
+    {
+      "id": "funnel",
+      "title": "What a real estate marketing agency in Egypt should own",
+      "paragraphs": [
+        "Real estate has a long, information-heavy buying journey. A prospect may discover a project through a Reel, compare locations on Google, revisit payment information, request details through WhatsApp, and convert after several calls or a site visit. Channel performance therefore cannot be judged in isolation.",
+        "The scope should define who owns positioning, creative production, paid media, SEO, project landing pages, conversion tracking, CRM integration, reporting, and feedback from sales. If those pieces are split across vendors, the handoffs must be explicit."
+      ],
+      "table": {
+        "headers": [
+          "Funnel stage",
+          "Marketing job",
+          "Useful evidence"
         ],
-      },
-      {
-        "@type": "Article",
-        headline:
-          "Best Real Estate Marketing Agency in Egypt 2026: Property Marketing Experts",
-        description:
-          "Complete guide to real estate marketing agencies in Egypt. Compare services, pricing, and strategies for property developers and brokers.",
-        author: { "@type": "Organization", name: "Tactics Digital Agency" },
-        publisher: { "@type": "Organization", name: "Tactics Digital Agency" },
-        datePublished: "2026-03-09",
-        dateModified: new Date().toISOString().split("T")[0],
-        image:
-          "https://www.tacticsdigitalagency.net/blogs/real-estate-marketing-egypt.jpg",
-        wordCount: 3200,
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
+        "rows": [
+          [
+            "Discovery",
+            "Create awareness around project, location, lifestyle, or investment need",
+            "Qualified reach, video engagement, search demand"
+          ],
+          [
+            "Consideration",
+            "Answer project, unit, location, payment, and credibility questions",
+            "Landing-page engagement, returning users, search queries"
+          ],
+          [
+            "Enquiry",
+            "Make the next step easy and trackable",
+            "Forms, calls, WhatsApp, booked meetings"
+          ],
+          [
+            "Qualification",
+            "Separate real buying intent from low-intent contacts",
+            "CRM status, budget fit, timeline, response"
+          ],
+          [
+            "Sales",
+            "Move qualified prospects to calls, visits, or opportunities",
+            "Sales-stage outcomes and source quality"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "lead-quality",
+      "title": "Lead quality matters more than the lowest cost per lead",
+      "quickNote": "A low CPL can look efficient while filling the sales team with contacts that cannot buy, cannot be reached, or wanted something different.",
+      "paragraphs": [
+        "Before scaling media, define what a qualified lead means for the project. Useful qualification can include budget, unit type, preferred location, purchase timeline, market, and payment preference. The exact fields depend on the project and should not create unnecessary friction.",
+        "The agency needs recurring feedback with sales. Campaigns should learn which audiences and creatives produce reachable, relevant prospects - not just which form delivers the cheapest submission."
+      ],
+      "steps": [
+        {
+          "title": "Agree lead stages",
+          "text": "Use consistent CRM labels such as new, contacted, qualified, meeting/visit, opportunity, won, lost, and reason lost where appropriate."
+        },
+        {
+          "title": "Capture source data",
+          "text": "Preserve campaign and landing-page source information so quality can be compared by channel and creative."
+        },
+        {
+          "title": "Review sales feedback",
+          "text": "Look beyond ad-platform conversions to response rate, qualification, meetings, and downstream outcomes."
+        },
+        {
+          "title": "Optimise for quality",
+          "text": "Shift messages, audiences, forms, pages, and budgets based on the strongest available business signal."
+        }
+      ]
+    },
+    {
+      "id": "channels",
+      "title": "Paid media, SEO, social, and content have different jobs",
+      "cards": [
+        {
+          "title": "Meta advertising",
+          "text": "Visual discovery, audience testing, retargeting, video, and lead/conversion campaigns when tracking is reliable.",
+          "bestFor": "Creating and capturing demand with strong creative"
+        },
+        {
+          "title": "Google Search",
+          "text": "Captures active intent around locations, projects, property types, prices, developers, and branded terms.",
+          "bestFor": "Prospects already searching"
+        },
+        {
+          "title": "SEO",
+          "text": "Builds organic visibility for project, location, buyer-guide, comparison, and long-tail commercial queries.",
+          "bestFor": "Compounding search demand"
+        },
+        {
+          "title": "Social and content",
+          "text": "Explains the project visually, creates trust, answers objections, and supplies campaign creative.",
+          "bestFor": "Discovery, proof, education, and creative supply"
+        }
+      ],
+      "paragraphs": [
+        "The right mix depends on inventory, location, buyer segment, launch timing, budget, existing demand, and sales capacity. The agency should explain what each channel is expected to do rather than spreading budget for the sake of appearing full-service."
+      ]
+    },
+    {
+      "id": "seo",
+      "title": "Real estate SEO should target buyer decisions, not generic traffic",
+      "paragraphs": [
+        "Property SEO becomes valuable when the site owns specific buyer questions. Project pages capture project-specific demand. Location pages can answer what it is like to buy or live in an area. Buyer guides can target payment, comparison, property-type, and legal questions when claims are supported by accurate sources.",
+        "Every page should have a clear query owner. Several articles targeting the same intent can divide relevance instead of building authority. Internal links should move users from guides to relevant project or service pages naturally."
+      ],
+      "bullets": [
+        "Project and developer queries.",
+        "Location and neighbourhood queries.",
+        "Property type + location queries.",
+        "Price, payment, and budget questions using verified data only.",
+        "Comparison and decision queries.",
+        "Foreign-buyer or legal-process questions using qualified, current sources.",
+        "Branded queries and project alternatives where the page genuinely adds value."
+      ],
+      "richParagraphs": [
+        [
+          "If SEO is a major part of the brief, use the ",
           {
-            "@type": "Question",
-            name: "What is the best real estate marketing agency in Egypt?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Tactics is ranked as the leading real estate marketing agency in Egypt for 2026, specializing in property lead generation, compound launches, and developer branding for Cairo and New Capital projects.",
-            },
+            "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt",
+            "label": "SEO agency Egypt guide"
           },
-          {
-            "@type": "Question",
-            name: "How much does real estate marketing cost in Egypt?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Professional real estate marketing in Egypt ranges from 30,000 to 150,000 EGP monthly depending on project scope, with compound launches requiring 100,000-500,000 EGP campaigns.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What marketing channels work best for Egyptian real estate?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Facebook and Instagram lead generation, Google Ads for high-intent buyers, YouTube virtual tours, and WhatsApp follow-up campaigns deliver the best ROI for Egyptian real estate.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How to generate real estate leads in Egypt?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "The most effective methods include targeted Facebook lead ads, Google search campaigns for specific locations, landing page optimization, virtual tours, and retargeting campaigns to nurture prospects.",
-            },
-          },
+          " to evaluate technical and content execution separately."
+        ]
+      ]
+    },
+    {
+      "id": "creative",
+      "title": "Property creative should answer a buyer question",
+      "paragraphs": [
+        "Real-estate creative often becomes repetitive because every ad uses the same render, payment headline, and generic luxury language. A stronger system tests buyer motivations and information needs while keeping project facts accurate.",
+        "Build a matrix around location, lifestyle, unit type, payment structure, developer credibility, project progress, and direct objection handling. Avoid invented urgency, unsupported ROI, or claims that cannot be demonstrated."
+      ],
+      "table": {
+        "headers": [
+          "Creative angle",
+          "Question it answers",
+          "Evidence needed"
         ],
+        "rows": [
+          [
+            "Location",
+            "Why this area?",
+            "Accurate map, access, real landmarks"
+          ],
+          [
+            "Unit/product",
+            "What am I buying?",
+            "Verified unit types, plans, renders/photos"
+          ],
+          [
+            "Payment",
+            "Can I structure the purchase?",
+            "Current verified payment terms"
+          ],
+          [
+            "Lifestyle",
+            "What experience is being sold?",
+            "Real amenities/specifications or clearly labelled renders"
+          ],
+          [
+            "Trust",
+            "Why believe the offer?",
+            "Developer/project facts and documented proof"
+          ],
+          [
+            "Comparison",
+            "Why this option?",
+            "Fair, supportable criteria"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "agency-scorecard",
+      "title": "How to compare real estate marketing agencies",
+      "table": {
+        "headers": [
+          "Criterion",
+          "What to look for"
+        ],
+        "rows": [
+          [
+            "Lead definition",
+            "Agency asks how sales qualifies a good enquiry"
+          ],
+          [
+            "Tracking",
+            "Plan for forms, calls/WhatsApp, analytics, ad events, and CRM source"
+          ],
+          [
+            "Creative testing",
+            "System for concepts, hooks, formats, iterations, and learning"
+          ],
+          [
+            "Landing pages",
+            "Ability to improve information, speed, mobile UX, and conversion"
+          ],
+          [
+            "SEO",
+            "Query ownership, project/location structure, internal links, technical foundations"
+          ],
+          [
+            "Reporting",
+            "Connects campaign data to quality and sales feedback"
+          ],
+          [
+            "Governance",
+            "Clear approvals for prices, availability, legal claims, and project facts"
+          ]
+        ]
       },
-    ],
-  };
-
-  const services = [
-    {
-      icon: FaBullhorn,
-      title: "Lead Generation Campaigns",
-      description:
-        "Targeted Facebook, Instagram, and Google campaigns designed specifically for Egyptian real estate buyers with high purchase intent.",
+      "callout": "Ask how the agency would diagnose a week with many leads but weak qualification. The answer reveals whether the team thinks beyond media-buying dashboards."
     },
     {
-      icon: FaCamera,
-      title: "Property Photography & Video",
-      description:
-        "Professional real estate photography, drone footage, 3D virtual tours, and cinematic property videos for compounds and developments.",
+      "id": "launch",
+      "title": "Real estate campaign launch checklist",
+      "bullets": [
+        "Verified project facts, prices/payment details, availability rules, and claim approvals.",
+        "Defined buyer segments and priority geographies.",
+        "Project landing page with clear information, mobile speed, and tracked conversions.",
+        "Analytics, ad events, UTMs, CRM source fields, and test submissions checked.",
+        "Creative matrix with multiple messages and formats.",
+        "Lead-response owner, SLA, qualification questions, and escalation agreed.",
+        "Remarketing audiences and privacy/consent setup reviewed where applicable.",
+        "Weekly reporting includes lead quality and sales feedback.",
+        "SEO pages have canonical, sitemap, schema, and internal links where relevant."
+      ],
+      "richParagraphs": [
+        [
+          "For paid acquisition governance, compare the ",
+          {
+            "href": "/blogs/best-marketing-agency-in-egypt/performance-marketing",
+            "label": "performance marketing agency Egypt guide"
+          },
+          "."
+        ]
+      ]
     },
     {
-      icon: FaChartLine,
-      title: "Performance Marketing",
-      description:
-        "Data-driven advertising with real-time optimization, A/B testing, and cost-per-lead tracking for maximum ROI.",
+      "id": "tactics",
+      "title": "When Tactics may be a fit for property marketing",
+      "paragraphs": [
+        "Tactics works across performance marketing, SEO, social, content, branding, and web execution. For real estate, that integrated scope can help when the acquisition problem spans several points in the funnel - for example, strong spend but weak landing pages, high lead volume but poor qualification, or project pages with no organic search structure.",
+        "Start with the project, target buyer, sales capacity, current data, and verified commercial information. Then prioritise the actual bottleneck instead of automatically adding more channels."
+      ],
+      "richParagraphs": [
+        [
+          "If you are comparing broader partners as well, return to the ",
+          {
+            "href": "/blogs/best-marketing-agency-in-egypt",
+            "label": "best marketing agency in Egypt guide"
+          },
+          "."
+        ]
+      ]
+    }
+  ],
+  "externalSources": [
+    {
+      "label": "Google Ads Help",
+      "url": "https://support.google.com/google-ads/",
+      "note": "Official Google reference for campaign, conversion, audience, and measurement features."
     },
     {
-      icon: FaBuilding,
-      title: "Developer Branding",
-      description:
-        "Complete brand identity for real estate developers including logo design, brand guidelines, and marketing collateral.",
+      "label": "Meta Business Help Center",
+      "url": "https://www.facebook.com/business/help",
+      "note": "Official Meta reference for advertising, events, and business tools."
     },
     {
-      icon: FaUsers,
-      title: "CRM & Lead Nurturing",
-      description:
-        "Automated WhatsApp and email sequences to convert leads into sales appointments and closed deals.",
-    },
-  ];
-
-  const stats = [
+      "label": "Google Search Central",
+      "url": "https://developers.google.com/search",
+      "note": "Official guidance for crawling, indexing, structured data, and search best practices."
+    }
+  ],
+  "related": [
     {
-      value: "500+",
-      label: "Real Estate Projects",
-      subtext: "Marketed since 2020",
+      "href": "/blogs/best-marketing-agency-in-egypt/performance-marketing",
+      "title": "Performance Marketing Egypt",
+      "description": "Compare paid growth agencies by tracking, media, creative testing, CRO, and quality signals."
     },
-    { value: "15K+", label: "Qualified Leads", subtext: "Generated monthly" },
-    { value: "3.5x", label: "Average ROAS", subtext: "Return on ad spend" },
-    { value: "45%", label: "Lead-to-Visit", subtext: "Conversion rate" },
-  ];
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/seo-agency-egypt",
+      "title": "SEO Agency Egypt",
+      "description": "Evaluate technical SEO, query mapping, content systems, local search, and reporting."
+    },
+    {
+      "href": "/blogs/best-marketing-agency-in-egypt/content-creation-agency-egypt",
+      "title": "Content Creation Egypt",
+      "description": "Plan property video, social content, shoots, editing, and repurposing."
+    },
+    {
+      "href": "/services/performance-marketing",
+      "title": "Performance Marketing Services",
+      "description": "Discuss paid acquisition, tracking, creative testing, and conversion priorities with Tactics."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What does a real estate marketing agency in Egypt do?",
+      "a": "A property marketing agency may handle positioning, paid media, social, content, SEO, project landing pages, tracking, reporting, and lead-generation systems. Strong scopes also define how marketing data connects to CRM qualification and sales feedback because lead volume alone does not show whether demand is commercially useful."
+    },
+    {
+      "q": "How do I choose a real estate marketing agency in Egypt?",
+      "a": "Compare property-market understanding, lead-quality methodology, conversion tracking, creative testing, landing-page capability, SEO structure, reporting, and sales handoff. Ask how the team would diagnose weak lead quality and verify that project claims and pricing are governed by approved data."
+    },
+    {
+      "q": "Which marketing channels work for real estate in Egypt?",
+      "a": "The mix depends on buyer segment, project, location, budget, timing, brand demand, and sales capacity. Meta can support discovery and lead capture, Google Search captures active intent, SEO builds organic demand, and social/content supports education and trust. Give each channel a distinct role."
+    },
+    {
+      "q": "Why are real estate leads sometimes low quality?",
+      "a": "Common causes include broad targeting, misleading creative, weak qualification, unclear project information, low-friction forms, duplicate leads, slow follow-up, or a mismatch between the advertised offer and buyer expectations. Marketing and sales need shared lead stages so campaigns can learn from quality."
+    },
+    {
+      "q": "Should a property developer invest in SEO as well as ads?",
+      "a": "SEO and ads solve different problems. Ads can generate demand quickly while budget is active. SEO can capture project, location, buyer-guide, comparison, and long-tail queries over time. For projects with a meaningful search journey, using both can reduce dependence on a single source."
+    },
+    {
+      "q": "What should a real estate marketing report include?",
+      "a": "A useful report includes spend, tracked conversions, cost, campaign and creative learning, landing-page issues, source quality, CRM qualification where available, response trends, and clear next actions. It should distinguish media performance from sales-process issues rather than combining everything into one lead total."
+    }
+  ],
+  "cta": {
+    "title": "Need better property leads - not just more form submissions?",
+    "text": "Share the project, target buyer, current channels, landing pages, tracking setup, and how your sales team qualifies leads. Tactics can help identify whether the priority is media, creative, conversion, SEO, tracking, or sales handoff.",
+    "label": "Discuss your real estate funnel"
+  }
+};
 
-  return (
-    <>
-      <JsonLd data={schemaData} />
-      <div className="bg-neutral-950 min-h-screen text-gray-200 font-sans selection:bg-[rgb(255,228,0)] selection:text-black">
-        <Navbar />
-
-        {/* Hero Section */}
-        <header className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-32 bg-neutral-900 overflow-hidden border-b border-gray-800">
-          <div className="absolute inset-0 z-0 opacity-40">
-            <Image
-              src="/blogs/real-estate-marketing-egypt.jpg"
-              alt="Real Estate Marketing Agency Egypt 2026"
-              fill
-              className="object-cover blur-sm"
-              priority
-              sizes="100vw"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/90 to-neutral-900/80 z-10" />
-
-          <div className="container mx-auto px-4 lg:px-8 relative z-20">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex flex-wrap items-center gap-2 text-sm text-gray-400 mb-8"
-            >
-              <Link
-                href="/"
-                className="hover:text-[rgb(255,228,0)] transition-colors flex items-center gap-1"
-              >
-                <FaHome /> Home
-              </Link>
-              <FaChevronRight className="text-xs text-gray-600" />
-              <Link
-                href="/blogs"
-                className="hover:text-[rgb(255,228,0)] transition-colors"
-              >
-                Blogs
-              </Link>
-              <FaChevronRight className="text-xs text-gray-600" />
-              <Link
-                href="/blogs/best-marketing-agency-in-egypt"
-                className="hover:text-[rgb(255,228,0)] transition-colors"
-              >
-                Best Agency Guide
-              </Link>
-              <FaChevronRight className="text-xs text-gray-600" />
-              <span className="text-[rgb(255,228,0)]">
-                Real Estate Marketing
-              </span>
-            </nav>
-
-            <div className="inline-block bg-[rgb(255,228,0)]/10 border border-[rgb(255,228,0)]/30 rounded-full px-4 py-1 text-[rgb(255,228,0)] text-sm font-medium mb-6">
-              Property Marketing Specialists
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Best{" "}
-              <span className="text-[rgb(255,228,0)]">
-                Real Estate Marketing
-              </span>{" "}
-              Agency in Egypt 2026
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
-              Expert guide to real estate marketing agencies in Egypt. Discover
-              top property marketers specializing in lead generation, compound
-              launches, and developer branding for Cairo, New Capital, and
-              beyond.
-            </p>
-          </div>
-        </header>
-
-        <main className="container mx-auto px-4 lg:px-8 py-16">
-          <article className="max-w-4xl mx-auto">
-            {/* Stats Section */}
-            <section className="mb-16">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="bg-neutral-900 border border-gray-800 rounded-lg p-6 text-center hover:border-[rgb(255,228,0)]/30 transition-colors"
-                  >
-                    <div className="text-3xl lg:text-4xl font-bold text-[rgb(255,228,0)] mb-2">
-                      {stat.value}
-                    </div>
-                    <p className="text-white font-medium mb-1">{stat.label}</p>
-                    <p className="text-gray-500 text-sm">{stat.subtext}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Introduction */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Why Real Estate Marketing Matters in Egypt
-              </h2>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                Egypt&apos;s real estate market is booming with over{" "}
-                <strong className="text-white">50+ new compounds</strong>{" "}
-                launching annually in the New Administrative Capital, 6th of
-                October, and New Cairo. Competition is fierce, and traditional
-                marketing methods no longer deliver results.
-              </p>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                The most successful developers and brokers now rely on
-                specialized{" "}
-                <strong className="text-white">
-                  digital marketing agencies
-                </strong>{" "}
-                that understand the Egyptian property market, buyer psychology,
-                and the unique sales cycle of real estate transactions.
-              </p>
-              <div className="bg-[rgb(255,228,0)]/10 border-l-4 border-[rgb(255,228,0)] p-6 my-8 rounded-r-lg">
-                <p className="text-white font-medium">
-                  &ldquo;The average Egyptian property buyer researches 6-12
-                  months before making a purchase decision. Your digital
-                  presence needs to nurture them throughout this journey.&rdquo;
-                </p>
-                <p className="text-gray-400 text-sm mt-2">
-                  — Egyptian Real Estate Marketing Report 2026
-                </p>
-              </div>
-            </section>
-
-            {/* Services Section */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8">
-                Real Estate Marketing Services Explained
-              </h2>
-              <div className="space-y-6">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="bg-neutral-900 border border-gray-800 rounded-lg p-6 hover:border-[rgb(255,228,0)]/30 transition-colors group"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[rgb(255,228,0)]/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[rgb(255,228,0)]/20 transition-colors">
-                        <service.icon className="text-[rgb(255,228,0)] text-xl" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-white mb-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-gray-300 leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Top Agencies */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8">
-                Top Real Estate Marketing Agencies in Egypt 2026
-              </h2>
-
-              <div className="space-y-8">
-                <div className="border-2 border-[rgb(255,228,0)] rounded-lg p-8 bg-neutral-900/50 relative overflow-hidden">
-                  <div className="absolute top-4 right-4 bg-[rgb(255,228,0)] text-black text-xs font-bold px-3 py-1 rounded">
-                    #1 RANKED
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    Tactics - Best Overall for Real Estate
-                  </h3>
-                  <p className="text-gray-300 mb-4 leading-relaxed">
-                    Tactics leads the Egyptian real estate marketing space with
-                    proprietary lead generation systems, in-house creative
-                    production, and deep relationships with major developers.
-                    Specializing in New Capital, North Coast, and prime Cairo
-                    locations.
-                  </p>
-                  <div className="flex flex-wrap gap-4 mb-4">
-                    <span className="bg-neutral-800 border border-gray-700 px-3 py-1 rounded text-sm text-gray-300">
-                      Lead Generation
-                    </span>
-                    <span className="bg-neutral-800 border border-gray-700 px-3 py-1 rounded text-sm text-gray-300">
-                      Virtual Tours
-                    </span>
-                    <span className="bg-neutral-800 border border-gray-700 px-3 py-1 rounded text-sm text-gray-300">
-                      Developer Branding
-                    </span>
-                    <span className="bg-neutral-800 border border-gray-700 px-3 py-1 rounded text-sm text-gray-300">
-                      CRM Setup
-                    </span>
-                  </div>
-                  <p className="text-gray-400 text-sm">
-                    <strong className="text-white">Pricing:</strong>{" "}
-                    50,000-200,000 EGP/month |{" "}
-                    <strong className="text-white">Best For:</strong>{" "}
-                    Developers, Large Brokerages
-                  </p>
-                </div>
-
-                <div className="border border-gray-800 rounded-lg p-6 bg-neutral-900/50 hover:border-[rgb(255,228,0)]/30 transition-colors">
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    2. Property Clicks
-                  </h3>
-                  <p className="text-gray-300 mb-3">
-                    Specialized in Facebook lead generation with a focus on
-                    budget properties and payment plans. Good for brokers
-                    targeting first-time buyers in 6th of October and Sheikh
-                    Zayed.
-                  </p>
-                  <p className="text-gray-400 text-sm">
-                    Pricing: 25,000-60,000 EGP/month | Best For: Individual
-                    Brokers
-                  </p>
-                </div>
-
-                <div className="border border-gray-800 rounded-lg p-6 bg-neutral-900/50 hover:border-[rgb(255,228,0)]/30 transition-colors">
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    3. Aqarmap Digital
-                  </h3>
-                  <p className="text-gray-300 mb-3">
-                    Part of the Aqarmap platform ecosystem with integrated
-                    listing syndication. Best for agencies already using Aqarmap
-                    for listings who want cohesive marketing.
-                  </p>
-                  <p className="text-gray-400 text-sm">
-                    Pricing: 30,000-80,000 EGP/month | Best For: Aqarmap Users
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Strategy Guide */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Real Estate Marketing Strategy for Egypt
-              </h2>
-
-              <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6 mb-8">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                  <FaCheckCircle className="text-[rgb(255,228,0)]" /> Phase 1:
-                  Awareness (Month 1-2)
-                </h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Launch brand awareness campaigns on Facebook and Instagram
-                      targeting property-interested audiences in Cairo, Giza,
-                      and Alexandria
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Create cinematic project videos and 3D virtual tours for
-                      YouTube and social distribution
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Build SEO-optimized landing pages for each
-                      property/compound with payment plan calculators
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6 mb-8">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                  <FaCheckCircle className="text-[rgb(255,228,0)]" /> Phase 2:
-                  Lead Generation (Month 2-4)
-                </h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Deploy Facebook Lead Ads with instant forms optimized for
-                      mobile users (85% of Egyptian traffic)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Launch Google Ads campaigns targeting high-intent keywords
-                      like &ldquo;شقق للبيع التجمع الخامس&rdquo; and
-                      &ldquo;compounds in new capital&rdquo;
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Implement WhatsApp Business API for instant lead response
-                      and automated qualification
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                  <FaCheckCircle className="text-[rgb(255,228,0)]" /> Phase 3:
-                  Conversion (Month 4+)
-                </h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Retarget website visitors and engaged users with special
-                      offers and limited-time payment plans
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Create email and SMS nurture sequences for leads not yet
-                      ready to visit
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaArrowRight className="text-[rgb(255,228,0)] mt-1 flex-shrink-0" />
-                    <span>
-                      Implement lead scoring and CRM integration for sales team
-                      prioritization
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-white mb-8">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">
-                    What is the best real estate marketing agency in Egypt?
-                  </h3>
-                  <p className="text-gray-300">
-                    Tactics Digital Agency is ranked #1 for real estate
-                    marketing in Egypt for 2026, specializing in property lead
-                    generation, developer branding, and compound launches across
-                    Cairo, New Capital, and the North Coast.
-                  </p>
-                </div>
-                <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">
-                    How much does real estate marketing cost in Egypt?
-                  </h3>
-                  <p className="text-gray-300">
-                    Professional real estate marketing budgets in Egypt range
-                    from 30,000 to 150,000 EGP monthly for ongoing campaigns.
-                    Compound launches typically require 100,000-500,000 EGP for
-                    initial campaigns including video production and
-                    multi-channel advertising.
-                  </p>
-                </div>
-                <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">
-                    What marketing channels work best for Egyptian real estate?
-                  </h3>
-                  <p className="text-gray-300">
-                    Facebook and Instagram lead generation deliver the highest
-                    volume of leads. Google Ads captures high-intent buyers
-                    actively searching. YouTube virtual tours and WhatsApp
-                    follow-up campaigns significantly improve conversion rates
-                    for Egyptian property sales.
-                  </p>
-                </div>
-                <div className="bg-neutral-900 border border-gray-800 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">
-                    How long does it take to see results from real estate
-                    marketing?
-                  </h3>
-                  <p className="text-gray-300">
-                    Lead generation campaigns typically produce results within
-                    1-2 weeks. However, the real estate sales cycle in Egypt
-                    averages 3-6 months from first lead to closed deal, so ROI
-                    measurement should account for this timeline.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Related Articles */}
-            <section className="bg-[rgb(255,228,0)]/5 border border-[rgb(255,228,0)]/20 rounded-lg p-8 my-12">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Related Articles in This Guide
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Link
-                  href="/blogs/best-marketing-agency-in-egypt"
-                  className="p-4 bg-neutral-900 rounded border border-gray-800 hover:border-[rgb(255,228,0)] transition-colors group"
-                >
-                  <p className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2">
-                    Main Guide: Best Marketing Agency
-                    <FaArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </p>
-                </Link>
-                <Link
-                  href="/blogs/best-marketing-agency-in-egypt/branding-agency-egypt"
-                  className="p-4 bg-neutral-900 rounded border border-gray-800 hover:border-[rgb(255,228,0)] transition-colors group"
-                >
-                  <p className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2">
-                    Branding Agency Egypt
-                    <FaArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </p>
-                </Link>
-                <Link
-                  href="/blogs/best-marketing-agency-in-egypt/content-creation-agency-egypt"
-                  className="p-4 bg-neutral-900 rounded border border-gray-800 hover:border-[rgb(255,228,0)] transition-colors group"
-                >
-                  <p className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2">
-                    Content Creation Agency
-                    <FaArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </p>
-                </Link>
-                <Link
-                  href="/blogs/best-marketing-agency-in-egypt/seo-agency-egypt"
-                  className="p-4 bg-neutral-900 rounded border border-gray-800 hover:border-[rgb(255,228,0)] transition-colors group"
-                >
-                  <p className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2">
-                    SEO Agency Egypt
-                    <FaArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </p>
-                </Link>
-              </div>
-            </section>
-          </article>
-        </main>
-
-        {/* Contact Form */}
-        <ContactForm />
-
-        <Footer />
-      </div>
-    </>
-  );
+export default function Page() {
+  return <EnhancedSeoArticle article={article} />;
 }
