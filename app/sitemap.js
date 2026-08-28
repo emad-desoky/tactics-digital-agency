@@ -1,46 +1,49 @@
-// Sitemap for Tactics Digital Agency
-// Blog SEO cleanup + 8 new commercial clusters updated: August 26, 2026
+import { manualBlogs } from "./blogs/manual-blogs";
+import prisma from "@/prisma/prisma";
 
 const BASE_URL = "https://www.tacticsdigitalagency.net";
-const SEO_UPDATE_DATE = new Date("2026-08-26");
 
-export default function sitemap() {
-  const currentDate = new Date();
-  const staticPages = [
-    { url: BASE_URL, lastModified: currentDate, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${BASE_URL}/about-us`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/services`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/contact`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/blogs`, lastModified: SEO_UPDATE_DATE, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE_URL}/gallery`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/careers`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE_URL}/story`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.6 },
-  ];
-  const servicePages = [
-    { url: `${BASE_URL}/services/performance-marketing`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${BASE_URL}/services/social-media`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${BASE_URL}/services/web-development`, lastModified: currentDate, changeFrequency: "monthly", priority: 0.85 },
-  ];
-  const blogPosts = [
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/branding-prices-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/brand-naming-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt/corporate-branding-services-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-cost-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/local-seo-services-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/seo-for-real-estate-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt/real-estate-lead-generation-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/social-media-agency/social-media-management-companies-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.82 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/branding-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/content-creation-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/content-strategy-agency`, lastModified: new Date("2026-06-17"), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/performance-marketing`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/seo-agency-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/social-media-agency`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/social-media-packages-egypt`, lastModified: SEO_UPDATE_DATE, changeFrequency: "monthly", priority: 0.88 },
-    { url: `${BASE_URL}/blogs/best-marketing-agency-in-egypt/web-development-agency`, lastModified: new Date("2026-06-17"), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/blogs/digital-marketing-pricing-egypt`, lastModified: new Date("2026-06-17"), changeFrequency: "monthly", priority: 0.85 },
-  ];
-  return [...staticPages, ...servicePages, ...blogPosts];
+const publicStaticPages = [
+  { url: BASE_URL, changeFrequency: "weekly", priority: 1.0 },
+  { url: `${BASE_URL}/about-us`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${BASE_URL}/services`, changeFrequency: "monthly", priority: 0.9 },
+  { url: `${BASE_URL}/services/performance-marketing`, changeFrequency: "monthly", priority: 0.86 },
+  { url: `${BASE_URL}/services/social-media`, changeFrequency: "monthly", priority: 0.86 },
+  { url: `${BASE_URL}/services/web-development`, changeFrequency: "monthly", priority: 0.86 },
+  { url: `${BASE_URL}/blogs`, lastModified: new Date("2026-08-29"), changeFrequency: "weekly", priority: 0.92 },
+  { url: `${BASE_URL}/gallery`, changeFrequency: "monthly", priority: 0.65 },
+  { url: `${BASE_URL}/careers`, changeFrequency: "monthly", priority: 0.5 },
+  { url: `${BASE_URL}/story`, changeFrequency: "monthly", priority: 0.6 },
+];
+
+function manualBlogEntries() {
+  return manualBlogs.map((blog) => ({
+    url: `${BASE_URL}/blogs/${blog.id}`,
+    lastModified: new Date(`${blog.date}T00:00:00Z`),
+    changeFrequency: blog.isPillar ? "weekly" : "monthly",
+    priority: blog.isPillar ? 0.94 : 0.82,
+  }));
+}
+
+async function databaseBlogEntries() {
+  try {
+    const blogs = await prisma.blog.findMany({ select: { id: true, date: true, updatedAt: true } });
+    return blogs.map((blog) => ({
+      url: `${BASE_URL}/blogs/${blog.id}`,
+      lastModified: blog.updatedAt || blog.date,
+      changeFrequency: "monthly",
+      priority: 0.72,
+    }));
+  } catch (error) {
+    console.warn("Sitemap: database blogs unavailable; serving static/manual URLs only.", error?.message || error);
+    return [];
+  }
+}
+
+export default async function sitemap() {
+  const dbBlogs = await databaseBlogEntries();
+  const all = [...publicStaticPages, ...manualBlogEntries(), ...dbBlogs];
+  const deduped = new Map();
+  for (const entry of all) deduped.set(entry.url, entry);
+  return Array.from(deduped.values());
 }

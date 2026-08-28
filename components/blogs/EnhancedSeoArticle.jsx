@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/home-page/footer/Footer";
 import ContactForm from "@/components/home-page/contact-details/NewContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { FaArrowRight, FaCheckCircle, FaChevronRight, FaHome } from "react-icons/fa";
+import { FaArrowRight, FaCheckCircle, FaChevronRight, FaHome, FaQuoteLeft, FaWhatsapp } from "react-icons/fa";
 
 const SITE_URL = "https://www.tacticsdigitalagency.net";
 const PILLAR_PATH = "/blogs/best-marketing-agency-in-egypt";
@@ -43,7 +43,7 @@ function schemaFor(article) {
         headline: article.h1,
         description: article.metaDescription,
         image: { "@type": "ImageObject", url: `${SITE_URL}${article.image}`, width: 1200, height: 630 },
-        author: { "@type": "Organization", name: "Tactics Digital Agency Editorial Team", url: `${SITE_URL}/about-us` },
+        author: { "@type": "Organization", name: "Tactics Editor Team", url: `${SITE_URL}/about-us`, logo: `${SITE_URL}/tactics-editor-avatar.png` },
         publisher: { "@type": "Organization", name: "Tactics Digital Agency", url: SITE_URL },
         datePublished: article.datePublished,
         dateModified: article.dateModified,
@@ -65,12 +65,16 @@ function schemaFor(article) {
   };
 }
 
+function normalizeHref(href) {
+  return href === "/contact" ? "#contact" : href;
+}
+
 function RichParagraph({ parts }) {
   return (
     <p className="text-gray-300 leading-8 mb-5">
       {parts.map((part, i) =>
         typeof part === "string" ? part : (
-          <Link key={`${part.href}-${i}`} href={part.href} className="text-[rgb(255,228,0)] underline underline-offset-4 decoration-[rgb(255,228,0)]/40 hover:decoration-[rgb(255,228,0)]">
+          <Link key={`${part.href}-${i}`} href={normalizeHref(part.href)} className="text-[rgb(255,228,0)] underline underline-offset-4 decoration-[rgb(255,228,0)]/40 hover:decoration-[rgb(255,228,0)]">
             {part.label}
           </Link>
         ),
@@ -128,7 +132,7 @@ export default function EnhancedSeoArticle({ article }) {
               <div className="inline-flex rounded-full border border-[rgb(255,228,0)]/30 bg-[rgb(255,228,0)]/10 px-4 py-1 text-sm font-medium text-[rgb(255,228,0)] mb-5">{article.category}</div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">{article.h1}</h1>
               <p className="text-lg lg:text-xl text-gray-300 leading-8 mb-6">{article.heroSummary}</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400"><span>Updated: {formatDate(article.dateModified)}</span><span>{article.readTime}</span><span>By Tactics Digital Agency Editorial Team</span></div>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-400"><span>Updated: {formatDate(article.dateModified)}</span><span>{article.readTime}</span><span className="inline-flex items-center gap-2"><Image src="/tactics-editor-avatar.png" alt="Tactics Editor Team" width={28} height={28} className="rounded-full border border-gray-700" />By Tactics Editor Team</span></div>
             </div>
           </div>
         </header>
@@ -140,16 +144,19 @@ export default function EnhancedSeoArticle({ article }) {
                 <div className="grid sm:grid-cols-2 gap-3">{article.takeaways.map((item) => <div key={item} className="flex items-start gap-3 bg-neutral-950/50 rounded-lg p-4"><FaCheckCircle className="text-[rgb(255,228,0)] mt-1 shrink-0" /><span className="text-sm leading-6 text-gray-300">{item}</span></div>)}</div>
               </section>
               {article.sections.map((s) => <Section key={s.id} s={s} />)}
+              {article.projects?.length > 0 && <section id="projects" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-3">Selected Tactics projects & client work</h2><p className="text-gray-400 leading-7 mb-7">Only scopes supported by published first-party testimonials are shown here. We do not invent case-study numbers.</p><div className="grid md:grid-cols-2 gap-4">{article.projects.map((project) => <div key={project.name} className="bg-neutral-900 border border-gray-800 rounded-xl p-6"><p className="text-xs uppercase tracking-[0.16em] text-[rgb(255,228,0)] mb-2">Client work</p><h3 className="text-xl font-semibold text-white mb-2">{project.name}</h3><p className="text-gray-300 leading-7 mb-3">{project.scope}</p><p className="text-xs text-gray-500 leading-5">{project.evidence}</p></div>)}</div></section>}
+              {article.testimonials?.length > 0 && <section id="testimonials" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-3">What clients say</h2><p className="text-gray-400 leading-7 mb-7">Verified testimonials already published on the Tactics website.</p><div className="grid gap-5">{article.testimonials.map((testimonial) => <blockquote key={`${testimonial.name}-${testimonial.position}`} className="bg-neutral-900 border border-gray-800 rounded-xl p-7"><FaQuoteLeft className="text-[rgb(255,228,0)] text-2xl mb-4" /><p className="text-gray-200 leading-8 mb-5">“{testimonial.quote}”</p><footer><p className="text-white font-semibold">{testimonial.name}</p><p className="text-sm text-gray-500">{testimonial.position}</p></footer></blockquote>)}</div></section>}
               {article.externalSources?.length > 0 && <section id="sources" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-6">Useful verification sources</h2><p className="text-gray-300 leading-8 mb-5">Platform rules, agency lists, and market details change. Verify current information before making a buying decision.</p><div className="space-y-3">{article.externalSources.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="block bg-neutral-900 border border-gray-800 rounded-xl p-5 hover:border-[rgb(255,228,0)]/50"><span className="text-white font-semibold">{source.label}</span><span className="block text-sm text-gray-500 mt-1">{source.note}</span></a>)}</div></section>}
-              <section id="related" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-6">Related guides and services</h2><div className="grid md:grid-cols-2 gap-4">{article.related.map((item) => <Link key={item.href} href={item.href} className="group bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-[rgb(255,228,0)]/50"><h3 className="text-lg font-semibold text-white group-hover:text-[rgb(255,228,0)] mb-2">{item.title}</h3><p className="text-sm text-gray-400 leading-6 mb-4">{item.description}</p><span className="text-sm text-[rgb(255,228,0)] flex items-center gap-2">Open page <FaArrowRight /></span></Link>)}</div></section>
+              <section id="related" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-6">Related guides and services</h2><div className="grid md:grid-cols-2 gap-4">{article.related.map((item) => <Link key={item.href} href={normalizeHref(item.href)} className="group bg-neutral-900 border border-gray-800 rounded-xl p-6 hover:border-[rgb(255,228,0)]/50"><h3 className="text-lg font-semibold text-white group-hover:text-[rgb(255,228,0)] mb-2">{item.title}</h3><p className="text-sm text-gray-400 leading-6 mb-4">{item.description}</p><span className="text-sm text-[rgb(255,228,0)] flex items-center gap-2">Open page <FaArrowRight /></span></Link>)}</div></section>
               <section id="faqs" className="scroll-mt-32 mb-14"><h2 className="text-3xl font-bold text-white mb-7">Frequently asked questions</h2><div className="space-y-4">{article.faqs.map((faq) => <details key={faq.q} className="bg-neutral-900 border border-gray-800 rounded-xl p-6 open:border-[rgb(255,228,0)]/30"><summary className="cursor-pointer list-none text-lg font-semibold text-white">{faq.q}</summary><p className="text-gray-400 leading-7 mt-4">{faq.a}</p></details>)}</div></section>
-              <section id="author" className="scroll-mt-32 mb-14 bg-neutral-900 border border-gray-800 rounded-2xl p-7"><p className="text-xs uppercase tracking-[0.18em] text-[rgb(255,228,0)] mb-2">About this guide</p><h2 className="text-2xl font-bold text-white mb-3">Tactics Digital Agency Editorial Team</h2><p className="text-gray-400 leading-7">This guide is maintained to help businesses compare marketing options without fabricated rankings, unsupported guarantees, or invented market statistics. Pricing, platform rules, and agency offerings can change, so scope-specific details should be confirmed before signing a contract.</p></section>
+              <section id="author" className="scroll-mt-32 mb-14 bg-neutral-900 border border-gray-800 rounded-2xl p-7"><div className="flex items-center gap-4 mb-4"><Image src="/tactics-editor-avatar.png" alt="Tactics Editor Team logo avatar" width={64} height={64} className="rounded-full border border-gray-700" /><div><p className="text-xs uppercase tracking-[0.18em] text-[rgb(255,228,0)] mb-1">Author</p><h2 className="text-2xl font-bold text-white">Tactics Editor Team</h2></div></div><p className="text-gray-400 leading-7">The Tactics Editor Team maintains decision-focused marketing guides using first-party website evidence, current search data and verifiable sources. We do not fabricate testimonials, rankings, guarantees or market statistics. Volatile prices, platform rules and provider offerings should be confirmed before signing a contract.</p></section>
               <section className="rounded-2xl bg-[rgb(255,228,0)] text-black p-8 lg:p-10">{article.cta.eyebrow && <p className="uppercase tracking-[0.16em] text-xs font-bold text-black/60 mb-3">{article.cta.eyebrow}</p>}<h2 className="text-3xl font-bold mb-4">{article.cta.title}</h2><p className="text-black/80 leading-7 mb-6 max-w-3xl">{article.cta.text}</p><a href={article.cta.href || "#contact"} className="inline-flex items-center gap-2 rounded-lg bg-black text-white px-6 py-3 font-semibold hover:bg-neutral-800">{article.cta.label || article.cta.button || "Contact Tactics"} <FaArrowRight /></a></section>
             </article>
-            <aside className="hidden lg:block"><div className="sticky top-28 space-y-6"><div className="bg-neutral-900 border border-gray-800 rounded-xl p-6"><p className="text-sm font-semibold text-white mb-4">On this page</p><nav className="space-y-2 text-sm"><a href="#quick-answer" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Quick answer</a>{article.sections.map((s) => <a key={s.id} href={`#${s.id}`} className="block text-gray-400 hover:text-[rgb(255,228,0)] leading-5">{s.title}</a>)}<a href="#related" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Related guides</a><a href="#faqs" className="block text-gray-400 hover:text-[rgb(255,228,0)]">FAQs</a></nav></div><div className="bg-[rgb(255,228,0)]/5 border border-[rgb(255,228,0)]/20 rounded-xl p-6"><p className="text-[rgb(255,228,0)] font-semibold mb-2">Need a scoped recommendation?</p><p className="text-sm text-gray-400 leading-6 mb-4">Tell us the goal, market, and current channels. We can help identify what should be fixed first.</p><a href="#contact" className="text-sm text-white font-semibold inline-flex items-center gap-2">Talk to the team <FaArrowRight /></a></div></div></aside>
+            <aside className="hidden lg:block"><div className="sticky top-28 space-y-6"><div className="bg-neutral-900 border border-gray-800 rounded-xl p-6"><p className="text-sm font-semibold text-white mb-4">On this page</p><nav className="space-y-2 text-sm"><a href="#quick-answer" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Quick answer</a>{article.sections.map((s) => <a key={s.id} href={`#${s.id}`} className="block text-gray-400 hover:text-[rgb(255,228,0)] leading-5">{s.title}</a>)}{article.projects?.length > 0 && <a href="#projects" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Client work</a>}{article.testimonials?.length > 0 && <a href="#testimonials" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Testimonials</a>}<a href="#related" className="block text-gray-400 hover:text-[rgb(255,228,0)]">Related guides</a><a href="#faqs" className="block text-gray-400 hover:text-[rgb(255,228,0)]">FAQs</a></nav></div><div className="bg-[rgb(255,228,0)]/5 border border-[rgb(255,228,0)]/20 rounded-xl p-6"><p className="text-[rgb(255,228,0)] font-semibold mb-2">Need a scoped recommendation?</p><p className="text-sm text-gray-400 leading-6 mb-4">Tell us the goal, market, and current channels. We can help identify what should be fixed first.</p><a href={article.whatsappHref || "#contact"} target={article.whatsappHref ? "_blank" : undefined} rel={article.whatsappHref ? "noopener noreferrer" : undefined} className="text-sm text-white font-semibold inline-flex items-center gap-2">{article.whatsappHref ? "WhatsApp the team" : "Talk to the team"} <FaArrowRight /></a></div></div></aside>
           </div>
         </main>
         <div id="contact" className="scroll-mt-24"><ContactForm /></div><Footer />
+        {article.whatsappHref && <a href={article.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Chat with Tactics on WhatsApp" className="lg:hidden fixed bottom-5 right-4 z-[70] inline-flex items-center gap-2 rounded-full bg-green-500 text-white px-5 py-3 font-semibold shadow-2xl shadow-black/40"><FaWhatsapp className="text-xl" /> WhatsApp Tactics</a>}
       </div>
     </>
   );

@@ -27,6 +27,14 @@ export const metadata = {
   authors: [{ name: "Tactics Digital Agency" }],
   creator: "Tactics Digital Agency",
   publisher: "Tactics Digital Agency",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -82,13 +90,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#ffe400" />
-        <meta name="msapplication-TileColor" content="#ffe400" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#080808" />
+        <meta name="msapplication-TileColor" content="#080808" />
 
         {/* Essential Open Graph tags for WhatsApp - MUST be first */}
         <meta

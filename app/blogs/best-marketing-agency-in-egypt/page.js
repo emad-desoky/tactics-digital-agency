@@ -426,6 +426,11 @@ const article = {
   ],
   "related": [
     {
+      "href": "/blogs/digital-marketing-agency-egypt",
+      "title": "Digital Marketing Agency Egypt 2026",
+      "description": "A full-service buyer guide for digital marketing services, measurement, lead quality and agency fit."
+    },
+    {
       "href": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt",
       "title": "Branding Agency Egypt",
       "description": "Compare branding strategy, identity, naming, bilingual systems, and pricing factors."

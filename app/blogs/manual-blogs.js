@@ -4,6 +4,68 @@
 // 2. Add the metadata object to this array below.
 
 export const manualBlogs = [
+  // NEW GSC-LED SEO GROWTH PAGES — 2026-08-29
+  {
+    id: "best-marketing-agency-in-egypt/branding-agency-egypt/brand-identity-design-agency-egypt",
+    title: "Brand Identity Design Agency Egypt 2026: Buyer Guide",
+    description: "Compare brand identity agencies in Egypt by strategy, bilingual identity systems, guidelines, handover and rollout before hiring.",
+    image: "/blogs/brand-identity-design-agency-egypt-2026.webp",
+    date: "2026-08-29",
+    tags: ["Brand Identity", "Branding", "Egypt"],
+    isManual: true,
+    isPillar: false,
+  },
+  {
+    id: "best-marketing-agency-in-egypt/branding-agency-egypt/branding-agency-cairo",
+    title: "Branding Agency Cairo 2026: Services & Selection",
+    description: "Compare branding agencies in Cairo and New Cairo by strategy, identity, local collaboration, bilingual execution and rollout.",
+    image: "/blogs/branding-agency-cairo-2026.webp",
+    date: "2026-08-29",
+    tags: ["Branding", "Cairo", "Local SEO"],
+    isManual: true,
+    isPillar: false,
+  },
+  {
+    id: "best-marketing-agency-in-egypt/branding-agency-egypt/logo-design-price-egypt",
+    title: "Logo Design Price Egypt 2026: Cost & Deliverables",
+    description: "Compare logo design prices in Egypt using published provider examples, deliverables, source files and the difference between logo and identity.",
+    image: "/blogs/logo-design-price-egypt-2026.webp",
+    date: "2026-08-29",
+    tags: ["Logo Design", "Pricing", "Egypt"],
+    isManual: true,
+    isPillar: false,
+  },
+  {
+    id: "digital-marketing-agency-egypt",
+    title: "Digital Marketing Agency Egypt 2026: Buyer Guide",
+    description: "Compare digital marketing agencies in Egypt by services, strategy, measurement, team, lead quality and commercial fit.",
+    image: "/blogs/digital-marketing-agency-egypt-2026.webp",
+    date: "2026-08-29",
+    tags: ["Digital Marketing", "Agency", "Egypt"],
+    isManual: true,
+    isPillar: true,
+  },
+  {
+    id: "digital-marketing-agency-egypt/digital-marketing-services-egypt",
+    title: "Digital Marketing Services Egypt 2026: Buyer Guide",
+    description: "Compare SEO, paid media, social, content, websites, tracking and CRO to build the right digital marketing service mix.",
+    image: "/blogs/digital-marketing-services-egypt-2026.webp",
+    date: "2026-08-29",
+    tags: ["Digital Marketing", "Services", "Egypt"],
+    isManual: true,
+    isPillar: false,
+  },
+  {
+    id: "digital-marketing-agency-egypt/digital-marketing-agency-cairo",
+    title: "Digital Marketing Agency Cairo 2026: Local Buyer Guide",
+    description: "Compare digital marketing agencies in Cairo by local collaboration, SEO, paid media, social, tracking and lead generation.",
+    image: "/blogs/digital-marketing-agency-cairo-2026.webp",
+    date: "2026-08-29",
+    tags: ["Digital Marketing", "Cairo", "Lead Generation"],
+    isManual: true,
+    isPillar: false,
+  },
+
   // NEW GSC-LED COMMERCIAL CLUSTERS — 2026-08-26
   {
     id: "best-marketing-agency-in-egypt/branding-agency-egypt/branding-prices-egypt",

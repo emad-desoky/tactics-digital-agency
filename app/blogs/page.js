@@ -22,7 +22,9 @@ export const metadata = {
 };
 
 export default function BlogsPage() {
-  const pillarBlog = manualBlogs.find((blog) => blog.isPillar);
+  const pillarBlogs = manualBlogs
+    .filter((blog) => blog.isPillar)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
   const clusterBlogs = manualBlogs
     .filter((blog) => !blog.isPillar)
     .sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -51,63 +53,30 @@ export default function BlogsPage() {
       </header>
 
       <main className="container mx-auto px-4 lg:px-8 py-16">
-        {/* Featured Pillar Article */}
-        {pillarBlog && (
+        {/* Featured Pillar Guides */}
+        {pillarBlogs.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-8">
-              Featured Guide
-            </h2>
-            <Link
-              href={`/blogs/${pillarBlog.id}`}
-              className="group block bg-neutral-900 border border-gray-800 rounded-xl overflow-hidden hover:border-[rgb(255,228,0)]/50 transition-all duration-300"
-            >
-              <div className="grid lg:grid-cols-2 gap-0">
-                <div className="relative h-64 lg:h-auto lg:min-h-[400px]">
-                  <Image
-                    src={pillarBlog.image}
-                    alt={pillarBlog.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent lg:bg-gradient-to-r" />
-                </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {pillarBlog.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-[rgb(255,228,0)]/10 text-[rgb(255,228,0)] text-xs font-medium px-3 py-1 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+            <div className="flex items-end justify-between gap-4 mb-8">
+              <div><p className="text-[rgb(255,228,0)] text-sm font-semibold mb-2">High-intent 2026 guides</p><h2 className="text-2xl font-bold text-white">Featured Pillar Guides</h2></div>
+              <span className="hidden sm:block text-sm text-gray-500">Built from search demand, buyer intent and query ownership</span>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {pillarBlogs.map((pillarBlog) => (
+                <Link key={pillarBlog.id} href={`/blogs/${pillarBlog.id}`} className="group block bg-neutral-900 border border-gray-800 rounded-xl overflow-hidden hover:border-[rgb(255,228,0)]/50 transition-all duration-300">
+                  <div className="relative h-60">
+                    <Image src={pillarBlog.image} alt={pillarBlog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 1024px) 100vw, 50vw" priority={pillarBlog.id === pillarBlogs[0]?.id} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent" />
+                    <span className="absolute left-5 top-5 bg-[rgb(255,228,0)] text-black text-xs font-bold px-3 py-1.5 rounded-full">PILLAR GUIDE</span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-[rgb(255,228,0)] transition-colors">
-                    {pillarBlog.title}
-                  </h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed">
-                    {pillarBlog.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-gray-500 text-sm">
-                      <FaCalendar />
-                      <span>
-                        {new Date(pillarBlog.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </span>
-                    </div>
-                    <span className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
-                      Read Guide
-                      <FaArrowRight />
-                    </span>
+                  <div className="p-7">
+                    <div className="flex flex-wrap gap-2 mb-4">{pillarBlog.tags.slice(0, 3).map((tag) => <span key={tag} className="bg-[rgb(255,228,0)]/10 text-[rgb(255,228,0)] text-xs font-medium px-3 py-1 rounded-full">{tag}</span>)}</div>
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[rgb(255,228,0)] transition-colors">{pillarBlog.title}</h3>
+                    <p className="text-gray-400 mb-6 leading-relaxed">{pillarBlog.description}</p>
+                    <div className="flex items-center justify-between"><span className="text-gray-500 text-sm">{new Date(pillarBlog.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span><span className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">Read Guide <FaArrowRight /></span></div>
                   </div>
-                </div>
-              </div>
-            </Link>
+                </Link>
+              ))}
+            </div>
           </section>
         )}
 
