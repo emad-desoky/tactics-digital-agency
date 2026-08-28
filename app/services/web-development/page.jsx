@@ -4,9 +4,18 @@ import Footer from "@/components/home-page/footer/Footer";
 import { FaCode, FaMobileAlt, FaRocket, FaArrowRight } from "react-icons/fa";
 
 export const metadata = {
-  title: "Web Development Company Egypt | Next.js & SEO Experts",
+  title: "Web Development Company Egypt | Next.js Websites",
   description:
-    "Custom web development services in Egypt using Next.js. Fast, secure, and SEO-optimized websites that convert.",
+    "Hire a web development company in Egypt for fast Next.js websites, custom development, e-commerce and SEO-ready technical delivery.",
+  keywords: [
+    "web development company Egypt",
+    "web development services Egypt",
+    "website development company Egypt",
+    "Next.js development Egypt",
+    "custom website development Egypt",
+  ],
+  alternates: { canonical: "https://www.tacticsdigitalagency.net/services/web-development" },
+  robots: { index: true, follow: true },
 };
 
 export default function WebDevelopmentPage() {
@@ -22,9 +31,9 @@ export default function WebDevelopmentPage() {
               Modern Tech Stack
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Websites That <br />
+              Web Development Company in Egypt <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,228,0)] to-yellow-600">
-                Load Instantly.
+                Fast, SEO-Ready Websites.
               </span>
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl">

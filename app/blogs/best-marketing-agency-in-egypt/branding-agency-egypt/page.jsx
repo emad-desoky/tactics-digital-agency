@@ -36,16 +36,15 @@ const article = {
   "imageAlt": "Branding agency in Egypt strategy and identity comparison",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/branding-agency-egypt",
   "datePublished": "2026-03-09",
-  "dateModified": "2026-08-26",
+  "dateModified": "2026-08-29",
   "readTime": "11 min read",
   "keywords": [
     "branding agency Egypt",
     "branding agencies in Egypt",
-    "branding company Egypt",
-    "brand identity agency Egypt",
-    "branding agency Cairo",
-    "corporate branding services",
-    "brand naming agency Egypt"
+    "branding companies in Egypt",
+    "best branding agency in Egypt",
+    "top branding agencies in Egypt",
+    "branding consultants in Egypt"
   ],
   "entities": [
     "Brand strategy",

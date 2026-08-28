@@ -48,15 +48,15 @@ const article = {
   "imageAlt": "Social media management companies in Egypt comparison for strategy content and reporting",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/social-media-agency/social-media-management-companies-egypt",
   "datePublished": "2026-08-26",
-  "dateModified": "2026-08-26",
+  "dateModified": "2026-08-29",
   "readTime": "11 min read",
   "keywords": [
     "social media management companies in Egypt",
-    "social media management Egypt",
-    "social media company Egypt",
-    "social media management agency Egypt",
-    "social media marketing company Egypt",
-    "social media management Cairo"
+    "best social media management companies Egypt",
+    "top social media management companies Egypt",
+    "compare social media management companies Egypt",
+    "outsourced social media management Egypt",
+    "social media management company Cairo"
   ],
   "entities": [
     "Social media management",

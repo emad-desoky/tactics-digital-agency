@@ -3,15 +3,15 @@ import { pillar, getSiblings } from "../blog-data";
 
 export const metadata = {
   "title": {
-    "absolute": "Digital Marketing Services Egypt 2026: Buyer Guide"
+    "absolute": "Digital Marketing Service Mix Egypt 2026 | What to Prioritize"
   },
-  "description": "Compare digital marketing services in Egypt across SEO, paid media, social, content, websites, tracking and CRO to build the right scope.",
+  "description": "Choose the right digital marketing service mix across SEO, paid media, social, content, websites, tracking and CRO without buying every channel at once.",
   "alternates": {
     "canonical": "https://www.tacticsdigitalagency.net/blogs/digital-marketing-agency-egypt/digital-marketing-services-egypt"
   },
   "openGraph": {
-    "title": "Digital Marketing Services Egypt 2026: Buyer Guide",
-    "description": "Compare digital marketing services in Egypt across SEO, paid media, social, content, websites, tracking and CRO to build the right scope.",
+    "title": "Digital Marketing Service Mix Egypt 2026 | What to Prioritize",
+    "description": "Choose the right digital marketing service mix across SEO, paid media, social, content, websites, tracking and CRO without buying every channel at once.",
     "url": "https://www.tacticsdigitalagency.net/blogs/digital-marketing-agency-egypt/digital-marketing-services-egypt",
     "type": "article",
     "images": [
@@ -25,8 +25,8 @@ export const metadata = {
   },
   "twitter": {
     "card": "summary_large_image",
-    "title": "Digital Marketing Services Egypt 2026: Buyer Guide",
-    "description": "Compare digital marketing services in Egypt across SEO, paid media, social, content, websites, tracking and CRO to build the right scope.",
+    "title": "Digital Marketing Service Mix Egypt 2026 | What to Prioritize",
+    "description": "Choose the right digital marketing service mix across SEO, paid media, social, content, websites, tracking and CRO without buying every channel at once.",
     "images": [
       "/blogs/digital-marketing-services-egypt-2026.webp"
     ]
@@ -46,10 +46,10 @@ export const metadata = {
 
 const article = {
   "isPillar": false,
-  "breadcrumbLabel": "Digital Marketing Services Egypt",
-  "category": "Digital Marketing Services",
-  "h1": "Digital Marketing Services in Egypt 2026: What Should Your Business Actually Hire?",
-  "metaDescription": "Compare digital marketing services in Egypt across SEO, paid media, social, content, websites, tracking and CRO to build the right scope.",
+  "breadcrumbLabel": "Digital Marketing Service Mix",
+  "category": "Digital Marketing Planning",
+  "h1": "Which Digital Marketing Services Should Your Business Prioritize in 2026?",
+  "metaDescription": "Choose the right digital marketing service mix for your business across SEO, paid media, social, content, websites, tracking and CRO without buying every channel at once.",
   "image": "/blogs/digital-marketing-services-egypt-2026.webp",
   "imageAlt": "Digital marketing services in Egypt service mix for 2026",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/digital-marketing-agency-egypt/digital-marketing-services-egypt",
@@ -57,12 +57,12 @@ const article = {
   "dateModified": "2026-08-29",
   "readTime": "14 min read",
   "keywords": [
-    "digital marketing services Egypt",
-    "best digital marketing services",
-    "online marketing services Egypt",
-    "SEO services Egypt",
-    "social media marketing Egypt",
-    "performance marketing Egypt"
+    "digital marketing service mix Egypt",
+    "which digital marketing services",
+    "digital marketing channels for business Egypt",
+    "digital marketing priorities Egypt",
+    "marketing service mix Egypt",
+    "how to choose digital marketing services"
   ],
   "entities": [
     "Digital marketing services",

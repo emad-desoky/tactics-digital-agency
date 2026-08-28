@@ -4,9 +4,18 @@ import Footer from "@/components/home-page/footer/Footer";
 import { FaBullhorn, FaUsers, FaPenFancy, FaArrowRight } from "react-icons/fa";
 
 export const metadata = {
-  title: "Social Media Agency in Egypt | Content & Community",
+  title: "Social Media Agency Egypt | Management & Content",
   description:
-    "Build a loyal community with Tactics. Expert social media management, creative content creation, and influencer marketing in Cairo.",
+    "Hire a social media agency in Egypt for strategy, content production, community management and campaign support built around your business goals.",
+  keywords: [
+    "social media agency Egypt",
+    "social media agency in Egypt",
+    "social media marketing agency Egypt",
+    "social media services Egypt",
+    "social media management services Egypt",
+  ],
+  alternates: { canonical: "https://www.tacticsdigitalagency.net/services/social-media" },
+  robots: { index: true, follow: true },
 };
 
 export default function SocialMediaPage() {
@@ -22,9 +31,9 @@ export default function SocialMediaPage() {
               Social First
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Turn Followers into <br />
+              Social Media Agency in Egypt <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,228,0)] to-yellow-600">
-                Loyal Customers.
+                Built for Business Growth.
               </span>
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl">

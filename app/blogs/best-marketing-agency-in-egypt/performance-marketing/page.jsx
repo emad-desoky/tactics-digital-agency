@@ -1,13 +1,13 @@
 import EnhancedSeoArticle from "@/components/blogs/EnhancedSeoArticle";
 
 export const metadata = {
-  "title": "Performance Marketing Agency Egypt 2026 | Paid Growth",
+  "title": "Best Performance Marketing Agencies Egypt 2026 | Compare",
   "description": "Compare performance marketing agencies in Egypt by tracking, Google Ads, Meta Ads, creative testing, CRO, lead quality, reporting, and pricing.",
   "alternates": {
     "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/performance-marketing"
   },
   "openGraph": {
-    "title": "Performance Marketing Agency Egypt 2026 | Paid Growth",
+    "title": "Best Performance Marketing Agencies Egypt 2026 | Compare",
     "description": "Choose a performance marketing agency in Egypt for paid growth, tracking, creative, CRO, and lead quality.",
     "url": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/performance-marketing",
     "type": "article",
@@ -30,22 +30,21 @@ const article = {
   "isPillar": false,
   "breadcrumbLabel": "Performance Marketing Egypt",
   "category": "Performance Marketing",
-  "h1": "Performance Marketing Agency Egypt 2026: Paid Growth, Tracking and CRO Guide",
+  "h1": "Best Performance Marketing Agencies in Egypt 2026: What to Compare Before You Hire",
   "metaDescription": "Compare performance marketing agencies in Egypt by tracking, Google Ads, Meta Ads, creative testing, CRO, lead quality, reporting, and pricing.",
   "image": "/blogs/performance-marketing.jpg",
   "imageAlt": "Performance marketing agency in Egypt paid media tracking and CRO",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/performance-marketing",
   "datePublished": "2024-12-04",
-  "dateModified": "2026-08-26",
+  "dateModified": "2026-08-29",
   "readTime": "12 min read",
   "keywords": [
-    "performance marketing agency Egypt",
-    "performance marketing company Egypt",
-    "paid ads agency Egypt",
-    "Google Ads agency Egypt",
-    "Meta Ads agency Egypt",
-    "performance marketing Cairo",
-    "paid media agency Egypt"
+    "best performance marketing agencies Egypt",
+    "top performance marketing agencies Egypt",
+    "best paid media agencies Egypt",
+    "compare performance marketing agencies Egypt",
+    "best Google Ads agencies Egypt",
+    "best performance marketing agency Cairo"
   ],
   "entities": [
     "Performance marketing",

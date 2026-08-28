@@ -4,6 +4,38 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/home-page/footer/Footer";
 import NewContactForm from "@/components/home-page/contact-details/NewContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
+export const metadata = {
+  title: "Digital Marketing Pricing Egypt 2026 | Cost Guide",
+  description:
+    "Understand digital marketing pricing in Egypt by scope, service mix, media model, production needs and measurement before requesting agency quotes.",
+  keywords: [
+    "digital marketing pricing Egypt",
+    "digital marketing cost Egypt",
+    "digital marketing agency cost Egypt",
+    "digital marketing packages Egypt",
+    "online marketing cost Egypt",
+  ],
+  alternates: {
+    canonical: "https://www.tacticsdigitalagency.net/blogs/digital-marketing-pricing-egypt",
+  },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Digital Marketing Pricing Egypt 2026 | Cost Guide",
+    description:
+      "Compare pricing models and cost drivers for digital marketing services in Egypt before requesting a quote.",
+    url: "https://www.tacticsdigitalagency.net/blogs/digital-marketing-pricing-egypt",
+    type: "article",
+    images: ["/blogs/digital-marketing-pricing-egypt.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing Pricing Egypt 2026 | Cost Guide",
+    description:
+      "Compare digital marketing pricing models, scope and cost drivers in Egypt before requesting a quote.",
+    images: ["/blogs/digital-marketing-pricing-egypt.jpg"],
+  },
+};
+
 import {
   FaCheckCircle,
   FaChartLine,
@@ -27,19 +59,19 @@ export default function DigitalMarketingPricingPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://tactics.eg",
+            item: "https://www.tacticsdigitalagency.net",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Blogs",
-            item: "https://tactics.eg/blogs",
+            item: "https://www.tacticsdigitalagency.net/blogs",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "Digital Marketing Pricing Egypt 2026",
-            item: "https://tactics.eg/blogs/digital-marketing-pricing-egypt-2026",
+            item: "https://www.tacticsdigitalagency.net/blogs/digital-marketing-pricing-egypt",
           },
         ],
       },
@@ -52,18 +84,17 @@ export default function DigitalMarketingPricingPage() {
           "Complete pricing guide for digital marketing services in Egypt 2026. Compare costs for SEO, Google Ads, social media, and web development from top agencies.",
         author: {
           "@type": "Organization",
-          name: "Tactics Digital Agency",
-          url: "https://tactics.eg",
-          logo: { "@type": "ImageObject", url: "https://tactics.eg/logo.png" },
+          name: "Tactics Editor Team",
+          url: "https://www.tacticsdigitalagency.net/blogs",
         },
         publisher: {
           "@type": "Organization",
           name: "Tactics Digital Agency",
-          logo: { "@type": "ImageObject", url: "https://tactics.eg/logo.png" },
+          logo: { "@type": "ImageObject", url: "https://www.tacticsdigitalagency.net/logo.png" },
         },
         datePublished: "2026-03-09",
-        dateModified: new Date().toISOString().split("T")[0],
-        image: "https://tactics.eg/blogs/digital-marketing-pricing-egypt.jpg",
+        dateModified: "2026-08-29",
+        image: "https://www.tacticsdigitalagency.net/blogs/digital-marketing-pricing-egypt.jpg",
         wordCount: 3200,
         articleSection: "Digital Marketing",
       },
@@ -99,7 +130,7 @@ export default function DigitalMarketingPricingPage() {
             name: "Is it worth hiring a digital marketing agency in Egypt?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes, hiring an agency typically delivers 200-400% ROI through expertise, tools access, and time savings. Agencies like Tactics provide comprehensive strategies that in-house teams often cannot match due to resource constraints.",
+              text: "Hiring an agency can be worthwhile when the scope solves a defined commercial problem and measurement is in place. Compare the expected work, account ownership, tracking, lead or sales quality, and total cost instead of relying on a universal ROI promise.",
             },
           },
           {
@@ -629,9 +660,7 @@ export default function DigitalMarketingPricingPage() {
                       <FaChevronRight className="transform group-open:rotate-90 transition-transform text-[rgb(255,228,0)]" />
                     </summary>
                     <div className="px-6 pb-6 text-gray-300">
-                      Yes, hiring an agency typically delivers 200-400% ROI
-                      through expertise, tools access, and time savings.
-                      Agencies like{" "}
+                      Hiring an agency can be worthwhile when the scope solves a defined commercial problem and measurement is in place. Compare outcomes, tracking, lead quality and total cost rather than relying on a universal ROI claim. {" "}
                       <Link
                         href="/blogs/best-marketing-agency-in-egypt"
                         className="text-[rgb(255,228,0)] hover:underline"

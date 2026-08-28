@@ -36,15 +36,15 @@ const article = {
   "imageAlt": "Real estate marketing agency in Egypt lead generation and sales funnel",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt",
   "datePublished": "2026-03-09",
-  "dateModified": "2026-08-26",
+  "dateModified": "2026-08-29",
   "readTime": "12 min read",
   "keywords": [
     "real estate marketing agency Egypt",
     "property marketing agency Egypt",
     "real estate digital marketing Egypt",
-    "real estate lead generation Egypt",
-    "property advertising Egypt",
-    "real estate marketing Cairo"
+    "property advertising agency Egypt",
+    "real estate marketing Cairo",
+    "property digital marketing Egypt"
   ],
   "entities": [
     "Real estate marketing",

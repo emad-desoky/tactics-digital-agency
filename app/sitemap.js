@@ -6,10 +6,10 @@ const BASE_URL = "https://www.tacticsdigitalagency.net";
 const publicStaticPages = [
   { url: BASE_URL, changeFrequency: "weekly", priority: 1.0 },
   { url: `${BASE_URL}/about-us`, changeFrequency: "monthly", priority: 0.8 },
-  { url: `${BASE_URL}/services`, changeFrequency: "monthly", priority: 0.9 },
-  { url: `${BASE_URL}/services/performance-marketing`, changeFrequency: "monthly", priority: 0.86 },
-  { url: `${BASE_URL}/services/social-media`, changeFrequency: "monthly", priority: 0.86 },
-  { url: `${BASE_URL}/services/web-development`, changeFrequency: "monthly", priority: 0.86 },
+  { url: `${BASE_URL}/services`, lastModified: new Date("2026-08-29"), changeFrequency: "monthly", priority: 0.9 },
+  { url: `${BASE_URL}/services/performance-marketing`, lastModified: new Date("2026-08-29"), changeFrequency: "monthly", priority: 0.86 },
+  { url: `${BASE_URL}/services/social-media`, lastModified: new Date("2026-08-29"), changeFrequency: "monthly", priority: 0.86 },
+  { url: `${BASE_URL}/services/web-development`, lastModified: new Date("2026-08-29"), changeFrequency: "monthly", priority: 0.86 },
   { url: `${BASE_URL}/blogs`, lastModified: new Date("2026-08-29"), changeFrequency: "weekly", priority: 0.92 },
   { url: `${BASE_URL}/gallery`, changeFrequency: "monthly", priority: 0.65 },
   { url: `${BASE_URL}/careers`, changeFrequency: "monthly", priority: 0.5 },
@@ -42,7 +42,9 @@ async function databaseBlogEntries() {
 
 export default async function sitemap() {
   const dbBlogs = await databaseBlogEntries();
-  const all = [...publicStaticPages, ...manualBlogEntries(), ...dbBlogs];
+  // Database entries come first so curated manual SEO pages win on duplicate URLs.
+  // This preserves the manual page's canonical lastModified, priority and pillar status.
+  const all = [...publicStaticPages, ...dbBlogs, ...manualBlogEntries()];
   const deduped = new Map();
   for (const entry of all) deduped.set(entry.url, entry);
   return Array.from(deduped.values());

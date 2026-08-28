@@ -48,7 +48,7 @@ const article = {
   "imageAlt": "Real estate lead generation in Egypt from ads and SEO to CRM qualification",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/real-estate-marketing-egypt/real-estate-lead-generation-egypt",
   "datePublished": "2026-08-26",
-  "dateModified": "2026-08-26",
+  "dateModified": "2026-08-29",
   "readTime": "12 min read",
   "keywords": [
     "real estate lead generation Egypt",
@@ -56,7 +56,7 @@ const article = {
     "property leads Egypt",
     "real estate marketing leads Egypt",
     "qualified property leads Egypt",
-    "real estate digital marketing Egypt"
+    "property lead generation Egypt"
   ],
   "entities": [
     "Real estate lead generation",

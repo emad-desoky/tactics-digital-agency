@@ -48,14 +48,14 @@ const article = {
   "imageAlt": "Local SEO services in Egypt for Google Maps and location search visibility",
   "canonical": "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/seo-agency-egypt/local-seo-services-egypt",
   "datePublished": "2026-08-26",
-  "dateModified": "2026-08-26",
+  "dateModified": "2026-08-29",
   "readTime": "11 min read",
   "keywords": [
     "local SEO services Egypt",
     "local SEO Egypt",
     "Google Maps SEO Egypt",
     "Google Business Profile Egypt",
-    "SEO company Cairo",
+    "local SEO agency Cairo",
     "local search optimization Egypt"
   ],
   "entities": [

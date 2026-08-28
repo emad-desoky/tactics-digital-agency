@@ -8,7 +8,7 @@ export const BLOG_BASE = "/blogs/digital-marketing-agency-egypt";
 export const pillar = {
   slug: "digital-marketing-agency-egypt",
   path: BLOG_BASE,
-  title: "Digital Marketing Agency in Egypt 2026: Services, Strategy & How to Choose",
+  title: "Digital Marketing Agency in Egypt 2026: How to Choose the Right Partner",
   metaTitle: "Digital Marketing Agency Egypt 2026: Buyer Guide",
   description: "Compare digital marketing agencies in Egypt by services, strategy, measurement, team, lead quality and commercial fit before choosing a partner.",
   excerpt: "A commercial buyer guide for businesses looking to hire a digital marketing agency in Egypt in 2026.",
@@ -21,10 +21,10 @@ export const pillar = {
 export const clusters = [
   {
     slug: "digital-marketing-services-egypt",
-    title: "Digital Marketing Services Egypt 2026: What Your Business Actually Needs",
-    metaTitle: "Digital Marketing Services Egypt 2026: Buyer Guide",
-    description: "Compare digital marketing services in Egypt across SEO, paid media, social, content, websites, tracking and CRO to build the right scope.",
-    excerpt: "Choose the right service mix instead of buying every channel at once.",
+    title: "Digital Marketing Service Mix Egypt 2026: What to Prioritize",
+    metaTitle: "Digital Marketing Service Mix Egypt 2026 | What to Prioritize",
+    description: "Choose the right digital marketing service mix across SEO, paid media, social, content, websites, tracking and CRO without buying every channel at once.",
+    excerpt: "A decision guide for prioritising the right mix of digital channels and services instead of buying every channel at once.",
     image: "/blogs/digital-marketing-services-egypt-2026.webp",
     imageAlt: "Digital marketing services in Egypt service mix for 2026",
     datePublished: "2026-08-29",

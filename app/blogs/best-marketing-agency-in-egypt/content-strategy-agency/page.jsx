@@ -13,23 +13,23 @@ import {
 export const metadata = {
   title: "Content Strategy Agency Egypt 2026 | SEO-Focused Content Marketing",
   description:
-    "Best content strategy agencies in Egypt for 2026. Expert ranking specializing in SEO content, blog writing, and content marketing for Cairo businesses.",
+    "Compare content strategy agencies in Egypt for SEO content planning, editorial systems, search intent, blog strategy, measurement, and distribution.",
   keywords: [
     "content strategy agency egypt",
     "seo content writing egypt",
     "content marketing agency cairo",
     "blog writing service egypt",
-    "content creation agency egypt",
+    "content planning agency egypt",
   ],
   robots: { index: true, follow: true },
   alternates: {
     canonical:
-      "https://tactics.eg/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
+      "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
   },
   openGraph: {
     title: "Content Strategy Agency Egypt 2026 | SEO Content",
-    description: "Expert ranking of content strategy agencies in Egypt.",
-    url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
+    description: "A practical guide to choosing a content strategy agency in Egypt.",
+    url: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
     type: "article",
   },
 };
@@ -45,19 +45,19 @@ export default function ContentStrategyPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://tactics.eg",
+            item: "https://www.tacticsdigitalagency.net",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Best Agency Guide",
-            item: "https://tactics.eg/blogs/best-marketing-agency-in-egypt",
+            item: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "Content Strategy",
-            item: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
+            item: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/content-strategy-agency",
           },
         ],
       },
@@ -69,7 +69,7 @@ export default function ContentStrategyPage() {
           "Guide to top content strategy agencies in Egypt specializing in SEO content.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
         datePublished: "2024-12-04",
-        image: "https://tactics.eg/blogs/blog1.png",
+        image: "https://www.tacticsdigitalagency.net/blogs/blog1.png",
       },
     ],
   };

@@ -9,9 +9,19 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "Performance Marketing Agency in Egypt | ROI Focused Ads",
+  title: "Performance Marketing Agency Egypt | Paid Growth",
   description:
-    "Maximize your ROI with Tactics. We specialize in Meta Ads, Google Ads, and Performance Marketing strategies tailored for the Egyptian market.",
+    "Hire a performance marketing agency in Egypt for Google Ads, Meta Ads, tracking, creative testing and paid acquisition focused on measurable outcomes.",
+  keywords: [
+    "performance marketing agency Egypt",
+    "performance marketing company Egypt",
+    "paid ads agency Egypt",
+    "paid media agency Egypt",
+    "Google Ads agency Egypt",
+    "Meta Ads agency Egypt",
+  ],
+  alternates: { canonical: "https://www.tacticsdigitalagency.net/services/performance-marketing" },
+  robots: { index: true, follow: true },
 };
 
 export const dynamic = "force-static";
@@ -29,9 +39,9 @@ export default function PerformanceMarketingPage() {
               Performance First
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Stop Paying for Clicks. <br />
+              Performance Marketing Agency in Egypt <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[rgb(255,228,0)] to-yellow-600">
-                Pay for Results.
+                Focused on Measurable Growth.
               </span>
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl">

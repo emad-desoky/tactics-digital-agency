@@ -13,23 +13,24 @@ import {
 export const metadata = {
   title: "Best Web Development Agency in Egypt 2026 | Custom Solutions",
   description:
-    "Find the best web development agencies in Egypt for 2026. Expert ranking of companies specializing in custom websites, e-commerce, and web apps for Cairo businesses.",
+    "Compare web development agencies in Egypt for custom websites, e-commerce, web apps, technical delivery, ownership, performance, and business fit.",
   keywords: [
-    "web development agency egypt",
-    "best web developers cairo",
-    "e-commerce development egypt",
-    "web design agency cairo",
-    "website development egypt 2026",
+    "best web development agencies Egypt",
+    "best web developers Cairo",
+    "top web development companies Egypt",
+    "compare web development agencies Egypt",
+    "best e-commerce development agencies Egypt",
+    "best web design agencies Cairo",
   ],
   robots: { index: true, follow: true },
   alternates: {
     canonical:
-      "https://tactics.eg/blogs/best-marketing-agency-in-egypt/web-development-agency",
+      "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/web-development-agency",
   },
   openGraph: {
     title: "Best Web Development Agency in Egypt 2026",
-    description: "Expert ranking of web development agencies in Egypt.",
-    url: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/web-development-agency",
+    description: "A practical guide to choosing a web development agency in Egypt.",
+    url: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/web-development-agency",
     type: "article",
   },
 };
@@ -45,19 +46,19 @@ export default function WebDevelopmentPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://tactics.eg",
+            item: "https://www.tacticsdigitalagency.net",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Best Agency Guide",
-            item: "https://tactics.eg/blogs/best-marketing-agency-in-egypt",
+            item: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "Web Development",
-            item: "https://tactics.eg/blogs/best-marketing-agency-in-egypt/web-development-agency",
+            item: "https://www.tacticsdigitalagency.net/blogs/best-marketing-agency-in-egypt/web-development-agency",
           },
         ],
       },
@@ -68,7 +69,7 @@ export default function WebDevelopmentPage() {
           "Guide to top web development agencies in Egypt specializing in custom websites and e-commerce.",
         author: { "@type": "Organization", name: "Tactics Digital Agency" },
         datePublished: "2024-12-04",
-        image: "https://tactics.eg/blogs/blog4.png",
+        image: "https://www.tacticsdigitalagency.net/blogs/blog4.png",
       },
     ],
   };
@@ -553,6 +554,15 @@ export default function WebDevelopmentPage() {
                 Explore Related Services
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
+                <Link
+                  href="/services/web-development"
+                  className="p-4 bg-neutral-900 rounded border border-gray-800 hover:border-[rgb(255,228,0)] transition-colors group"
+                >
+                  <p className="text-[rgb(255,228,0)] font-semibold flex items-center gap-2">
+                    Hire Tactics for Web Development in Egypt{" "}
+                    <FaArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </p>
+                </Link>
                 <Link
                   href="/blogs/best-marketing-agency-in-egypt"
                   className="p-4 bg-neutral-900 rounded border border-gray-800 hover:border-[rgb(255,228,0)] transition-colors group"
