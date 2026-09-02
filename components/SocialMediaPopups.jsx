@@ -8,7 +8,7 @@ const SocialMediaPopups = () => {
 
   const handleWhatsAppClick = () => {
     // Replace with your actual WhatsApp number
-    const phoneNumber = "+201038412369"; // Your phone number in international format
+    const phoneNumber = "201008770549"; // Your phone number in international format
     const message = "Hello! I'm interested in your digital services.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message,

@@ -354,13 +354,13 @@ const article = {
       "position": "CEO, Jawad Developments"
     }
   ],
-  "whatsappHref": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20read%20your%20Logo%20Design%20Price%20in%20Egypt%202026%20guide.%20I%20want%20to%20discuss%20a%20professional%20logo%20or%20brand%20identity%20scope.",
+  "whatsappHref": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20read%20your%20Logo%20Design%20Price%20in%20Egypt%202026%20guide.%20I%20want%20to%20discuss%20a%20professional%20logo%20or%20brand%20identity%20scope.",
   "cta": {
     "eyebrow": "Logo & identity quote",
     "title": "Need a logo that can grow into a real brand system?",
     "text": "Send Tactics your business, audience, current identity, languages and where the logo will be used. We can help determine whether you need a logo-only project or a broader identity scope.",
     "label": "Request a logo scope on WhatsApp",
-    "href": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20need%20a%20professional%20logo%20or%20brand%20identity.%20Please%20help%20me%20define%20the%20right%20scope%20and%20deliverables."
+    "href": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20need%20a%20professional%20logo%20or%20brand%20identity.%20Please%20help%20me%20define%20the%20right%20scope%20and%20deliverables."
   },
   "parent": {
     "path": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt",

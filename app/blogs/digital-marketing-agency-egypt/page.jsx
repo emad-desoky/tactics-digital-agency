@@ -517,13 +517,13 @@ const article = {
       "position": "Commercial Director, Samco Holding"
     }
   ],
-  "whatsappHref": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20read%20your%20Digital%20Marketing%20Agency%20in%20Egypt%202026%20guide.%20I%20want%20to%20discuss%20my%20marketing%20goals%20and%20get%20a%20recommended%20scope.",
+  "whatsappHref": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20read%20your%20Digital%20Marketing%20Agency%20in%20Egypt%202026%20guide.%20I%20want%20to%20discuss%20my%20marketing%20goals%20and%20get%20a%20recommended%20scope.",
   "cta": {
     "eyebrow": "Digital growth consultation",
     "title": "Need a digital marketing plan built around leads—not channel checklists?",
     "text": "Send Tactics your business, market, current channels, monthly media budget if applicable, website and main growth problem. We can help identify which work should happen first and which channels can wait.",
     "label": "Discuss your growth plan on WhatsApp",
-    "href": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20need%20a%20digital%20marketing%20agency%20in%20Egypt.%20I%20read%20your%202026%20buyer%20guide%20and%20want%20a%20recommended%20scope%20focused%20on%20leads%20and%20growth."
+    "href": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20need%20a%20digital%20marketing%20agency%20in%20Egypt.%20I%20read%20your%202026%20buyer%20guide%20and%20want%20a%20recommended%20scope%20focused%20on%20leads%20and%20growth."
   }
 };
 

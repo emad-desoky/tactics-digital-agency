@@ -196,7 +196,7 @@ const ContactForm = () => {
 ${formData.notes ? `*Notes:* ${formData.notes}` : ""}`.trim();
 
     // Replace with your WhatsApp number (with country code, no + or spaces)
-    const whatsappNumber = "+201038412369"; // e.g., Egypt: 20, then number
+    const whatsappNumber = "201008770549"; // e.g., Egypt: 20, then number
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     // Open WhatsApp

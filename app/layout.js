@@ -225,7 +225,7 @@ export default function RootLayout({ children }) {
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+20-122-223-8755",
+                telephone: "+20 10 08770549",
                 contactType: "customer service",
                 email: "ask@tacticsdigitalagency.net",
                 availableLanguage: ["English", "Arabic"],

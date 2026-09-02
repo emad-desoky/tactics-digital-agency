@@ -385,13 +385,13 @@ const article = {
       "position": "CEO, Jawad Developments"
     }
   ],
-  "whatsappHref": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20read%20your%20Digital%20Marketing%20Services%20Egypt%202026%20guide.%20I%20want%20help%20choosing%20the%20right%20service%20mix%20for%20my%20business.",
+  "whatsappHref": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20read%20your%20Digital%20Marketing%20Services%20Egypt%202026%20guide.%20I%20want%20help%20choosing%20the%20right%20service%20mix%20for%20my%20business.",
   "cta": {
     "eyebrow": "Service mix recommendation",
     "title": "Not sure which marketing services you actually need?",
     "text": "Send Tactics your website, growth goal, current channels and what is not working. We can help prioritise the smallest useful scope before you add more channels.",
     "label": "Get a recommendation on WhatsApp",
-    "href": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20want%20to%20choose%20the%20right%20digital%20marketing%20services%20for%20my%20business%20in%20Egypt.%20Please%20review%20my%20current%20situation%20and%20recommend%20priorities."
+    "href": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20want%20to%20choose%20the%20right%20digital%20marketing%20services%20for%20my%20business%20in%20Egypt.%20Please%20review%20my%20current%20situation%20and%20recommend%20priorities."
   },
   "parent": {
     "path": "/blogs/digital-marketing-agency-egypt",

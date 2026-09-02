@@ -358,13 +358,13 @@ const article = {
       "position": "Sales Manager, Golden Real Estate"
     }
   ],
-  "whatsappHref": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20read%20your%20Digital%20Marketing%20Agency%20Cairo%202026%20guide.%20I%20want%20to%20discuss%20lead%20generation%20and%20digital%20marketing%20for%20my%20business%20in%20Cairo.",
+  "whatsappHref": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20read%20your%20Digital%20Marketing%20Agency%20Cairo%202026%20guide.%20I%20want%20to%20discuss%20lead%20generation%20and%20digital%20marketing%20for%20my%20business%20in%20Cairo.",
   "cta": {
     "eyebrow": "Cairo digital marketing",
     "title": "Need more qualified leads in Cairo?",
     "text": "Send Tactics your business, location, target audience, current website, channels and main sales goal. We can help identify whether the next move is paid media, SEO, social, landing-page work or a smaller combination.",
     "label": "WhatsApp Tactics",
-    "href": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20am%20looking%20for%20a%20digital%20marketing%20agency%20in%20Cairo%20focused%20on%20qualified%20leads.%20Please%20review%20my%20current%20setup%20and%20recommend%20a%20scope."
+    "href": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20am%20looking%20for%20a%20digital%20marketing%20agency%20in%20Cairo%20focused%20on%20qualified%20leads.%20Please%20review%20my%20current%20setup%20and%20recommend%20a%20scope."
   },
   "parent": {
     "path": "/blogs/digital-marketing-agency-egypt",

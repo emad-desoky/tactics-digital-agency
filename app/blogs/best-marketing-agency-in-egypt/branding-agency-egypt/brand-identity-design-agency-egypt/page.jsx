@@ -355,13 +355,13 @@ const article = {
       "position": "CEO, Jawad Developments"
     }
   ],
-  "whatsappHref": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20read%20your%20Brand%20Identity%20Design%20Agency%20in%20Egypt%202026%20guide.%20I%20want%20to%20discuss%20a%20brand%20identity%20project%20and%20get%20a%20scoped%20recommendation.",
+  "whatsappHref": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20read%20your%20Brand%20Identity%20Design%20Agency%20in%20Egypt%202026%20guide.%20I%20want%20to%20discuss%20a%20brand%20identity%20project%20and%20get%20a%20scoped%20recommendation.",
   "cta": {
     "eyebrow": "Brand identity consultation",
     "title": "Need a brand identity that works beyond the presentation deck?",
     "text": "Send Tactics your current brand, market, languages, launch timing and the customer touchpoints that need to change. We can help separate the must-have identity system from optional rollout work.",
     "label": "Discuss your identity on WhatsApp",
-    "href": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20need%20a%20brand%20identity%20design%20scope%20for%20my%20business.%20I%20read%20your%202026%20brand%20identity%20guide%20and%20want%20to%20discuss%20strategy%2C%20identity%20and%20rollout."
+    "href": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20need%20a%20brand%20identity%20design%20scope%20for%20my%20business.%20I%20read%20your%202026%20brand%20identity%20guide%20and%20want%20to%20discuss%20strategy%2C%20identity%20and%20rollout."
   },
   "parent": {
     "path": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt",

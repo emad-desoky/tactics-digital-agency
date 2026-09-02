@@ -59,7 +59,7 @@ const CompanyInfo = () => {
               <Phone className="w-7 h-7 text-yellow-400" />
               <div>
                 <p className="text-sm font-medium text-gray-300">Phone</p>
-                <p className="text-sm">+20 122 223 8755</p>
+                <p className="text-sm">+20 10 08770549</p>
               </div>
             </div>
             <div className="flex items-center space-x-3 text-gray-400 p-3  rounded-lg">

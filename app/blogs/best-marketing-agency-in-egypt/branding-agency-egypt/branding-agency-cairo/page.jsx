@@ -345,13 +345,13 @@ const article = {
       "position": "Sales Director - IUNU Developments"
     }
   ],
-  "whatsappHref": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20read%20your%20Branding%20Agency%20in%20Cairo%202026%20guide.%20I%20want%20to%20discuss%20a%20branding%20or%20identity%20project%20in%20Cairo.",
+  "whatsappHref": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20read%20your%20Branding%20Agency%20in%20Cairo%202026%20guide.%20I%20want%20to%20discuss%20a%20branding%20or%20identity%20project%20in%20Cairo.",
   "cta": {
     "eyebrow": "Cairo branding project",
     "title": "Looking for a branding team in Cairo?",
     "text": "Share your location, business goal, current brand, launch timing and the assets you need. Tactics can help define whether you need a focused identity project, a rebrand, or a broader brand-and-digital rollout.",
     "label": "WhatsApp Tactics",
-    "href": "https://wa.me/201038412369?text=Hello%20Tactics%2C%20I%20am%20looking%20for%20a%20branding%20agency%20in%20Cairo.%20Please%20help%20me%20scope%20my%20brand%20identity%20or%20rebrand%20project."
+    "href": "https://wa.me/201008770549?text=Hello%20Tactics%2C%20I%20am%20looking%20for%20a%20branding%20agency%20in%20Cairo.%20Please%20help%20me%20scope%20my%20brand%20identity%20or%20rebrand%20project."
   },
   "parent": {
     "path": "/blogs/best-marketing-agency-in-egypt/branding-agency-egypt",
